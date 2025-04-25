@@ -68,7 +68,8 @@
             <div class="footer-links">
                 <a href="#">Terms & Conditions</a> | <a href="#">Privacy & Policy</a> 
                 <span>© Est 2018 Kawan Kopi</span>
-            </div>
+              </div>
+              <span>made with ❤️ by Triple A Software House</span>
         </div>
 
         <!-- Kanan: Media Sosial -->
