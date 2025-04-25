@@ -179,7 +179,35 @@
           <!-- Kolom Kanan: Produk -->
           <div class="col-lg-6">
             <div class="row g-4">
-          
+              
+              
+
+              <div class="relative w-full max-w-sm mx-auto">
+                <!-- Price & Weight Label -->
+                <div class="absolute top-2 left-10 bg-red-600 text-white text-lg font-bold px-3 py-1.5 rounded-full shadow">
+                  IDR 150K
+                </div>
+                <div class="absolute top-2 right-10 bg-red-600 text-white text-lg font-bold px-3 py-1.5 rounded-full shadow">
+                  200gr
+                </div>
+              
+                <!-- Gambar Produk -->
+                <img src="{{ asset('assets/img/roastery/Palintang-Honey.jpg') }}" alt="Coffee Bag"
+                  class="mx-auto w-4/5 object-cover aspect-square rounded-xl" />
+              
+                <!-- Tombol Navigasi -->
+                <button class="absolute left-20 top-1/2 transform -translate-y-1/2 z-10">
+                  <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+                </button>
+                <button class="absolute right-20 top-1/2 transform -translate-y-1/2 z-10">
+                  <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                </button>
+              </div>
+              
+              
+              
             </div>
           </div>
           {{-- kolom end --}}
