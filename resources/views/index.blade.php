@@ -58,13 +58,13 @@
           <!-- Kolom Kiri (sembunyiin di mobile) -->
           <div class="col-lg-6 mb-4 hidden lg:flex flex-col justify-between h-full">
             <div>
-              <h1 class="fw-bold mb-2">Merchandise</h1>
+              <h1 class="fw-bold mb-2 ">Merchandise</h1>
               <div class="shop-icons mb-3 flex gap-3">
                 <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia" class="h-8"></a>
                 <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee" class="h-8"></a>
               </div>
             </div>
-            <p class="text-justify mt-auto">
+            <p class="text-justify mt-auto text-xl">
               Since its founding in the 80s, Studio Agatho has been the go-to company for various design needs.
               Its offerings range from graphic design and branding strategy to website development and video production.
             </p>
@@ -156,31 +156,93 @@
       <div class="container">
         <div class="row align-items-start">
           
-          <!-- Kolom Kiri: Teks dan Logo -->
-          <div class="col-lg-6 mb-4">
-            <h1 class="fw-bold mb-2">Roastery</h1>
-            <div class="shop-icons mb-3">
-              <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia"></a>
-              <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a>
+          {{-- desktop view --}}
+            <!-- Kolom Kiri: Teks dan Logo -->
+            <div class="col-lg-6 mb-4 hidden lg:flex flex-col justify-between h-full">
+              <h1 class="fw-bold mb-2">Roastery</h1>
+              <div class="shop-icons mb-3">
+                <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia"></a>
+                <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a>
+              </div>
+              
+              <div class="mt-60">
+                <h3 class="text-4xl font-bold mb-2">
+                  <span class="fw-bold mb-2">Palintang</span> Honey
+                </h3>
+                <p class="text-justify mt-auto text-xl">
+                  Since its founding in the 80s, Studio Agatho has
+                  been the go-to company for various design
+                  needs. Its offerings range from graphic design
+                  and branding strategy to website development
+                  and video production.
+                </p>
+              </div>
+              
             </div>
-            
-            <h3 class="text-4xl font-bold mb-2">
-              <span class="fw-bold mb-2">Palintang</span> Honey
-            </h3>
-            <p class="text-justify mt-auto">
-              Since its founding in the 80s, Studio Agatho has
-              been the go-to company for various design
-              needs. Its offerings range from graphic design
-              and branding strategy to website development
-              and video production.
-            </p>
-          </div>
+            {{-- desktop view end --}}
 
+            {{-- mobile view --}}
+            <!-- Kolom: Judul -->
+            <div class="col-lg-6 mb-4 lg:hidden flex-col justify-between h-full">
+              <h1 class="fw-bold mb-2">Roastery</h1>
+              <div class="shop-icons mb-3">
+                <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia"></a>
+                <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a>
+              </div>
+
+               <!-- Kolom Kanan: Produk -->
+              <div class="col-lg-6">
+                <div class="row g-4">
+
+                  <div class="relative w-full max-w-sm mx-auto mt-5">
+                    <!-- Price & Weight Label -->
+                    <div class="absolute top-2 left-10 bg-red-600 text-white text-sm font-bold px-3 py-1.5 rounded-full shadow">
+                      IDR 150K
+                    </div>
+                    <div class="absolute top-2 right-10 bg-red-600 text-white text-sm font-bold px-3 py-1.5 rounded-full shadow">
+                      200gr
+                    </div>
+                  
+                    <!-- Gambar Produk -->
+                    <img src="{{ asset('assets/img/roastery/Palintang-Honey.jpg') }}" alt="Coffee Bag"
+                      class="mx-auto w-4/5 object-cover aspect-square rounded-xl" />
+                  
+                    <!-- Tombol Navigasi -->
+                    <button class="absolute left-2 top-1/2 transform -translate-y-1/2 z-10">
+                      <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+                    </button>
+                    <button class="absolute right-2 top-1/2 transform -translate-y-1/2 z-10">
+                      <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    </button>
+                  </div>
+
+                </div>
+              </div>
+              {{-- kolom judul end --}}
+              
+              <!-- Kolom: text -->
+              <div class="mt-10">
+                <h3 class="text-4xl font-bold mb-2">
+                  <span class="fw-bold mb-2">Palintang</span> Honey
+                </h3>
+                <p class="text-justify mt-auto text-xl">
+                  Since its founding in the 80s, Studio Agatho has
+                  been the go-to company for various design
+                  needs. Its offerings range from graphic design
+                  and branding strategy to website development
+                  and video production.
+                </p>
+              </div>
+              {{-- kolom text end --}}
+
+            </div>
+            {{-- mobile view end --}}
+          
           <!-- Kolom Kanan: Produk -->
-          <div class="col-lg-6">
+          <div class="col-lg-6 hidden lg:flex flex-col justify-between h-full">
             <div class="row g-4">
-              
-              
 
               <div class="relative w-full max-w-sm mx-auto">
                 <!-- Price & Weight Label -->
@@ -205,9 +267,7 @@
                     viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 </button>
               </div>
-              
-              
-              
+
             </div>
           </div>
           {{-- kolom end --}}
