@@ -211,7 +211,13 @@
   }
 
   .merchandise h1 {
-    font-size: 36px;
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .merchandise h3 {
+    font-size: 30px;
     font-weight: 700;
     margin-bottom: 10px;
   }
@@ -285,7 +291,7 @@
     }
   
     .roastery h1 {
-      font-size: 36px;
+      font-size: 50px;
       font-weight: 700;
       margin-bottom: 10px;
     }
@@ -939,8 +945,7 @@
   }
   .hero {
     position: relative;
-    width: 100vw;
-    height: 100vh;
+    height: 100dvh;
     overflow: hidden;
     background-image: url('/assets/img/hero/bg-hero.webp');
     background-size: cover;
