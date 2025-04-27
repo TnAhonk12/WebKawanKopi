@@ -338,7 +338,228 @@
     }
     
     /* ... existing code ... */
+
+    /*--------------------------------------------------------------
+    # Cerita-Kawan Section
+    --------------------------------------------------------------*/
+    .cerita {
+      background: url('../img/background.jpg') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
+      padding: 80px 0;
+      color: #000;
+      }
   
+    .cerita h1 {
+      font-size: 50px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+  
+    .cerita-item {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      padding: 20px;
+      height: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cerita-text{
+      margin-top: 6rem;
+    }
+
+    .cerita-text h3{
+      font-size: 30px;
+      font-weight: 601;
+    }
+  
+    .cerita-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+  
+    .cerita-item img {
+      border-radius: 8px;
+      margin-bottom: 10px;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+  
+    .cerita-item h4 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+  
+    .cerita-item p {
+      font-size: 16px;
+      font-weight: 700;
+      color: #8B5E3B;
+      margin: 0;
+    }
+  
+    
+    @media (max-width: 768px) {
+      .cerita-item img {
+        height: 200px;
+      }
+    }
+    
+    /* ... existing code ... */
+
+    /*--------------------------------------------------------------
+    # Berita-Kawan Section
+    --------------------------------------------------------------*/
+    .berita {
+      background: url('../img/background.jpg') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
+      padding: 80px 0;
+      color: #000;
+      }
+  
+    .berita h1 {
+      font-size: 50px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+  
+    .berita-item {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      padding: 20px;
+      height: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .berita-text{
+      margin-top: 6rem;
+    }
+
+    .berita-text h3{
+      font-size: 30px;
+      font-weight: 601;
+    }
+  
+    .berita-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+  
+    .berita-item img {
+      border-radius: 8px;
+      margin-bottom: 10px;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+  
+    .berita-item h4 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+  
+    .berita-item p {
+      font-size: 16px;
+      font-weight: 700;
+      color: #8B5E3B;
+      margin: 0;
+    }
+  
+    
+    @media (max-width: 768px) {
+      .berita-item img {
+        height: 200px;
+      }
+    }
+    
+    /* ... existing code ... */
+
+    /*--------------------------------------------------------------
+    # Find-Us Section
+    --------------------------------------------------------------*/
+    .find-us {
+      background: url('../img/background.jpg') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
+      padding: 80px 0;
+      color: #000;
+      }
+  
+    .find-us h1 {
+      font-size: 50px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+  
+    .find-us-item {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      padding: 20px;
+      height: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .find-us-text{
+      margin-top: 6rem;
+    }
+
+    .find-us-shop-icons {
+      display: flex;
+      gap: 30px;
+      margin-top: 1.5rem;
+    }
+  
+    .find-us-shop-icons img {
+      height: 50px;
+      transition: transform 0.3s ease;
+    }
+  
+    .find-us-shop-icons img:hover {
+      transform: scale(1.1);
+    }
+
+    .find-us-text h3{
+      font-size: 30px;
+      font-weight: 601;
+    }
+  
+    .find-us-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+  
+    .find-us-item img {
+      border-radius: 8px;
+      margin-bottom: 10px;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+  
+    .find-us-item h4 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+  
+    .find-us-item p {
+      font-size: 16px;
+      font-weight: 700;
+      color: #8B5E3B;
+      margin: 0;
+    }
+  
+    
+    @media (max-width: 768px) {
+      .find-us-item img {
+        height: 200px;
+      }
+    }
+    
+    /* ... existing code ... */
   
   /*--------------------------------------------------------------
   # Global Header

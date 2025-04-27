@@ -250,6 +250,7 @@
                         <div class="text-center mt-2">
                           <h2 class="text-xl font-bold mb-0">Totebag</h2>
                           <p class="text-lg font-bold text-[#8B5E3B]">IDR 125K</p>
+                          <button class="bg-black text-white text-sm font-medium px-5 py-2 rounded-full mb-6">Add to cart</button>
                         </div>
                     
                       <!-- Tombol Navigasi -->
@@ -440,6 +441,218 @@
           
           
         </div>
+      </div>
+    </section>
+
+    <section id="cerita-kawan" class="cerita relative h-auto transition-all duration-150 ease-in">
+      <h1 class="fw-bold mb-2 ml-[7.5rem]">Cerita Kawan</h1>
+  
+      <div id="ceritaKawanScroll" class="relative bottom-[-1px] mt-10 flex h-[calc(100vh-272px)] w-fit min-w-full flex-shrink-0 overflow-x-auto overflow-y-hidden max-lg:w-fit lg:h-[calc(100vh-276px)]">
+    
+        <!-- Orang 1 -->
+        <div class="relative group w-fit flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto" style="right:0%">
+          <img alt="Anak Sepeda (ASEP) Vida Bekasi" 
+            loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
+            class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
+            src="{{ asset('assets/img/Cerita-Kawan/Gilang-Dhafir.png') }}">
+          
+          <div class="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap 
+            border border-black bg-white px-4 py-2 text-lg font-bold transition-all duration-300 
+            opacity-0 group-hover:opacity-100">
+            Anak Sepeda (ASEP) Vida Bekasi
+          </div>
+        </div>
+    
+        <!-- Orang 2 -->
+        <div class="relative group w-fit flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto" style="right:0%">
+          <img alt="Mpip Damngood" 
+            loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
+            class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
+            src="{{ asset('assets/img/Cerita-Kawan/Mpip-Damngood.png') }}">
+          
+          <div class="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap 
+            border border-black bg-white px-4 py-2 text-lg font-bold transition-all duration-300 
+            opacity-0 group-hover:opacity-100">
+            Mpip Damngood
+          </div>
+        </div>
+    
+        <!-- Orang 3 -->
+        <div class="relative group w-fit flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto" style="right:0%">
+          <img alt="Wajid Club Dangdut Racun" 
+            loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
+            class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
+            src="{{ asset('assets/img/Cerita-Kawan/Wajid-Club-Dangdut-Racun.png') }}">
+          
+          <div class="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap 
+            border border-black bg-white px-4 py-2 text-lg font-bold transition-all duration-300 
+            opacity-0 group-hover:opacity-100">
+            Wajid Club Dangdut Racun
+          </div>
+        </div>
+    
+      </div>
+    </section>
+    
+    
+
+    <section id="berita-kawan" class="berita py-10 px-5 md:px-16">
+      <div class="container mx-auto">
+        <div class="row align-items-start">
+          
+          {{-- desktop view --}}
+            <!-- Kolom Kiri: Judul dan foto -->
+            <div class="col-lg-6 hidden lg:flex flex-col justify-between h-full">
+
+              <h1 class="fw-bold mb-4">Berita Kawan</h1>
+              <div class="relative">
+                <img src="{{ asset('assets/img/berita-Kawan/1.jpg') }}" alt="Berita Kawan" class="rounded-lg w-full object-cover">
+        
+                <!-- Tombol Navigasi -->
+                <div class="absolute bottom-50 left-1/2 transform -translate-x-1/2 flex gap-135">
+                  <button class="bg-white p-2 rounded-full shadow-md">
+                    <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-width="2"
+                      viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  <button class="bg-white p-2 rounded-full shadow-md">
+                    <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-width="2"
+                      viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              
+            </div>
+
+            <!-- Kolom Kanan: Produk -->
+            <div class="col-lg-6 hidden lg:flex flex-col justify-between h-full">
+              <div class="row g-4">
+
+                <div class="berita-text">
+                  <h3 class="mb-2">RAW Club: Penanda Kebangkitan Skena Denim</h3>
+                  
+                  <p class="text-sm italic text-gray-500 mb-6">by Tonny Oscar<br>5th July 2024</p>
+                  <p class="text-justify leading-relaxed mb-4">
+                    Nio Nguan Lie, better known as Suyanto, started making es campur as a 17-year-old working for a relative in Pontianak.
+                    And he never stopped. Half a century later, the mixed ice dessert remains the signature of his streetside stall,
+                    Es Campur Ko Acia in Sawah Besar, Central Jakarta.
+                  </p>
+                  <p class="text-justify leading-relaxed">
+                    ‘Ko Acia’ is what his customers call him, a nickname he adopted when he opened his stall in 1980.
+                    Started as a simple wooden shack in an empty lot, the small shop is now part of a vibrant strip of street food finds
+                    on Dwiwarna Raya Street, squeezed between a bakmi shop and an eatery serving rice and homestyle dishes.
+                    But one thing remains unchanged: a solitary tree stands guard, offering shade to diners (from school kids to delivery couriers
+                    and families around the block) who sit on the wooden benches eagerly digging into their cold bowls of es campur.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+            {{-- kolom end --}}
+            {{-- desktop view end --}}
+
+            {{-- Mobile view --}}
+
+            {{-- Mobile view end --}}
+        </div>
+    
+      </div>
+    </section>
+    
+    <section id="find-us" class="find-us py-2 px-5 md:px-16">
+      <div class="container mx-auto">
+        <div class="row align-items-start">
+          
+          {{-- desktop view --}}
+            <!-- Kolom Kiri: Judul dan foto -->
+            <div class="col-lg-6 mb-4 hidden lg:flex flex-col justify-between h-full">
+
+              <h1 class="fw-bold mb-4">Find Us</h1>
+              <div class="relative">
+                <img src="{{ asset('assets/img/Find-Us/2.jpg') }}" alt="Find Us" class="mx-auto w-4/5 object-cover aspect-square rounded-xl">
+        
+                <!-- Tombol Navigasi -->
+                <button class="absolute left-2 top-1/2 transform -translate-y-1/2 z-10">
+                  <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+                </button>
+                <button class="absolute right-2 top-1/2 transform -translate-y-1/2 z-10">
+                  <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                </button>
+              </div>
+              
+            </div>
+
+            <!-- Kolom Kanan: Produk -->
+            <div class="col-lg-6 hidden lg:flex flex-col justify-between h-full">
+              <div class="row g-4">
+
+                <div class="find-us-text">
+                  <h3 class="mb-2">Kawan Kopi, Cimandiri</h3>
+                  
+                  <p class="text-lx"> Jl. Hayam Wuruk No.30, Citarum,<br>Bandung Wetan, Kota Bandung.</p>
+                  <div class="find-us-shop-icons mb-3">
+                    <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Gofood.png')}}" alt="Gofood"></a>
+                    <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopeefood.png')}}" alt="Shopeefood"></a>
+                    <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Grabfood.png')}}" alt="Grab"></a>
+                  </div>
+                </div>
+
+              </div>
+              <div class="mt-10">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.88934725622!2d107.61735417456278!3d-6.903833993095498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e722a0e4a367%3A0xb315eb893bd7cbe5!2sKawan%20Kopi%2C%20Cimandiri!5e0!3m2!1sid!2sid!4v1745777048751!5m2!1sid!2sid" 
+                  width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+              </div>
+            </div>
+            {{-- kolom end --}}
+            {{-- desktop view end --}}
+
+            {{-- Mobile view --}}
+            <div class="col-lg-6 lg:hidden flex flex-col justify-between w-full">
+
+              <!-- Judul -->
+              <h1 class="fw-bold mb-8 text-center text-3xl">Find Us</h1>
+
+              <!-- Grid Foto Lokasi -->
+              <div class="grid grid-cols-2 gap-4 px-4">
+
+                <!-- Lokasi 1 -->
+                <div class="text-center">
+                  <img src="{{ asset('assets/img/Find-Us/1.jpg') }}" alt="Kawan Kopi, Dipatiukur" class="w-full h-auto object-cover rounded mb-2">
+                  <p class="text-sm font-medium">Kawan Kopi, Dipatiukur</p>
+                </div>
+
+                <!-- Lokasi 2 -->
+                <div class="text-center">
+                  <img src="{{ asset('assets/img/Find-Us/2.jpg') }}" alt="Kawan Kopi, Cimandiri" class="w-full h-auto object-cover rounded mb-2">
+                  <p class="text-sm font-medium">Kawan Kopi, Cimandiri</p>
+                </div>
+
+                <!-- Lokasi 3 -->
+                <div class="text-center">
+                  <img src="{{ asset('assets/img/Find-Us/3.jpg') }}" alt="Kawan Kopi, Talaga Bodas" class="w-full h-auto object-cover rounded mb-2">
+                  <p class="text-sm font-medium">Kawan Kopi, Talaga Bodas</p>
+                </div>
+
+                <!-- Lokasi 4 -->
+                <div class="text-center">
+                  <img src="{{ asset('assets/img/Find-Us/4.jpg') }}" alt="Kawan Kopi, Ciumbuleuit" class="w-full h-auto object-cover rounded mb-2">
+                  <p class="text-sm font-medium">Kawan Kopi, Ciumbuleuit</p>
+                </div>
+
+              </div>
+
+            </div>
+            {{-- Mobile view end --}}
+
+        </div>
+    
       </div>
     </section>
 

@@ -6,7 +6,7 @@
       </a>
 
       <nav id="navmenu" class="navmenu d-flex justify-content-center w-100">
-        <ul>
+        <ul >
           <li><a href="#lini-produk">Lini Produk</a></li>
           <li><a href="#merchandise">Merchandise</a></li>
           <li><a href="#roastery">Roastery</a></li>
@@ -15,9 +15,9 @@
             <img src="{{ asset('assets/img/kawan/logo.png') }}" alt="">
           </a>
           
-          <li><a href="#">Cerita Kawan</a></li>
-          <li><a href="#">Berita Kawan</a></li>
-          <li><a href="#">Find Us</a></li>
+          <li><a href="#cerita-kawan">Cerita Kawan</a></li>
+          <li><a href="#berita-kawan">Berita Kawan</a></li>
+          <li><a href="#find-us">Find Us</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>

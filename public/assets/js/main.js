@@ -202,6 +202,49 @@ animate();
         header.classList.remove('scrolled');
       }
     });
+
+    // Cerita Kawan
+    const scrollContainer = document.getElementById('ceritaKawanScroll');
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+  
+    scrollContainer.addEventListener('mousedown', (e) => {
+      isDown = true;
+      scrollContainer.classList.add('cursor-grabbing');
+      startX = e.pageX - scrollContainer.offsetLeft;
+      scrollLeft = scrollContainer.scrollLeft;
+    });
+  
+    scrollContainer.addEventListener('mouseleave', () => {
+      isDown = false;
+      scrollContainer.classList.remove('cursor-grabbing');
+    });
+  
+    scrollContainer.addEventListener('mouseup', () => {
+      isDown = false;
+      scrollContainer.classList.remove('cursor-grabbing');
+    });
+  
+    scrollContainer.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - scrollContainer.offsetLeft;
+      const walk = (x - startX) * 2; // *2 biar geser lebih cepat
+      scrollContainer.scrollLeft = scrollLeft - walk;
+    });
+
+    scrollContainer.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].pageX - scrollContainer.offsetLeft;
+      scrollLeft = scrollContainer.scrollLeft;
+    });
+  
+    scrollContainer.addEventListener('touchmove', (e) => {
+      const x = e.touches[0].pageX - scrollContainer.offsetLeft;
+      const walk = (x - startX) * 2;
+      scrollContainer.scrollLeft = scrollLeft - walk;
+    });
       
   
     /**
@@ -216,6 +259,27 @@ animate();
   
     document.addEventListener('scroll', toggleScrolled);
     window.addEventListener('load', toggleScrolled);
+
+    // Scroll NavBar
+
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+  
+        const targetId = this.getAttribute('href').slice(1);
+        const targetElement = document.getElementById(targetId);
+  
+        if (targetElement) {
+          const navbarHeight = 100; // Ganti 100 ke berapa px tinggi navbar kamu
+          const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navbarHeight;
+  
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
   
     /**
      * Mobile nav toggle
