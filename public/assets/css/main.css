@@ -102,9 +102,10 @@
     padding: 80px 0;
   }
   
-  .lini-produk .section-title h1 {
-    font-size: 36px;
+  .lini-produk h1 {
+    font-size: 50px;
     font-weight: 700;
+    margin-bottom: 10px;
   }
   
   .product-carousel {
@@ -127,18 +128,10 @@
     cursor: pointer;
   }
   
-  .carousel-control.prev {
-    left: 0;
-  }
-  
-  .carousel-control.next {
-    right: 0;
-  }
-  
   .product-name {
     margin-top: 12px;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 24px;
   }
   
   /* Kategori */
@@ -161,23 +154,27 @@
   }
   
   .category {
-    padding: 15px;
+    padding: 1rem; /* py-4 = 1rem */
     border: 2px solid black;
     background-color: transparent;
-    font-size: 14px;
-    font-weight: 500;
-    transition: 0.3s;
+    font-size: 1rem; /* text-base */
+    font-weight: 600; /* font-semibold */
+    text-align: center;
+    transition: opacity 0.3s, background-color 0.3s, color 0.3s;
+    cursor: pointer;
+  }
+  
+  .category:hover {
+    opacity: 0.7;
   }
   
   .category.active {
     text-decoration: underline;
-    font-weight: 700;
-    color: #8B5E3B;
+    font-weight: 700; /* font-bold */
+    color: #8B5E3B; /* Coklat */
+    background-color: white; /* Tambahan active:bg-white */
   }
   
-  .category:hover {
-    background: #f5f5f5;
-  }
   
   /* Produk List */
   .product-list {
@@ -192,7 +189,7 @@
     font-size: 20px;
     font-weight: 700;
     margin: 0;
-    padding-bottom: 6px;
+    padding-bottom: 2px;
     border-bottom: 2px solid black;
     width: 100%;
     max-width: 320px;
@@ -203,6 +200,41 @@
     color: #8B5E3B;
     font-weight: 800;
   }
+
+  /* backup */
+  /* .product-list-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    height: 300px;
+    overflow-y: auto;
+    padding-bottom: 0.5rem;
+  }
+  
+  .product-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .product-item {
+    text-align: left;
+    font-weight: 700;
+    border-bottom: 2px solid black;
+    padding-bottom: 0.5rem;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  
+  .product-item:hover {
+    opacity: 0.7;
+  }
+  
+  .product-item.active {
+    color: #8B5E3B;
+    border-color: #8B5E3B;
+  } */
+  
   
   /* ... existing code ... */
   
@@ -447,7 +479,7 @@
     .berita-text-mobile h1{
       margin-bottom: 2; 
       text-align: center;
-      font-size: 30px;
+      font-size: 36px;
       font-weight: 800;
     }
 
@@ -455,7 +487,7 @@
       margin-bottom: 2; 
       text-align: center;
       font-size: 21px;
-      font-weight: 500;
+      font-weight: 600;
     }
 
     .berita-text-mobile p{

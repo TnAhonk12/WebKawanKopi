@@ -9,49 +9,198 @@
       <img src="{{ asset('assets/img/hero/depan-hero.webp') }}" class="tableCashier" alt="Table Cashier" />
     </section>
 
-  <!-- /hero Section -->
+  <!-- hero Section end -->
 
-    <section id="lini-produk" class="lini-produk section">
-      <div class="container section-title" data-aos="fade-up">
-        <h1>Lini Produk</h1>
-      </div>
-    
-      <div class="container d-flex flex-wrap justify-content-center align-items-start gap-5" data-aos="fade-up" data-aos-delay="100">
+    <section id="lini-produk" class="lini-produk section h-auto transition-all duration-150 ease-in">
+      <div class="container">
+        <div class="row align-items-start">
           
-            <!-- Kiri: Carousel Produk -->
-        <div class="product-carousel text-center">
-          <button class="carousel-control prev">&lt;</button>
-          <img src="{{ asset('assets/img/Menu/Kopi-Susu-Kawan/KSK-Baru.jpg')}}" class="img-fluid" alt="KSK Baru">
-          <button class="carousel-control next">&gt;</button>
-          <p class="product-name">KSK Baru<br><strong>Rp 10.000</strong></p>
-        </div>
+          {{-- desktop view --}}
+            <!-- Kolom Kiri: Harga dan Makanan -->
+            <div class="col-lg-6 mb-4 hidden lg:flex flex-col justify-between h-full">
+              <h1 class="fw-bold mb-3">Lini Produk</h1>
+            
+              <div class="relative w-7/10 aspect-square mt-[2rem] mx-auto">
+                <!-- Gambar Produk -->
+                <img src="{{ asset('assets/img/Menu/Kopi-Susu-Kawan/KSK-Baru.jpg') }}" alt="Coffee Bag"
+                  class="w-auto h-auto object-cover rounded-xl" />
+            
+                <!-- Tombol Navigasi -->
+                <div class="absolute inset-1 flex justify-between items-center px-1">
+                  <!-- Tombol Kiri -->
+                  <button class="absolute left-2 top-auto transform -translate-y-1/2 z-10">
+                    <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
+                      viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+                  </button>
+                  <button class="absolute right-2 top-auto transform -translate-y-1/2 z-10">
+                    <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
+                      viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                  </button>
+                </div>
+                <!-- Nama Produk dan Harga DI LUAR GAMBAR -->
+                <div class="mt-4 text-center">
+                  <p class="text-xl font-bold mb-0 text-[#8B5E3B]">KSK Baru</p>
+                  <p class="text-lg font-semibold">Rp 10.000</p>
+                </div>
+              </div>
+            
+            </div>
+            
+            <!-- Kolom Kanan: Kategori dan Daftar Menu -->
+            <div class="col-lg-6 hidden lg:flex flex-col w-full h-[600px] overflow-hidden pr-2">
 
-        <!-- Kanan: Kategori dan Produk -->
-        <div class="kategori-produk text-center">
-          <div class="category-buttons">
-            <button class="category">Black-White</button>
-            <button class="category active">Kopi Susu Kawan dsadasdasda(KSK)</button>
-            <button class="category">Chocolate, Tea & Matcha</button>
-            <button class="category">Signature</button>
-            <button class="category">Bottle</button>
-            <button class="category">Food</button>
-            <button class="category">ani ani</button>
-          </div>
+              <div class="mt-[6.8rem]">
 
-          <div class="product-list">
-            <p>KSK Lama</p>
-            <p class="active">KSK Baru</p>
-            <p>KSK Keju</p>
-            <p>KSK Roasted Almond</p>
-          </div>          
+                <!-- Bagian Atas: Kategori Produk -->
+                <div class="grid grid-cols-3 gap-4 overflow-y-auto h-[250px] pb-2">
+                  <button class="category active">Black-White</button>
+                  <button class="category">Kopi Susu Kawan (KSK)</button>
+                  <button class="category">Chocolate, Tea & Matcha</button>
+                  <button class="category">Signature</button>
+                  <button class="category">Bottle</button>
+                  <button class="category">Food</button>
+                  <button class="category active:bg-white">Ani Ani</button>
+                  <button class="category active:bg-white">Kawa Kawa</button>
+                  <button class="category active:bg-white">jagermeister</button>
+                  <button class="category active:bg-white">Food</button>
+                  <button class="category active:bg-white">Food</button>
+                  <!-- tambah lagi kalau ada kategori baru -->
+                </div>
+  
+                <!-- Divider -->
+                <div class="my-4 border-t border-gray-300"></div>
+  
+               <!-- Bagian Bawah: List Menu -->
+                {{-- <div class="grid grid-cols-2 gap-4 overflow-y-auto h-[200px] pb-2">
+                  
+                  <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Lama</button>
+                  <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Roasted Almond</button>
+                  
+                  <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Baru</button>
+                  <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">Signature Blend</button>
+  
+                  <!-- tinggal tambah item lagi di bawah -->
+                </div> --}}
+
+                <!-- Bagian Bawah: List Menu -->
+                <div class="grid grid-cols-2 gap-4 overflow-y-auto h-[300px] pb-2">
+                  <div class="flex flex-col gap-4">
+                    <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Lama</button>
+                    <button class="text-left font-bold text-[#8B5E3B] hover:opacity-70 transition border-b border-[#8B5E3B] pb-2">KSK Baru</button>
+                    <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Keju</button>
+                    <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Keju</button>
+                    <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Keju</button>
+                    <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Keju</button>
+                    <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Keju</button>
+                    <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Keju</button>
+                    <!-- tambah varian kiri -->
+                  </div>
+                  <div class="flex flex-col gap-4">
+                    <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Roasted Almond</button>
+                    <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Roasted Almond</button>
+                    <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Roasted Almond</button>
+                    <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Roasted Almond</button>
+                    <!-- tambah varian kanan -->
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+            {{-- desktop view end --}}
+
+            {{-- Mobile view --}}
+            <!-- Kolom: Judul -->
+            <div class="col-lg-6 mb-4 lg:hidden flex-col justify-between h-full">
+              <h1 class="fw-bold mb-2 text-center">Lini Produk</h1>
+              {{-- <div class="shop-icons mb-3">
+                <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia"></a>
+                <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a>
+              </div> --}}
+
+               <!-- Kolom atas: Produk -->
+              <div class="col-lg-6">
+                <div class="row g-4">
+                  <div class="relative w-full max-w-sm mx-auto mt-5">
+                  
+                    <div>
+                      <!-- Gambar Produk -->
+                      <img src="{{ asset('assets/img/Merchandise/Totebag.jpg') }}" alt="Coffee Bag"
+                        class="mx-auto w-4/5 object-cover aspect-square rounded-xl" />
+                        <div class="text-center mt-2">
+                          <h2 class="text-xl font-bold mb-0">Totebag</h2>
+                          <p class="text-lg font-bold text-[#8B5E3B]">IDR 125K</p>
+                          <button class="bg-black text-white text-sm font-medium px-5 py-2 rounded-full mb-6">Add to cart</button>
+                        </div>
+                    
+                      <!-- Tombol Navigasi -->
+                      <button class="absolute left-2 top-1/3 transform -translate-y-1/2 z-10">
+                        <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
+                          viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+                      </button>
+                      <button class="absolute right-2 top-1/3 transform -translate-y-1/2 z-10">
+                        <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
+                          viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                      </button>
+                    </div>
+                    
+                  </div>
+
+                </div>
+              </div>
+              {{-- kolom judul end --}}
+            </div>
+            
+            <!-- Kolom bawah: Produk -->
+            <div class="lg:hidden overflow-x-auto">
+              <div>
+                <div class="merchandise-item text-center">
+                  <img src="{{ asset('assets/img/Merchandise/Tshirt.jpg') }}" alt="Tshirt" class="w-full h-52 object-cover rounded mb-2">
+                  <h4 class="font-semibold">Tshirt</h4>
+                  <p class="text-[#8B5E3B] font-bold">IDR 125K</p>
+                </div>
+                <div class="merchandise-item text-center">
+                  <img src="{{ asset('assets/img/Merchandise/Hat.jpg') }}" alt="Hat" class="w-full h-52 object-cover rounded mb-2">
+                  <h4 class="font-semibold">Hat</h4>
+                  <p class="text-[#8B5E3B] font-bold">IDR 100K</p>
+                </div>
+                <div class="merchandise-item text-center">
+                  <img src="{{ asset('assets/img/Merchandise/Tumbler1.jpg') }}" alt="Tumbler 1" class="w-full h-52 object-cover rounded mb-2">
+                  <h4 class="font-semibold">Tumbler 1</h4>
+                  <p class="text-[#8B5E3B] font-bold">IDR 150K</p>
+                </div>
+                <div class="merchandise-item text-center">
+                  <img src="{{ asset('assets/img/Merchandise/Tumbler2.jpg') }}" alt="Tumbler 2" class="w-full h-52 object-cover rounded mb-2">
+                  <h4 class="font-semibold">Tumbler 2</h4>
+                  <p class="text-[#8B5E3B] font-bold">IDR 100K</p>
+                </div>
+                <div class="merchandise-item text-center">
+                  <img src="{{ asset('assets/img/Merchandise/Mug.jpg') }}" alt="Reusable Cup" class="w-full h-52 object-cover rounded mb-2">
+                  <h4 class="font-semibold">Reusable Cup</h4>
+                  <p class="text-[#8B5E3B] font-bold">IDR 100K</p>
+                </div>
+                <div class="merchandise-item text-center">
+                  <img src="{{ asset('assets/img/Merchandise/Totebag.jpg') }}" alt="Totebag" class="w-full h-52 object-cover rounded mb-2">
+                  <h4 class="font-semibold">Totebag</h4>
+                  <p class="text-[#8B5E3B] font-bold">IDR 80K</p>
+                </div>
+                <div class="merchandise-item text-center">
+                  <img src="{{ asset('assets/img/Merchandise/Totebag.jpg') }}" alt="Totebag" class="w-full h-52 object-cover rounded mb-2">
+                  <h4 class="font-semibold">Totebag</h4>
+                  <p class="text-[#8B5E3B] font-bold">IDR 80K</p>
+                </div>
+              </div>
+              
+            </div>
+            {{-- kolom end --}}
+            {{-- mobile view end --}}
         </div>
-        
       </div>
-      
     </section>
 
       
-    <section id="merchandise1" class="merchandise section">
+    {{-- <section id="merchandise1" class="merchandise section">
       <div class="container">
         <div class="row align-items-start justify-center">
     
@@ -155,7 +304,7 @@
     
         </div>
       </div>
-    </section>
+    </section> --}}
     
     
     <section id="merchandise" class="merchandise section h-auto transition-all duration-150 ease-in">
@@ -384,7 +533,7 @@
             <!-- Kolom: Judul -->
             <div class="col-lg-6 mb-4 lg:hidden flex-col justify-between h-full">
               <h1 class="fw-bold mb-2 text-center">Roastery</h1>
-              <div class="shop-icons mb-3">
+              <div class="shop-icons mb-3 justify-center">
                 <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia"></a>
                 <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a>
               </div>
@@ -441,161 +590,110 @@
         </div>
       </div>
     </section>
-
-    <section id="roastery1" class="roastery relative py-16 px-6 md:px-16 bg-white">
-      <div class="flex flex-col lg:flex-row items-start justify-between gap-12">
-    
-        <!-- Kiri: Judul, Logo, dan Deskripsi -->
-        <div class="w-full ml-[7.5rem] lg:w-1/2 flex flex-col justify-start">
-          <h1 class="text-4xl font-bold mb-4">Roastery</h1>
-    
-          <div class="flex gap-4 mb-6">
-            <a href="#"><img src="{{ asset('assets/img/ecommerce/Logo_Tokopedia.png') }}" alt="Tokopedia" class="h-8"></a>
-            <a href="#"><img src="{{ asset('assets/img/ecommerce/Logo_Shopee.png') }}" alt="Shopee" class="h-8"></a>
-          </div>
-    
-          <h3 class="text-3xl font-bold mb-2">
-            <span class="font-bold">Palintang</span> Honey
-          </h3>
-    
-          <p class="text-justify text-lg leading-relaxed">
-            Since its founding in the 80s, Studio Agatho has been the go-to company for various design
-            needs. Its offerings range from graphic design and branding strategy to website development
-            and video production.
-          </p>
-        </div>
-    
-        <!-- Kanan: Gambar Produk + Label + Navigasi -->
-        <div class="w-full lg:w-1/2 flex justify-center items-center">
-          <div class="relative w-full max-w-sm">
-    
-            <!-- Label Harga -->
-            <div class="absolute top-4 left-[-1rem] bg-red-600 text-white text-sm font-bold px-3 py-1.5 rounded-full shadow-md">
-              IDR 150K
-            </div>
-    
-            <!-- Label Berat -->
-            <div class="absolute top-4 right-[-1rem] bg-red-600 text-white text-sm font-bold px-3 py-1.5 rounded-full shadow-md">
-              200gr
-            </div>
-    
-            <!-- Gambar Produk -->
-            <img src="{{ asset('assets/img/roastery/Palintang-Honey.jpg') }}" alt="Coffee Bag"
-              class="w-full object-cover aspect-square rounded-xl shadow-lg" />
-    
-            <!-- Tombol Navigasi Kiri -->
-            <button class="absolute left-1 top-1/2 transform -translate-y-1/2 p-2">
-              <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" stroke-width="2"
-                viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-    
-            <!-- Tombol Navigasi Kanan -->
-            <button class="absolute right-1 top-1/2 transform -translate-y-1/2 p-2">
-              <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" stroke-width="2"
-                viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-    
-          </div>
-        </div>
-    
-      </div>
-    </section>
     
 
     <section id="cerita-kawan" class="cerita relative h-auto transition-all duration-150 ease-in">
-      <h1 class="fw-bold mb-2 ml-[7.5rem] text-justify">Cerita Kawan</h1>
-  
-      <div id="ceritaKawanScroll" class="relative bottom-[-1px] mt-10 flex h-[calc(100vh-272px)] min-w-full flex-shrink-0 overflow-x-auto overflow-y-hidden lg:h-[calc(100vh-276px)]" style="overflow-x:auto;">
-    
-        <!-- Orang 1 -->
-        <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
-          <img alt="Anak Sepeda (ASEP) Vida Bekasi" 
-            loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
-            class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
-            src="{{ asset('assets/img/Cerita-Kawan/Gilang-Dhafir.png') }}">
-          
-          <div class="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap 
-            border border-black bg-white px-4 py-2 text-lg font-bold transition-all duration-300 
-            opacity-0 group-hover:opacity-100">
-            Anak Sepeda (ASEP) Vida Bekasi
+      <div class="container">
+        <div class="row align-items-start">
+          <!-- Judul Kiri (desktop) --> 
+          <div class="col-lg-12 mb-4 hidden lg:flex justify-between h-full">
+            <h1 class="mb-2">Cerita Kawan</h1>
+          </div>
+          <!-- Judul Tengah (mobile) -->
+          <div class="col-lg-12 mb-4 flex lg:hidden flex-col justify-between h-full">
+            <h1 class="text-center">Cerita Kawan</h1>
           </div>
         </div>
-    
-        <!-- Orang 2 -->
-        <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
-          <img alt="Mpip Damngood" 
-            loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
-            class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
-            src="{{ asset('assets/img/Cerita-Kawan/Mpip-Damngood.png') }}">
-          
-          <div class="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap 
-            border border-black bg-white px-4 py-2 text-lg font-bold transition-all duration-300 
-            opacity-0 group-hover:opacity-100">
-            Mpip Damngood
-          </div>
-        </div>
-    
-        <!-- Orang 3 -->
-        <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
-          <img alt="Wajid Club Dangdut Racun" 
-            loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
-            class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
-            src="{{ asset('assets/img/Cerita-Kawan/Wajid-Club-Dangdut-Racun.png') }}">
-          
-          <div class="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap 
-            border border-black bg-white px-4 py-2 text-lg font-bold transition-all duration-300 
-            opacity-0 group-hover:opacity-100">
-            Wajid Club Dangdut Racun
-          </div>
-        </div>
-        <!-- Orang 3 -->
-        <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
-          <img alt="Wajid Club Dangdut Racun" 
-            loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
-            class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
-            src="{{ asset('assets/img/Cerita-Kawan/Wajid-Club-Dangdut-Racun.png') }}">
-          
-          <div class="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap 
-            border border-black bg-white px-4 py-2 text-lg font-bold transition-all duration-300 
-            opacity-0 group-hover:opacity-100">
-            Wajid Club Dangdut Racun
-          </div>
-        </div>
-        <!-- Orang 3 -->
-        <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
-          <img alt="Wajid Club Dangdut Racun" 
-            loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
-            class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
-            src="{{ asset('assets/img/Cerita-Kawan/Wajid-Club-Dangdut-Racun.png') }}">
-          
-          <div class="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap 
-            border border-black bg-white px-4 py-2 text-lg font-bold transition-all duration-300 
-            opacity-0 group-hover:opacity-100">
-            Wajid Club Dangdut Racun
-          </div>
-        </div>
-        <!-- Orang 3 -->
-        <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
-          <img alt="Wajid Club Dangdut Racun" 
-            loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
-            class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
-            src="{{ asset('assets/img/Cerita-Kawan/Wajid-Club-Dangdut-Racun.png') }}">
-          
-          <div class="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap 
-            border border-black bg-white px-4 py-2 text-lg font-bold transition-all duration-300 
-            opacity-0 group-hover:opacity-100">
-            Wajid Club Dangdut Racun
-          </div>
-        </div>
-    
       </div>
+
+          <div id="ceritaKawanScroll" class="relative bottom-[-1px] mt-10 flex h-[calc(100vh-272px)] min-w-full flex-shrink-0 overflow-x-auto overflow-y-hidden lg:h-[calc(100vh-276px)]" style="overflow-x:auto;">
+        
+            <!-- Orang 1 -->
+            <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
+              <img alt="Anak Sepeda (ASEP) Vida Bekasi" 
+                loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
+                class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
+                src="{{ asset('assets/img/Cerita-Kawan/Gilang-Dhafir.png') }}">
+              
+              <div class="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap 
+                border border-black bg-white px-4 py-2 text-lg font-bold transition-all duration-300 
+                opacity-0 group-hover:opacity-100">
+                Anak Sepeda (ASEP) Vida Bekasi
+              </div>
+            </div>
+        
+            <!-- Orang 2 -->
+            <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
+              <img alt="Mpip Damngood" 
+                loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
+                class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
+                src="{{ asset('assets/img/Cerita-Kawan/Mpip-Damngood.png') }}">
+              
+              <div class="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap 
+                border border-black bg-white px-4 py-2 text-lg font-bold transition-all duration-300 
+                opacity-0 group-hover:opacity-100">
+                Mpip Damngood
+              </div>
+            </div>
+        
+            <!-- Orang 3 -->
+            <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
+              <img alt="Wajid Club Dangdut Racun" 
+                loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
+                class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
+                src="{{ asset('assets/img/Cerita-Kawan/Wajid-Club-Dangdut-Racun.png') }}">
+              
+              <div class="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap 
+                border border-black bg-white px-4 py-2 text-lg font-bold transition-all duration-300 
+                opacity-0 group-hover:opacity-100">
+                Wajid Club Dangdut Racun
+              </div>
+            </div>
+            <!-- Orang 3 -->
+            <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
+              <img alt="Wajid Club Dangdut Racun" 
+                loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
+                class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
+                src="{{ asset('assets/img/Cerita-Kawan/Wajid-Club-Dangdut-Racun.png') }}">
+              
+              <div class="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap 
+                border border-black bg-white px-4 py-2 text-lg font-bold transition-all duration-300 
+                opacity-0 group-hover:opacity-100">
+                Wajid Club Dangdut Racun
+              </div>
+            </div>
+            <!-- Orang 3 -->
+            <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
+              <img alt="Wajid Club Dangdut Racun" 
+                loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
+                class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
+                src="{{ asset('assets/img/Cerita-Kawan/Wajid-Club-Dangdut-Racun.png') }}">
+              
+              <div class="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap 
+                border border-black bg-white px-4 py-2 text-lg font-bold transition-all duration-300 
+                opacity-0 group-hover:opacity-100">
+                Wajid Club Dangdut Racun
+              </div>
+            </div>
+            <!-- Orang 3 -->
+            <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
+              <img alt="Wajid Club Dangdut Racun" 
+                loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
+                class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
+                src="{{ asset('assets/img/Cerita-Kawan/Wajid-Club-Dangdut-Racun.png') }}">
+              
+              <div class="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap 
+                border border-black bg-white px-4 py-2 text-lg font-bold transition-all duration-300 
+                opacity-0 group-hover:opacity-100">
+                Wajid Club Dangdut Racun
+              </div>
+            </div>
+        
+          </div>
+        
     </section>
 
-    <section id="berita-kawan" class="berita py-2 px-5 md:px-16">
+    <section id="berita-kawan" class="berita relative h-auto transition-all duration-150 ease-in">
       <div class="container mx-auto">
         <div class="row align-items-start">
           
@@ -697,7 +795,7 @@
       </div>
     </section>
     
-    <section id="find-us" class="find-us py-2 px-5 md:px-16">
+    <section id="find-us" class="find-us relative h-auto transition-all duration-150 ease-in">
       <div class="container mx-auto">
         <div class="row align-items-start">
           
@@ -752,33 +850,41 @@
             <div class="col-lg-6 lg:hidden flex flex-col justify-between w-full">
 
               <!-- Judul -->
-              <h1 class="fw-bold mb-8 text-center text-3xl">Find Us</h1>
+              <h1 class="fw-bold mb-2 text-center">Find Us</h1>
 
               <!-- Grid Foto Lokasi -->
               <div class="grid grid-cols-2 gap-4 px-4">
 
                 <!-- Lokasi 1 -->
                 <div class="text-center">
-                  <img src="{{ asset('assets/img/Find-Us/1.jpg') }}" alt="Kawan Kopi, Dipatiukur" class="w-full h-auto object-cover rounded mb-2">
-                  <p class="text-sm font-medium">Kawan Kopi, Dipatiukur</p>
+                  <a href="#">
+                    <img src="{{ asset('assets/img/Find-Us/1.jpg') }}" alt="Kawan Kopi, Dipatiukur" class="w-full h-auto object-cover rounded mb-2">
+                    <p class="text-sm font-medium text-black">Kawan Kopi, Dipatiukur</p>
+                  </a>
                 </div>
 
                 <!-- Lokasi 2 -->
                 <div class="text-center">
+                  <a href="#">
                   <img src="{{ asset('assets/img/Find-Us/2.jpg') }}" alt="Kawan Kopi, Cimandiri" class="w-full h-auto object-cover rounded mb-2">
-                  <p class="text-sm font-medium">Kawan Kopi, Cimandiri</p>
+                  <p class="text-sm font-medium text-black">Kawan Kopi, Cimandiri</p>
+                  </a>
                 </div>
 
                 <!-- Lokasi 3 -->
                 <div class="text-center">
-                  <img src="{{ asset('assets/img/Find-Us/3.jpg') }}" alt="Kawan Kopi, Talaga Bodas" class="w-full h-auto object-cover rounded mb-2">
-                  <p class="text-sm font-medium">Kawan Kopi, Talaga Bodas</p>
+                  <a href="#">
+                    <img src="{{ asset('assets/img/Find-Us/3.jpg') }}" alt="Kawan Kopi, Talaga Bodas" class="w-full h-auto object-cover rounded mb-2">
+                    <p class="text-sm font-medium text-black">Kawan Kopi, Talaga Bodas</p>
+                  </a>
                 </div>
 
                 <!-- Lokasi 4 -->
                 <div class="text-center">
-                  <img src="{{ asset('assets/img/Find-Us/4.jpg') }}" alt="Kawan Kopi, Ciumbuleuit" class="w-full h-auto object-cover rounded mb-2">
-                  <p class="text-sm font-medium">Kawan Kopi, Ciumbuleuit</p>
+                  <a href="#">
+                    <img src="{{ asset('assets/img/Find-Us/4.jpg') }}" alt="Kawan Kopi, Ciumbuleuit" class="w-full h-auto object-cover rounded mb-2">
+                    <p class="text-sm font-medium">Kawan Kopi, Ciumbuleuit</p>
+                  </a>
                 </div>
 
               </div>
