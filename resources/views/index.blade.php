@@ -605,9 +605,8 @@
                 <div class="row g-4">
 
                   <div class="relative w-full max-w-sm mx-auto mt-5">
-                  
                     <!-- Gambar Produk -->
-                    <img src="{{ asset('assets/img/berita-kawan/1.jpg') }}" alt="Coffee Bag"
+                    <img src="{{ asset('assets/img/berita-kawan/1.jpg') }}" alt="berita1"
                       class="mx-auto w-auto object-cover" />
                   </div>
 
