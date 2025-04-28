@@ -158,7 +158,7 @@
     </section>
     
     
-    <section id="merchandise" class="merchandise section">
+    <section id="merchandise" class="merchandise section h-auto transition-all duration-150 ease-in">
       <div class="container">
         <div class="row align-items-start">
           
@@ -318,7 +318,7 @@
       </div>
     </section>
 
-    <section id="roastery" class="roastery section">
+    <section id="roastery" class="roastery section h-auto transition-all duration-150 ease-in">
       <div class="container">
         <div class="row align-items-start">
           
