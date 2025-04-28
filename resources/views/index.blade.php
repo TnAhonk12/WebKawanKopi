@@ -318,7 +318,7 @@
       </div>
     </section>
 
-    <section id="roastery" class="roastery section h-auto transition-all duration-150 ease-in">
+    <section id="roastery" class="roastery relative h-auto transition-all duration-150 ease-in">
       <div class="container">
         <div class="row align-items-start">
           
@@ -441,6 +441,70 @@
         </div>
       </div>
     </section>
+
+    <section id="roastery1" class="roastery relative py-16 px-6 md:px-16 bg-white">
+      <div class="flex flex-col lg:flex-row items-start justify-between gap-12">
+    
+        <!-- Kiri: Judul, Logo, dan Deskripsi -->
+        <div class="w-full ml-[7.5rem] lg:w-1/2 flex flex-col justify-start">
+          <h1 class="text-4xl font-bold mb-4">Roastery</h1>
+    
+          <div class="flex gap-4 mb-6">
+            <a href="#"><img src="{{ asset('assets/img/ecommerce/Logo_Tokopedia.png') }}" alt="Tokopedia" class="h-8"></a>
+            <a href="#"><img src="{{ asset('assets/img/ecommerce/Logo_Shopee.png') }}" alt="Shopee" class="h-8"></a>
+          </div>
+    
+          <h3 class="text-3xl font-bold mb-2">
+            <span class="font-bold">Palintang</span> Honey
+          </h3>
+    
+          <p class="text-justify text-lg leading-relaxed">
+            Since its founding in the 80s, Studio Agatho has been the go-to company for various design
+            needs. Its offerings range from graphic design and branding strategy to website development
+            and video production.
+          </p>
+        </div>
+    
+        <!-- Kanan: Gambar Produk + Label + Navigasi -->
+        <div class="w-full lg:w-1/2 flex justify-center items-center">
+          <div class="relative w-full max-w-sm">
+    
+            <!-- Label Harga -->
+            <div class="absolute top-4 left-[-1rem] bg-red-600 text-white text-sm font-bold px-3 py-1.5 rounded-full shadow-md">
+              IDR 150K
+            </div>
+    
+            <!-- Label Berat -->
+            <div class="absolute top-4 right-[-1rem] bg-red-600 text-white text-sm font-bold px-3 py-1.5 rounded-full shadow-md">
+              200gr
+            </div>
+    
+            <!-- Gambar Produk -->
+            <img src="{{ asset('assets/img/roastery/Palintang-Honey.jpg') }}" alt="Coffee Bag"
+              class="w-full object-cover aspect-square rounded-xl shadow-lg" />
+    
+            <!-- Tombol Navigasi Kiri -->
+            <button class="absolute left-1 top-1/2 transform -translate-y-1/2 p-2">
+              <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+    
+            <!-- Tombol Navigasi Kanan -->
+            <button class="absolute right-1 top-1/2 transform -translate-y-1/2 p-2">
+              <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+    
+          </div>
+        </div>
+    
+      </div>
+    </section>
+    
 
     <section id="cerita-kawan" class="cerita relative h-auto transition-all duration-150 ease-in">
       <h1 class="fw-bold mb-2 ml-[7.5rem] text-justify">Cerita Kawan</h1>
