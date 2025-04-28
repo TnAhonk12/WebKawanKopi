@@ -438,19 +438,17 @@
 
             </div>
             {{-- mobile view end --}}
-          
-          
         </div>
       </div>
     </section>
 
     <section id="cerita-kawan" class="cerita relative h-auto transition-all duration-150 ease-in">
-      <h1 class="fw-bold mb-2 ml-[7.5rem]">Cerita Kawan</h1>
+      <h1 class="fw-bold mb-2 ml-[7.5rem] text-justify">Cerita Kawan</h1>
   
-      <div id="ceritaKawanScroll" class="relative bottom-[-1px] mt-10 flex h-[calc(100vh-272px)] w-fit min-w-full flex-shrink-0 overflow-x-auto overflow-y-hidden max-lg:w-fit lg:h-[calc(100vh-276px)]">
+      <div id="ceritaKawanScroll" class="relative bottom-[-1px] mt-10 flex h-[calc(100vh-272px)] min-w-full flex-shrink-0 overflow-x-auto overflow-y-hidden lg:h-[calc(100vh-276px)]" style="overflow-x:auto;">
     
         <!-- Orang 1 -->
-        <div class="relative group w-fit flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto" style="right:0%">
+        <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
           <img alt="Anak Sepeda (ASEP) Vida Bekasi" 
             loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
             class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
@@ -464,7 +462,7 @@
         </div>
     
         <!-- Orang 2 -->
-        <div class="relative group w-fit flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto" style="right:0%">
+        <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
           <img alt="Mpip Damngood" 
             loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
             class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
@@ -478,7 +476,46 @@
         </div>
     
         <!-- Orang 3 -->
-        <div class="relative group w-fit flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto" style="right:0%">
+        <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
+          <img alt="Wajid Club Dangdut Racun" 
+            loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
+            class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
+            src="{{ asset('assets/img/Cerita-Kawan/Wajid-Club-Dangdut-Racun.png') }}">
+          
+          <div class="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap 
+            border border-black bg-white px-4 py-2 text-lg font-bold transition-all duration-300 
+            opacity-0 group-hover:opacity-100">
+            Wajid Club Dangdut Racun
+          </div>
+        </div>
+        <!-- Orang 3 -->
+        <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
+          <img alt="Wajid Club Dangdut Racun" 
+            loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
+            class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
+            src="{{ asset('assets/img/Cerita-Kawan/Wajid-Club-Dangdut-Racun.png') }}">
+          
+          <div class="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap 
+            border border-black bg-white px-4 py-2 text-lg font-bold transition-all duration-300 
+            opacity-0 group-hover:opacity-100">
+            Wajid Club Dangdut Racun
+          </div>
+        </div>
+        <!-- Orang 3 -->
+        <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
+          <img alt="Wajid Club Dangdut Racun" 
+            loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
+            class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
+            src="{{ asset('assets/img/Cerita-Kawan/Wajid-Club-Dangdut-Racun.png') }}">
+          
+          <div class="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap 
+            border border-black bg-white px-4 py-2 text-lg font-bold transition-all duration-300 
+            opacity-0 group-hover:opacity-100">
+            Wajid Club Dangdut Racun
+          </div>
+        </div>
+        <!-- Orang 3 -->
+        <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
           <img alt="Wajid Club Dangdut Racun" 
             loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
             class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
@@ -493,10 +530,8 @@
     
       </div>
     </section>
-    
-    
 
-    <section id="berita-kawan" class="berita py-10 px-5 md:px-16">
+    <section id="berita-kawan" class="berita py-2 px-5 md:px-16">
       <div class="container mx-auto">
         <div class="row align-items-start">
           
@@ -506,7 +541,7 @@
 
               <h1 class="fw-bold mb-4">Berita Kawan</h1>
               <div class="relative">
-                <img src="{{ asset('assets/img/berita-Kawan/1.jpg') }}" alt="Berita Kawan" class="rounded-lg w-full object-cover">
+                <img src="{{ asset('assets/img/berita-kawan/1.jpg') }}" alt="Berita Kawan" class="rounded-lg w-full object-cover">
         
                 <!-- Tombol Navigasi -->
                 <div class="absolute bottom-50 left-1/2 transform -translate-x-1/2 flex gap-135">
@@ -555,7 +590,44 @@
             {{-- desktop view end --}}
 
             {{-- Mobile view --}}
+            <div class="col-lg-6 mb-4 lg:hidden flex-col justify-between h-full">
+              <div class="berita-text-mobile">
+                <h1>Berita Kawan</h1>
 
+                <h3 class="mt-2 text-center">RAW Club: Penanda <br>
+                  Kebangkitan Skena Denim</h3>
+                  <p class="text-gray-500"> by Tonny Oscar <br>
+                    5th July 2024</p>
+              </div>
+
+               <!-- Kolom Kanan: Produk -->
+              <div class="col-lg-6">
+                <div class="row g-4">
+
+                  <div class="relative w-full max-w-sm mx-auto mt-5">
+                  
+                    <!-- Gambar Produk -->
+                    <img src="{{ asset('assets/img/berita-kawan/1.jpg') }}" alt="Coffee Bag"
+                      class="mx-auto w-auto object-cover" />
+                  </div>
+
+                </div>
+              </div>
+              {{-- kolom judul end --}}
+              
+              <!-- Kolom: text -->
+              <div class="mt-10">
+                <p class="text-justify mt-auto text-xm">
+                  Since its founding in the 80s, Studio Agatho has
+                  been the go-to company for various design
+                  needs. Its offerings range from graphic design
+                  and branding strategy to website development
+                  and video production.
+                </p>
+              </div>
+              {{-- kolom text end --}}
+
+            </div>
             {{-- Mobile view end --}}
         </div>
     

@@ -204,47 +204,70 @@ animate();
     });
 
     // Cerita Kawan
-    const scrollContainer = document.getElementById('ceritaKawanScroll');
 
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-  
-    scrollContainer.addEventListener('mousedown', (e) => {
-      isDown = true;
-      scrollContainer.classList.add('cursor-grabbing');
-      startX = e.pageX - scrollContainer.offsetLeft;
-      scrollLeft = scrollContainer.scrollLeft;
+    document.addEventListener('DOMContentLoaded', function () {
+      const scrollContainer = document.getElementById('ceritaKawanScroll');
+    
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+    
+      scrollContainer.addEventListener('mousedown', (e) => {
+        isDown = true;
+        scrollContainer.classList.add('cursor-grabbing');
+    
+        // Disable pointer events ke child waktu drag
+        scrollContainer.querySelectorAll('*').forEach(child => {
+          child.style.pointerEvents = 'none';
+        });
+    
+        startX = e.pageX - scrollContainer.offsetLeft;
+        scrollLeft = scrollContainer.scrollLeft;
+      });
+    
+      scrollContainer.addEventListener('mouseleave', () => {
+        isDown = false;
+        scrollContainer.classList.remove('cursor-grabbing');
+    
+        // Balikin pointer events
+        scrollContainer.querySelectorAll('*').forEach(child => {
+          child.style.pointerEvents = '';
+        });
+      });
+    
+      scrollContainer.addEventListener('mouseup', () => {
+        isDown = false;
+        scrollContainer.classList.remove('cursor-grabbing');
+    
+        // Balikin pointer events
+        scrollContainer.querySelectorAll('*').forEach(child => {
+          child.style.pointerEvents = '';
+        });
+      });
+    
+      scrollContainer.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - scrollContainer.offsetLeft;
+        const walk = (x - startX) * 2;
+        scrollContainer.scrollLeft = scrollLeft - walk;
+      });
+    
+      // Support Mobile
+      scrollContainer.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].pageX - scrollContainer.offsetLeft;
+        scrollLeft = scrollContainer.scrollLeft;
+      });
+    
+      scrollContainer.addEventListener('touchmove', (e) => {
+        const x = e.touches[0].pageX - scrollContainer.offsetLeft;
+        const walk = (x - startX) * 2;
+        scrollContainer.scrollLeft = scrollLeft - walk;
+      });
     });
-  
-    scrollContainer.addEventListener('mouseleave', () => {
-      isDown = false;
-      scrollContainer.classList.remove('cursor-grabbing');
-    });
-  
-    scrollContainer.addEventListener('mouseup', () => {
-      isDown = false;
-      scrollContainer.classList.remove('cursor-grabbing');
-    });
-  
-    scrollContainer.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - scrollContainer.offsetLeft;
-      const walk = (x - startX) * 2; // *2 biar geser lebih cepat
-      scrollContainer.scrollLeft = scrollLeft - walk;
-    });
+    
 
-    scrollContainer.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].pageX - scrollContainer.offsetLeft;
-      scrollLeft = scrollContainer.scrollLeft;
-    });
-  
-    scrollContainer.addEventListener('touchmove', (e) => {
-      const x = e.touches[0].pageX - scrollContainer.offsetLeft;
-      const walk = (x - startX) * 2;
-      scrollContainer.scrollLeft = scrollLeft - walk;
-    });
+
       
   
     /**
