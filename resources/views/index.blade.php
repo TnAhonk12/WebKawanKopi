@@ -22,7 +22,7 @@
             
               <div class="relative w-7/10 aspect-square mt-[2rem] mx-auto">
                 <!-- Gambar Produk -->
-                <img src="{{ asset('assets/img/Menu/Kopi-Susu-Kawan/KSK-Baru.jpg') }}" alt="Coffee Bag"
+                <img src="{{ asset('assets/img/Menu/Kopi-Susu-Kawan/KSK-Baru.jpg') }}" alt="KSK-Baru"
                   class="w-auto h-auto object-cover rounded-xl" />
             
                 <!-- Tombol Navigasi -->
@@ -59,11 +59,6 @@
                   <button class="category">Signature</button>
                   <button class="category">Bottle</button>
                   <button class="category">Food</button>
-                  <button class="category active:bg-white">Ani Ani</button>
-                  <button class="category active:bg-white">Kawa Kawa</button>
-                  <button class="category active:bg-white">jagermeister</button>
-                  <button class="category active:bg-white">Food</button>
-                  <button class="category active:bg-white">Food</button>
                   <!-- tambah lagi kalau ada kategori baru -->
                 </div>
   
@@ -114,11 +109,6 @@
             <!-- Kolom: Judul -->
             <div class="col-lg-6 mb-4 lg:hidden flex-col justify-between h-full">
               <h1 class="fw-bold mb-2 text-center">Lini Produk</h1>
-              {{-- <div class="shop-icons mb-3">
-                <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia"></a>
-                <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a>
-              </div> --}}
-
                <!-- Kolom atas: Produk -->
               <div class="col-lg-6">
                 <div class="row g-4">
@@ -126,12 +116,11 @@
                   
                     <div>
                       <!-- Gambar Produk -->
-                      <img src="{{ asset('assets/img/Merchandise/Totebag.jpg') }}" alt="Coffee Bag"
+                      <img src="{{ asset('assets/img/Menu/Kopi-Susu-Kawan/KSK-Baru.jpg') }}" alt="KSK-Baru"
                         class="mx-auto w-4/5 object-cover aspect-square rounded-xl" />
                         <div class="text-center mt-2">
-                          <h2 class="text-xl font-bold mb-0">Totebag</h2>
-                          <p class="text-lg font-bold text-[#8B5E3B]">IDR 125K</p>
-                          <button class="bg-black text-white text-sm font-medium px-5 py-2 rounded-full mb-6">Add to cart</button>
+                          <p class="text-xl font-bold mb-0 text-[#8B5E3B]">KSK Baru</p>
+                          <p class="text-lg font-bold">Rp 10.000</p>
                         </div>
                     
                       <!-- Tombol Navigasi -->
@@ -154,44 +143,39 @@
             
             <!-- Kolom bawah: Produk -->
             <div class="lg:hidden overflow-x-auto">
-              <div>
-                <div class="merchandise-item text-center">
-                  <img src="{{ asset('assets/img/Merchandise/Tshirt.jpg') }}" alt="Tshirt" class="w-full h-52 object-cover rounded mb-2">
-                  <h4 class="font-semibold">Tshirt</h4>
-                  <p class="text-[#8B5E3B] font-bold">IDR 125K</p>
+              <div class="grid grid-cols-3 gap-4 overflow-y-auto h-[200px] pb-2">
+                <button class="category active">Black-White</button>
+                <button class="category">Kopi Susu Kawan (KSK)</button>
+                <button class="category">Chocolate, Tea & Matcha</button>
+                <button class="category">Signature</button>
+                <button class="category">Bottle</button>
+                <button class="category">Food</button>
+                <!-- tambah lagi kalau ada kategori baru -->
+              </div>
+
+              <!-- Divider -->
+              <div class="my-4 border-t border-gray-300"></div>
+              <!-- Bagian Bawah: List Menu -->
+              <div class="grid grid-cols-2 gap-4 overflow-y-auto h-[200px] pb-2">
+                <div class="flex flex-col gap-4">
+                  <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Lama</button>
+                  <button class="text-left font-bold text-[#8B5E3B] hover:opacity-70 transition border-b border-[#8B5E3B] pb-2">KSK Baru</button>
+                  <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Keju</button>
+                  <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Keju</button>
+                  <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Keju</button>
+                  <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Keju</button>
+                  <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Keju</button>
+                  <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Keju</button>
+                  <!-- tambah varian kiri -->
                 </div>
-                <div class="merchandise-item text-center">
-                  <img src="{{ asset('assets/img/Merchandise/Hat.jpg') }}" alt="Hat" class="w-full h-52 object-cover rounded mb-2">
-                  <h4 class="font-semibold">Hat</h4>
-                  <p class="text-[#8B5E3B] font-bold">IDR 100K</p>
-                </div>
-                <div class="merchandise-item text-center">
-                  <img src="{{ asset('assets/img/Merchandise/Tumbler1.jpg') }}" alt="Tumbler 1" class="w-full h-52 object-cover rounded mb-2">
-                  <h4 class="font-semibold">Tumbler 1</h4>
-                  <p class="text-[#8B5E3B] font-bold">IDR 150K</p>
-                </div>
-                <div class="merchandise-item text-center">
-                  <img src="{{ asset('assets/img/Merchandise/Tumbler2.jpg') }}" alt="Tumbler 2" class="w-full h-52 object-cover rounded mb-2">
-                  <h4 class="font-semibold">Tumbler 2</h4>
-                  <p class="text-[#8B5E3B] font-bold">IDR 100K</p>
-                </div>
-                <div class="merchandise-item text-center">
-                  <img src="{{ asset('assets/img/Merchandise/Mug.jpg') }}" alt="Reusable Cup" class="w-full h-52 object-cover rounded mb-2">
-                  <h4 class="font-semibold">Reusable Cup</h4>
-                  <p class="text-[#8B5E3B] font-bold">IDR 100K</p>
-                </div>
-                <div class="merchandise-item text-center">
-                  <img src="{{ asset('assets/img/Merchandise/Totebag.jpg') }}" alt="Totebag" class="w-full h-52 object-cover rounded mb-2">
-                  <h4 class="font-semibold">Totebag</h4>
-                  <p class="text-[#8B5E3B] font-bold">IDR 80K</p>
-                </div>
-                <div class="merchandise-item text-center">
-                  <img src="{{ asset('assets/img/Merchandise/Totebag.jpg') }}" alt="Totebag" class="w-full h-52 object-cover rounded mb-2">
-                  <h4 class="font-semibold">Totebag</h4>
-                  <p class="text-[#8B5E3B] font-bold">IDR 80K</p>
+                <div class="flex flex-col gap-4">
+                  <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Roasted Almond</button>
+                  <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Roasted Almond</button>
+                  <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Roasted Almond</button>
+                  <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Roasted Almond</button>
+                  <!-- tambah varian kanan -->
                 </div>
               </div>
-              
             </div>
             {{-- kolom end --}}
             {{-- mobile view end --}}
@@ -533,10 +517,7 @@
             <!-- Kolom: Judul -->
             <div class="col-lg-6 mb-4 lg:hidden flex-col justify-between h-full">
               <h1 class="fw-bold mb-2 text-center">Roastery</h1>
-              <div class="shop-icons mb-3 justify-center">
-                <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia"></a>
-                <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a>
-              </div>
+              
 
                <!-- Kolom Kanan: Produk -->
               <div class="col-lg-6">
@@ -566,12 +547,17 @@
                     </button>
                   </div>
 
+                  <div class="shop-icons mb-3 justify-center">
+                    <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia"></a>
+                    <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a>
+                  </div>
+
                 </div>
               </div>
               {{-- kolom judul end --}}
               
               <!-- Kolom: text -->
-              <div class="mt-10">
+              <div class="mt-2">
                 <h3 class="text-4xl font-bold mb-2">
                   <span class="fw-bold mb-2">Palintang</span> Honey
                 </h3>
@@ -853,7 +839,7 @@
               <h1 class="fw-bold mb-2 text-center">Find Us</h1>
 
               <!-- Grid Foto Lokasi -->
-              <div class="grid grid-cols-2 gap-4 px-4">
+              <div class="grid grid-cols-2 gap-4 px-8 py-8">
 
                 <!-- Lokasi 1 -->
                 <div class="text-center">
