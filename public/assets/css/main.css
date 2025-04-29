@@ -395,52 +395,25 @@
       margin-bottom: 10px;
     }
   
-    .cerita-item {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 10px;
-      padding: 20px;
-      height: 100%;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .cerita-text{
-      margin-top: 6rem;
-    }
-
-    .cerita-text h3{
-      font-size: 30px;
-      font-weight: 601;
+    .cerita-hover-box {
+      transition: opacity 0.3s ease;
+      opacity: 0;
     }
   
-    .cerita-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    .group:hover .cerita-hover-box,
+    .group:focus-within .cerita-hover-box {
+      opacity: 1;
     }
   
-    .cerita-item img {
-      border-radius: 8px;
-      margin-bottom: 10px;
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-  
-    .cerita-item h4 {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 5px;
-    }
-  
-    .cerita-item p {
-      font-size: 16px;
-      font-weight: 700;
-      color: #8B5E3B;
-      margin: 0;
+    @media (hover: none) {
+      .group:active .cerita-hover-box {
+        opacity: 1;
+      }
     }
   
     
     @media (max-width: 768px) {
-      .cerita-item img {
+      .cerita img {
         height: 200px;
       }
     }

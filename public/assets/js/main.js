@@ -265,10 +265,20 @@ animate();
         scrollContainer.scrollLeft = scrollLeft - walk;
       });
     });
-    
 
+      document.addEventListener('DOMContentLoaded', () => {
+        const scrollContainer = document.getElementById('ceritaKawanScroll');
+        const scrollHint = document.getElementById('scrollHint');
 
-      
+        let hintHidden = false;
+
+        scrollContainer.addEventListener('scroll', () => {
+          if (!hintHidden && scrollContainer.scrollLeft > 10) {
+            scrollHint.classList.add('opacity-0');
+            hintHidden = true;
+          }
+        });
+      });
   
     /**
      * Apply .scrolled class to the body as the page is scrolled down

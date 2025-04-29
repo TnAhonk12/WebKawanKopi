@@ -346,11 +346,6 @@
                 <h4 class="font-semibold">Totebag</h4>
                 <p class="text-[#8B5E3B] font-bold">IDR 80K</p>
               </div>
-              <div class="merchandise-item text-center">
-                <img src="{{ asset('assets/img/Merchandise/Totebag.jpg') }}" alt="Totebag" class="w-full h-52 object-cover rounded mb-2">
-                <h4 class="font-semibold">Totebag</h4>
-                <p class="text-[#8B5E3B] font-bold">IDR 80K</p>
-              </div>
 
               <!-- Tombol Katalog Selengkapnya -->
               <div class="flex justify-center items-center col-span-3">
@@ -371,7 +366,7 @@
                 <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a>
               </div> --}}
 
-               <!-- Kolom Kanan: Produk -->
+               <!-- Kolom Atas: 1 Produk -->
               <div class="col-lg-6">
                 <div class="row g-4">
                   <div class="relative w-full max-w-sm mx-auto mt-5">
@@ -404,46 +399,38 @@
               {{-- kolom judul end --}}
             </div>
             
-            <!-- Kolom Kanan: Produk -->
+            <!-- Kolom Bawah: Produk -->
             <div class="lg:hidden overflow-x-auto">
-              <div>
-                <div class="merchandise-item text-center">
-                  <img src="{{ asset('assets/img/Merchandise/Tshirt.jpg') }}" alt="Tshirt" class="w-full h-52 object-cover rounded mb-2">
-                  <h4 class="font-semibold">Tshirt</h4>
-                  <p class="text-[#8B5E3B] font-bold">IDR 125K</p>
+              <div class="grid grid-cols-1 gap-4 overflow-x-auto justify-center h-auto pb-2">
+                <div class="flex gap-3 w-auto">
+                  <div class="flex-shrink-0 w-24 text-center">
+                    <img src="{{ asset('assets/img/Merchandise/Tshirt.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
+                    <p class="text-xs font-medium mb-0">Tshirt</p>
+                    <p class="text-xs text-[#8B5E3B] font-bold">IDR 125K</p>
+                  </div>
+                  <div class="flex-shrink-0 w-24 text-center">
+                    <img src="{{ asset('assets/img/Merchandise/Hat.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
+                    <p class="text-xs font-medium mb-0">Hat</p>
+                    <p class="text-xs text-[#8B5E3B] font-bold">IDR 100K</p>
+                  </div>
+                  <div class="flex-shrink-0 w-24 text-center">
+                    <img src="{{ asset('assets/img/Merchandise/Tumbler1.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
+                    <p class="text-xs font-medium mb-0">Tumbler 1</p>
+                    <p class="text-xs text-[#8B5E3B] font-bold">IDR 150K</p>
+                  </div>
+                  <div class="flex-shrink-0 w-24 text-center">
+                    <img src="{{ asset('assets/img/Merchandise/Tumbler2.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
+                    <p class="text-xs font-medium mb-0">Tumbler 2</p>
+                    <p class="text-xs text-[#8B5E3B] font-bold">IDR 100K</p>
+                  </div>
+                  <div class="flex-shrink-0 w-24 text-center">
+                    <img src="{{ asset('assets/img/Merchandise/Mug.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
+                    <p class="text-xs font-medium mb-0">Reusable Cup</p>
+                    <p class="text-xs text-[#8B5E3B] font-bold">IDR 100K</p>
+                  </div>
                 </div>
-                <div class="merchandise-item text-center">
-                  <img src="{{ asset('assets/img/Merchandise/Hat.jpg') }}" alt="Hat" class="w-full h-52 object-cover rounded mb-2">
-                  <h4 class="font-semibold">Hat</h4>
-                  <p class="text-[#8B5E3B] font-bold">IDR 100K</p>
-                </div>
-                <div class="merchandise-item text-center">
-                  <img src="{{ asset('assets/img/Merchandise/Tumbler1.jpg') }}" alt="Tumbler 1" class="w-full h-52 object-cover rounded mb-2">
-                  <h4 class="font-semibold">Tumbler 1</h4>
-                  <p class="text-[#8B5E3B] font-bold">IDR 150K</p>
-                </div>
-                <div class="merchandise-item text-center">
-                  <img src="{{ asset('assets/img/Merchandise/Tumbler2.jpg') }}" alt="Tumbler 2" class="w-full h-52 object-cover rounded mb-2">
-                  <h4 class="font-semibold">Tumbler 2</h4>
-                  <p class="text-[#8B5E3B] font-bold">IDR 100K</p>
-                </div>
-                <div class="merchandise-item text-center">
-                  <img src="{{ asset('assets/img/Merchandise/Mug.jpg') }}" alt="Reusable Cup" class="w-full h-52 object-cover rounded mb-2">
-                  <h4 class="font-semibold">Reusable Cup</h4>
-                  <p class="text-[#8B5E3B] font-bold">IDR 100K</p>
-                </div>
-                <div class="merchandise-item text-center">
-                  <img src="{{ asset('assets/img/Merchandise/Totebag.jpg') }}" alt="Totebag" class="w-full h-52 object-cover rounded mb-2">
-                  <h4 class="font-semibold">Totebag</h4>
-                  <p class="text-[#8B5E3B] font-bold">IDR 80K</p>
-                </div>
-                <div class="merchandise-item text-center">
-                  <img src="{{ asset('assets/img/Merchandise/Totebag.jpg') }}" alt="Totebag" class="w-full h-52 object-cover rounded mb-2">
-                  <h4 class="font-semibold">Totebag</h4>
-                  <p class="text-[#8B5E3B] font-bold">IDR 80K</p>
-                </div>
+                <!-- tambah lagi kalau ada kategori baru -->
               </div>
-              
             </div>
             {{-- kolom end --}}
             {{-- mobile view end --}}
@@ -591,20 +578,25 @@
           </div>
         </div>
       </div>
-
-          <div id="ceritaKawanScroll" class="relative bottom-[-1px] mt-10 flex h-[calc(100vh-272px)] min-w-full flex-shrink-0 overflow-x-auto overflow-y-hidden lg:h-[calc(100vh-276px)]" style="overflow-x:auto;">
+      
+      <div id="ceritaKawanScroll" class="relative bottom-[-1px] mt-10 flex h-[calc(100vh-272px)] min-w-full flex-shrink-0 overflow-x-auto overflow-y-hidden lg:h-[calc(100vh-276px)]" style="overflow-x:auto;">
+            <div id="scrollHint" class="absolute top-10 left-1/2 -translate-x-1/2 px-6 py-3 text-[#8B5E3B] font-bold text-lg z-20 transition-opacity duration-300">
+              &laquo;&laquo; GESER UNTUK LIHAT LAINNYA &raquo;&raquo;
+            </div>
         
             <!-- Orang 1 -->
             <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
-              <img alt="Anak Sepeda (ASEP) Vida Bekasi" 
+              
+              <a href="#">
+                <img alt="Gilang Dhafir" 
                 loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
                 class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
                 src="{{ asset('assets/img/Cerita-Kawan/Gilang-Dhafir.png') }}">
-              
-              <div class="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap 
-                border border-black bg-white px-4 py-2 text-lg font-bold transition-all duration-300 
-                opacity-0 group-hover:opacity-100">
-                Anak Sepeda (ASEP) Vida Bekasi
+              </a>
+                
+                <div class="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap
+                border border-black bg-[#fefce8] px-4 py-2 text-lg font-bold text-black cerita-hover-box">
+                Gilang Dhafir
               </div>
             </div>
         
@@ -615,9 +607,8 @@
                 class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
                 src="{{ asset('assets/img/Cerita-Kawan/Mpip-Damngood.png') }}">
               
-              <div class="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap 
-                border border-black bg-white px-4 py-2 text-lg font-bold transition-all duration-300 
-                opacity-0 group-hover:opacity-100">
+              <div class="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap
+                border border-black bg-[#fefce8] px-4 py-2 text-lg font-bold text-black cerita-hover-box">
                 Mpip Damngood
               </div>
             </div>
@@ -629,49 +620,33 @@
                 class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
                 src="{{ asset('assets/img/Cerita-Kawan/Wajid-Club-Dangdut-Racun.png') }}">
               
-              <div class="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap 
-                border border-black bg-white px-4 py-2 text-lg font-bold transition-all duration-300 
-                opacity-0 group-hover:opacity-100">
+              <div class="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap
+                border border-black bg-[#fefce8] px-4 py-2 text-lg font-bold text-black cerita-hover-box">
                 Wajid Club Dangdut Racun
               </div>
             </div>
-            <!-- Orang 3 -->
+            <!-- Orang 4 -->
             <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
-              <img alt="Wajid Club Dangdut Racun" 
+              <img alt="Aul test" 
                 loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
                 class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
-                src="{{ asset('assets/img/Cerita-Kawan/Wajid-Club-Dangdut-Racun.png') }}">
+                src="{{ asset('assets/img/Cerita-Kawan/Aul-Test.png') }}">
               
-              <div class="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap 
-                border border-black bg-white px-4 py-2 text-lg font-bold transition-all duration-300 
-                opacity-0 group-hover:opacity-100">
-                Wajid Club Dangdut Racun
+              <div class="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap
+                border border-black bg-[#fefce8] px-4 py-2 text-lg font-bold text-black cerita-hover-box">
+                Aul test
               </div>
             </div>
-            <!-- Orang 3 -->
+            <!-- Orang 5 -->
             <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
-              <img alt="Wajid Club Dangdut Racun" 
+              <img alt="Acong Test" 
                 loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
                 class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
-                src="{{ asset('assets/img/Cerita-Kawan/Wajid-Club-Dangdut-Racun.png') }}">
+                src="{{ asset('assets/img/Cerita-Kawan/Acong-Test.png') }}">
               
-              <div class="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap 
-                border border-black bg-white px-4 py-2 text-lg font-bold transition-all duration-300 
-                opacity-0 group-hover:opacity-100">
-                Wajid Club Dangdut Racun
-              </div>
-            </div>
-            <!-- Orang 3 -->
-            <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
-              <img alt="Wajid Club Dangdut Racun" 
-                loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
-                class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
-                src="{{ asset('assets/img/Cerita-Kawan/Wajid-Club-Dangdut-Racun.png') }}">
-              
-              <div class="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap 
-                border border-black bg-white px-4 py-2 text-lg font-bold transition-all duration-300 
-                opacity-0 group-hover:opacity-100">
-                Wajid Club Dangdut Racun
+              <div class="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap
+                border border-black bg-[#fefce8] px-4 py-2 text-lg font-bold text-black cerita-hover-box">
+                Acong Test
               </div>
             </div>
         
@@ -773,6 +748,18 @@
                 </p>
               </div>
               {{-- kolom text end --}}
+              <!-- Tombol Read More -->
+              <div class="mt-6 flex left">
+                <a href="#" class="flex border border-white text-white bg-black">
+                  <span class="px-4 py-2 font-medium">Read More</span>
+                  <span class="px-2 py-2 border-l border-white flex items-center">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </a>
+              </div>
+              
 
             </div>
             {{-- Mobile view end --}}
