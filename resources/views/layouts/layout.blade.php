@@ -9,8 +9,10 @@
   <meta name="keywords" content="Coffee, Cafe, Kawan Kopi">
 
   <!-- Favicons -->
-  <link href="{{ asset('assets/img/kawan/logo.png') }}" rel="icon">
-  <link href="{{ asset('assets/img/kawan/logo.png') }}" rel="apple-touch-icon">
+  <link rel="icon" href="{{ asset('assets/img/kawan/logo.png') }}">
+  {{-- <link rel="icon" href="{{ asset('assets/img/kawan/logo.png') }}" type="image/png" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="{{ asset('assets/img/kawan/logo-white.png') }}" type="image/png" media="(prefers-color-scheme: dark)"> --}}
+  <link rel="apple-touch-icon" href="{{ asset('assets/img/kawan/logo.png') }}">
 
   <!-- preload-char -->
   <link rel="preload" href="{{ asset('assets/img/character/charIdle.webp') }}" as="image">
@@ -40,51 +42,11 @@
 
   @include('layouts.nav')
 
-
   <main class="main">
-
-@yield('homepage')
-    
-
+    @yield('homepage')
   </main>
 
-
-  <footer id="footer" class="footer light-background">
-    <div class="container d-flex justify-content-between align-items-center">
-        <!-- Kiri: Logo -->
-        <div class="footer-logo">
-            <img src="{{ asset('assets/img/kawan/logo.png') }}" alt="Kawan Kopi">
-            
-        </div>
-
-        <!-- Tengah: Deskripsi -->
-        <div class="footer-description text-right">
-            <p>
-                We are not great multi-taskers. We only focus on two things: delicious high-quality product and hospitality. 
-                We spend our time developing great quality of menu, lovingly brewing coffee for our beloved customers and helping you 
-                for anything you need about our services. We are probably okay at a few other things but, really, we just live and 
-                breathe high-quality of product. Oh, and we hope you feel it too.
-            </p>
-            <div class="footer-links">
-                <a href="#">Terms & Conditions</a> | <a href="#">Privacy & Policy</a> 
-                <span>© Est 2018 Kawan Kopi</span>
-              </div>
-              <span>made with ❤️ by Triple A Software House</span>
-        </div>
-
-        <!-- Kanan: Media Sosial -->
-        <div class="footer-social">
-            <p>Connect with us:</p>
-            <div class="social-links">
-                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-youtube"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-            </div>
-        </div>
-    </div>
-</footer>
-
+  @include('layouts.footer')
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
