@@ -182,114 +182,6 @@
         </div>
       </div>
     </section>
-
-      
-    {{-- <section id="merchandise1" class="merchandise section">
-      <div class="container">
-        <div class="row align-items-start justify-center">
-    
-          <!-- Kolom Kiri (sembunyiin di mobile) -->
-          <div class="col-lg-6 mb-4 hidden lg:flex flex-col justify-between h-full">
-            <div>
-              <h1 class="fw-bold mb-2 ">Merchandise</h1>
-              <div class="shop-icons mb-3 flex gap-3">
-                <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia" class="h-8"></a>
-                <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee" class="h-8"></a>
-              </div>
-            </div>
-            <p class="text-justify mt-auto text-xl">
-              Since its founding in the 80s, Studio Agatho has been the go-to company for various design needs.
-              Its offerings range from graphic design and branding strategy to website development and video production.
-            </p>
-          </div>
-    
-          <!-- Kolom Kanan (responsif, mobile styled) -->
-          <div class="col-lg-6 w-full flex flex-col text-center">
-            <div class="flex flex-col items-center lg:hidden text-center mb-4 w-full  ">
-              
-                <h1 class="text-2xl font-bold mb-4">Merchandise</h1>
-                <img src="{{ asset('assets/img/Merchandise/Totebag.jpg') }}" alt="Totebag" class="w-full max-w-xs mx-auto rounded mb-4">
-                <h2 class="text-xl font-semibold">Totebag</h2>
-                <p class="text-lg font-bold text-[#8B5E3B] mb-3">IDR 125K</p>
-                <button class="bg-black text-white text-sm font-medium px-5 py-2 rounded-full mb-6">Add to cart</button>
-              
-            </div>
-    
-            <!-- Grid for Desktop, Scrollable for Mobile -->
-            <div class="hidden lg:grid grid-cols-3 gap-4 w-full">
-              <div class="merchandise-item text-center">
-                <img src="{{ asset('assets/img/Merchandise/Tshirt.jpg') }}" alt="Tshirt" class="w-full h-52 object-cover rounded mb-2">
-                <h4 class="font-semibold">Tshirt</h4>
-                <p class="text-[#8B5E3B] font-bold">IDR 125K</p>
-              </div>
-              <div class="merchandise-item text-center">
-                <img src="{{ asset('assets/img/Merchandise/Hat.jpg') }}" alt="Hat" class="w-full h-52 object-cover rounded mb-2">
-                <h4 class="font-semibold">Hat</h4>
-                <p class="text-[#8B5E3B] font-bold">IDR 100K</p>
-              </div>
-              <div class="merchandise-item text-center">
-                <img src="{{ asset('assets/img/Merchandise/Tumbler1.jpg') }}" alt="Tumbler 1" class="w-full h-52 object-cover rounded mb-2">
-                <h4 class="font-semibold">Tumbler 1</h4>
-                <p class="text-[#8B5E3B] font-bold">IDR 150K</p>
-              </div>
-              <div class="merchandise-item text-center">
-                <img src="{{ asset('assets/img/Merchandise/Tumbler2.jpg') }}" alt="Tumbler 2" class="w-full h-52 object-cover rounded mb-2">
-                <h4 class="font-semibold">Tumbler 2</h4>
-                <p class="text-[#8B5E3B] font-bold">IDR 100K</p>
-              </div>
-              <div class="merchandise-item text-center">
-                <img src="{{ asset('assets/img/Merchandise/Mug.jpg') }}" alt="Reusable Cup" class="w-full h-52 object-cover rounded mb-2">
-                <h4 class="font-semibold">Reusable Cup</h4>
-                <p class="text-[#8B5E3B] font-bold">IDR 100K</p>
-              </div>
-              <div class="merchandise-item text-center">
-                <img src="{{ asset('assets/img/Merchandise/Totebag.jpg') }}" alt="Totebag" class="w-full h-52 object-cover rounded mb-2">
-                <h4 class="font-semibold">Totebag</h4>
-                <p class="text-[#8B5E3B] font-bold">IDR 80K</p>
-              </div>
-              <div class="merchandise-item text-center">
-                <img src="{{ asset('assets/img/Merchandise/Totebag.jpg') }}" alt="Totebag" class="w-full h-52 object-cover rounded mb-2">
-                <h4 class="font-semibold">Totebag</h4>
-                <p class="text-[#8B5E3B] font-bold">IDR 80K</p>
-              </div>
-            </div>
-    
-            <!-- Produk item scrollable (mobile) -->
-            <div class="lg:hidden overflow-x-auto pb-2 w-full">
-              <div class="flex gap-3 w-max px-4">
-                <div class="flex-shrink-0 w-24 text-center">
-                  <img src="{{ asset('assets/img/Merchandise/Tshirt.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
-                  <p class="text-xs font-medium">Tshirt</p>
-                  <p class="text-xs text-[#8B5E3B] font-bold">IDR 125K</p>
-                </div>
-                <div class="flex-shrink-0 w-24 text-center">
-                  <img src="{{ asset('assets/img/Merchandise/Hat.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
-                  <p class="text-xs font-medium">Hat</p>
-                  <p class="text-xs text-[#8B5E3B] font-bold">IDR 100K</p>
-                </div>
-                <div class="flex-shrink-0 w-24 text-center">
-                  <img src="{{ asset('assets/img/Merchandise/Tumbler1.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
-                  <p class="text-xs font-medium">Tumbler 1</p>
-                  <p class="text-xs text-[#8B5E3B] font-bold">IDR 150K</p>
-                </div>
-                <div class="flex-shrink-0 w-24 text-center">
-                  <img src="{{ asset('assets/img/Merchandise/Tumbler2.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
-                  <p class="text-xs font-medium">Tumbler 2</p>
-                  <p class="text-xs text-[#8B5E3B] font-bold">IDR 100K</p>
-                </div>
-                <div class="flex-shrink-0 w-24 text-center">
-                  <img src="{{ asset('assets/img/Merchandise/Mug.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
-                  <p class="text-xs font-medium">Reusable Cup</p>
-                  <p class="text-xs text-[#8B5E3B] font-bold">IDR 100K</p>
-                </div>
-              </div>
-            </div>
-          </div>
-    
-        </div>
-      </div>
-    </section> --}}
-    
     
     <section id="merchandise" class="merchandise section h-auto transition-all duration-150 ease-in">
       <div class="container">
@@ -316,32 +208,32 @@
             </div>
 
             <div class="col-lg-6 hidden lg:grid grid-cols-3 gap-4 w-full h-[600px] overflow-y-auto pr-2">
-              <div class="merchandise-item text-center">
+              <div onclick="openModal('Tshirt', '{{ asset('assets/img/Merchandise/Tshirt.jpg') }}', 'IDR 125K', 'Deskripsi Ini Tshirt')" class="merchandise-item text-center cursor-pointer">
                 <img src="{{ asset('assets/img/Merchandise/Tshirt.jpg') }}" alt="Tshirt" class="w-full h-52 object-cover rounded mb-2">
                 <h4 class="font-semibold">Tshirt</h4>
                 <p class="text-[#8B5E3B] font-bold">IDR 125K</p>
-              </div>
-              <div class="merchandise-item text-center">
+              </div>              
+              <div onclick="openModal('Hat', '{{ asset('assets/img/Merchandise/Hat.jpg') }}', 'IDR 100K', 'Deskripsi Ini Hat')" class="merchandise-item text-center cursor-pointer">
                 <img src="{{ asset('assets/img/Merchandise/Hat.jpg') }}" alt="Hat" class="w-full h-52 object-cover rounded mb-2">
                 <h4 class="font-semibold">Hat</h4>
                 <p class="text-[#8B5E3B] font-bold">IDR 100K</p>
               </div>
-              <div class="merchandise-item text-center">
+              <div onclick="openModal('Tumbler1', '{{ asset('assets/img/Merchandise/Tumbler1.jpg') }}', 'IDR 150K', 'Deskripsi Ini Tumbler1')" class="merchandise-item text-center cursor-pointer">
                 <img src="{{ asset('assets/img/Merchandise/Tumbler1.jpg') }}" alt="Tumbler 1" class="w-full h-52 object-cover rounded mb-2">
                 <h4 class="font-semibold">Tumbler 1</h4>
                 <p class="text-[#8B5E3B] font-bold">IDR 150K</p>
               </div>
-              <div class="merchandise-item text-center">
+              <div onclick="openModal('Tumbler2', '{{ asset('assets/img/Merchandise/Tumbler2.jpg') }}', 'IDR 100K', 'Deskripsi Ini Tumbler2')" class="merchandise-item text-center cursor-pointer">
                 <img src="{{ asset('assets/img/Merchandise/Tumbler2.jpg') }}" alt="Tumbler 2" class="w-full h-52 object-cover rounded mb-2">
                 <h4 class="font-semibold">Tumbler 2</h4>
                 <p class="text-[#8B5E3B] font-bold">IDR 100K</p>
               </div>
-              <div class="merchandise-item text-center">
-                <img src="{{ asset('assets/img/Merchandise/Mug.jpg') }}" alt="Reusable Cup" class="w-full h-52 object-cover rounded mb-2">
-                <h4 class="font-semibold">Reusable Cup</h4>
+              <div onclick="openModal('Mug', '{{ asset('assets/img/Merchandise/Mug.jpg') }}', 'IDR 100K', 'Deskripsi Ini Mug')" class="merchandise-item text-center cursor-pointer">
+                <img src="{{ asset('assets/img/Merchandise/Mug.jpg') }}" alt="Mug" class="w-full h-52 object-cover rounded mb-2">
+                <h4 class="font-semibold">Mug</h4>
                 <p class="text-[#8B5E3B] font-bold">IDR 100K</p>
               </div>
-              <div class="merchandise-item text-center">
+              <div onclick="openModal('Totebag', '{{ asset('assets/img/Merchandise/Totebag.jpg') }}', 'IDR 80K', 'Deskripsi Ini Totebag')" class="merchandise-item text-center cursor-pointer">
                 <img src="{{ asset('assets/img/Merchandise/Totebag.jpg') }}" alt="Totebag" class="w-full h-52 object-cover rounded mb-2">
                 <h4 class="font-semibold">Totebag</h4>
                 <p class="text-[#8B5E3B] font-bold">IDR 80K</p>
@@ -403,6 +295,7 @@
             <div class="lg:hidden overflow-x-auto">
               <div class="grid grid-cols-1 gap-4 overflow-x-auto justify-center h-auto pb-2">
                 <div class="flex gap-3 w-auto">
+                  <!-- Produk Tshirt (Trigger) -->
                   <div class="flex-shrink-0 w-24 text-center">
                     <img src="{{ asset('assets/img/Merchandise/Tshirt.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
                     <p class="text-xs font-medium mb-0">Tshirt</p>
@@ -438,45 +331,96 @@
       </div>
     </section>
 
-    <section id="roastery" class="roastery relative h-auto transition-all duration-150 ease-in">
-      <div class="container">
-        <div class="row align-items-start">
-          
-          {{-- desktop view --}}
-            <!-- Kolom Kiri: Teks dan Logo -->
-            <div class="col-lg-6 mb-4 hidden lg:flex flex-col justify-between h-full">
+   <!-- Modal Template merchandise -->
+   <div id="productModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="bg-white p-6 rounded-lg max-w-md w-full relative" onclick="event.stopPropagation()">
+      <button onclick="closeModal()" class="absolute top-2 right-2 text-black text-2xl font-bold">&times;</button>
+      <img id="modalImage" src="#" alt="Product Image" class="w-full h-62 object-cover rounded mb-4">
+      <h2 id="modalTitle" class="text-2xl font-bold text-center">Product Title</h2>
+      <p id="modalPrice" class="text-[#8B5E3B] font-bold text-lg text-center">IDR 0K</p>
+      <p id="modalDesc" class="text-black text-xs text-center text-justify">IDR 0K</p>
+      <button class="bg-black text-white py-2 px-4 rounded mt-2 w-full">Add to Cart</button>
+    </div>
+  </div>
 
-              <h1 class="fw-bold mb-2">Roastery</h1>
-              <div class="shop-icons mb-3">
-                <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia"></a>
-                <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a>
-              </div>
-              
-              <div class="mt-58">
-                <h3 class="text-4xl font-bold mb-2">
-                  <span class="fw-bold mb-2">Palintang</span> Honey
-                </h3>
-                <p class="text-justify mt-auto text-xl">
-                  Since its founding in the 80s, Studio Agatho has
-                  been the go-to company for various design
-                  needs. Its offerings range from graphic design
-                  and branding strategy to website development
-                  and video production.
-                </p>
-              </div>
-              
+  <section id="roastery" class="roastery relative h-auto transition-all duration-150 ease-in">
+    <div class="container">
+      <div class="row align-items-start">
+        
+        {{-- desktop view --}}
+          <!-- Kolom Kiri: Teks dan Logo -->
+          <div class="col-lg-6 mb-4 hidden lg:flex flex-col justify-between h-full">
+
+            <h1 class="fw-bold mb-2">Roastery</h1>
+            <div class="shop-icons mb-3">
+              <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia"></a>
+              <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a>
             </div>
+            
+            <div class="mt-58">
+              <h3 class="text-4xl font-bold mb-2">
+                <span class="fw-bold mb-2">Palintang</span> Honey
+              </h3>
+              <p class="text-justify mt-auto text-xl">
+                Since its founding in the 80s, Studio Agatho has
+                been the go-to company for various design
+                needs. Its offerings range from graphic design
+                and branding strategy to website development
+                and video production.
+              </p>
+            </div>
+            
+          </div>
 
-            <!-- Kolom Kanan: Produk -->
-            <div class="col-lg-6 hidden lg:flex flex-col justify-between h-full">
+          <!-- Kolom Kanan: Produk -->
+          <div class="col-lg-6 hidden lg:flex flex-col justify-between h-full">
+            <div class="row g-4">
+
+              <div class="relative w-full max-w-sm mx-auto">
+                <!-- Price & Weight Label -->
+                <div class="absolute top-2 left-10 bg-red-600 text-white text-lg font-bold px-3 py-1.5 rounded-full shadow">
+                  IDR 150K
+                </div>
+                <div class="absolute top-2 right-10 bg-red-600 text-white text-lg font-bold px-3 py-1.5 rounded-full shadow">
+                  200gr
+                </div>
+              
+                <!-- Gambar Produk -->
+                <img src="{{ asset('assets/img/roastery/Palintang-Honey.jpg') }}" alt="Coffee Bag"
+                  class="mx-auto w-4/5 object-cover aspect-square rounded-xl" />
+              
+                <!-- Tombol Navigasi -->
+                <button class="absolute left-20 top-1/2 transform -translate-y-1/2 z-10">
+                  <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+                </button>
+                <button class="absolute right-20 top-1/2 transform -translate-y-1/2 z-10">
+                  <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                </button>
+              </div>
+
+            </div>
+          </div>
+          {{-- kolom end --}}
+          {{-- desktop view end --}}
+
+          {{-- mobile view --}}
+          <!-- Kolom: Judul -->
+          <div class="col-lg-6 mb-4 lg:hidden flex-col justify-between h-full">
+            <h1 class="fw-bold mb-2 text-center">Roastery</h1>
+            
+
+              <!-- Kolom Kanan: Produk -->
+            <div class="col-lg-6">
               <div class="row g-4">
 
-                <div class="relative w-full max-w-sm mx-auto">
+                <div class="relative w-full max-w-sm mx-auto mt-5">
                   <!-- Price & Weight Label -->
-                  <div class="absolute top-2 left-10 bg-red-600 text-white text-lg font-bold px-3 py-1.5 rounded-full shadow">
+                  <div class="absolute top-2 left-10 bg-red-600 text-white text-sm font-bold px-3 py-1.5 rounded-full shadow">
                     IDR 150K
                   </div>
-                  <div class="absolute top-2 right-10 bg-red-600 text-white text-lg font-bold px-3 py-1.5 rounded-full shadow">
+                  <div class="absolute top-2 right-10 bg-red-600 text-white text-sm font-bold px-3 py-1.5 rounded-full shadow">
                     200gr
                   </div>
                 
@@ -485,84 +429,45 @@
                     class="mx-auto w-4/5 object-cover aspect-square rounded-xl" />
                 
                   <!-- Tombol Navigasi -->
-                  <button class="absolute left-20 top-1/2 transform -translate-y-1/2 z-10">
+                  <button class="absolute left-2 top-1/2 transform -translate-y-1/2 z-10">
                     <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
                       viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
                   </button>
-                  <button class="absolute right-20 top-1/2 transform -translate-y-1/2 z-10">
+                  <button class="absolute right-2 top-1/2 transform -translate-y-1/2 z-10">
                     <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
                       viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                   </button>
                 </div>
 
-              </div>
-            </div>
-            {{-- kolom end --}}
-            {{-- desktop view end --}}
-
-            {{-- mobile view --}}
-            <!-- Kolom: Judul -->
-            <div class="col-lg-6 mb-4 lg:hidden flex-col justify-between h-full">
-              <h1 class="fw-bold mb-2 text-center">Roastery</h1>
-              
-
-               <!-- Kolom Kanan: Produk -->
-              <div class="col-lg-6">
-                <div class="row g-4">
-
-                  <div class="relative w-full max-w-sm mx-auto mt-5">
-                    <!-- Price & Weight Label -->
-                    <div class="absolute top-2 left-10 bg-red-600 text-white text-sm font-bold px-3 py-1.5 rounded-full shadow">
-                      IDR 150K
-                    </div>
-                    <div class="absolute top-2 right-10 bg-red-600 text-white text-sm font-bold px-3 py-1.5 rounded-full shadow">
-                      200gr
-                    </div>
-                  
-                    <!-- Gambar Produk -->
-                    <img src="{{ asset('assets/img/roastery/Palintang-Honey.jpg') }}" alt="Coffee Bag"
-                      class="mx-auto w-4/5 object-cover aspect-square rounded-xl" />
-                  
-                    <!-- Tombol Navigasi -->
-                    <button class="absolute left-2 top-1/2 transform -translate-y-1/2 z-10">
-                      <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
-                        viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
-                    </button>
-                    <button class="absolute right-2 top-1/2 transform -translate-y-1/2 z-10">
-                      <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
-                        viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
-                    </button>
-                  </div>
-
-                  <div class="shop-icons mb-3 justify-center">
-                    <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia"></a>
-                    <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a>
-                  </div>
-
+                <div class="shop-icons mb-3 justify-center">
+                  <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia"></a>
+                  <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a>
                 </div>
-              </div>
-              {{-- kolom judul end --}}
-              
-              <!-- Kolom: text -->
-              <div class="mt-2">
-                <h3 class="text-4xl font-bold mb-2">
-                  <span class="fw-bold mb-2">Palintang</span> Honey
-                </h3>
-                <p class="text-justify mt-auto text-xl">
-                  Since its founding in the 80s, Studio Agatho has
-                  been the go-to company for various design
-                  needs. Its offerings range from graphic design
-                  and branding strategy to website development
-                  and video production.
-                </p>
-              </div>
-              {{-- kolom text end --}}
 
+              </div>
             </div>
-            {{-- mobile view end --}}
-        </div>
+            {{-- kolom judul end --}}
+            
+            <!-- Kolom: text -->
+            <div class="mt-2">
+              <h3 class="text-4xl font-bold mb-2">
+                <span class="fw-bold mb-2">Palintang</span> Honey
+              </h3>
+              <p class="text-justify mt-auto text-xl">
+                Since its founding in the 80s, Studio Agatho has
+                been the go-to company for various design
+                needs. Its offerings range from graphic design
+                and branding strategy to website development
+                and video production.
+              </p>
+            </div>
+            {{-- kolom text end --}}
+
+          </div>
+          {{-- mobile view end --}}
       </div>
-    </section>
+    </div>
+  </section>
     
 
     <section id="cerita-kawan" class="cerita relative h-auto transition-all duration-150 ease-in">
