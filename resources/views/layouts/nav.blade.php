@@ -7,17 +7,17 @@
 
       <nav id="navmenu" class="navmenu d-flex justify-content-center w-100">
         <ul >
-          <li><a href="#lini-produk">Lini Produk</a></li>
-          <li><a href="#merchandise">Merchandise</a></li>
-          <li><a href="#roastery">Roastery</a></li>
+          <li><a href="/#lini-produk">Lini Produk</a></li>
+          <li><a href="/#merchandise">Merchandise</a></li>
+          <li><a href="/#roastery">Roastery</a></li>
           
-          <a href="#hero" class="logo d-flex align-items-center me-auto me-xl-0">
+          <a href="/#hero" class="logo d-flex align-items-center me-auto me-xl-0">
             <img src="{{ asset('assets/img/kawan/logo.png') }}" alt="">
           </a>
           
-          <li><a href="#cerita-kawan">Cerita Kawan</a></li>
-          <li><a href="#berita-kawan">Berita Kawan</a></li>
-          <li><a href="#find-us">Find Us</a></li>
+          <li><a href="/#cerita-kawan">Cerita Kawan</a></li>
+          <li><a href="/#berita-kawan">Berita Kawan</a></li>
+          <li><a href="/#find-us">Find Us</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>

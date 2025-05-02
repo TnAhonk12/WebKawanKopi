@@ -1,204 +1,215 @@
 // hero
+document.addEventListener('DOMContentLoaded', function () {
+  const character = document.getElementById("character");
+  const hero = document.getElementById("hero");
 
-const character = document.getElementById("character");
-const hero = document.getElementById("hero");
+  let mouseX = 0;
+  let posX = window.innerWidth / 2;
+  let currentDirection = null;
+  let isHovering = false;
+  let lastMoveTime = Date.now();
+  let currentScrollRatio = 0;
+  let lastScrollTime = Date.now();
 
-let mouseX = 0;
-let posX = window.innerWidth / 2;
-let currentDirection = null;
-let isHovering = false;
-let lastMoveTime = Date.now();
-let currentScrollRatio = 0;
-let lastScrollTime = Date.now();
+  if (hero) {
+    document.addEventListener("mousemove", function (e) {
+      const heroRect = hero.getBoundingClientRect();
+      const inView = heroRect.top < window.innerHeight && heroRect.bottom > 0;
+      if (inView && window.innerWidth >= 768) {
+        mouseX = e.clientX;
+        lastMoveTime = Date.now();
 
-document.addEventListener("mousemove", function (e) {
-  const heroRect = hero.getBoundingClientRect();
-  const inView = heroRect.top < window.innerHeight && heroRect.bottom > 0;
-  if (inView && window.innerWidth >= 768) {
-    mouseX = e.clientX;
-    lastMoveTime = Date.now();
+        const direction = e.clientX > posX ? "right" : "left";
+        if (direction !== currentDirection && !isHovering) {
+          currentDirection = direction;
+          const newSrc = direction === "right"
+            ? "/assets/img/character/charRight.webp"
+            : "/assets/img/character/charLeft.webp";
+          setcharacterImage(newSrc);
+        }
+      }
+    });
+  }
 
-    const direction = e.clientX > posX ? "right" : "left";
-    if (direction !== currentDirection && !isHovering) {
-      currentDirection = direction;
-      const newSrc = direction === "right"
-        ? "/assets/img/character/charRight.webp"
-        : "/assets/img/character/charLeft.webp";
-      setcharacterImage(newSrc);
+  function setcharacterImage(path) {
+    if (!character.src.includes(path)) {
+      character.src = path;
     }
   }
-});
-
-function setcharacterImage(path) {
-  if (!character.src.includes(path)) {
-    character.src = path;
-  }
-}
 
 // MOBILE: Pantau scroll dan ubah arah karakter
-if (window.innerWidth < 768) {
-  hero.addEventListener("scroll", () => {
-    lastScrollTime = Date.now();
+  if (window.innerWidth < 768) {
+    hero.addEventListener("scroll", () => {
+      lastScrollTime = Date.now();
 
-    const scrollX = hero.scrollLeft;
-    const maxScroll = hero.scrollWidth - hero.clientWidth;
-    const scrollRatio = maxScroll > 0 ? scrollX / maxScroll : 0;
-
-    const direction = scrollRatio > currentScrollRatio ? "right" : "left";
-    if (direction !== currentDirection && !isHovering) {
-      currentDirection = direction;
-      const newSrc = direction === "right"
-        ? "/assets/img/character/charRight.webp"
-        : "/assets/img/character/charLeft.webp";
-      setcharacterImage(newSrc);
-    }
-
-    currentScrollRatio = scrollRatio;
-  });
-}
-
-function animate() {
-  const heroRect = hero.getBoundingClientRect();
-  const inView = heroRect.top < window.innerHeight && heroRect.bottom > 0;
-  const now = Date.now();
-
-  if (inView) {
-    if (window.innerWidth >= 768) {
-      // DESKTOP - Mouse movement
-      if (now - lastMoveTime > 500 && !isHovering && !character.src.includes("charIdle.webp")) {
-        setcharacterImage("/assets/img/character/charIdle.webp");
-        currentDirection = null;
-      }
-
-      posX += (mouseX - posX) * 0.1;
-      const clampedX = Math.min(Math.max(posX, 100), 1400);
-      character.style.transform = `translateX(${clampedX}px)`;
-
-    } else {
-      // MOBILE - Scroll movement
       const scrollX = hero.scrollLeft;
       const maxScroll = hero.scrollWidth - hero.clientWidth;
       const scrollRatio = maxScroll > 0 ? scrollX / maxScroll : 0;
 
-      const characterMin = 100;
-      const characterMax = 1400;
-      const charX = characterMin + (characterMax - characterMin) * scrollRatio;
+      const direction = scrollRatio > currentScrollRatio ? "right" : "left";
+      if (direction !== currentDirection && !isHovering) {
+        currentDirection = direction;
+        const newSrc = direction === "right"
+          ? "/assets/img/character/charRight.webp"
+          : "/assets/img/character/charLeft.webp";
+        setcharacterImage(newSrc);
+      }
 
-      character.style.transform = `translateX(${Math.round(charX)}px)`;
+      currentScrollRatio = scrollRatio;
+    });
+  }
+  
+  function animate() {
+      if (hero) {
+      const heroRect = hero.getBoundingClientRect();
+      const inView = heroRect.top < window.innerHeight && heroRect.bottom > 0;
+      const now = Date.now();
 
-      // IDLE setelah tidak scroll selama 500ms
-      if (now - lastScrollTime > 500 && !character.src.includes("charIdle.webp")) {
-        setcharacterImage("/assets/img/character/charIdle.webp");
-        currentDirection = null;
+      if (inView) {
+        if (window.innerWidth >= 768) {
+          // DESKTOP - Mouse movement
+          if (now - lastMoveTime > 500 && !isHovering && !character.src.includes("charIdle.webp")) {
+            setcharacterImage("/assets/img/character/charIdle.webp");
+            currentDirection = null;
+          }
+
+          posX += (mouseX - posX) * 0.1;
+          const clampedX = Math.min(Math.max(posX, 100), 1400);
+          character.style.transform = `translateX(${clampedX}px)`;
+
+        } else {
+          // MOBILE - Scroll movement
+          const scrollX = hero.scrollLeft;
+          const maxScroll = hero.scrollWidth - hero.clientWidth;
+          const scrollRatio = maxScroll > 0 ? scrollX / maxScroll : 0;
+
+          const characterMin = 100;
+          const characterMax = 1400;
+          const charX = characterMin + (characterMax - characterMin) * scrollRatio;
+
+          character.style.transform = `translateX(${Math.round(charX)}px)`;
+
+          // IDLE setelah tidak scroll selama 500ms
+          if (now - lastScrollTime > 500 && !character.src.includes("charIdle.webp")) {
+            setcharacterImage("/assets/img/character/charIdle.webp");
+            currentDirection = null;
+          }
+        }
+
+        character.style.display = "block";
+      } else {
+        character.style.display = "none";
+      }
+
+      requestAnimationFrame(animate);
+    }
+  }
+
+  animate();
+
+  // Navbar background toggle based on scroll position
+  const header = document.querySelector('.header');
+  window.addEventListener('scroll', () => {
+    const heroSection = document.querySelector('#hero');
+    if (heroSection) {
+      const heroTop = heroSection.getBoundingClientRect().top;
+      if (heroTop <= 0) {
+        header.classList.remove('header-hidden');
+      } else {
+        header.classList.add('header-hidden');
       }
     }
+  });
 
-    character.style.display = "block";
-  } else {
-    character.style.display = "none";
-  }
-
-  requestAnimationFrame(animate);
-}
-
-animate();
-
-// Navbar background toggle based on scroll position
-const header = document.querySelector('.header');
-window.addEventListener('scroll', () => {
-  const heroSection = document.querySelector('#hero');
-  const heroTop = heroSection.getBoundingClientRect().top;
-  if (heroTop <= 0) {
-    header.classList.remove('header-hidden');
-  } else {
-    header.classList.add('header-hidden');
-  }
-});
-
-window.addEventListener('scroll', () => {
-  const header = document.querySelector('.header');
-  if (window.scrollY > 10) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('.header');
+    if (window.scrollY > 10) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
 });
 
 // Cerita Kawan
 
 document.addEventListener('DOMContentLoaded', function () {
   const scrollContainer = document.getElementById('ceritaKawanScroll');
+  if(scrollContainer){
 
-  let isDown = false;
-  let startX;
-  let scrollLeft;
+    let isDown = false;
+    let startX;
+    let scrollLeft;
 
-  scrollContainer.addEventListener('mousedown', (e) => {
-    isDown = true;
-    scrollContainer.classList.add('cursor-grabbing');
+    scrollContainer.addEventListener('mousedown', (e) => {
+      isDown = true;
+      scrollContainer.classList.add('cursor-grabbing');
 
-    // Disable pointer events ke child waktu drag
-    scrollContainer.querySelectorAll('*').forEach(child => {
-      child.style.pointerEvents = 'none';
+      // Disable pointer events ke child waktu drag
+      scrollContainer.querySelectorAll('*').forEach(child => {
+        child.style.pointerEvents = 'none';
+      });
+
+      startX = e.pageX - scrollContainer.offsetLeft;
+      scrollLeft = scrollContainer.scrollLeft;
     });
 
-    startX = e.pageX - scrollContainer.offsetLeft;
-    scrollLeft = scrollContainer.scrollLeft;
-  });
+    scrollContainer.addEventListener('mouseleave', () => {
+      isDown = false;
+      scrollContainer.classList.remove('cursor-grabbing');
 
-  scrollContainer.addEventListener('mouseleave', () => {
-    isDown = false;
-    scrollContainer.classList.remove('cursor-grabbing');
-
-    // Balikin pointer events
-    scrollContainer.querySelectorAll('*').forEach(child => {
-      child.style.pointerEvents = '';
+      // Balikin pointer events
+      scrollContainer.querySelectorAll('*').forEach(child => {
+        child.style.pointerEvents = '';
+      });
     });
-  });
 
-  scrollContainer.addEventListener('mouseup', () => {
-    isDown = false;
-    scrollContainer.classList.remove('cursor-grabbing');
+    scrollContainer.addEventListener('mouseup', () => {
+      isDown = false;
+      scrollContainer.classList.remove('cursor-grabbing');
 
-    // Balikin pointer events
-    scrollContainer.querySelectorAll('*').forEach(child => {
-      child.style.pointerEvents = '';
+      // Balikin pointer events
+      scrollContainer.querySelectorAll('*').forEach(child => {
+        child.style.pointerEvents = '';
+      });
     });
-  });
 
-  scrollContainer.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - scrollContainer.offsetLeft;
-    const walk = (x - startX) * 2;
-    scrollContainer.scrollLeft = scrollLeft - walk;
-  });
+    scrollContainer.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - scrollContainer.offsetLeft;
+      const walk = (x - startX) * 2;
+      scrollContainer.scrollLeft = scrollLeft - walk;
+    });
 
-  // Support Mobile
-  scrollContainer.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].pageX - scrollContainer.offsetLeft;
-    scrollLeft = scrollContainer.scrollLeft;
-  });
+    // Support Mobile
+    scrollContainer.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].pageX - scrollContainer.offsetLeft;
+      scrollLeft = scrollContainer.scrollLeft;
+    });
 
-  scrollContainer.addEventListener('touchmove', (e) => {
-    const x = e.touches[0].pageX - scrollContainer.offsetLeft;
-    const walk = (x - startX) * 2;
-    scrollContainer.scrollLeft = scrollLeft - walk;
-  });
+    scrollContainer.addEventListener('touchmove', (e) => {
+      const x = e.touches[0].pageX - scrollContainer.offsetLeft;
+      const walk = (x - startX) * 2;
+      scrollContainer.scrollLeft = scrollLeft - walk;
+    });
+  }
 });
 
   document.addEventListener('DOMContentLoaded', () => {
     const scrollContainer = document.getElementById('ceritaKawanScroll');
-    const scrollHint = document.getElementById('scrollHint');
-
-    let hintHidden = false;
-
-    scrollContainer.addEventListener('scroll', () => {
-      if (!hintHidden && scrollContainer.scrollLeft > 10) {
-        scrollHint.classList.add('opacity-0');
-        hintHidden = true;
-      }
-    });
+    if(scrollContainer){
+      const scrollHint = document.getElementById('scrollHint');
+  
+      let hintHidden = false;
+  
+      scrollContainer.addEventListener('scroll', () => {
+        if (!hintHidden && scrollContainer.scrollLeft > 10) {
+          scrollHint.classList.add('opacity-0');
+          hintHidden = true;
+        }
+      });
+    }
   });
 
 /**
@@ -364,7 +375,7 @@ document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
 });
 
 
-// Merchandise Modal Toggle
+// Merchandise Modal Toggle (Desktop)
 function openModal(title, image, price, desc) {
   const modal = document.getElementById("productModal");
   document.getElementById("modalTitle").innerText = title;
@@ -386,5 +397,224 @@ function closeModal() {
   modal.classList.add("hidden");
 }
 
-  
-  
+// Merchandise Modal Navigation (Mobile)
+const products = [
+  {
+    name: "Totebag",
+    image: "assets/img/Merchandise/Totebag.jpg",
+    price: "IDR 125K"
+  },
+  {
+    name: "Tshirt",
+    image: "assets/img/Merchandise/Tshirt.jpg",
+    price: "IDR 125K"
+  },
+  {
+    name: "Hat",
+    image: "assets/img/Merchandise/Hat.jpg",
+    price: "IDR 100K"
+  },
+  {
+    name: "Tumbler 1",
+    image: "assets/img/Merchandise/Tumbler1.jpg",
+    price: "IDR 150K"
+  },
+  {
+    name: "Tumbler 2",
+    image: "assets/img/Merchandise/Tumbler2.jpg",
+    price: "IDR 100K"
+  },
+  {
+    name: "Reusable Cup",
+    image: "assets/img/Merchandise/Mug.jpg",
+    price: "IDR 100K"
+  }
+];
+
+let currentIndex = 0;
+
+function renderProduct(index) {
+  const product = products[index];
+  if (product) {
+    document.getElementById("productImage").src = product.image;
+    document.getElementById("productName").innerText = product.name;
+    document.getElementById("productPrice").innerText = product.price;
+  }
+
+  renderProductList(index);
+}
+
+function renderProductList(excludeIndex) {
+  const container = document.getElementById("productListContainer");
+  if (!container) return;
+
+  container.innerHTML = ""; // Kosongkan dulu
+
+  products.forEach((product, index) => {
+    if (index === excludeIndex) return; // Lewati produk utama
+
+    const item = document.createElement("div");
+    item.className = "flex-shrink-0 w-24 text-center cursor-pointer";
+    item.innerHTML = `
+      <img src="${product.image}" class="w-full h-24 object-cover rounded mb-1" />
+      <p class="text-xs font-medium mb-0">${product.name}</p>
+      <p class="text-xs text-[#8B5E3B] font-bold">${product.price}</p>
+    `;
+    item.onclick = () => setProduct(index);
+    container.appendChild(item);
+  });
+
+  // Tambahkan tombol "Katalog Selengkapnya"
+  const linkWrap = document.createElement("div");
+  linkWrap.className = "flex justify-center items-center";
+  linkWrap.innerHTML = `
+    <a href="#"
+      class="bg-white text-black font-bold uppercase text-xs px-4 py-2 text-center rounded shadow-md hover:bg-gray-100 transition">
+      Katalog Selengkapnya
+    </a>
+  `;
+  container.appendChild(linkWrap);
+}
+
+
+function nextProduct() {
+  currentIndex = (currentIndex + 1) % products.length;
+  renderProduct(currentIndex);
+}
+
+function prevProduct() {
+  currentIndex = (currentIndex - 1 + products.length) % products.length;
+  renderProduct(currentIndex);
+}
+
+function setProduct(index) {
+  currentIndex = index;
+  renderProduct(currentIndex);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderProduct(currentIndex);
+});
+
+// Roastery
+const roasteryProducts = [
+  {
+    name: "Palintang Honey",
+    image: "assets/img/roastery/Palintang-Honey.jpg",
+    price: "IDR 150K",
+    weight: "200gr",
+    desc: "Since its founding in the 80s, Studio Agatho has been the go-to company for various design needs. Its offerings range from graphic design and branding strategy to website development and video production."
+  },
+  {
+    name: "Bajawa Semi-Washed",
+    image: "assets/img/roastery/Bajawa-Semi-Washed.jpg",
+    price: "IDR 140K",
+    weight: "300gr",
+    desc: "Bajawa brings a balance of brightness and body to your cup, offering a harmonious flavor profile that reflects the rich volcanic soil and cool highland climate of Flores. With every sip, you'll experience delicate acidity balanced with smooth chocolate undertones and a hint of spice — a comforting cup that lingers warmly and invites another pour."
+  },
+  {
+    name: "Kintamani Natural",
+    image: "assets/img/roastery/Kintanami-Natural.jpg",
+    price: "IDR 160K",
+    weight: "450gr",
+    desc: "Kintamani coffee with fruity and floral tones offers a refreshing sensory experience inspired by the lush highlands of Bali. Grown in volcanic soil with a unique climate, each bean carries bright citrus acidity, sweet berry notes, and delicate floral aromas. This natural-processed coffee finishes with a clean, crisp mouthfeel — a perfect companion for those seeking a vibrant and uplifting brew."
+  }
+];
+
+let currentRoasteryIndex = 0;
+
+function renderRoasteryProduct(index) {
+  const productRoastery = roasteryProducts[index];
+  if (productRoastery) {
+    // bagian Desktop
+    document.getElementById("roasteryImageDesktop").src = productRoastery.image;
+    document.getElementById("roasteryNameDesktop").innerHTML = styleRoasteryName(productRoastery.name);
+    document.getElementById("roasteryPriceDesktop").innerText = productRoastery.price;
+    document.getElementById("roasteryWeightDesktop").innerText = productRoastery.weight;
+    document.getElementById("roasteryDescDesktop").innerText = productRoastery.desc;
+    // bagian Mobile
+    document.getElementById("roasteryImageMobile").src = productRoastery.image;
+    document.getElementById("roasteryNameMobile").innerHTML = styleRoasteryName(productRoastery.name);
+    document.getElementById("roasteryPriceMobile").innerText = productRoastery.price;
+    document.getElementById("roasteryWeightMobile").innerText = productRoastery.weight;
+    document.getElementById("roasteryDescMobile").innerText = productRoastery.desc;
+  }
+}
+
+function nextRoasteryProduct() {
+  currentRoasteryIndex = (currentRoasteryIndex + 1) % roasteryProducts.length;
+  renderRoasteryProduct(currentRoasteryIndex);
+}
+
+function prevRoasteryProduct() {
+  currentRoasteryIndex = (currentRoasteryIndex - 1 + roasteryProducts.length) % roasteryProducts.length;
+  renderRoasteryProduct(currentRoasteryIndex);
+}
+
+function styleRoasteryName(name) {
+  const [first, ...rest] = name.split(' ');
+  return `<span class="fw-bold mb-2">${first}</span> ${rest.join(' ')}`;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderRoasteryProduct(currentRoasteryIndex);
+});
+
+// Berita Kawan
+const beritaKawan = [
+  {
+    title: "RAW Club: Penanda Kebangkitan Skena Denim",
+    image: "assets/img/berita-kawan/1.jpg",
+    createdBy: "Tonny Oscar",
+    createdAt: "5th July 2024",
+    desc: " Nio Nguan Lie, better known as Suyanto, started making es campur as a 17-year-old working for a relative in Pontianak. And he never stopped. Half a century later, the mixed ice dessert remains the signature of his streetside stall, Es Campur Ko Acia in Sawah Besar, Central Jakarta. ‘Ko Acia’ is what his customers call him, a nickname he adopted when he opened his stall in 1980. Started as a simple wooden shack in an empty lot, the small shop is now part of a vibrant strip of street food finds on Dwiwarna Raya Street, squeezed between a bakmi shop and an eatery serving rice and homestyle dishes. But one thing remains unchanged: a solitary tree stands guard, offering shade to diners (from school kids to delivery couriers and families around the block) who sit on the wooden benches eagerly digging into their cold bowls of es campur. ."
+  },
+  {
+    title: "Bajawa Semi-Washed",
+    image: "assets/img/berita-kawan/2.jpg",
+    createdBy: "Tn.Ahonk",
+    createdAt: "3th May 2025",
+    desc: "Bajawa brings a balance of brightness and body to your cup, offering a harmonious flavor profile that reflects the rich volcanic soil and cool highland climate of Flores. With every sip, you'll experience delicate acidity balanced with smooth chocolate undertones and a hint of spice — a comforting cup that lingers warmly and invites another pour."
+  },
+  {
+    title: "Kintamani Natural",
+    image: "assets/img/berita-kawan/3.jpg",
+    createdBy: "Acong turner",
+    createdAt: "1 April 2025",
+    desc: "Kintamani coffee with fruity and floral tones offers a refreshing sensory experience inspired by the lush highlands of Bali. Grown in volcanic soil with a unique climate, each bean carries bright citrus acidity, sweet berry notes, and delicate floral aromas. This natural-processed coffee finishes with a clean, crisp mouthfeel — a perfect companion for those seeking a vibrant and uplifting brew."
+  }
+];
+
+let currentBeritaIndex = 0;
+
+function renderBerita(index) {
+  const berita = beritaKawan[index];
+  if (berita) {
+    // bagian Desktop
+    document.getElementById("beritaImageDesktop").src = berita.image;
+    document.getElementById("beritaTitleDesktop").innerText = berita.title;
+    document.getElementById("beritaCreatedByDesktop").innerText = berita.createdBy;
+    document.getElementById("beritaCreatedAtDesktop").innerText = berita.createdAt;
+    document.getElementById("beritaDescDesktop").innerText = berita.desc;
+    // bagian Mobile
+    document.getElementById("beritaImageMobile").src = berita.image;
+    document.getElementById("beritaTitleMobile").innerText = berita.title;
+    document.getElementById("beritaCreatedByMobile").innerText = berita.createdBy;
+    document.getElementById("beritaCreatedAtMobile").innerText = berita.createdAt;
+    document.getElementById("beritaDescMobile").innerText = berita.desc;
+  }
+}
+
+function nextBerita() {
+  currentBeritaIndex = (currentBeritaIndex + 1) % beritaKawan.length;
+  renderBerita(currentBeritaIndex);
+}
+
+function prevBerita() {
+  currentBeritaIndex = (currentBeritaIndex - 1 + beritaKawan.length) % beritaKawan.length;
+  renderBerita(currentBeritaIndex);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderBerita(currentBeritaIndex);
+});

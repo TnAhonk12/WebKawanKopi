@@ -27,7 +27,7 @@
             <p>Connect with us:</p>
             <div class="social-links">
                 <a href="#"><i class="bi bi-twitter-x"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.instagram.com/kawankopi.co/"><i class="bi bi-instagram"></i></a>
                 <a href="#"><i class="bi bi-youtube"></i></a>
                 <a href="#"><i class="bi bi-facebook"></i></a>
             </div>

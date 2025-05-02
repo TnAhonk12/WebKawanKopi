@@ -265,22 +265,29 @@
                   
                     <div>
                       <!-- Gambar Produk -->
-                      <img src="{{ asset('assets/img/Merchandise/Totebag.jpg') }}" alt="Coffee Bag"
+                      <img id="productImage" src="" alt="Product"
                         class="mx-auto w-4/5 object-cover aspect-square rounded-xl" />
-                        <div class="text-center mt-2">
-                          <h2 class="text-xl font-bold mb-0">Totebag</h2>
-                          <p class="text-lg font-bold text-[#8B5E3B]">IDR 125K</p>
+            
+                      <div class="text-center mt-2">
+                        <h2 id="productName" class="text-xl font-bold mb-0"></h2>
+                        <p id="productPrice" class="text-lg font-bold text-[#8B5E3B]"></p>
+                        <a href="#">
                           <button class="bg-black text-white text-sm font-medium px-5 py-2 rounded-full mb-6">Add to cart</button>
-                        </div>
-                    
+                        </a>
+                      </div>
+            
                       <!-- Tombol Navigasi -->
-                      <button class="absolute left-2 top-1/3 transform -translate-y-1/2 z-10">
-                        <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
-                          viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+                      <button onclick="prevProduct()" class="absolute left-2 top-1/3 transform -translate-y-1/2 z-10">
+                        <svg class="w-10 h-10 text-black rounded-full" fill="none" stroke="currentColor" stroke-width="2"
+                          viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                        </svg>
                       </button>
-                      <button class="absolute right-2 top-1/3 transform -translate-y-1/2 z-10">
-                        <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
-                          viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                      <button onclick="nextProduct()" class="absolute right-2 top-1/3 transform -translate-y-1/2 z-10">
+                        <svg class="w-10 h-10 text-black rounded-full" fill="none" stroke="currentColor" stroke-width="2"
+                          viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
                       </button>
                     </div>
                     
@@ -294,33 +301,45 @@
             <!-- Kolom Bawah: Produk -->
             <div class="lg:hidden overflow-x-auto">
               <div class="grid grid-cols-1 gap-4 overflow-x-auto justify-center h-auto pb-2">
-                <div class="flex gap-3 w-auto">
+                <div id="productListContainer" class="flex gap-3 w-auto">
                   <!-- Produk Tshirt (Trigger) -->
-                  <div class="flex-shrink-0 w-24 text-center">
+                  {{-- <div class="flex-shrink-0 w-24 text-center cursor-pointer" onclick="setProduct(0)">
+                    <img src="{{ asset('assets/img/Merchandise/Totebag.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
+                    <p class="text-xs font-medium mb-0">Totebag</p>
+                    <p class="text-xs text-[#8B5E3B] font-bold">IDR 125K</p>
+                  </div>
+                  <div class="flex-shrink-0 w-24 text-center cursor-pointer" onclick="setProduct(1)">
                     <img src="{{ asset('assets/img/Merchandise/Tshirt.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
                     <p class="text-xs font-medium mb-0">Tshirt</p>
                     <p class="text-xs text-[#8B5E3B] font-bold">IDR 125K</p>
                   </div>
-                  <div class="flex-shrink-0 w-24 text-center">
+                  <div class="flex-shrink-0 w-24 text-center cursor-pointer" onclick="setProduct(2)">
                     <img src="{{ asset('assets/img/Merchandise/Hat.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
                     <p class="text-xs font-medium mb-0">Hat</p>
                     <p class="text-xs text-[#8B5E3B] font-bold">IDR 100K</p>
                   </div>
-                  <div class="flex-shrink-0 w-24 text-center">
+                  <div class="flex-shrink-0 w-24 text-center cursor-pointer" onclick="setProduct(3)">
                     <img src="{{ asset('assets/img/Merchandise/Tumbler1.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
                     <p class="text-xs font-medium mb-0">Tumbler 1</p>
                     <p class="text-xs text-[#8B5E3B] font-bold">IDR 150K</p>
                   </div>
-                  <div class="flex-shrink-0 w-24 text-center">
+                  <div class="flex-shrink-0 w-24 text-center cursor-pointer" onclick="setProduct(4)">
                     <img src="{{ asset('assets/img/Merchandise/Tumbler2.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
                     <p class="text-xs font-medium mb-0">Tumbler 2</p>
                     <p class="text-xs text-[#8B5E3B] font-bold">IDR 100K</p>
                   </div>
-                  <div class="flex-shrink-0 w-24 text-center">
+                  <div class="flex-shrink-0 w-24 text-center cursor-pointer" onclick="setProduct(5)">
                     <img src="{{ asset('assets/img/Merchandise/Mug.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
                     <p class="text-xs font-medium mb-0">Reusable Cup</p>
                     <p class="text-xs text-[#8B5E3B] font-bold">IDR 100K</p>
-                  </div>
+                  </div> --}}
+                   <!-- Tombol Katalog Selengkapnya -->
+                  {{-- <div class="flex justify-center items-center col-span-3">
+                    <a href="#"
+                      class="bg-white text-black font-bold uppercase text-xs px-4 py-2 text-center rounded shadow-md hover:bg-gray-100 transition">
+                      Katalog Selengkapnya
+                    </a>
+                  </div> --}}
                 </div>
                 <!-- tambah lagi kalau ada kategori baru -->
               </div>
@@ -358,15 +377,15 @@
             </div>
             
             <div class="mt-58">
-              <h3 class="text-4xl font-bold mb-2">
-                <span class="fw-bold mb-2">Palintang</span> Honey
+              <h3 id="roasteryNameDesktop" class="text-4xl font-bold mb-2">
+                {{-- <span class="fw-bold mb-2">Palintang</span> Honey --}}
               </h3>
-              <p class="text-justify mt-auto text-xl">
-                Since its founding in the 80s, Studio Agatho has
+              <p id="roasteryDescDesktop" class="text-justify mt-auto text-xl">
+                {{-- Since its founding in the 80s, Studio Agatho has
                 been the go-to company for various design
                 needs. Its offerings range from graphic design
                 and branding strategy to website development
-                and video production.
+                and video production. --}}
               </p>
             </div>
             
@@ -379,22 +398,24 @@
               <div class="relative w-full max-w-sm mx-auto">
                 <!-- Price & Weight Label -->
                 <div class="absolute top-2 left-10 bg-red-600 text-white text-lg font-bold px-3 py-1.5 rounded-full shadow">
-                  IDR 150K
+                  {{-- IDR 150K --}}
+                  <span id="roasteryPriceDesktop"></span>
                 </div>
                 <div class="absolute top-2 right-10 bg-red-600 text-white text-lg font-bold px-3 py-1.5 rounded-full shadow">
-                  200gr
+                  {{-- 200gr --}}
+                  <span id="roasteryWeightDesktop"></span>
                 </div>
               
                 <!-- Gambar Produk -->
-                <img src="{{ asset('assets/img/roastery/Palintang-Honey.jpg') }}" alt="Coffee Bag"
+                <img id="roasteryImageDesktop" alt="Coffee Bag"
                   class="mx-auto w-4/5 object-cover aspect-square rounded-xl" />
               
                 <!-- Tombol Navigasi -->
-                <button class="absolute left-20 top-1/2 transform -translate-y-1/2 z-10">
+                <button onclick="prevRoasteryProduct()" class="absolute left-20 top-1/2 transform -translate-y-1/2 z-10">
                   <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
                 </button>
-                <button class="absolute right-20 top-1/2 transform -translate-y-1/2 z-10">
+                <button onclick="nextRoasteryProduct()" class="absolute right-20 top-1/2 transform -translate-y-1/2 z-10">
                   <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 </button>
@@ -418,22 +439,24 @@
                 <div class="relative w-full max-w-sm mx-auto mt-5">
                   <!-- Price & Weight Label -->
                   <div class="absolute top-2 left-10 bg-red-600 text-white text-sm font-bold px-3 py-1.5 rounded-full shadow">
-                    IDR 150K
+                    {{-- IDR 150K --}}
+                    <span id="roasteryPriceMobile"></span>
                   </div>
                   <div class="absolute top-2 right-10 bg-red-600 text-white text-sm font-bold px-3 py-1.5 rounded-full shadow">
-                    200gr
+                    {{-- 200gr --}}
+                    <span id="roasteryWeightMobile"></span>
                   </div>
                 
                   <!-- Gambar Produk -->
-                  <img src="{{ asset('assets/img/roastery/Palintang-Honey.jpg') }}" alt="Coffee Bag"
+                  <img id="roasteryImageMobile" alt="Coffee Bag"
                     class="mx-auto w-4/5 object-cover aspect-square rounded-xl" />
                 
                   <!-- Tombol Navigasi -->
-                  <button class="absolute left-2 top-1/2 transform -translate-y-1/2 z-10">
+                  <button onclick="prevRoasteryProduct()" class="absolute left-2 top-1/2 transform -translate-y-1/2 z-10">
                     <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
                       viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
                   </button>
-                  <button class="absolute right-2 top-1/2 transform -translate-y-1/2 z-10">
+                  <button onclick="nextRoasteryProduct()"  class="absolute right-2 top-1/2 transform -translate-y-1/2 z-10">
                     <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
                       viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                   </button>
@@ -450,15 +473,15 @@
             
             <!-- Kolom: text -->
             <div class="mt-2">
-              <h3 class="text-4xl font-bold mb-2">
-                <span class="fw-bold mb-2">Palintang</span> Honey
+              <h3 id="roasteryNameMobile" class="text-4xl font-bold mb-2">
+                {{-- <span class="fw-bold mb-2">Palintang</span> Honey --}}
               </h3>
-              <p class="text-justify mt-auto text-xl">
-                Since its founding in the 80s, Studio Agatho has
+              <p id="roasteryDescMobile" class="text-justify mt-auto text-xl">
+                {{-- Since its founding in the 80s, Studio Agatho has
                 been the go-to company for various design
                 needs. Its offerings range from graphic design
                 and branding strategy to website development
-                and video production.
+                and video production. --}}
               </p>
             </div>
             {{-- kolom text end --}}
@@ -569,17 +592,20 @@
 
               <h1 class="fw-bold mb-4">Berita Kawan</h1>
               <div class="relative">
-                <img src="{{ asset('assets/img/berita-kawan/1.jpg') }}" alt="Berita Kawan" class="rounded-lg w-full object-cover">
+                <img 
+                {{-- src="{{ asset('assets/img/berita-kawan/1.jpg') }}"  --}}
+                  id="beritaImageDesktop"
+                  alt="Berita Kawan" class="rounded-lg w-full object-cover">
         
                 <!-- Tombol Navigasi -->
                 <div class="absolute bottom-50 left-1/2 transform -translate-x-1/2 flex gap-135">
-                  <button class="bg-white p-2 rounded-full shadow-md">
+                  <button onclick="prevBerita()" class="bg-white p-2 rounded-full shadow-md">
                     <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-width="2"
                       viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                     </svg>
                   </button>
-                  <button class="bg-white p-2 rounded-full shadow-md">
+                  <button onclick="nextBerita()" class="bg-white p-2 rounded-full shadow-md">
                     <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-width="2"
                       viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
@@ -595,21 +621,29 @@
               <div class="row g-4">
 
                 <div class="berita-text">
-                  <h3 class="mb-2">RAW Club: Penanda Kebangkitan Skena Denim</h3>
+                  <h3 id="beritaTitleDesktop" class="mb-2">
+                    {{-- RAW Club: Penanda Kebangkitan Skena Denim --}}
+                  </h3>
                   
-                  <p class="text-sm italic text-gray-500 mb-6">by Tonny Oscar<br>5th July 2024</p>
-                  <p class="text-justify leading-relaxed mb-4">
-                    Nio Nguan Lie, better known as Suyanto, started making es campur as a 17-year-old working for a relative in Pontianak.
-                    And he never stopped. Half a century later, the mixed ice dessert remains the signature of his streetside stall,
-                    Es Campur Ko Acia in Sawah Besar, Central Jakarta.
+                  <p class="text-sm italic text-gray-500 mb-6">
+                    {{-- by Tonny Oscar --}}
+                    <span id="beritaCreatedByDesktop"></span>
+                    <br>
+                    {{-- 5th July 2024 --}}
+                    <span id="beritaCreatedAtDesktop"></span>
                   </p>
-                  <p class="text-justify leading-relaxed">
+                  <p id="beritaDescDesktop" class="text-justify leading-relaxed mb-4">
+                    {{-- Nio Nguan Lie, better known as Suyanto, started making es campur as a 17-year-old working for a relative in Pontianak.
+                    And he never stopped. Half a century later, the mixed ice dessert remains the signature of his streetside stall,
+                    Es Campur Ko Acia in Sawah Besar, Central Jakarta. --}}
+                  </p>
+                  {{-- <p class="text-justify leading-relaxed">
                     ‘Ko Acia’ is what his customers call him, a nickname he adopted when he opened his stall in 1980.
                     Started as a simple wooden shack in an empty lot, the small shop is now part of a vibrant strip of street food finds
                     on Dwiwarna Raya Street, squeezed between a bakmi shop and an eatery serving rice and homestyle dishes.
                     But one thing remains unchanged: a solitary tree stands guard, offering shade to diners (from school kids to delivery couriers
                     and families around the block) who sit on the wooden benches eagerly digging into their cold bowls of es campur.
-                  </p>
+                  </p> --}}
                 </div>
 
               </div>
@@ -622,10 +656,17 @@
               <div class="berita-text-mobile">
                 <h1>Berita Kawan</h1>
 
-                <h3 class="mt-2 text-center">RAW Club: Penanda <br>
-                  Kebangkitan Skena Denim</h3>
-                  <p class="text-gray-500"> by Tonny Oscar <br>
-                    5th July 2024</p>
+                <h3 id="beritaTitleMobile" class="mt-2 text-center">
+                  {{-- RAW Club: Penanda <br>
+                  Kebangkitan Skena Denim --}}
+                </h3>
+                  <p class="text-gray-500">
+                    {{-- by Tonny Oscar  --}}
+                    <span id="beritaCreatedByMobile"></span>
+                    <br>
+                    <span id="beritaCreatedAtMobile"></span>
+                    {{-- 5th July 2024 --}}
+                  </p>
               </div>
 
                <!-- Kolom Kanan: Produk -->
@@ -634,8 +675,10 @@
 
                   <div class="relative w-full max-w-sm mx-auto mt-5">
                     <!-- Gambar Produk -->
-                    <img src="{{ asset('assets/img/berita-kawan/1.jpg') }}" alt="berita1"
-                      class="mx-auto w-auto object-cover" />
+                    <img 
+                        id="beritaImageMobile"
+                         {{-- src="{{ asset('assets/img/berita-kawan/1.jpg') }}" --}}
+                         alt="berita1" class="mx-auto w-auto object-cover" />
                   </div>
 
                 </div>
@@ -644,12 +687,12 @@
               
               <!-- Kolom: text -->
               <div class="mt-10">
-                <p class="text-justify mt-auto text-xm">
-                  Since its founding in the 80s, Studio Agatho has
+                <p id="beritaDescMobile" class="text-justify mt-auto text-xm">
+                  {{-- Since its founding in the 80s, Studio Agatho has
                   been the go-to company for various design
                   needs. Its offerings range from graphic design
                   and branding strategy to website development
-                  and video production.
+                  and video production. --}}
                 </p>
               </div>
               {{-- kolom text end --}}
@@ -694,6 +737,12 @@
                   <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 </button>
+                <div class="flex justify-center items-center col-span-3 mt-4">
+                  <a href="/find-us"
+                    class="bg-white text-black font-bold  text-xm px-6 py-3 rounded shadow-md hover:bg-gray transition">
+                      Lihat Semua Toko
+                  </a>
+                </div>
               </div>
               
             </div>
