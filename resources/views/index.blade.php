@@ -644,6 +644,17 @@
                     But one thing remains unchanged: a solitary tree stands guard, offering shade to diners (from school kids to delivery couriers
                     and families around the block) who sit on the wooden benches eagerly digging into their cold bowls of es campur.
                   </p> --}}
+                  <!-- Tombol Read More -->
+                  <div class="mt-6 flex left">
+                    <a href="#" class="flex border border-white text-white bg-black">
+                      <span class="px-4 py-2 font-medium">Read More</span>
+                      <span class="px-2 py-2 border-l border-white flex items-center">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </span>
+                    </a>
+                  </div>
                 </div>
 
               </div>
@@ -672,13 +683,25 @@
                <!-- Kolom Kanan: Produk -->
               <div class="col-lg-6">
                 <div class="row g-4">
-
+                  <!-- Tombol Navigasi -->
                   <div class="relative w-full max-w-sm mx-auto mt-5">
+                    <button onclick="prevBerita()" class="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md">
+                      <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                      </svg>
+                    </button>
+                    <button onclick="nextBerita()" class="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md">
+                      <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                    
                     <!-- Gambar Produk -->
                     <img 
                         id="beritaImageMobile"
-                         {{-- src="{{ asset('assets/img/berita-kawan/1.jpg') }}" --}}
-                         alt="berita1" class="mx-auto w-auto object-cover" />
+                        {{-- src="{{ asset('assets/img/berita-kawan/1.jpg') }}" --}}
+                        alt="berita1" 
+                        class="mx-auto w-auto object-cover" />
                   </div>
 
                 </div>
@@ -726,14 +749,19 @@
 
               <h1 class="fw-bold mb-4">Find Us</h1>
               <div class="relative">
-                <img src="{{ asset('assets/img/Find-Us/2.jpg') }}" alt="Find Us" class="mx-auto w-4/5 object-cover aspect-square rounded-xl">
+                <img 
+                      {{-- src="{{ asset('assets/img/Find-Us/2.jpg') }}"  --}}
+                      id="findImageDesktop"
+                      alt="Find Us" 
+                      class="mx-auto w-4/5 object-cover aspect-square rounded-xl"
+                >
         
                 <!-- Tombol Navigasi -->
-                <button class="absolute left-2 top-1/2 transform -translate-y-1/2 z-10">
+                <button onclick="prevFind()" class="absolute left-2 top-1/2 transform -translate-y-1/2 z-10">
                   <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
                 </button>
-                <button class="absolute right-2 top-1/2 transform -translate-y-1/2 z-10">
+                <button onclick="nextFind()" class="absolute right-2 top-1/2 transform -translate-y-1/2 z-10">
                   <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 </button>
@@ -752,9 +780,15 @@
               <div class="row g-4">
 
                 <div class="find-us-text">
-                  <h3 class="mb-2">Kawan Kopi, Cimandiri</h3>
+                  <h3 id="findNameDesktop" class="mb-2">
+                    {{-- Kawan Kopi, Cimandiri --}}
+                  </h3>
                   
-                  <p class="text-lx"> Jl. Hayam Wuruk No.30, Citarum,<br>Bandung Wetan, Kota Bandung.</p>
+                  <p id="findAddressDesktop" class="text-lx"> 
+                    {{-- Jl. Hayam Wuruk No.30, Citarum,
+                    <br>
+                    Bandung Wetan, Kota Bandung. --}}
+                  </p>
                   <div class="find-us-shop-icons mb-3">
                     <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Gofood.png')}}" alt="Gofood"></a>
                     <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopeefood.png')}}" alt="Shopeefood"></a>
@@ -763,11 +797,11 @@
                 </div>
 
               </div>
-              <div class="mt-10">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.88934725622!2d107.61735417456278!3d-6.903833993095498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e722a0e4a367%3A0xb315eb893bd7cbe5!2sKawan%20Kopi%2C%20Cimandiri!5e0!3m2!1sid!2sid!4v1745777048751!5m2!1sid!2sid" 
+              <div id="findMapsDesktop" class="mt-10">
+                {{-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.88934725622!2d107.61735417456278!3d-6.903833993095498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e722a0e4a367%3A0xb315eb893bd7cbe5!2sKawan%20Kopi%2C%20Cimandiri!5e0!3m2!1sid!2sid!4v1745777048751!5m2!1sid!2sid" 
                   width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" 
                   referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+                </iframe> --}}
               </div>
             </div>
             {{-- kolom end --}}
@@ -783,12 +817,12 @@
               <div class="grid grid-cols-2 gap-4 px-8 py-8">
 
                 <!-- Lokasi 1 -->
-                <div class="text-center">
+                {{-- <div class="text-center">
                   <a href="#">
                     <img src="{{ asset('assets/img/Find-Us/1.jpg') }}" alt="Kawan Kopi, Dipatiukur" class="w-full h-auto object-cover rounded mb-2">
                     <p class="text-sm font-medium text-black">Kawan Kopi, Dipatiukur</p>
                   </a>
-                </div>
+                </div> --}}
 
                 <!-- Lokasi 2 -->
                 <div class="text-center">

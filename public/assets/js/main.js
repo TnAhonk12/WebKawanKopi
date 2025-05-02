@@ -570,19 +570,19 @@ const beritaKawan = [
     desc: " Nio Nguan Lie, better known as Suyanto, started making es campur as a 17-year-old working for a relative in Pontianak. And he never stopped. Half a century later, the mixed ice dessert remains the signature of his streetside stall, Es Campur Ko Acia in Sawah Besar, Central Jakarta. ‘Ko Acia’ is what his customers call him, a nickname he adopted when he opened his stall in 1980. Started as a simple wooden shack in an empty lot, the small shop is now part of a vibrant strip of street food finds on Dwiwarna Raya Street, squeezed between a bakmi shop and an eatery serving rice and homestyle dishes. But one thing remains unchanged: a solitary tree stands guard, offering shade to diners (from school kids to delivery couriers and families around the block) who sit on the wooden benches eagerly digging into their cold bowls of es campur. ."
   },
   {
-    title: "Bajawa Semi-Washed",
+    title: "Bajawa Semi-Washed: Perjalanan Rasa dari Flores ke Cangkir Anda",
     image: "assets/img/berita-kawan/2.jpg",
-    createdBy: "Tn.Ahonk",
-    createdAt: "3th May 2025",
-    desc: "Bajawa brings a balance of brightness and body to your cup, offering a harmonious flavor profile that reflects the rich volcanic soil and cool highland climate of Flores. With every sip, you'll experience delicate acidity balanced with smooth chocolate undertones and a hint of spice — a comforting cup that lingers warmly and invites another pour."
+    createdBy: "TnAhonk",
+    createdAt: "5th July 2024",
+    desc: "Flores tidak hanya dikenal karena alamnya yang indah, tetapi juga karena kopinya yang khas. Bajawa Semi-Washed hadir membawa cerita dari dataran tinggi yang kaya akan sejarah dan budaya kopi. Diproses dengan teknik semi-washed, kopi ini menawarkan keseimbangan antara rasa cerah dan tubuh yang kuat. Dari kebun ke cangkir, perjalanan kopi ini adalah bukti kerja keras petani lokal dan keunikan tanah Flores. Kini, Anda bisa menikmati setiap tegukan dengan pemahaman bahwa ada cerita panjang di balik rasanya."
   },
   {
-    title: "Kintamani Natural",
+    title: "Kintamani Natural: Aroma Tropis dari Lereng Bali",
     image: "assets/img/berita-kawan/3.jpg",
-    createdBy: "Acong turner",
-    createdAt: "1 April 2025",
-    desc: "Kintamani coffee with fruity and floral tones offers a refreshing sensory experience inspired by the lush highlands of Bali. Grown in volcanic soil with a unique climate, each bean carries bright citrus acidity, sweet berry notes, and delicate floral aromas. This natural-processed coffee finishes with a clean, crisp mouthfeel — a perfect companion for those seeking a vibrant and uplifting brew."
-  }
+    createdBy: "AcongTurner",
+    createdAt: "5th July 2024",
+    desc: "Berlokasi di kawasan pegunungan Bali, Kintamani Natural menjadi salah satu varian kopi yang paling diburu oleh pecinta rasa eksotis. Dengan proses natural, kopi ini mempertahankan aroma buah dan bunga yang kuat, khas dari kebun-kebun kopi di lereng Kintamani. Di balik rasa yang menyegarkan, kopi ini menyimpan cerita petani lokal yang terus menjaga tradisi dan kualitas. Lebih dari sekadar minuman, Kintamani Natural adalah bagian dari narasi budaya kopi Indonesia yang tak lekang oleh waktu."
+  },
 ];
 
 let currentBeritaIndex = 0;
@@ -617,4 +617,59 @@ function prevBerita() {
 
 document.addEventListener("DOMContentLoaded", () => {
   renderBerita(currentBeritaIndex);
+});
+
+//find us
+const findUs = [
+  {
+    name: "Kawan Kopi, Cimandiri",
+    image: "assets/img/Find-Us/2.jpg",
+    address: "Jl. Hayam Wuruk No.30, Citarum,\nBandung Wetan, Kota Bandung.",
+    maps: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.88934725622!2d107.61735417456278!3d-6.903833993095498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e722a0e4a367%3A0xb315eb893bd7cbe5!2sKawan%20Kopi%2C%20Cimandiri!5e0!3m2!1sid!2sid!4v1745777048751!5m2!1sid!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+  },
+  {
+    name: "Kawan Kopi, Talaga Bodas",
+    image: "assets/img/Find-Us/3.jpg",
+    address: "Jl. Talaga Bodas No.16, Malabar,\nKec. Lengkong, Kota Bandung.",
+    maps: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.6850306275214!2d107.61808357456303!3d-6.928200593071582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e98b8524c319%3A0x344d4fb45fbb3afa!2sKawan%20Kopi%2C%20Talaga%20Bodas!5e0!3m2!1sid!2sid!4v1746228258492!5m2!1sid!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+  },
+  {
+    name: "Kawan Kopi, Ciumbuleuit",
+    image: "assets/img/Find-Us/4.jpg",
+    address: "Jl. Ciumbuleuit No.177, Ciumbuleuit,\nKec. Cidadap, Kota Bandung.",
+    maps: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.163935805223!2d107.60283157456257!3d-6.8709513931277275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e73428259db3%3A0x168e6b650f761523!2sKawan%20Kopi%2C%20Ciumbuleuit!5e0!3m2!1sid!2sid!4v1746228281839!5m2!1sid!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+  }
+];
+
+
+let currentFindIndex = 0;
+
+function renderFind(index) {
+  const find = findUs[index];
+  if (find) {
+    // bagian Desktop
+    document.getElementById("findImageDesktop").src = find.image;
+    document.getElementById("findNameDesktop").innerText = find.name;
+    document.getElementById("findAddressDesktop").innerHTML = find.address.replace(/\n/g, "<br>");
+    document.getElementById("findMapsDesktop").innerHTML = find.maps;
+    // bagian Mobile
+    document.getElementById("findImageMobile").src = find.image;
+    document.getElementById("findNameMobile").innerText = find.name;
+    document.getElementById("findAddressMobile").innerHTML = find.address.replace(/\n/g, "<br>");
+    document.getElementById("findMapsMobile").innerHTML = find.maps;
+  }
+}
+
+function nextFind() {
+  currentFindIndex = (currentFindIndex + 1) % findUs.length;
+  renderFind(currentFindIndex);
+}
+
+function prevFind() {
+  currentFindIndex = (currentFindIndex - 1 + findUs.length) % findUs.length;
+  renderFind(currentFindIndex);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderFind(currentFindIndex);
 });
