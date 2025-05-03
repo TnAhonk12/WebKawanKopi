@@ -374,6 +374,17 @@ document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
 
 });
 
+// Promo Banner
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.getElementById("promoSlider");
+  const totalSlides = slider.children.length;
+  let currentIndex = 0;
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    slider.style.transform = `translateX(-${100 * currentIndex}%)`;
+  }, 5000); // ganti slide tiap 5 detik
+});
 
 // Merchandise Modal Toggle (Desktop)
 function openModal(title, image, price, desc) {
@@ -653,10 +664,10 @@ function renderFind(index) {
     document.getElementById("findAddressDesktop").innerHTML = find.address.replace(/\n/g, "<br>");
     document.getElementById("findMapsDesktop").innerHTML = find.maps;
     // bagian Mobile
-    document.getElementById("findImageMobile").src = find.image;
-    document.getElementById("findNameMobile").innerText = find.name;
-    document.getElementById("findAddressMobile").innerHTML = find.address.replace(/\n/g, "<br>");
-    document.getElementById("findMapsMobile").innerHTML = find.maps;
+    // document.getElementById("findImageMobile").src = find.image;
+    // document.getElementById("findNameMobile").innerText = find.name;
+    // document.getElementById("findAddressMobile").innerHTML = find.address.replace(/\n/g, "<br>");
+    // document.getElementById("findMapsMobile").innerHTML = find.maps;
   }
 }
 

@@ -11,139 +11,59 @@
 
   <!-- hero Section end -->
 
-    <section id="lini-produk" class="lini-produk section h-auto transition-all duration-150 ease-in">
-      <div class="container">
-        <div class="row align-items-start">
+  <!-- Promo Banner Section -->
+  <section id="promo-banner" class="relative w-full overflow-hidden bg-white h-[200px] md:h-[250px] lg:h-[300px]">
+    <div id="promoSlider" class="flex transition-transform duration-1000 ease-in-out h-full">
+      <img src="{{ asset('assets/img/Promo/1.png') }}" class="w-full h-full object-cover flex-shrink-0" alt="Promo 1">
+      <img src="{{ asset('assets/img/Promo/2.png') }}" class="w-full h-full object-cover flex-shrink-0" alt="Promo 2">
+      <img src="{{ asset('assets/img/Promo/3.png') }}" class="w-full h-full object-cover flex-shrink-0" alt="Promo 3">
+    </div>
+  </section>
+  <!-- Promo Banner Section end -->
+
+  <!-- Lini Produk Section -->
+  <section id="lini-produk" class="lini-produk section h-auto transition-all duration-150 ease-in">
+    <div class="container">
+      <div class="row align-items-start">
+        
+        {{-- desktop view --}}
+          <!-- Kolom Kiri: Harga dan Makanan -->
+          <div class="col-lg-6 mb-4 hidden lg:flex flex-col justify-between h-full">
+            <h1 class="fw-bold mb-3">Lini Produk</h1>
           
-          {{-- desktop view --}}
-            <!-- Kolom Kiri: Harga dan Makanan -->
-            <div class="col-lg-6 mb-4 hidden lg:flex flex-col justify-between h-full">
-              <h1 class="fw-bold mb-3">Lini Produk</h1>
-            
-              <div class="relative w-7/10 aspect-square mt-[2rem] mx-auto">
-                <!-- Gambar Produk -->
-                <img src="{{ asset('assets/img/Menu/Kopi-Susu-Kawan/KSK-Baru.jpg') }}" alt="KSK-Baru"
-                  class="w-auto h-auto object-cover rounded-xl" />
-            
-                <!-- Tombol Navigasi -->
-                <div class="absolute inset-1 flex justify-between items-center px-1">
-                  <!-- Tombol Kiri -->
-                  <button class="absolute left-2 top-auto transform -translate-y-1/2 z-10">
-                    <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
-                      viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
-                  </button>
-                  <button class="absolute right-2 top-auto transform -translate-y-1/2 z-10">
-                    <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
-                      viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
-                  </button>
-                </div>
-                <!-- Nama Produk dan Harga DI LUAR GAMBAR -->
-                <div class="mt-4 text-center">
-                  <p class="text-xl font-bold mb-0 text-[#8B5E3B]">KSK Baru</p>
-                  <p class="text-lg font-semibold">Rp 10.000</p>
-                </div>
+            <div class="relative w-7/10 aspect-square mt-[2rem] mx-auto">
+              <!-- Gambar Produk -->
+              <img src="{{ asset('assets/img/Menu/Kopi-Susu-Kawan/KSK-Baru.jpg') }}" alt="KSK-Baru"
+                class="w-auto h-auto object-cover rounded-xl" />
+          
+              <!-- Tombol Navigasi -->
+              <div class="absolute inset-1 flex justify-between items-center px-1">
+                <!-- Tombol Kiri -->
+                <button class="absolute left-2 top-auto transform -translate-y-1/2 z-10">
+                  <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+                </button>
+                <button class="absolute right-2 top-auto transform -translate-y-1/2 z-10">
+                  <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                </button>
               </div>
-            
-            </div>
-            
-            <!-- Kolom Kanan: Kategori dan Daftar Menu -->
-            <div class="col-lg-6 hidden lg:flex flex-col w-full h-[600px] overflow-hidden pr-2">
-
-              <div class="mt-[6.8rem]">
-
-                <!-- Bagian Atas: Kategori Produk -->
-                <div class="grid grid-cols-3 gap-4 overflow-y-auto h-[250px] pb-2">
-                  <button class="category active">Black-White</button>
-                  <button class="category">Kopi Susu Kawan (KSK)</button>
-                  <button class="category">Chocolate, Tea & Matcha</button>
-                  <button class="category">Signature</button>
-                  <button class="category">Bottle</button>
-                  <button class="category">Food</button>
-                  <!-- tambah lagi kalau ada kategori baru -->
-                </div>
-  
-                <!-- Divider -->
-                <div class="my-4 border-t border-gray-300"></div>
-  
-               <!-- Bagian Bawah: List Menu -->
-                {{-- <div class="grid grid-cols-2 gap-4 overflow-y-auto h-[200px] pb-2">
-                  
-                  <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Lama</button>
-                  <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Roasted Almond</button>
-                  
-                  <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Baru</button>
-                  <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">Signature Blend</button>
-  
-                  <!-- tinggal tambah item lagi di bawah -->
-                </div> --}}
-
-                <!-- Bagian Bawah: List Menu -->
-                <div class="grid grid-cols-2 gap-4 overflow-y-auto h-[300px] pb-2">
-                  <div class="flex flex-col gap-4">
-                    <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Lama</button>
-                    <button class="text-left font-bold text-[#8B5E3B] hover:opacity-70 transition border-b border-[#8B5E3B] pb-2">KSK Baru</button>
-                    <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Keju</button>
-                    <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Keju</button>
-                    <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Keju</button>
-                    <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Keju</button>
-                    <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Keju</button>
-                    <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Keju</button>
-                    <!-- tambah varian kiri -->
-                  </div>
-                  <div class="flex flex-col gap-4">
-                    <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Roasted Almond</button>
-                    <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Roasted Almond</button>
-                    <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Roasted Almond</button>
-                    <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Roasted Almond</button>
-                    <!-- tambah varian kanan -->
-                  </div>
-                </div>
+              <!-- Nama Produk dan Harga DI LUAR GAMBAR -->
+              <div class="mt-4 text-center">
+                <p class="text-xl font-bold mb-0 text-[#8B5E3B]">KSK Baru</p>
+                <p class="text-lg font-semibold">Rp 10.000</p>
               </div>
-
-
             </div>
+          
+          </div>
+          
+          <!-- Kolom Kanan: Kategori dan Daftar Menu -->
+          <div class="col-lg-6 hidden lg:flex flex-col w-full h-[600px] overflow-hidden pr-2">
 
-            {{-- desktop view end --}}
+            <div class="mt-[6.8rem]">
 
-            {{-- Mobile view --}}
-            <!-- Kolom: Judul -->
-            <div class="col-lg-6 mb-4 lg:hidden flex-col justify-between h-full">
-              <h1 class="fw-bold mb-2 text-center">Lini Produk</h1>
-               <!-- Kolom atas: Produk -->
-              <div class="col-lg-6">
-                <div class="row g-4">
-                  <div class="relative w-full max-w-sm mx-auto mt-5">
-                  
-                    <div>
-                      <!-- Gambar Produk -->
-                      <img src="{{ asset('assets/img/Menu/Kopi-Susu-Kawan/KSK-Baru.jpg') }}" alt="KSK-Baru"
-                        class="mx-auto w-4/5 object-cover aspect-square rounded-xl" />
-                        <div class="text-center mt-2">
-                          <p class="text-xl font-bold mb-0 text-[#8B5E3B]">KSK Baru</p>
-                          <p class="text-lg font-bold">Rp 10.000</p>
-                        </div>
-                    
-                      <!-- Tombol Navigasi -->
-                      <button class="absolute left-2 top-1/3 transform -translate-y-1/2 z-10">
-                        <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
-                          viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
-                      </button>
-                      <button class="absolute right-2 top-1/3 transform -translate-y-1/2 z-10">
-                        <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
-                          viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
-                      </button>
-                    </div>
-                    
-                  </div>
-
-                </div>
-              </div>
-              {{-- kolom judul end --}}
-            </div>
-            
-            <!-- Kolom bawah: Produk -->
-            <div class="lg:hidden overflow-x-auto">
-              <div class="grid grid-cols-3 gap-4 overflow-y-auto h-[200px] pb-2">
+              <!-- Bagian Atas: Kategori Produk -->
+              <div class="grid grid-cols-3 gap-4 overflow-y-auto h-[250px] pb-2">
                 <button class="category active">Black-White</button>
                 <button class="category">Kopi Susu Kawan (KSK)</button>
                 <button class="category">Chocolate, Tea & Matcha</button>
@@ -155,8 +75,21 @@
 
               <!-- Divider -->
               <div class="my-4 border-t border-gray-300"></div>
+
               <!-- Bagian Bawah: List Menu -->
-              <div class="grid grid-cols-2 gap-4 overflow-y-auto h-[200px] pb-2">
+              {{-- <div class="grid grid-cols-2 gap-4 overflow-y-auto h-[200px] pb-2">
+                
+                <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Lama</button>
+                <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Roasted Almond</button>
+                
+                <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Baru</button>
+                <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">Signature Blend</button>
+
+                <!-- tinggal tambah item lagi di bawah -->
+              </div> --}}
+
+              <!-- Bagian Bawah: List Menu -->
+              <div class="grid grid-cols-2 gap-4 overflow-y-auto h-[300px] pb-2">
                 <div class="flex flex-col gap-4">
                   <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Lama</button>
                   <button class="text-left font-bold text-[#8B5E3B] hover:opacity-70 transition border-b border-[#8B5E3B] pb-2">KSK Baru</button>
@@ -177,181 +110,262 @@
                 </div>
               </div>
             </div>
-            {{-- kolom end --}}
-            {{-- mobile view end --}}
-        </div>
-      </div>
-    </section>
-    
-    <section id="merchandise" class="merchandise section h-auto transition-all duration-150 ease-in">
-      <div class="container">
-        <div class="row align-items-start">
-          
-          {{-- desktop view --}}
-            <!-- Kolom Kiri: Teks dan Logo -->
-            <div class="col-lg-6 mb-4 hidden lg:flex flex-col justify-between h-full">
-              <h1 class="fw-bold mb-2">Merchandise</h1>
-              <div class="shop-icons mb-3">
-                <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia"></a>
-                <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a>
-              </div>
-              
-              <div class="mt-60">
-                <p class="text-justify mt-auto text-xl">
-                  Since its founding in the 80s, Studio Agatho has
-                  been the go-to company for various design
-                  needs. Its offerings range from graphic design
-                  and branding strategy to website development
-                  and video production.
-                </p>
-              </div>
-            </div>
 
-            <div class="col-lg-6 hidden lg:grid grid-cols-3 gap-4 w-full h-[600px] overflow-y-auto pr-2">
-              <div onclick="openModal('Tshirt', '{{ asset('assets/img/Merchandise/Tshirt.jpg') }}', 'IDR 125K', 'Deskripsi Ini Tshirt')" class="merchandise-item text-center cursor-pointer">
-                <img src="{{ asset('assets/img/Merchandise/Tshirt.jpg') }}" alt="Tshirt" class="w-full h-52 object-cover rounded mb-2">
-                <h4 class="font-semibold">Tshirt</h4>
-                <p class="text-[#8B5E3B] font-bold">IDR 125K</p>
-              </div>              
-              <div onclick="openModal('Hat', '{{ asset('assets/img/Merchandise/Hat.jpg') }}', 'IDR 100K', 'Deskripsi Ini Hat')" class="merchandise-item text-center cursor-pointer">
-                <img src="{{ asset('assets/img/Merchandise/Hat.jpg') }}" alt="Hat" class="w-full h-52 object-cover rounded mb-2">
-                <h4 class="font-semibold">Hat</h4>
-                <p class="text-[#8B5E3B] font-bold">IDR 100K</p>
-              </div>
-              <div onclick="openModal('Tumbler1', '{{ asset('assets/img/Merchandise/Tumbler1.jpg') }}', 'IDR 150K', 'Deskripsi Ini Tumbler1')" class="merchandise-item text-center cursor-pointer">
-                <img src="{{ asset('assets/img/Merchandise/Tumbler1.jpg') }}" alt="Tumbler 1" class="w-full h-52 object-cover rounded mb-2">
-                <h4 class="font-semibold">Tumbler 1</h4>
-                <p class="text-[#8B5E3B] font-bold">IDR 150K</p>
-              </div>
-              <div onclick="openModal('Tumbler2', '{{ asset('assets/img/Merchandise/Tumbler2.jpg') }}', 'IDR 100K', 'Deskripsi Ini Tumbler2')" class="merchandise-item text-center cursor-pointer">
-                <img src="{{ asset('assets/img/Merchandise/Tumbler2.jpg') }}" alt="Tumbler 2" class="w-full h-52 object-cover rounded mb-2">
-                <h4 class="font-semibold">Tumbler 2</h4>
-                <p class="text-[#8B5E3B] font-bold">IDR 100K</p>
-              </div>
-              <div onclick="openModal('Mug', '{{ asset('assets/img/Merchandise/Mug.jpg') }}', 'IDR 100K', 'Deskripsi Ini Mug')" class="merchandise-item text-center cursor-pointer">
-                <img src="{{ asset('assets/img/Merchandise/Mug.jpg') }}" alt="Mug" class="w-full h-52 object-cover rounded mb-2">
-                <h4 class="font-semibold">Mug</h4>
-                <p class="text-[#8B5E3B] font-bold">IDR 100K</p>
-              </div>
-              <div onclick="openModal('Totebag', '{{ asset('assets/img/Merchandise/Totebag.jpg') }}', 'IDR 80K', 'Deskripsi Ini Totebag')" class="merchandise-item text-center cursor-pointer">
-                <img src="{{ asset('assets/img/Merchandise/Totebag.jpg') }}" alt="Totebag" class="w-full h-52 object-cover rounded mb-2">
-                <h4 class="font-semibold">Totebag</h4>
-                <p class="text-[#8B5E3B] font-bold">IDR 80K</p>
-              </div>
 
-              <!-- Tombol Katalog Selengkapnya -->
-              <div class="flex justify-center items-center col-span-3">
-                <a href="#"
-                  class="bg-white text-black font-bold uppercase text-xm px-6 py-3 rounded hover:bg-gray-100 transition">
-                    Katalog Selengkapnya
-                </a>
-              </div>
-            </div>
-            {{-- desktop view end --}}
+          </div>
 
-            {{-- Mobile view --}}
-            <!-- Kolom: Judul -->
-            <div class="col-lg-6 mb-4 lg:hidden flex-col justify-between h-full">
-              <h1 class="fw-bold mb-2 text-center">Merchandise</h1>
-              {{-- <div class="shop-icons mb-3">
-                <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia"></a>
-                <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a>
-              </div> --}}
+          {{-- desktop view end --}}
 
-               <!-- Kolom Atas: 1 Produk -->
-              <div class="col-lg-6">
-                <div class="row g-4">
-                  <div class="relative w-full max-w-sm mx-auto mt-5">
-                  
-                    <div>
-                      <!-- Gambar Produk -->
-                      <img id="productImage" src="" alt="Product"
-                        class="mx-auto w-4/5 object-cover aspect-square rounded-xl" />
-            
+          {{-- Mobile view --}}
+          <!-- Kolom: Judul -->
+          <div class="col-lg-6 mb-4 lg:hidden flex-col justify-between h-full">
+            <h1 class="fw-bold mb-2 text-center">Lini Produk</h1>
+              <!-- Kolom atas: Produk -->
+            <div class="col-lg-6">
+              <div class="row g-4">
+                <div class="relative w-full max-w-sm mx-auto mt-5">
+                
+                  <div>
+                    <!-- Gambar Produk -->
+                    <img src="{{ asset('assets/img/Menu/Kopi-Susu-Kawan/KSK-Baru.jpg') }}" alt="KSK-Baru"
+                      class="mx-auto w-4/5 object-cover aspect-square rounded-xl" />
                       <div class="text-center mt-2">
-                        <h2 id="productName" class="text-xl font-bold mb-0"></h2>
-                        <p id="productPrice" class="text-lg font-bold text-[#8B5E3B]"></p>
-                        <a href="#">
-                          <button class="bg-black text-white text-sm font-medium px-5 py-2 rounded-full mb-6">Add to cart</button>
-                        </a>
+                        <p class="text-xl font-bold mb-0 text-[#8B5E3B]">KSK Baru</p>
+                        <p class="text-lg font-bold">Rp 10.000</p>
                       </div>
-            
-                      <!-- Tombol Navigasi -->
-                      <button onclick="prevProduct()" class="absolute left-2 top-1/3 transform -translate-y-1/2 z-10">
-                        <svg class="w-10 h-10 text-black rounded-full" fill="none" stroke="currentColor" stroke-width="2"
-                          viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                        </svg>
-                      </button>
-                      <button onclick="nextProduct()" class="absolute right-2 top-1/3 transform -translate-y-1/2 z-10">
-                        <svg class="w-10 h-10 text-black rounded-full" fill="none" stroke="currentColor" stroke-width="2"
-                          viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-                    </div>
-                    
+                  
+                    <!-- Tombol Navigasi -->
+                    <button class="absolute left-2 top-1/3 transform -translate-y-1/2 z-10">
+                      <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+                    </button>
+                    <button class="absolute right-2 top-1/3 transform -translate-y-1/2 z-10">
+                      <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    </button>
                   </div>
+                  
+                </div>
 
-                </div>
-              </div>
-              {{-- kolom judul end --}}
-            </div>
-            
-            <!-- Kolom Bawah: Produk -->
-            <div class="lg:hidden overflow-x-auto">
-              <div class="grid grid-cols-1 gap-4 overflow-x-auto justify-center h-auto pb-2">
-                <div id="productListContainer" class="flex gap-3 w-auto">
-                  <!-- Produk Tshirt (Trigger) -->
-                  {{-- <div class="flex-shrink-0 w-24 text-center cursor-pointer" onclick="setProduct(0)">
-                    <img src="{{ asset('assets/img/Merchandise/Totebag.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
-                    <p class="text-xs font-medium mb-0">Totebag</p>
-                    <p class="text-xs text-[#8B5E3B] font-bold">IDR 125K</p>
-                  </div>
-                  <div class="flex-shrink-0 w-24 text-center cursor-pointer" onclick="setProduct(1)">
-                    <img src="{{ asset('assets/img/Merchandise/Tshirt.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
-                    <p class="text-xs font-medium mb-0">Tshirt</p>
-                    <p class="text-xs text-[#8B5E3B] font-bold">IDR 125K</p>
-                  </div>
-                  <div class="flex-shrink-0 w-24 text-center cursor-pointer" onclick="setProduct(2)">
-                    <img src="{{ asset('assets/img/Merchandise/Hat.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
-                    <p class="text-xs font-medium mb-0">Hat</p>
-                    <p class="text-xs text-[#8B5E3B] font-bold">IDR 100K</p>
-                  </div>
-                  <div class="flex-shrink-0 w-24 text-center cursor-pointer" onclick="setProduct(3)">
-                    <img src="{{ asset('assets/img/Merchandise/Tumbler1.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
-                    <p class="text-xs font-medium mb-0">Tumbler 1</p>
-                    <p class="text-xs text-[#8B5E3B] font-bold">IDR 150K</p>
-                  </div>
-                  <div class="flex-shrink-0 w-24 text-center cursor-pointer" onclick="setProduct(4)">
-                    <img src="{{ asset('assets/img/Merchandise/Tumbler2.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
-                    <p class="text-xs font-medium mb-0">Tumbler 2</p>
-                    <p class="text-xs text-[#8B5E3B] font-bold">IDR 100K</p>
-                  </div>
-                  <div class="flex-shrink-0 w-24 text-center cursor-pointer" onclick="setProduct(5)">
-                    <img src="{{ asset('assets/img/Merchandise/Mug.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
-                    <p class="text-xs font-medium mb-0">Reusable Cup</p>
-                    <p class="text-xs text-[#8B5E3B] font-bold">IDR 100K</p>
-                  </div> --}}
-                   <!-- Tombol Katalog Selengkapnya -->
-                  {{-- <div class="flex justify-center items-center col-span-3">
-                    <a href="#"
-                      class="bg-white text-black font-bold uppercase text-xs px-4 py-2 text-center rounded shadow-md hover:bg-gray-100 transition">
-                      Katalog Selengkapnya
-                    </a>
-                  </div> --}}
-                </div>
-                <!-- tambah lagi kalau ada kategori baru -->
               </div>
             </div>
-            {{-- kolom end --}}
-            {{-- mobile view end --}}
-        </div>
+            {{-- kolom judul end --}}
+          </div>
+          
+          <!-- Kolom bawah: Produk -->
+          <div class="lg:hidden overflow-x-auto">
+            <div class="grid grid-cols-3 gap-4 overflow-y-auto h-[200px] pb-2">
+              <button class="category active">Black-White</button>
+              <button class="category">Kopi Susu Kawan (KSK)</button>
+              <button class="category">Chocolate, Tea & Matcha</button>
+              <button class="category">Signature</button>
+              <button class="category">Bottle</button>
+              <button class="category">Food</button>
+              <!-- tambah lagi kalau ada kategori baru -->
+            </div>
+
+            <!-- Divider -->
+            <div class="my-4 border-t border-gray-300"></div>
+            <!-- Bagian Bawah: List Menu -->
+            <div class="grid grid-cols-2 gap-4 overflow-y-auto h-[200px] pb-2">
+              <div class="flex flex-col gap-4">
+                <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Lama</button>
+                <button class="text-left font-bold text-[#8B5E3B] hover:opacity-70 transition border-b border-[#8B5E3B] pb-2">KSK Baru</button>
+                <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Keju</button>
+                <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Keju</button>
+                <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Keju</button>
+                <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Keju</button>
+                <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Keju</button>
+                <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Keju</button>
+                <!-- tambah varian kiri -->
+              </div>
+              <div class="flex flex-col gap-4">
+                <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Roasted Almond</button>
+                <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Roasted Almond</button>
+                <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Roasted Almond</button>
+                <button class="text-left font-bold hover:opacity-70 transition border-b border-black pb-2">KSK Roasted Almond</button>
+                <!-- tambah varian kanan -->
+              </div>
+            </div>
+          </div>
+          {{-- kolom end --}}
+          {{-- mobile view end --}}
       </div>
-    </section>
+    </div>
+  </section>
+  <!-- Lini Produk Section end -->
 
-   <!-- Modal Template merchandise -->
-   <div id="productModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+  <!-- Merchandise Section -->
+  <section id="merchandise" class="merchandise section h-auto transition-all duration-150 ease-in">
+    <div class="container">
+      <div class="row align-items-start">
+        
+        {{-- desktop view --}}
+          <!-- Kolom Kiri: Teks dan Logo -->
+          <div class="col-lg-6 mb-4 hidden lg:flex flex-col justify-between h-full">
+            <h1 class="fw-bold mb-2">Merchandise</h1>
+            <div class="shop-icons mb-3">
+              <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia"></a>
+              <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a>
+            </div>
+            
+            <div class="mt-60">
+              <p class="text-justify mt-auto text-xl">
+                Since its founding in the 80s, Studio Agatho has
+                been the go-to company for various design
+                needs. Its offerings range from graphic design
+                and branding strategy to website development
+                and video production.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6 hidden lg:grid grid-cols-3 gap-4 w-full h-[600px] overflow-y-auto pr-2">
+            <div onclick="openModal('Tshirt', '{{ asset('assets/img/Merchandise/Tshirt.jpg') }}', 'IDR 125K', 'Deskripsi Ini Tshirt')" class="merchandise-item text-center cursor-pointer">
+              <img src="{{ asset('assets/img/Merchandise/Tshirt.jpg') }}" alt="Tshirt" class="w-full h-52 object-cover rounded mb-2">
+              <h4 class="font-semibold">Tshirt</h4>
+              <p class="text-[#8B5E3B] font-bold">IDR 125K</p>
+            </div>              
+            <div onclick="openModal('Hat', '{{ asset('assets/img/Merchandise/Hat.jpg') }}', 'IDR 100K', 'Deskripsi Ini Hat')" class="merchandise-item text-center cursor-pointer">
+              <img src="{{ asset('assets/img/Merchandise/Hat.jpg') }}" alt="Hat" class="w-full h-52 object-cover rounded mb-2">
+              <h4 class="font-semibold">Hat</h4>
+              <p class="text-[#8B5E3B] font-bold">IDR 100K</p>
+            </div>
+            <div onclick="openModal('Tumbler1', '{{ asset('assets/img/Merchandise/Tumbler1.jpg') }}', 'IDR 150K', 'Deskripsi Ini Tumbler1')" class="merchandise-item text-center cursor-pointer">
+              <img src="{{ asset('assets/img/Merchandise/Tumbler1.jpg') }}" alt="Tumbler 1" class="w-full h-52 object-cover rounded mb-2">
+              <h4 class="font-semibold">Tumbler 1</h4>
+              <p class="text-[#8B5E3B] font-bold">IDR 150K</p>
+            </div>
+            <div onclick="openModal('Tumbler2', '{{ asset('assets/img/Merchandise/Tumbler2.jpg') }}', 'IDR 100K', 'Deskripsi Ini Tumbler2')" class="merchandise-item text-center cursor-pointer">
+              <img src="{{ asset('assets/img/Merchandise/Tumbler2.jpg') }}" alt="Tumbler 2" class="w-full h-52 object-cover rounded mb-2">
+              <h4 class="font-semibold">Tumbler 2</h4>
+              <p class="text-[#8B5E3B] font-bold">IDR 100K</p>
+            </div>
+            <div onclick="openModal('Mug', '{{ asset('assets/img/Merchandise/Mug.jpg') }}', 'IDR 100K', 'Deskripsi Ini Mug')" class="merchandise-item text-center cursor-pointer">
+              <img src="{{ asset('assets/img/Merchandise/Mug.jpg') }}" alt="Mug" class="w-full h-52 object-cover rounded mb-2">
+              <h4 class="font-semibold">Mug</h4>
+              <p class="text-[#8B5E3B] font-bold">IDR 100K</p>
+            </div>
+            <div onclick="openModal('Totebag', '{{ asset('assets/img/Merchandise/Totebag.jpg') }}', 'IDR 80K', 'Deskripsi Ini Totebag')" class="merchandise-item text-center cursor-pointer">
+              <img src="{{ asset('assets/img/Merchandise/Totebag.jpg') }}" alt="Totebag" class="w-full h-52 object-cover rounded mb-2">
+              <h4 class="font-semibold">Totebag</h4>
+              <p class="text-[#8B5E3B] font-bold">IDR 80K</p>
+            </div>
+
+            <!-- Tombol Katalog Selengkapnya -->
+            <div class="flex justify-center items-center col-span-3">
+              <a href="#"
+                class="bg-white text-black font-bold uppercase text-xm px-6 py-3 rounded hover:bg-gray-100 transition">
+                  Katalog Selengkapnya
+              </a>
+            </div>
+          </div>
+          {{-- desktop view end --}}
+
+          {{-- Mobile view --}}
+          <!-- Kolom: Judul -->
+          <div class="col-lg-6 mb-4 lg:hidden flex-col justify-between h-full">
+            <h1 class="fw-bold mb-2 text-center">Merchandise</h1>
+            {{-- <div class="shop-icons mb-3">
+              <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia"></a>
+              <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a>
+            </div> --}}
+
+              <!-- Kolom Atas: 1 Produk -->
+            <div class="col-lg-6">
+              <div class="row g-4">
+                <div class="relative w-full max-w-sm mx-auto mt-5">
+                
+                  <div>
+                    <!-- Gambar Produk -->
+                    <img id="productImage" src="" alt="Product"
+                      class="mx-auto w-4/5 object-cover aspect-square rounded-xl" />
+          
+                    <div class="text-center mt-2">
+                      <h2 id="productName" class="text-xl font-bold mb-0"></h2>
+                      <p id="productPrice" class="text-lg font-bold text-[#8B5E3B]"></p>
+                      <a href="#">
+                        <button class="bg-black text-white text-sm font-medium px-5 py-2 rounded-full mb-6">Add to cart</button>
+                      </a>
+                    </div>
+          
+                    <!-- Tombol Navigasi -->
+                    <button onclick="prevProduct()" class="absolute left-2 top-1/3 transform -translate-y-1/2 z-10">
+                      <svg class="w-10 h-10 text-black rounded-full" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                      </svg>
+                    </button>
+                    <button onclick="nextProduct()" class="absolute right-2 top-1/3 transform -translate-y-1/2 z-10">
+                      <svg class="w-10 h-10 text-black rounded-full" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </div>
+                  
+                </div>
+
+              </div>
+            </div>
+            {{-- kolom judul end --}}
+          </div>
+          
+          <!-- Kolom Bawah: Produk -->
+          <div class="lg:hidden overflow-x-auto">
+            <div class="grid grid-cols-1 gap-4 overflow-x-auto justify-center h-auto pb-2">
+              <div id="productListContainer" class="flex gap-3 w-auto">
+                <!-- Produk Tshirt (Trigger) -->
+                {{-- <div class="flex-shrink-0 w-24 text-center cursor-pointer" onclick="setProduct(0)">
+                  <img src="{{ asset('assets/img/Merchandise/Totebag.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
+                  <p class="text-xs font-medium mb-0">Totebag</p>
+                  <p class="text-xs text-[#8B5E3B] font-bold">IDR 125K</p>
+                </div>
+                <div class="flex-shrink-0 w-24 text-center cursor-pointer" onclick="setProduct(1)">
+                  <img src="{{ asset('assets/img/Merchandise/Tshirt.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
+                  <p class="text-xs font-medium mb-0">Tshirt</p>
+                  <p class="text-xs text-[#8B5E3B] font-bold">IDR 125K</p>
+                </div>
+                <div class="flex-shrink-0 w-24 text-center cursor-pointer" onclick="setProduct(2)">
+                  <img src="{{ asset('assets/img/Merchandise/Hat.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
+                  <p class="text-xs font-medium mb-0">Hat</p>
+                  <p class="text-xs text-[#8B5E3B] font-bold">IDR 100K</p>
+                </div>
+                <div class="flex-shrink-0 w-24 text-center cursor-pointer" onclick="setProduct(3)">
+                  <img src="{{ asset('assets/img/Merchandise/Tumbler1.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
+                  <p class="text-xs font-medium mb-0">Tumbler 1</p>
+                  <p class="text-xs text-[#8B5E3B] font-bold">IDR 150K</p>
+                </div>
+                <div class="flex-shrink-0 w-24 text-center cursor-pointer" onclick="setProduct(4)">
+                  <img src="{{ asset('assets/img/Merchandise/Tumbler2.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
+                  <p class="text-xs font-medium mb-0">Tumbler 2</p>
+                  <p class="text-xs text-[#8B5E3B] font-bold">IDR 100K</p>
+                </div>
+                <div class="flex-shrink-0 w-24 text-center cursor-pointer" onclick="setProduct(5)">
+                  <img src="{{ asset('assets/img/Merchandise/Mug.jpg') }}" class="w-full h-24 object-cover rounded mb-1">
+                  <p class="text-xs font-medium mb-0">Reusable Cup</p>
+                  <p class="text-xs text-[#8B5E3B] font-bold">IDR 100K</p>
+                </div> --}}
+                  <!-- Tombol Katalog Selengkapnya -->
+                {{-- <div class="flex justify-center items-center col-span-3">
+                  <a href="#"
+                    class="bg-white text-black font-bold uppercase text-xs px-4 py-2 text-center rounded shadow-md hover:bg-gray-100 transition">
+                    Katalog Selengkapnya
+                  </a>
+                </div> --}}
+              </div>
+              <!-- tambah lagi kalau ada kategori baru -->
+            </div>
+          </div>
+          {{-- kolom end --}}
+          {{-- mobile view end --}}
+      </div>
+    </div>
+  </section>
+  <!-- Merchandise Section End -->
+
+  <!-- Modal Template merchandise -->
+  <div id="productModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
     <div class="bg-white p-6 rounded-lg max-w-md w-full relative" onclick="event.stopPropagation()">
       <button onclick="closeModal()" class="absolute top-2 right-2 text-black text-2xl font-bold">&times;</button>
       <img id="modalImage" src="#" alt="Product Image" class="w-full h-62 object-cover rounded mb-4">
@@ -361,7 +375,9 @@
       <button class="bg-black text-white py-2 px-4 rounded mt-2 w-full">Add to Cart</button>
     </div>
   </div>
+  <!-- Modal Template merchandise end -->
 
+  <!-- Roastery Section -->
   <section id="roastery" class="roastery relative h-auto transition-all duration-150 ease-in">
     <div class="container">
       <div class="row align-items-start">
@@ -491,8 +507,9 @@
       </div>
     </div>
   </section>
-    
-
+  <!-- Roastery Section End -->
+  
+  <!-- Cerita Kawan Section -->
     <section id="cerita-kawan" class="cerita relative h-auto transition-all duration-150 ease-in">
       <div class="container">
         <div class="row align-items-start">
@@ -579,9 +596,10 @@
             </div>
         
           </div>
-        
     </section>
+    <!-- Cerita Kawan Section End -->
 
+    <!-- Berita Kawan Section -->
     <section id="berita-kawan" class="berita relative h-auto transition-all duration-150 ease-in">
       <div class="container mx-auto">
         <div class="row align-items-start">
@@ -738,7 +756,9 @@
     
       </div>
     </section>
+    <!-- Berita Kawan Section End -->
     
+    <!-- Find Us Section -->
     <section id="find-us" class="find-us relative h-auto transition-all duration-150 ease-in">
       <div class="container mx-auto">
         <div class="row align-items-start">
@@ -857,5 +877,6 @@
     
       </div>
     </section>
+    <!-- Find Us Section End -->
 
 @endsection
