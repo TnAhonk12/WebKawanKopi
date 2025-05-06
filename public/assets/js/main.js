@@ -374,6 +374,75 @@ document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
 
 });
 
+// Lini Produk
+const menus = {
+  "Black-White": [
+    "Hot Americano", "Iced Americano", "Black Tonic", "Hot Cafe Latte",
+    "Iced Cafe Latte", "Hot Cappuccino", "Cocoricano", "Espresso",
+    "Hot Magic", "Iced Magic", "Manual Brew"
+  ],
+  "Bottle": [
+    "KSK Baru", "KSK Lama", "KSK Roasted Almond"
+  ],
+  "Chocolate, Tea & Matcha": [
+    "Apple Mint Tea", "Arisan Tea", "Choco Irish", "Earl Grey Milk Tea",
+    "Hot Chocolate", "Iced Chocolate", "Lychee Tea", "Hot Matcha Latte",
+    "Iced Matcha Latte"
+  ],
+  "Food": [
+    "Beef Nachos", "Chicken Popcorn", "Choco Cheezy Panties", "Creamy Beef Panties",
+    "Fried Wonton", "Kawan Churros", "Kawan Kentang", "Kawan Sharing",
+    "Molten Cake", "Potato Beef Fried", "Tahu Bumbu Rujak", "Tahu Cabe Garam"
+  ],
+  "Kawan Frappe": [
+    "Charcoal Frappe", "Choco Frappe", "Coffee Frappe", "Matcha Frappe"
+  ],
+  "Kawan Signature": [
+    "Creamy Candy Mango", "Creamy Candy Strawberry", "Irish Coffee",
+    "Kopi Berry Lemon", "Matcha Mango", "Peach Perfect", "Virgin Pinacoland"
+  ],
+  "Kopi Susu Kawan (KSK)": [
+    "KSK Baru", "KSK Baru Hot", "KSK Keju", "KSK Lama", "KSK Roasted Almond"
+  ],
+  "Main Course": [
+    "Ayam dan Kentang Creamy Mushroom", "Nasi Ayam Buttermilk",
+    "Nasi Ayam Honey Garlic", "Nasi Telur Pontianak"
+  ]
+};
+
+document.querySelectorAll(".category").forEach(btn => {
+  btn.addEventListener("click", () => {
+    // Remove active class from all
+    document.querySelectorAll(".category").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const selectedCategory = btn.textContent.trim();
+    const menuItems = menus[selectedCategory] || [];
+
+    const leftCol = document.querySelectorAll(".grid-cols-2 .flex.flex-col")[0];
+    const rightCol = document.querySelectorAll(".grid-cols-2 .flex.flex-col")[1];
+
+    // Clear old items
+    leftCol.innerHTML = "";
+    rightCol.innerHTML = "";
+
+    // Split items between 2 columns
+    const halfway = Math.ceil(menuItems.length / 2);
+    const leftItems = menuItems.slice(0, halfway);
+    const rightItems = menuItems.slice(halfway);
+
+    const createButton = (text) => {
+      const btn = document.createElement("button");
+      btn.textContent = text;
+      btn.className = "text-left font-bold hover:opacity-70 transition border-b border-black pb-2";
+      return btn;
+    };
+
+    leftItems.forEach(item => leftCol.appendChild(createButton(item)));
+    rightItems.forEach(item => rightCol.appendChild(createButton(item)));
+  });
+});
+
 // Promo Banner
 document.addEventListener("DOMContentLoaded", () => {
   const slider = document.getElementById("promoSlider");
