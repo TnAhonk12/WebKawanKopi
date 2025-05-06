@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Filament\Resources\CategoryResource\Pages;
+
+use App\Filament\Resources\CategoryResource;
+use Filament\Actions;
+use Filament\Resources\Pages\EditRecord;
+use Illuminate\Support\Facades\Redirect;
+
+class EditCategory extends EditRecord
+{
+    protected static string $resource = CategoryResource::class;
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Actions\DeleteAction::make(),
+        ];
+    }
+
+    protected function getRedirectUrl(): string
+    {
+        // Setelah create berhasil, langsung balik ke table
+        return CategoryResource::getUrl('index');
+    }
+}
