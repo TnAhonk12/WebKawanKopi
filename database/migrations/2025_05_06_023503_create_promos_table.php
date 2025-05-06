@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('find_us_photos', function (Blueprint $table) {
+        Schema::create('promos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('find_us_id')->constrained('find_uses')->onDelete('cascade');
-            $table->string('image')->nullable()->change();
+            $table->string('image')->nullable(); // path atau nama file image
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('find_us_photos');
+        Schema::dropIfExists('promos');
     }
 };

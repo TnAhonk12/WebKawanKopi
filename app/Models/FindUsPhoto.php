@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class FindUsPhoto extends Model
 {
     use HasFactory;
-    use HasFactory;
 
     protected $fillable = ['find_us_id', 'image'];
 

@@ -1,4 +1,4 @@
-<div style="max-width: 400px; max-height: 300px; overflow: hidden;">
+<div style="max-width: 300px; max-height: 200px; overflow: hidden;">
     @if ($getState())
         {!! $getState() !!}
     @else

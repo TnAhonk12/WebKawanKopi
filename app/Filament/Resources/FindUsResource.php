@@ -30,7 +30,7 @@ use App\Filament\Resources\FindUsResource\RelationManagers;
 class FindUsResource extends Resource
 {
     protected static ?string $model = FindUs::class;
-
+    protected static ?string $navigationGroup = '🧭 Find Us & User';
     protected static ?string $navigationLabel = 'Find Us';
     protected static ?string $navigationIcon = 'heroicon-o-map';
 
@@ -45,6 +45,24 @@ class FindUsResource extends Resource
                     ->required()
                     ->rows(5)
                     ->helperText('Paste the embed code for your map here.'),
+
+                TextInput::make('grab')
+                    ->label('Link Grab')
+                    ->url()
+                    ->suffixIcon('heroicon-o-link')
+                    ->nullable(),
+                
+                TextInput::make('gofood')
+                    ->label('Link GoFood')
+                    ->url()
+                    ->suffixIcon('heroicon-o-link')
+                    ->nullable(),
+                
+                TextInput::make('shopee')
+                    ->label('Link ShopeeFood')
+                    ->url()
+                    ->suffixIcon('heroicon-o-link')
+                    ->nullable(),
         
                 FileUpload::make('foto')
                     ->label('Foto Utama')
@@ -100,6 +118,16 @@ class FindUsResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('no')
+                    ->label('No')
+                    ->getStateUsing(function ($record, \Filament\Tables\Contracts\HasTable $livewire) {
+                        $page = (int) $livewire->getTablePage(); // pastikan integer
+                        $perPage = (int) $livewire->getTableRecordsPerPage(); // pastikan integer
+                        $recordIndex = $livewire->getTableRecords()->search(fn ($r) => $r->getKey() == $record->getKey());
+
+                        return ($page - 1) * $perPage + $recordIndex + 1;
+                    }),
+                
                 TextColumn::make('nama_tempat')
                     ->label('Nama Tempat')
                     ->searchable(),
@@ -108,6 +136,24 @@ class FindUsResource extends Resource
                     ->label('Peta')
                     ->view('component.map-preview')
                     ->getStateUsing(fn ($record) => $record->maps),
+
+                TextColumn::make('grab')
+                    ->label('Grab')
+                    ->url(fn ($record) => $record->grab)
+                    ->openUrlInNewTab()
+                    ->icon('heroicon-o-link'),
+                
+                TextColumn::make('gofood')
+                    ->label('GoFood')
+                    ->url(fn ($record) => $record->gofood)
+                    ->openUrlInNewTab()
+                    ->icon('heroicon-o-link'),
+                
+                TextColumn::make('shopee')
+                    ->label('Shopee')
+                    ->url(fn ($record) => $record->shopee)
+                    ->openUrlInNewTab()
+                    ->icon('heroicon-o-link'),
 
                 ImageColumn::make('foto')
                     ->label('Foto Utama')

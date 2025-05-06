@@ -13,11 +13,14 @@ class FindUs extends Model
     protected $with = ['photos'];
     protected $withCount = ['photos'];
     protected $table = 'find_uses';
-
+    
     protected $fillable = [
         'nama_tempat',
         'foto',
         'maps',
+        'grab',
+        'gofood',
+        'shopee',
     ];
 
     protected static function booted()

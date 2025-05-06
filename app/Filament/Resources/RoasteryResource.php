@@ -9,6 +9,7 @@ use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Intervention\Image\ImageManager;
+use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Facades\Storage;
 use Filament\Forms\Components\TextInput;
@@ -23,12 +24,9 @@ use App\Filament\Resources\RoasteryResource\RelationManagers;
 class RoasteryResource extends Resource
 {
     protected static ?string $model = Roastery::class;
-    public static function getNavigationSort(): ?int
-    {
-        return 4;
-    }
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationGroup = 'Roastery & Merchandise';
+    protected static ?string $navigationGroup = '🎁 Roastery & Merchandise';
     protected static ?string $navigationLabel = 'Roastery';
     protected static ?string $pluralModelLabel = 'Roastery Kawan Kopi';
 
@@ -61,9 +59,17 @@ class RoasteryResource extends Resource
                     })
                     ->required(),
 
+                Select::make('kategori_id')
+                        ->label('Kategori Roastery')
+                        ->relationship('kategori', 'nama_roastery')
+                        ->searchable()
+                        ->preload()
+                        ->nullable(),
+
                 TextInput::make('link')
                     ->label('Link ke E-commerce')
                     ->url()
+                    ->suffixIcon('heroicon-o-link')
                     ->required(),
             ]);
     }
@@ -72,6 +78,16 @@ class RoasteryResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('no')
+                    ->label('No')
+                    ->getStateUsing(function ($record, \Filament\Tables\Contracts\HasTable $livewire) {
+                        $page = (int) $livewire->getTablePage(); // pastikan integer
+                        $perPage = (int) $livewire->getTableRecordsPerPage(); // pastikan integer
+                        $recordIndex = $livewire->getTableRecords()->search(fn ($r) => $r->getKey() == $record->getKey());
+
+                        return ($page - 1) * $perPage + $recordIndex + 1;
+                    }),
+                
                 TextColumn::make('name')
                     ->label('Nama Roastery')
                     ->searchable(),
@@ -79,6 +95,11 @@ class RoasteryResource extends Resource
                 TextColumn::make('link')
                     ->label('Link')
                     ->url('link'),
+
+                TextColumn::make('kategori.nama_roastery')
+                    ->label('Kategori Roastery')
+                    ->sortable()
+                    ->searchable(),
 
                 ImageColumn::make('image')
                     ->label('Image')

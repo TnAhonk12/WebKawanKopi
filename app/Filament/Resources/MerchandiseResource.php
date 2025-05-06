@@ -25,8 +25,7 @@ class MerchandiseResource extends Resource
     protected static ?string $model = Merchandise::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-gift';
-    protected static ?string $navigationGroup = 'Roastery & Merchandise';
-    protected static ?int $navigationSort = 5;
+    protected static ?string $navigationGroup = '🎁 Roastery & Merchandise';
     protected static ?string $navigationLabel = 'Merchandise';
     protected static ?string $pluralModelLabel = 'Merchandise Kawan Kopi';
 
@@ -75,21 +74,32 @@ class MerchandiseResource extends Resource
     {
         return $table
             ->columns([
-                    TextColumn::make('name')
+                TextColumn::make('no')
+                    ->label('No')
+                    ->getStateUsing(function ($record, \Filament\Tables\Contracts\HasTable $livewire) {
+                        $page = (int) $livewire->getTablePage(); // pastikan integer
+                        $perPage = (int) $livewire->getTableRecordsPerPage(); // pastikan integer
+                        $recordIndex = $livewire->getTableRecords()->search(fn ($r) => $r->getKey() == $record->getKey());
+
+                        return ($page - 1) * $perPage + $recordIndex + 1;
+                    }),
+
+                TextColumn::make('name')
                     ->label('Nama')
                     ->searchable(),
 
-                    TextColumn::make('price')
+                TextColumn::make('price')
                     ->money('IDR', true)
                     ->label('Harga'),
 
-                    ImageColumn::make('image')
+                ImageColumn::make('image')
                     ->label('Gambar')
                     ->size(60),
 
-                    TextColumn::make('link')
+                TextColumn::make('link')
                         ->label('Link')
                         ->url(fn ($record) => $record->link)
+                        ->suffixIcon('heroicon-o-link')
                         ->openUrlInNewTab(),
             ])
             ->filters([

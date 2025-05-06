@@ -2,36 +2,33 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\CategoryResource\Pages;
-use App\Filament\Resources\CategoryResource\RelationManagers;
-use App\Models\Category;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Models\RoasteryCategory;
+use Filament\Resources\Resource;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\RoasteryCategoryResource\Pages;
+use App\Filament\Resources\RoasteryCategoryResource\RelationManagers;
 
-class CategoryResource extends Resource
+class RoasteryCategoryResource extends Resource
 {
-    protected static ?string $navigationGroup = '📦 Lini Produk';
-    protected static ?string $model = Category::class;
+    protected static ?string $model = RoasteryCategory::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-folder';
-    protected static ?string $navigationLabel = 'Kategori';
-    protected static ?string $pluralModelLabel = 'Kategori Menu';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-            TextInput::make('nama_kategori')
-                ->label('Nama Kategori')
-                ->required()
-                ->unique(ignoreRecord: true),
+                TextInput::make('nama_roastery')
+                    ->label('Nama Kategori')
+                    ->required()
+                    ->maxLength(255),
             ]);
     }
 
@@ -39,7 +36,7 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
-            TextColumn::make('no')
+                TextColumn::make('no')
                 ->label('No')
                 ->getStateUsing(function ($record, \Filament\Tables\Contracts\HasTable $livewire) {
                     $page = (int) $livewire->getTablePage(); // pastikan integer
@@ -48,10 +45,7 @@ class CategoryResource extends Resource
 
                     return ($page - 1) * $perPage + $recordIndex + 1;
                 }),
-
-            TextColumn::make('nama_kategori')
-                ->label('Nama Kategori')
-                ->searchable(), // Mengaktifkan pencarian berdasarkan nama kategori
+            TextColumn::make('nama_roastery')->label('Nama Kategori')->searchable(),
             ])
             ->filters([
                 //
@@ -76,9 +70,9 @@ class CategoryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCategories::route('/'),
-            'create' => Pages\CreateCategory::route('/create'),
-            'edit' => Pages\EditCategory::route('/{record}/edit'),
+            'index' => Pages\ListRoasteryCategories::route('/'),
+            'create' => Pages\CreateRoasteryCategory::route('/create'),
+            'edit' => Pages\EditRoasteryCategory::route('/{record}/edit'),
         ];
     }
 }

@@ -4,45 +4,34 @@ namespace App\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Tables;
-use App\Models\Berita;
+use App\Models\Promo;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Intervention\Image\ImageManager;
-use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Facades\Storage;
-use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\TextEditor;
 use Illuminate\Database\Eloquent\Builder;
 use Intervention\Image\Drivers\Gd\Driver;
-use App\Filament\Resources\BeritaResource\Pages;
+use App\Filament\Resources\PromoResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\BeritaResource\RelationManagers;
+use App\Filament\Resources\PromoResource\RelationManagers;
 
-class BeritaResource extends Resource
+class PromoResource extends Resource
 {
-    protected static ?string $model = Berita::class;
-
-    protected static ?string $navigationGroup = '📚 Konten Website';
-    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
-    protected static ?string $navigationLabel = 'Berita';
-    protected static ?string $pluralModelLabel = 'Berita Kawan';
+    protected static ?string $navigationGroup = '📦 Lini Produk';
+    protected static ?string $model = Promo::class;
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-            TextInput::make('title')
-                ->label('Judul Berita')
-                ->required(),
-
             FileUpload::make('image')
-                ->label('Gambar Berita')
                 ->image()
-                ->directory('berita-images')
+                ->directory('promos-images')
                 ->saveUploadedFileUsing(function ($file) {
                     // Inisialisasi ImageManager dengan driver GD
                     $manager = new ImageManager(new Driver());
@@ -51,29 +40,15 @@ class BeritaResource extends Resource
                     $image = $manager->read($file)->toWebp(80);
 
                     // Buat nama file unik
-                    $filename = 'beritas/' . uniqid() . '.webp';
+                    $filename = 'promos/' . uniqid() . '.webp';
 
                     // Simpan gambar ke storage
                     Storage::disk('public')->put($filename, (string) $image);
 
                     return $filename;
                 })
-                ->required(),  
-
-            Textarea::make('content')
-                ->label('Konten')
-                ->required()
-                ->rows(5),
-
-            TextInput::make('author')
-                ->label('Penulis')
-                ->required(),
-
-            TextInput::make('slug')
-                ->label('Slug')
-                ->hidden()
-                ->required()
-                ->unique(ignoreRecord: true),
+                ->nullable()
+                ->label('Promo Image'),
             ]);
     }
 
@@ -91,20 +66,9 @@ class BeritaResource extends Resource
                     return ($page - 1) * $perPage + $recordIndex + 1;
                 }),
             
-            TextColumn::make('title')
-                ->label('Judul')
-                ->searchable(),
-
-            TextColumn::make('author')
-                ->label('Penulis')
-                ->searchable(),
-
-            TextColumn::make('slug')
-                ->label('Slug'),
-
             ImageColumn::make('image')
                 ->label('Gambar')
-                ->size(60), // Menampilkan gambar kecil di tabel
+                ->size(60),
             ])
             ->filters([
                 //
@@ -129,9 +93,9 @@ class BeritaResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListBeritas::route('/'),
-            'create' => Pages\CreateBerita::route('/create'),
-            'edit' => Pages\EditBerita::route('/{record}/edit'),
+            'index' => Pages\ListPromos::route('/'),
+            'create' => Pages\CreatePromo::route('/create'),
+            'edit' => Pages\EditPromo::route('/{record}/edit'),
         ];
     }
 }

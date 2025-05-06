@@ -24,13 +24,9 @@ use Intervention\Image\Drivers\Gd\Driver;
 
 class MenuResource extends Resource
 {
+    protected static ?string $navigationGroup = '📦 Lini Produk';
     protected static ?string $model = Menu::class;
-    public static function getNavigationSort(): ?int
-    {
-        return 1;
-    }
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationGroup = 'Lini Produk';
     protected static ?string $navigationLabel = 'Menu';
     protected static ?string $pluralModelLabel = 'Menu Kawan Kopi';
 
@@ -43,12 +39,6 @@ class MenuResource extends Resource
                 TextInput::make('nama_menu')
                     ->label('Nama Menu')
                     ->required(),
-
-                // FileUpload::make('image')
-                //     ->label('Gambar')
-                //     ->image() // Validasi sebagai gambar
-                //     ->directory('menu-images')
-                //     ->required(),
 
                 FileUpload::make('image')
                     ->label('Gambar')

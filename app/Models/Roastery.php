@@ -40,4 +40,8 @@ class Roastery extends Model
             }
         });
     }
+    public function kategori()
+    {
+    return $this->belongsTo(RoasteryCategory::class, 'kategori_id');
+    }
 }
