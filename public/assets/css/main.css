@@ -236,6 +236,38 @@
   } */
   
   
+  /*--------------------------------------------------------------
+  # promo Section
+  --------------------------------------------------------------*/
+
+  .promo-banner {
+    background: url('../img/background.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 80px 0;
+    color: #000;
+  }
+
+  .section-promo {
+    color: var(--default-color);
+    background-color: var(--background-color);
+    /* padding: 60px 0; */
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    scroll-margin-top: 100px;
+    overflow: hidden;
+  }
+  
+  @media (max-width: 1199px) {
+  
+    .section-promo {
+      scroll-margin-top: 50px;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+  }
+  /* ... existing code ... */
+  
   /* ... existing code ... */
   
   /*--------------------------------------------------------------
@@ -457,7 +489,7 @@
       background-attachment: fixed;
       padding: 80px 0;
       color: #000;
-      }
+    }
   
     .berita h1 {
       font-size: 50px;
@@ -497,10 +529,7 @@
       font-weight: 500;
       font-size: small; 
       font-style: italic;
-
-      
     }
-    
 
     .berita-text h3{
       font-size: 30px;
@@ -533,7 +562,6 @@
       margin: 0;
     }
   
-    
     @media (max-width: 768px) {
       .berita-item img {
         height: 200px;
@@ -1281,6 +1309,7 @@
     color: var(--default-color);
     background-color: var(--background-color);
     /* padding: 60px 0; */
+   
     scroll-margin-top: 100px;
     overflow: hidden;
   }
@@ -1290,6 +1319,7 @@
     section,
     .section {
       scroll-margin-top: 50px;
+      
     }
   }
   

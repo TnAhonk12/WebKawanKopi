@@ -179,15 +179,18 @@
   </section>
   <!-- Lini Produk Section end -->
 
-    <!-- Promo Banner Section -->
-    <section id="promo-banner" class="relative w-full overflow-hidden bg-white h-[200px] md:h-[250px] lg:h-[300px]">
-      <div id="promoSlider" class="flex transition-transform duration-1000 ease-in-out h-full">
-        <img src="{{ asset('assets/img/Promo/1.png') }}" class="w-full h-full object-cover flex-shrink-0" alt="Promo 1">
-        <img src="{{ asset('assets/img/Promo/2.png') }}" class="w-full h-full object-cover flex-shrink-0" alt="Promo 2">
-        <img src="{{ asset('assets/img/Promo/3.png') }}" class="w-full h-full object-cover flex-shrink-0" alt="Promo 3">
+  <!-- Promo Banner Section -->
+  <section id="promo-banner" class="promo-banner section-promo w-full flex justify-center bg-white py-6 px-4">
+    <div class="relative w-full max-w-[1200px] max-h-[500px] overflow-hidden rounded-xl shadow-lg">
+      <div id="promoSlider" class="flex h-full transition-transform duration-1000 ease-in-out">
+        <img src="{{ asset('assets/img/Promo/1.png') }}" alt="Promo 1" class="w-full h-full object-cover flex-shrink-0">
+        <img src="{{ asset('assets/img/Promo/2.png') }}" alt="Promo 2" class="w-full h-full object-cover flex-shrink-0">
+        <img src="{{ asset('assets/img/Promo/3.png') }}" alt="Promo 3" class="w-full h-full object-cover flex-shrink-0">
+        <img src="{{ asset('assets/img/Promo/4.png') }}" alt="Promo 4" class="w-full h-full object-cover flex-shrink-0">
       </div>
-    </section>
-    <!-- Promo Banner Section end -->
+    </div>
+  </section>
+  <!-- Promo Banner Section end -->
 
   <!-- Merchandise Section -->
   <section id="merchandise" class="merchandise section h-auto transition-all duration-150 ease-in">
@@ -372,7 +375,7 @@
   <!-- Modal Template merchandise end -->
   
   <!-- Cerita Kawan Section -->
-    <section id="cerita-kawan" class="cerita relative h-auto transition-all duration-150 ease-in">
+    <section id="cerita-kawan" class="cerita section relative h-auto transition-all duration-150 ease-in">
       <div class="container">
         <div class="row align-items-start">
           <!-- Judul Kiri (desktop) --> 
@@ -462,7 +465,7 @@
     <!-- Cerita Kawan Section End -->
 
     <!-- Berita Kawan Section -->
-    <section id="berita-kawan" class="berita relative h-auto transition-all duration-150 ease-in">
+    <section id="berita-kawan" class="berita section relative h-auto transition-all duration-150 ease-in">
       <div class="container mx-auto">
         <div class="row align-items-start">
           
