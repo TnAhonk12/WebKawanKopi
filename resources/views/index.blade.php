@@ -526,7 +526,7 @@
                   </p> --}}
                   <!-- Tombol Read More -->
                   <div class="mt-6 flex left">
-                    <a href="#" class="flex border border-white text-white bg-black">
+                    <a href="/berita-kawan" class="flex border border-white text-white bg-black">
                       <span class="px-4 py-2 font-medium">Read More</span>
                       <span class="px-2 py-2 border-l border-white flex items-center">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -601,7 +601,7 @@
               {{-- kolom text end --}}
               <!-- Tombol Read More -->
               <div class="mt-6 flex left">
-                <a href="#" class="flex border border-white text-white bg-black">
+                <a href="/berita-kawan" class="flex border border-white text-white bg-black">
                   <span class="px-4 py-2 font-medium">Read More</span>
                   <span class="px-2 py-2 border-l border-white flex items-center">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -619,7 +619,391 @@
       </div>
     </section>
     <!-- Berita Kawan Section End -->
-    
-    
 
+    <script>
+      // hero
+      document.addEventListener('DOMContentLoaded', function () {
+        const character = document.getElementById("character");
+        const hero = document.getElementById("hero");
+
+        let mouseX = 0;
+        let posX = window.innerWidth / 2;
+        let currentDirection = null;
+        let isHovering = false;
+        let lastMoveTime = Date.now();
+        let currentScrollRatio = 0;
+        let lastScrollTime = Date.now();
+
+        if (hero) {
+          document.addEventListener("mousemove", function (e) {
+            const heroRect = hero.getBoundingClientRect();
+            const inView = heroRect.top < window.innerHeight && heroRect.bottom > 0;
+            if (inView && window.innerWidth >= 768) {
+              mouseX = e.clientX;
+              lastMoveTime = Date.now();
+
+              const direction = e.clientX > posX ? "right" : "left";
+              if (direction !== currentDirection && !isHovering) {
+                currentDirection = direction;
+                const newSrc = direction === "right"
+                  ? "/assets/img/character/charRight.webp"
+                  : "/assets/img/character/charLeft.webp";
+                setcharacterImage(newSrc);
+              }
+            }
+          });
+        }
+
+        function setcharacterImage(path) {
+          if (!character.src.includes(path)) {
+            character.src = path;
+          }
+        }
+
+      // MOBILE: Pantau scroll dan ubah arah karakter
+        if (window.innerWidth < 768) {
+          hero.addEventListener("scroll", () => {
+            lastScrollTime = Date.now();
+
+            const scrollX = hero.scrollLeft;
+            const maxScroll = hero.scrollWidth - hero.clientWidth;
+            const scrollRatio = maxScroll > 0 ? scrollX / maxScroll : 0;
+
+            const direction = scrollRatio > currentScrollRatio ? "right" : "left";
+            if (direction !== currentDirection && !isHovering) {
+              currentDirection = direction;
+              const newSrc = direction === "right"
+                ? "/assets/img/character/charRight.webp"
+                : "/assets/img/character/charLeft.webp";
+              setcharacterImage(newSrc);
+            }
+
+            currentScrollRatio = scrollRatio;
+          });
+        }
+        
+        function animate() {
+            if (hero) {
+            const heroRect = hero.getBoundingClientRect();
+            const inView = heroRect.top < window.innerHeight && heroRect.bottom > 0;
+            const now = Date.now();
+
+            if (inView) {
+              if (window.innerWidth >= 768) {
+                // DESKTOP - Mouse movement
+                if (now - lastMoveTime > 500 && !isHovering && !character.src.includes("charIdle.webp")) {
+                  setcharacterImage("/assets/img/character/charIdle.webp");
+                  currentDirection = null;
+                }
+
+                posX += (mouseX - posX) * 0.1;
+                const clampedX = Math.min(Math.max(posX, 100), 1400);
+                character.style.transform = `translateX(${clampedX}px)`;
+
+              } else {
+                // MOBILE - Scroll movement
+                const scrollX = hero.scrollLeft;
+                const maxScroll = hero.scrollWidth - hero.clientWidth;
+                const scrollRatio = maxScroll > 0 ? scrollX / maxScroll : 0;
+
+                const characterMin = 100;
+                const characterMax = 1400;
+                const charX = characterMin + (characterMax - characterMin) * scrollRatio;
+
+                character.style.transform = `translateX(${Math.round(charX)}px)`;
+
+                // IDLE setelah tidak scroll selama 500ms
+                if (now - lastScrollTime > 500 && !character.src.includes("charIdle.webp")) {
+                  setcharacterImage("/assets/img/character/charIdle.webp");
+                  currentDirection = null;
+                }
+              }
+
+              character.style.display = "block";
+            } else {
+              character.style.display = "none";
+            }
+
+            requestAnimationFrame(animate);
+          }
+        }
+
+        animate();
+
+        // Navbar background toggle based on scroll position
+        const header = document.querySelector('.header');
+        window.addEventListener('scroll', () => {
+          const heroSection = document.querySelector('#hero');
+          if (heroSection) {
+            const heroTop = heroSection.getBoundingClientRect().top;
+            if (heroTop <= 0) {
+              header.classList.remove('header-hidden');
+            } else {
+              header.classList.add('header-hidden');
+            }
+          }
+        });
+      });
+
+      // Lini Produk
+      const menus = {
+        "Black-White": [
+          "Hot Americano", "Iced Americano", "Black Tonic", "Hot Cafe Latte",
+          "Iced Cafe Latte", "Hot Cappuccino", "Cocoricano", "Espresso",
+          "Hot Magic", "Iced Magic", "Manual Brew"
+        ],
+        "Bottle": [
+          "KSK Baru", "KSK Lama", "KSK Roasted Almond"
+        ],
+        "Chocolate, Tea & Matcha": [
+          "Apple Mint Tea", "Arisan Tea", "Choco Irish", "Earl Grey Milk Tea",
+          "Hot Chocolate", "Iced Chocolate", "Lychee Tea", "Hot Matcha Latte",
+          "Iced Matcha Latte"
+        ],
+        "Food": [
+          "Beef Nachos", "Chicken Popcorn", "Choco Cheezy Panties", "Creamy Beef Panties",
+          "Fried Wonton", "Kawan Churros", "Kawan Kentang", "Kawan Sharing",
+          "Molten Cake", "Potato Beef Fried", "Tahu Bumbu Rujak", "Tahu Cabe Garam"
+        ],
+        "Kawan Frappe": [
+          "Charcoal Frappe", "Choco Frappe", "Coffee Frappe", "Matcha Frappe"
+        ],
+        "Kawan Signature": [
+          "Creamy Candy Mango", "Creamy Candy Strawberry", "Irish Coffee",
+          "Kopi Berry Lemon", "Matcha Mango", "Peach Perfect", "Virgin Pinacoland"
+        ],
+        "Kopi Susu Kawan (KSK)": [
+          "KSK Baru", "KSK Baru Hot", "KSK Keju", "KSK Lama", "KSK Roasted Almond"
+        ],
+        "Main Course": [
+          "Ayam dan Kentang Creamy Mushroom", "Nasi Ayam Buttermilk",
+          "Nasi Ayam Honey Garlic", "Nasi Telur Pontianak"
+        ]
+      };
+
+      document.querySelectorAll(".category").forEach(btn => {
+        btn.addEventListener("click", () => {
+          // Remove active class from all
+          document.querySelectorAll(".category").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const selectedCategory = btn.textContent.trim();
+          const menuItems = menus[selectedCategory] || [];
+
+          const leftCol = document.querySelectorAll(".grid-cols-2 .flex.flex-col")[0];
+          const rightCol = document.querySelectorAll(".grid-cols-2 .flex.flex-col")[1];
+
+          // Clear old items
+          leftCol.innerHTML = "";
+          rightCol.innerHTML = "";
+
+          // Split items between 2 columns
+          const halfway = Math.ceil(menuItems.length / 2);
+          const leftItems = menuItems.slice(0, halfway);
+          const rightItems = menuItems.slice(halfway);
+
+          const createButton = (text) => {
+            const btn = document.createElement("button");
+            btn.textContent = text;
+            btn.className = "text-left font-bold hover:opacity-70 transition border-b border-black pb-2";
+            return btn;
+          };
+
+          leftItems.forEach(item => leftCol.appendChild(createButton(item)));
+          rightItems.forEach(item => rightCol.appendChild(createButton(item)));
+        });
+      });
+
+      // Promo Banner
+      document.addEventListener("DOMContentLoaded", () => {
+        const slider = document.getElementById("promoSlider");
+        const totalSlides = slider.children.length;
+        let currentIndex = 0;
+
+        setInterval(() => {
+          currentIndex = (currentIndex + 1) % totalSlides;
+          slider.style.transform = `translateX(-${100 * currentIndex}%)`;
+        }, 5000); // ganti slide tiap 5 detik
+      });
+
+      // Merchandise Modal Toggle (Desktop)
+      function openModal(title, image, price, desc) {
+        const modal = document.getElementById("productModal");
+        document.getElementById("modalTitle").innerText = title;
+        document.getElementById("modalImage").src = image;
+        document.getElementById("modalPrice").innerText = price;
+        document.getElementById("modalDesc").innerText = desc;
+        modal.classList.remove("hidden");
+
+        // Klik di luar modal content untuk menutup
+        modal.addEventListener("click", function (e) {
+          if (e.target === modal) {
+            closeModal();
+          }
+        });
+      }
+
+      function closeModal() {
+        const modal = document.getElementById("productModal");
+        modal.classList.add("hidden");
+      }
+
+      // Merchandise Modal Navigation (Mobile)
+      const products = [
+        {
+          name: "Totebag",
+          image: "assets/img/Merchandise/Totebag.jpg",
+          price: "IDR 125K"
+        },
+        {
+          name: "Tshirt",
+          image: "assets/img/Merchandise/Tshirt.jpg",
+          price: "IDR 125K"
+        },
+        {
+          name: "Hat",
+          image: "assets/img/Merchandise/Hat.jpg",
+          price: "IDR 100K"
+        },
+        {
+          name: "Tumbler 1",
+          image: "assets/img/Merchandise/Tumbler1.jpg",
+          price: "IDR 150K"
+        },
+        {
+          name: "Tumbler 2",
+          image: "assets/img/Merchandise/Tumbler2.jpg",
+          price: "IDR 100K"
+        },
+        {
+          name: "Reusable Cup",
+          image: "assets/img/Merchandise/Mug.jpg",
+          price: "IDR 100K"
+        }
+      ];
+
+      let currentIndex = 0;
+
+      function renderProduct(index) {
+        const product = products[index];
+        if (product) {
+          document.getElementById("productImage").src = product.image;
+          document.getElementById("productName").innerText = product.name;
+          document.getElementById("productPrice").innerText = product.price;
+        }
+
+        renderProductList(index);
+      }
+
+      function renderProductList(excludeIndex) {
+        const container = document.getElementById("productListContainer");
+        if (!container) return;
+
+        container.innerHTML = ""; // Kosongkan dulu
+
+        products.forEach((product, index) => {
+          if (index === excludeIndex) return; // Lewati produk utama
+
+          const item = document.createElement("div");
+          item.className = "flex-shrink-0 w-24 text-center cursor-pointer";
+          item.innerHTML = `
+            <img src="${product.image}" class="w-full h-24 object-cover rounded mb-1" />
+            <p class="text-xs font-medium mb-0">${product.name}</p>
+            <p class="text-xs text-[#8B5E3B] font-bold">${product.price}</p>
+          `;
+          item.onclick = () => setProduct(index);
+          container.appendChild(item);
+        });
+
+        // Tambahkan tombol "Katalog Selengkapnya"
+        const linkWrap = document.createElement("div");
+        linkWrap.className = "flex justify-center items-center";
+        linkWrap.innerHTML = `
+          <a href="#"
+            class="bg-white text-black font-bold uppercase text-xs px-4 py-2 text-center rounded shadow-md hover:bg-gray-100 transition">
+            Katalog Selengkapnya
+          </a>
+        `;
+        container.appendChild(linkWrap);
+      }
+
+
+      function nextProduct() {
+        currentIndex = (currentIndex + 1) % products.length;
+        renderProduct(currentIndex);
+      }
+
+      function prevProduct() {
+        currentIndex = (currentIndex - 1 + products.length) % products.length;
+        renderProduct(currentIndex);
+      }
+
+      function setProduct(index) {
+        currentIndex = index;
+        renderProduct(currentIndex);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        renderProduct(currentIndex);
+      });
+
+      // Berita Kawan
+      const beritaKawan = [
+        {
+          title: "RAW Club: Penanda Kebangkitan Skena Denim",
+          image: "assets/img/berita-kawan/1.jpg",
+          createdBy: "Tonny Oscar",
+          createdAt: "5th July 2024",
+          desc: " Nio Nguan Lie, better known as Suyanto, started making es campur as a 17-year-old working for a relative in Pontianak. And he never stopped. Half a century later, the mixed ice dessert remains the signature of his streetside stall, Es Campur Ko Acia in Sawah Besar, Central Jakarta. ‘Ko Acia’ is what his customers call him, a nickname he adopted when he opened his stall in 1980. Started as a simple wooden shack in an empty lot, the small shop is now part of a vibrant strip of street food finds on Dwiwarna Raya Street, squeezed between a bakmi shop and an eatery serving rice and homestyle dishes. But one thing remains unchanged: a solitary tree stands guard, offering shade to diners (from school kids to delivery couriers and families around the block) who sit on the wooden benches eagerly digging into their cold bowls of es campur. ."
+        },
+        {
+          title: "Bajawa Semi-Washed: Perjalanan Rasa dari Flores ke Cangkir Anda",
+          image: "assets/img/berita-kawan/2.jpg",
+          createdBy: "TnAhonk",
+          createdAt: "5th July 2024",
+          desc: "Flores tidak hanya dikenal karena alamnya yang indah, tetapi juga karena kopinya yang khas. Bajawa Semi-Washed hadir membawa cerita dari dataran tinggi yang kaya akan sejarah dan budaya kopi. Diproses dengan teknik semi-washed, kopi ini menawarkan keseimbangan antara rasa cerah dan tubuh yang kuat. Dari kebun ke cangkir, perjalanan kopi ini adalah bukti kerja keras petani lokal dan keunikan tanah Flores. Kini, Anda bisa menikmati setiap tegukan dengan pemahaman bahwa ada cerita panjang di balik rasanya."
+        },
+        {
+          title: "Kintamani Natural: Aroma Tropis dari Lereng Bali",
+          image: "assets/img/berita-kawan/3.jpg",
+          createdBy: "AcongTurner",
+          createdAt: "5th July 2024",
+          desc: "Berlokasi di kawasan pegunungan Bali, Kintamani Natural menjadi salah satu varian kopi yang paling diburu oleh pecinta rasa eksotis. Dengan proses natural, kopi ini mempertahankan aroma buah dan bunga yang kuat, khas dari kebun-kebun kopi di lereng Kintamani. Di balik rasa yang menyegarkan, kopi ini menyimpan cerita petani lokal yang terus menjaga tradisi dan kualitas. Lebih dari sekadar minuman, Kintamani Natural adalah bagian dari narasi budaya kopi Indonesia yang tak lekang oleh waktu."
+        },
+      ];
+
+      let currentBeritaIndex = 0;
+
+      function renderBerita(index) {
+        const berita = beritaKawan[index];
+        if (berita) {
+          // bagian Desktop
+          document.getElementById("beritaImageDesktop").src = berita.image;
+          document.getElementById("beritaTitleDesktop").innerText = berita.title;
+          document.getElementById("beritaCreatedByDesktop").innerText = berita.createdBy;
+          document.getElementById("beritaCreatedAtDesktop").innerText = berita.createdAt;
+          document.getElementById("beritaDescDesktop").innerText = berita.desc;
+          // bagian Mobile
+          document.getElementById("beritaImageMobile").src = berita.image;
+          document.getElementById("beritaTitleMobile").innerText = berita.title;
+          document.getElementById("beritaCreatedByMobile").innerText = berita.createdBy;
+          document.getElementById("beritaCreatedAtMobile").innerText = berita.createdAt;
+          document.getElementById("beritaDescMobile").innerText = berita.desc;
+        }
+      }
+
+      function nextBerita() {
+        currentBeritaIndex = (currentBeritaIndex + 1) % beritaKawan.length;
+        renderBerita(currentBeritaIndex);
+      }
+
+      function prevBerita() {
+        currentBeritaIndex = (currentBeritaIndex - 1 + beritaKawan.length) % beritaKawan.length;
+        renderBerita(currentBeritaIndex);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        renderBerita(currentBeritaIndex);
+      });
+    </script>
 @endsection

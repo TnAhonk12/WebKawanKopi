@@ -335,16 +335,16 @@
       margin-bottom: 10px;
     }
   
-    .roastery-item {
+    /* .roastery-item {
       background: rgba(255, 255, 255, 0.9);
       border-radius: 10px;
       padding: 20px;
       height: 100%;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease;
     }
   
     .roastery-item:hover {
-      transform: translateY(-5px);
+      transform: scaleY(1.5);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
   
@@ -354,7 +354,35 @@
       width: 100%;
       height: 180px;
       object-fit: cover;
+    } */
+
+   
+    .roastery-item {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
     }
+
+    .roastery-item.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .roastery-item:hover {
+      transform: scale(1.05);
+      /* box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); */
+    }
+    
+    .roastery-item img {
+      transition: transform 0.3s ease;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    
+    /* .roastery-item:hover img {
+      transform: scale(1.05);
+    } */
+    
   
     .roastery-item h4 {
       font-size: 18px;
@@ -530,14 +558,6 @@
       font-weight: 700;
       margin-bottom: 10px;
     }
-  
-    .find-us-item {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 10px;
-      padding: 20px;
-      height: 100%;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
 
     .find-us-text{
       margin-top: auto;
@@ -562,18 +582,27 @@
       font-size: 30px;
       font-weight: 601;
     }
-  
-    .find-us-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+    .find-us-item {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
     }
-  
+
+    .find-us-item.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .find-us-item:hover {
+      transform: scale(1.05);
+      /* box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); */
+    }
+    
     .find-us-item img {
-      border-radius: 8px;
-      margin-bottom: 10px;
-      width: 100%;
-      height: 180px;
+      transition: transform 0.3s ease;
       object-fit: cover;
+      border-radius: 8px;
     }
   
     .find-us-item h4 {
@@ -597,6 +626,126 @@
     }
     
     /* ... existing code ... */
+
+/*--------------------------------------------------------------
+# Contact Section
+--------------------------------------------------------------*/
+.contact {
+  background: url('../img/background.jpg') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 80px 0;
+  color: #000;
+}
+
+@media (max-width: 575px) {
+  .contact {
+    padding: 20px;
+  }
+}
+
+.contact .email-form {
+  background-color: var(--surface-color);
+  height: 100%;
+  padding: 30px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 575px) {
+  .contact .email-form {
+    padding: 20px;
+  }
+}
+
+.contact .email-form input[type=text],
+.contact .email-form input[type=email],
+.contact .email-form textarea {
+  font-size: 14px;
+  padding: 10px 15px;
+  box-shadow: none;
+  border-radius: 0;
+  color: var(--default-color);
+  background-color: var(--surface-color);
+  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+}
+
+.contact .email-form input[type=text]:focus,
+.contact .email-form input[type=email]:focus,
+.contact .email-form textarea:focus {
+  border-color: var(--accent-color);
+}
+
+.contact .email-form input[type=text]::placeholder,
+.contact .email-form input[type=email]::placeholder,
+.contact .email-form textarea::placeholder {
+  color: color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+.contact .email-form button[type=submit] {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  border: 0;
+  padding: 10px 30px;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.contact .email-form button[type=submit]:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 25%);
+}
+
+/*--------------------------------------------------------------
+  # Email Form Messages
+--------------------------------------------------------------*/
+.email-form .error-message {
+  display: none;
+  background: #df1529;
+  color: #ffffff;
+  text-align: left;
+  padding: 15px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.email-form .sent-message {
+  display: none;
+  color: #ffffff;
+  background: #059652;
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.email-form .loading {
+  display: none;
+  background: var(--surface-color);
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 24px;
+}
+
+.email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid var(--accent-color);
+  border-top-color: var(--surface-color);
+  animation: email-form-loading 1s linear infinite;
+}
+
+@keyframes email-form-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
   
   /*--------------------------------------------------------------
   # Global Header
@@ -618,9 +767,9 @@
   }
   .header.scrolled {
   /* background-color: var(--background-color); atau warna lain */
-  background-image: url('../img/background.jpg');;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-}
+    background-image: url('../img/background.jpg');;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
   
   .header.header-hidden {
     background-image: none;

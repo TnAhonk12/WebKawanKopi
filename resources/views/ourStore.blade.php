@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-
+@section('homepage')
 <section id="find-us" class="find-us relative h-full transition-all duration-150 ease-in">
     <div class="container mx-auto">
       <div class="row align-items-start mx-auto" style="margin-block: 4rem;">
@@ -16,19 +16,11 @@
 
               <!-- Wrapper untuk tengahkan galeri -->
               <div class="w-full flex justify-center">
-                <div class="flex gap-4 overflow-x-auto no-scrollbar pb-6">
-                  <!-- Lokasi 1 -->
-                  <a href="/ourstore-item">
-                    <div class="location-item cursor-pointer text-center active" data-index="0">
-                      <img src="{{ asset('assets/img/Find-Us/1.jpg') }}" alt="Kawan Kopi, Dipatiukur"
-                      class="w-[220px] h-[220px] object-cover rounded mb-2" />
-                      <p class="text-sm font-semibold text-[#8B5E3B]">Kawan Kopi, Dipatiukur</p>
-                    </div>
-                  </a>
+                <div class="flex gap-4 no-scrollbar pb-6">
 
                   <!-- Lokasi 2 -->
                   <a href="/ourstore-item">
-                    <div class="location-item cursor-pointer text-center" data-index="1">
+                    <div class="find-us-item cursor-pointer text-center" data-index="1">
                       <img src="{{ asset('assets/img/Find-Us/2.jpg') }}" alt="Kawan Kopi, Cimandiri"
                         class="w-[220px] h-[220px] object-cover rounded mb-2" />
                       <p class="text-sm font-medium text-black">Kawan Kopi, Cimandiri</p>
@@ -37,7 +29,7 @@
 
                   <!-- Lokasi 3 -->
                   <a href="/ourstore-item">
-                    <div class="location-item cursor-pointer text-center" data-index="2">
+                    <div class="find-us-item cursor-pointer text-center" data-index="2">
                       <img src="{{ asset('assets/img/Find-Us/3.jpg') }}" alt="Kawan Kopi, Talaga Bodas"
                         class="w-[220px] h-[220px] object-cover rounded mb-2" />
                       <p class="text-sm font-medium text-black">Kawan Kopi, Talaga Bodas</p>
@@ -46,13 +38,13 @@
 
                   <!-- Lokasi 4 -->
                   <a href="/ourstore-item">
-                  <div class="location-item cursor-pointer text-center" data-index="3">
+                  <div class="find-us-item cursor-pointer text-center" data-index="3">
                     <img src="{{ asset('assets/img/Find-Us/4.jpg') }}" alt="Kawan Kopi, Ciumbuleuit"
                       class="w-[220px] h-[220px] object-cover rounded mb-2" />
                     <p class="text-sm font-medium text-black">Kawan Kopi, Ciumbuleuit</p>
                   </div>
                   </a>
-
+                 
                 </div>
               </div>
 
@@ -72,33 +64,26 @@
             <!-- Grid Foto Lokasi -->
             <div class="grid grid-cols-2 gap-4 px-8 py-8">
 
-              <!-- Lokasi 1 -->
-              <div class="text-center">
-                <a href="#">
-                  <img src="{{ asset('assets/img/Find-Us/1.jpg') }}" alt="Kawan Kopi, Dipatiukur" class="w-full h-auto object-cover rounded mb-2">
-                  <p class="text-sm font-medium text-black">Kawan Kopi, Dipatiukur</p>
-                </a>
-              </div>
 
               <!-- Lokasi 2 -->
-              <div class="text-center">
-                <a href="#">
+              <div class="text-center find-us-item">
+                <a href="/ourstore-item">
                 <img src="{{ asset('assets/img/Find-Us/2.jpg') }}" alt="Kawan Kopi, Cimandiri" class="w-full h-auto object-cover rounded mb-2">
                 <p class="text-sm font-medium text-black">Kawan Kopi, Cimandiri</p>
                 </a>
               </div>
 
               <!-- Lokasi 3 -->
-              <div class="text-center">
-                <a href="#">
+              <div class="text-center find-us-item">
+                <a href="/ourstore-item">
                   <img src="{{ asset('assets/img/Find-Us/3.jpg') }}" alt="Kawan Kopi, Talaga Bodas" class="w-full h-auto object-cover rounded mb-2">
                   <p class="text-sm font-medium text-black">Kawan Kopi, Talaga Bodas</p>
                 </a>
               </div>
 
               <!-- Lokasi 4 -->
-              <div class="text-center">
-                <a href="#">
+              <div class="text-center find-us-item">
+                <a href="/ourstore-item">
                   <img src="{{ asset('assets/img/Find-Us/4.jpg') }}" alt="Kawan Kopi, Ciumbuleuit" class="w-full h-auto object-cover rounded mb-2">
                   <p class="text-sm font-medium">Kawan Kopi, Ciumbuleuit</p>
                 </a>
@@ -114,3 +99,18 @@
     </div>
   </section>
 
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const items = document.querySelectorAll('.find-us-item');
+      items.forEach((item, index) => {
+        setTimeout(() => {
+          item.classList.add('animate-in');
+        }, index * 150); // delay per item biar animasinya berurutan
+      });
+    });
+
+    
+  </script>
+  
+
+@endsection

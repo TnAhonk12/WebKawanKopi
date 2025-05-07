@@ -22,4 +22,10 @@ Route::get('/roastery-item', function () {
     return view('roasteryItem');
 });
 
+Route::get('/contact', function () {
+    return view('contact');
+});
 
+Route::get('/berita-kawan', function () {
+    return view('beritaKawan');
+});

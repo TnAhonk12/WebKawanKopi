@@ -1,5 +1,6 @@
 @extends('layouts.layout')
-<section id="roastery" class="roastery relative h-full transition-all duration-150 ease-in">
+@section('homepage')
+<section id="roastery" class="roastery section relative h-full transition-all duration-150 ease-in">
   <div class="container mx-auto">
     <div class="row align-items-start mx-auto" style="margin-block: 4rem;">
       
@@ -15,10 +16,10 @@
 
             <!-- Wrapper untuk tengahkan galeri -->
             <div class="w-full flex justify-center">
-              <div class="flex gap-16 overflow-x-auto no-scrollbar pb-6">
+              <div class="flex gap-16  no-scrollbar pb-6">
                 <!-- Item 1 -->
                 <a href="/roastery-item">
-                  <div class="relative justify-center cursor-pointer text-center" data-index="0">
+                  <div class="relative justify-center cursor-pointer text-center roastery-item" data-index="0">
                     <img src="{{ asset('assets/img/roastery/Palintang-Honey.jpg') }}" alt="Palintang-Honey"
                       class="w-[220px] h-[220px] object-cover rounded mb-2 mx-auto" />
                     <h4 class="font-bold text-black mb-0" style="font-weight: 600;">Palintang Honey</h4>
@@ -29,7 +30,7 @@
                 
                 <!-- Item 2 -->
                 <a href="/roastery-item">
-                  <div class="relative justify-center cursor-pointer text-center" data-index="2">
+                  <div class="relative justify-center cursor-pointer text-center roastery-item" data-index="2">
                     <img src="{{ asset('assets/img/roastery/Kintanami-Natural.jpg') }}" alt="Kintanami-Natural"
                       class="w-[220px] h-[220px] object-cover rounded mb-2 mx-auto" />
                     <h4 class="font-bold text-black mb-0" style="font-weight: 600;">Kintanami Natural</h4>
@@ -39,7 +40,7 @@
                 
                 <!-- Item 3 -->
                 <a href="/roastery-item">
-                  <div class="relative justify-center cursor-pointer text-center" data-index="1">
+                  <div class="relative justify-center cursor-pointer text-center roastery-item" data-index="1">
                     <img src="{{ asset('assets/img/roastery/Bajawa-Semi-Washed.jpg') }}" alt="Bajawa-Semi-Washed"
                       class="w-[220px] h-[220px] object-cover rounded mb-2 mx-auto" />
                     <h4 class="font-bold text-black mb-0" style="font-weight: 600;">Bajawa Semi Washed</h4>
@@ -65,9 +66,9 @@
           <!-- Grid Foto Lokasi -->
           <div class="grid grid-cols-2 gap-4 px-8 py-8">
 
-            <!-- Lokasi 1 -->
-            <div class="text-center">
-              <a href="#">
+            <!-- Item 1 -->
+            <div class="text-center roastery-item">
+              <a href="/roastery-item">
                 <img src="{{ asset('assets/img/roastery/Palintang-Honey.jpg') }}" alt="Palintang-Honey"
                   class="w-full h-auto object-cover rounded mb-2">
                 <h4 class="font-bold text-black mb-0" style="font-weight: 600;">Palintang Honey</h4>
@@ -75,9 +76,9 @@
               </a>
             </div>
 
-            <!-- Lokasi 2 -->
-            <div class="text-center">
-              <a href="#">
+            <!-- Item 2 -->
+            <div class="text-center roastery-item">
+              <a href="/roastery-item">
               <img src="{{ asset('assets/img/roastery/Kintanami-Natural.jpg') }}" alt="Kintanami-Natural"
                 class="w-full h-auto object-cover rounded mb-2">
               <h4 class="font-bold text-black mb-0" style="font-weight: 600;">Kintanami Natural</h4>
@@ -85,9 +86,9 @@
               </a>
             </div>
 
-            <!-- Lokasi 3 -->
-            <div class="text-center">
-              <a href="#">
+            <!-- Item 3 -->
+            <div class="text-center roastery-item">
+              <a href="/roastery-item">
                 <img src="{{ asset('assets/img/roastery/Bajawa-Semi-Washed.jpg') }}" alt="Bajawa-Semi-Washed"
                   class="w-full h-auto object-cover rounded mb-2">
                 <h4 class="font-bold text-black mb-0" style="font-weight: 600;">Bajawa Semi Washed</h4>
@@ -105,4 +106,16 @@
   </div>
  
   </section>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const items = document.querySelectorAll('.roastery-item');
+      items.forEach((item, index) => {
+        setTimeout(() => {
+          item.classList.add('animate-in');
+        }, index * 150); // delay per item biar animasinya berurutan
+      });
+    });
+  </script>
+  
 
+  @endsection
