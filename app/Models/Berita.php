@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\BeritaImage;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -61,6 +62,11 @@ class Berita extends Model
                 $berita->image = $filename;
             }
         });
+    }
+
+    public function images()
+    {
+        return $this->hasMany(BeritaPhoto::class);
     }
 
     // public function getActivitylogOptions(): array

@@ -53,4 +53,8 @@ class Cerita extends Model
             }
         });
     }
+    public function images()
+    {
+        return $this->hasMany(CeritaPhoto::class);
+    }
 }

@@ -9,6 +9,7 @@ use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Intervention\Image\ImageManager;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Facades\Storage;
@@ -74,6 +75,34 @@ class BeritaResource extends Resource
                 ->hidden()
                 ->required()
                 ->unique(ignoreRecord: true),
+
+            Repeater::make('images')
+                ->relationship()
+                ->label('Foto Tambahan')
+                ->schema([
+                    FileUpload::make('image')
+                        ->label('Foto')
+                        ->image()
+                        ->directory('berita-photos')
+                        ->saveUploadedFileUsing(function ($file) {
+                            // Inisialisasi ImageManager dengan driver GD
+                            $manager = new ImageManager(new Driver());
+    
+                            // Baca dan konversi gambar ke format WebP
+                            $image = $manager->read($file)->toWebp(80);
+    
+                            // Buat nama file unik
+                            $filename = 'beritasp/' . uniqid() . '.webp';
+    
+                            // Simpan gambar ke storage
+                            Storage::disk('public')->put($filename, (string) $image);
+    
+                            return $filename;
+                        })
+                        ->nullable(),
+                ])
+                ->columnSpan('full')
+                ->collapsible(),
             ]);
     }
 
