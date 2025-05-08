@@ -236,7 +236,6 @@
   } */
   
   
-<<<<<<< HEAD
   /*--------------------------------------------------------------
   # promo Section
   --------------------------------------------------------------*/
@@ -268,10 +267,7 @@
     }
   }
   /* ... existing code ... */
-  
-=======
->>>>>>> parent of 360f7fa (update revisi promo banner)
-  /* ... existing code ... */
+
   
   /*--------------------------------------------------------------
   # Merchandise Section
@@ -1322,14 +1318,9 @@
     color: var(--default-color);
     background-color: var(--background-color);
     /* padding: 60px 0; */
-<<<<<<< HEAD
    
     scroll-margin-top: 80px;
     /* overflow: hidden; */
-=======
-    scroll-margin-top: 100px;
-    overflow: hidden;
->>>>>>> parent of 360f7fa (update revisi promo banner)
   }
   
   @media (max-width: 1199px) {
