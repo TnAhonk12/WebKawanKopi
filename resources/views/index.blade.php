@@ -25,11 +25,11 @@
           
             <div class="relative w-7/10 aspect-square mt-[2rem] mx-auto">
               <!-- Gambar Produk -->
-              <img src="{{ asset('assets/img/Menu/Kopi-Susu-Kawan/KSK-Baru.jpg') }}" alt="KSK-Baru"
+              <img src="{{ asset('assets/img/Lini-Produk.jpg') }}" alt="KSK-Baru"
                 class="w-auto h-auto object-cover rounded-xl" />
           
               <!-- Tombol Navigasi -->
-              <div class="absolute inset-1 flex justify-between items-center px-1">
+              {{-- <div class="absolute inset-1 flex justify-between items-center px-1">
                 <!-- Tombol Kiri -->
                 <button class="absolute left-2 top-auto transform -translate-y-1/2 z-10">
                   <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
@@ -39,7 +39,7 @@
                   <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 </button>
-              </div>
+              </div> --}}
               <!-- Nama Produk dan Harga DI LUAR GAMBAR -->
               <div class="mt-4 text-center">
                 {{-- <p class="text-xl font-bold mb-0 text-[#8B5E3B]">KSK Baru</p>
@@ -56,7 +56,7 @@
 
               <!-- Bagian Atas: Kategori Produk -->
               <div class="grid grid-cols-3 gap-4 overflow-y-auto h-[250px] pb-2">
-                <button class="category active">Black-White</button>
+                <button class="category">Black-White</button>
                 <button class="category">Kopi Susu Kawan (KSK)</button>
                 <button class="category">Chocolate, Tea & Matcha</button>
                 <button class="category">Kawan Signature</button>
@@ -179,18 +179,26 @@
   </section>
   <!-- Lini Produk Section end -->
 
+<<<<<<< HEAD
   <!-- Promo Banner Section -->
   <section id="promo-banner" class="promo-banner section-promo w-full flex justify-center bg-white py-6 px-4">
-    <div class="relative w-full max-w-[1200px] max-h-[500px] overflow-hidden rounded-xl shadow-lg">
+    <div class="relative w-full max-w-[1200px] max-h-[500px] overflow-hidden rounded-xl">
       <div id="promoSlider" class="flex h-full transition-transform duration-1000 ease-in-out">
         <img src="{{ asset('assets/img/Promo/1.png') }}" alt="Promo 1" class="w-full h-full object-cover flex-shrink-0">
         <img src="{{ asset('assets/img/Promo/2.png') }}" alt="Promo 2" class="w-full h-full object-cover flex-shrink-0">
         <img src="{{ asset('assets/img/Promo/3.png') }}" alt="Promo 3" class="w-full h-full object-cover flex-shrink-0">
         <img src="{{ asset('assets/img/Promo/4.png') }}" alt="Promo 4" class="w-full h-full object-cover flex-shrink-0">
+=======
+    <!-- Promo Banner Section -->
+    <section id="promo-banner" class="relative w-full overflow-hidden bg-white h-[200px] md:h-[250px] lg:h-[300px]">
+      <div id="promoSlider" class="flex transition-transform duration-1000 ease-in-out h-full">
+        <img src="{{ asset('assets/img/Promo/1.png') }}" class="w-full h-full object-cover flex-shrink-0" alt="Promo 1">
+        <img src="{{ asset('assets/img/Promo/2.png') }}" class="w-full h-full object-cover flex-shrink-0" alt="Promo 2">
+        <img src="{{ asset('assets/img/Promo/3.png') }}" class="w-full h-full object-cover flex-shrink-0" alt="Promo 3">
+>>>>>>> parent of 360f7fa (update revisi promo banner)
       </div>
-    </div>
-  </section>
-  <!-- Promo Banner Section end -->
+    </section>
+    <!-- Promo Banner Section end -->
 
   <!-- Merchandise Section -->
   <section id="merchandise" class="merchandise section h-auto transition-all duration-150 ease-in">
@@ -375,7 +383,7 @@
   <!-- Modal Template merchandise end -->
   
   <!-- Cerita Kawan Section -->
-    <section id="cerita-kawan" class="cerita section relative h-auto transition-all duration-150 ease-in">
+    <section id="cerita-kawan" class="cerita relative h-auto transition-all duration-150 ease-in">
       <div class="container">
         <div class="row align-items-start">
           <!-- Judul Kiri (desktop) --> 
@@ -396,26 +404,28 @@
         
             <!-- Orang 1 -->
             <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
-              
-              <a href="#">
-                <img alt="Gilang Dhafir" 
-                loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
-                class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
-                src="{{ asset('assets/img/Cerita-Kawan/Gilang-Dhafir.png') }}">
-              </a>
-                
-                <div class="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap
+              <img
+                src="{{ asset('assets/img/Cerita-Kawan/Gilang-Dhafir.png') }}"
+                alt="Gilang Dhafir"
+                class="h-auto w-auto max-h-full object-contain cursor-pointer z-10 relative"
+                onclick="window.location.href='#cerita-kawan';"
+              />
+            
+              <div class="absolute bottom-4 left-1/2 z-20 -translate-x-1/2 whitespace-nowrap
                 border border-black bg-[#fefce8] px-4 py-2 text-lg font-bold text-black cerita-hover-box">
                 Gilang Dhafir
               </div>
             </div>
+            
         
             <!-- Orang 2 -->
             <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
-              <img alt="Mpip Damngood" 
-                loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
-                class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
-                src="{{ asset('assets/img/Cerita-Kawan/Mpip-Damngood.png') }}">
+              <img
+                src="{{ asset('assets/img/Cerita-Kawan/Mpip-Damngood.png') }}"
+                alt="Mpip Damngood"
+                class="h-auto w-auto max-h-full object-contain cursor-pointer z-10 relative"
+                onclick="window.location.href='#cerita-kawan';"
+              />
               
               <div class="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap
                 border border-black bg-[#fefce8] px-4 py-2 text-lg font-bold text-black cerita-hover-box">
@@ -425,10 +435,12 @@
         
             <!-- Orang 3 -->
             <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
-              <img alt="Wajid Club Dangdut Racun" 
-                loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
-                class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
-                src="{{ asset('assets/img/Cerita-Kawan/Wajid-Club-Dangdut-Racun.png') }}">
+                <img
+                src="{{ asset('assets/img/Cerita-Kawan/Wajid-Club-Dangdut-Racun.png') }}"
+                alt="Wajid Club Dangdut Racun"
+                class="h-auto w-auto max-h-full object-contain cursor-pointer z-10 relative"
+                onclick="window.location.href='#cerita-kawan';"
+                />
               
               <div class="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap
                 border border-black bg-[#fefce8] px-4 py-2 text-lg font-bold text-black cerita-hover-box">
@@ -438,9 +450,10 @@
             <!-- Orang 4 -->
             <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
               <img alt="Aul test" 
-                loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
                 class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
-                src="{{ asset('assets/img/Cerita-Kawan/Aul-Test.png') }}">
+                src="{{ asset('assets/img/Cerita-Kawan/Aul-Test.png') }}"
+                onclick="window.location.href='#cerita-kawan';"
+              />
               
               <div class="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap
                 border border-black bg-[#fefce8] px-4 py-2 text-lg font-bold text-black cerita-hover-box">
@@ -450,9 +463,10 @@
             <!-- Orang 5 -->
             <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
               <img alt="Acong Test" 
-                loading="lazy" width="0" height="0" decoding="async" data-nimg="1"
                 class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
-                src="{{ asset('assets/img/Cerita-Kawan/Acong-Test.png') }}">
+                src="{{ asset('assets/img/Cerita-Kawan/Acong-Test.png') }}"
+                onclick="window.location.href='#cerita-kawan';"
+              />
               
               <div class="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap
                 border border-black bg-[#fefce8] px-4 py-2 text-lg font-bold text-black cerita-hover-box">
@@ -465,7 +479,7 @@
     <!-- Cerita Kawan Section End -->
 
     <!-- Berita Kawan Section -->
-    <section id="berita-kawan" class="berita section relative h-auto transition-all duration-150 ease-in">
+    <section id="berita-kawan" class="berita relative h-auto transition-all duration-150 ease-in">
       <div class="container mx-auto">
         <div class="row align-items-start">
           

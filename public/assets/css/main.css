@@ -236,6 +236,7 @@
   } */
   
   
+<<<<<<< HEAD
   /*--------------------------------------------------------------
   # promo Section
   --------------------------------------------------------------*/
@@ -254,7 +255,7 @@
     /* padding: 60px 0; */
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    scroll-margin-top: 100px;
+    /* scroll-margin-top: 100px; */
     overflow: hidden;
   }
   
@@ -268,6 +269,8 @@
   }
   /* ... existing code ... */
   
+=======
+>>>>>>> parent of 360f7fa (update revisi promo banner)
   /* ... existing code ... */
   
   /*--------------------------------------------------------------
@@ -454,6 +457,12 @@
       font-weight: 700;
       margin-bottom: 10px;
     }
+
+    .cerita img{
+      display: block;
+      height: auto;
+      object-fit: contain;
+    }
   
     .cerita-hover-box {
       transition: opacity 0.3s ease;
@@ -489,7 +498,7 @@
       background-attachment: fixed;
       padding: 80px 0;
       color: #000;
-    }
+      }
   
     .berita h1 {
       font-size: 50px;
@@ -529,7 +538,10 @@
       font-weight: 500;
       font-size: small; 
       font-style: italic;
+
+      
     }
+    
 
     .berita-text h3{
       font-size: 30px;
@@ -562,6 +574,7 @@
       margin: 0;
     }
   
+    
     @media (max-width: 768px) {
       .berita-item img {
         height: 200px;
@@ -1309,9 +1322,14 @@
     color: var(--default-color);
     background-color: var(--background-color);
     /* padding: 60px 0; */
+<<<<<<< HEAD
    
+    scroll-margin-top: 80px;
+    /* overflow: hidden; */
+=======
     scroll-margin-top: 100px;
     overflow: hidden;
+>>>>>>> parent of 360f7fa (update revisi promo banner)
   }
   
   @media (max-width: 1199px) {
@@ -1319,7 +1337,6 @@
     section,
     .section {
       scroll-margin-top: 50px;
-      
     }
   }
   

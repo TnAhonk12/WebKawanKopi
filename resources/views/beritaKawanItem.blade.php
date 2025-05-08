@@ -12,17 +12,17 @@
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
 
+      <div class="col-lg-12">
+        <img src="{{asset('assets/img/berita-kawan/1.jpg')}}" class="img-fluid" alt="">
+      </div>
       <div class="row gy-4 justify-content-center">
-        <div class="col-lg-4">
-          <img src="{{asset('assets/img/berita-kawan/1.jpg')}}" class="img-fluid" alt="">
-        </div>
-        <div class="col-lg-8 content">
+        <div class="col-lg-12 content">
           <h2>RAW Club: Penanda Kebangkitan Skena Denim</h2>
-          <p class="fst-italic py-3">
+          <p class="fst-italic py-3 text-justify">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
             magna aliqua.
           </p>
-          <p class="py-3">
+          <p class="py-3 text-justify">
             Flores tidak hanya dikenal karena alamnya yang indah, tetapi juga karena kopinya yang khas. 
             Bajawa Semi-Washed hadir membawa cerita dari dataran tinggi yang kaya akan sejarah dan budaya kopi. 
             Diproses dengan teknik semi-washed, kopi ini menawarkan keseimbangan antara rasa cerah dan tubuh yang kuat. Dari kebun ke cangkir, perjalanan kopi ini adalah bukti kerja keras petani lokal dan keunikan tanah Flores. Kini, 

@@ -27,5 +27,5 @@ Route::get('/contact', function () {
 });
 
 Route::get('/berita-kawan', function () {
-    return view('beritaKawan');
+    return view('beritaKawanItem');
 });
