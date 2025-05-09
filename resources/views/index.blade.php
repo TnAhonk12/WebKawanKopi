@@ -181,25 +181,37 @@
 
 
   <!-- Promo Banner Section -->
-  <section id="promo-banner" class="promo-banner section-promo w-full flex justify-center bg-white py-6 px-4">
-    <div class="relative w-full max-w-[1200px] max-h-[500px] overflow-hidden rounded-xl">
-      <div id="promoSlider" class="flex h-full transition-transform duration-1000 ease-in-out">
-        <img src="{{ asset('assets/img/Promo/1.png') }}" alt="Promo 1" class="w-full h-full object-cover flex-shrink-0">
-        <img src="{{ asset('assets/img/Promo/2.png') }}" alt="Promo 2" class="w-full h-full object-cover flex-shrink-0">
-        <img src="{{ asset('assets/img/Promo/3.png') }}" alt="Promo 3" class="w-full h-full object-cover flex-shrink-0">
-        <img src="{{ asset('assets/img/Promo/4.png') }}" alt="Promo 4" class="w-full h-full object-cover flex-shrink-0">
-
-    <!-- Promo Banner Section -->
-    {{-- <section id="promo-banner" class="relative w-full overflow-hidden bg-white h-[200px] md:h-[250px] lg:h-[300px]">
-      <div id="promoSlider" class="flex transition-transform duration-1000 ease-in-out h-full">
+  <section id="promo-banner" class="promo-banner bg-white py-6 px-4">
+    <div class="relative w-full max-w-[1200px] max-h-[500px] mx-auto rounded-xl overflow-hidden shadow-lg">
+  
+      <!-- Carousel Inner -->
+      <div id="promoSlider" class="flex transition-transform duration-500 ease-in-out">
         <img src="{{ asset('assets/img/Promo/1.png') }}" class="w-full h-full object-cover flex-shrink-0" alt="Promo 1">
         <img src="{{ asset('assets/img/Promo/2.png') }}" class="w-full h-full object-cover flex-shrink-0" alt="Promo 2">
-        <img src="{{ asset('assets/img/Promo/3.png') }}" class="w-full h-full object-cover flex-shrink-0" alt="Promo 3"> --}}
-
+        <img src="{{ asset('assets/img/Promo/3.png') }}" class="w-full h-full object-cover flex-shrink-0" alt="Promo 3">
       </div>
+  
+      <!-- Controls -->
+      <button id="prevPromo" class="absolute left-3 top-1/2 -translate-y-1/2 z-10">
+        <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+      </button>
+      <button id="nextPromo" class="absolute right-3 top-1/2 -translate-y-1/2 z-10">
+        <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+      </button>
+  
+      <!-- Indicators -->
+      <div id="promoIndicators" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+        <span data-index="0" class="w-3 h-3 bg-black rounded-full opacity-50 cursor-pointer"></span>
+        <span data-index="1" class="w-3 h-3 bg-black rounded-full opacity-50 cursor-pointer"></span>
+        <span data-index="2" class="w-3 h-3 bg-black rounded-full opacity-50 cursor-pointer"></span>
+      </div>
+  
     </div>
-    </section>
-    <!-- Promo Banner Section end -->
+  </section>
+  
+  <!-- Promo Banner Section end -->
 
   <!-- Merchandise Section -->
   <section id="merchandise" class="merchandise section h-auto transition-all duration-150 ease-in">
@@ -833,15 +845,46 @@
       });
 
       // Promo Banner
-      document.addEventListener("DOMContentLoaded", () => {
+      document.addEventListener("DOMContentLoaded", function () {
         const slider = document.getElementById("promoSlider");
+        const indicators = document.querySelectorAll("#promoIndicators span");
         const totalSlides = slider.children.length;
+        const slideWidth = slider.children[0].offsetWidth;
         let currentIndex = 0;
 
+        function updateSlider(index) {
+          slider.style.transform = `translateX(-${index * 100}%)`;
+          indicators.forEach((dot, i) => {
+            dot.classList.toggle("opacity-100", i === index);
+            dot.classList.toggle("opacity-50", i !== index);
+          });
+        }
+
+        document.getElementById("prevPromo").addEventListener("click", () => {
+          currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+          updateSlider(currentIndex);
+        });
+
+        document.getElementById("nextPromo").addEventListener("click", () => {
+          currentIndex = (currentIndex + 1) % totalSlides;
+          updateSlider(currentIndex);
+        });
+
+        indicators.forEach(dot => {
+          dot.addEventListener("click", () => {
+            currentIndex = parseInt(dot.dataset.index);
+            updateSlider(currentIndex);
+          });
+        });
+
+        // Auto Slide
         setInterval(() => {
           currentIndex = (currentIndex + 1) % totalSlides;
-          slider.style.transform = `translateX(-${100 * currentIndex}%)`;
-        }, 5000); // ganti slide tiap 5 detik
+          updateSlider(currentIndex);
+        }, 5000);
+
+        // Initial
+        updateSlider(currentIndex);
       });
 
       // Merchandise Modal Toggle (Desktop)

@@ -13,13 +13,15 @@
         </div>
         <div class="col-lg-6 mb-4 hidden lg:flex flex-col justify-between h-full">
 
-          <div class="relative find-us-item">
-            <img 
-                  {{-- src="{{ asset('assets/img/Find-Us/2.jpg') }}"  --}}
-                  id="findImageDesktop"
-                  alt="Find Us" 
-                  class="mx-auto w-4/5 object-cover aspect-square rounded-xl"
-            >
+          <div class="relative">
+            <div class="find-us-item">
+              <img 
+              {{-- src="{{ asset('assets/img/Find-Us/2.jpg') }}"  --}}
+              id="findImageDesktop"
+              alt="Find Us" 
+              class="mx-auto w-4/5 object-cover aspect-square rounded-xl"
+              >
+            </div>
             <!-- Tombol Navigasi -->
             <button onclick="prevFind()" class="absolute left-2 top-1/2 transform -translate-y-1/2 z-10">
               <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
@@ -29,11 +31,13 @@
               <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
                 viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
             </button>
-            <div class="flex justify-center items-center col-span-3 mt-4">
-              <a href="/find-us"
-                class="bg-white text-black font-bold  text-xm px-6 py-3 rounded shadow-md hover:bg-gray transition">
-                  Lihat Semua Toko
-              </a>
+            <div class="find-us-item">
+              <div class="flex justify-center items-center col-span-3 mt-4">
+                <a href="/find-us"
+                  class="bg-white text-black font-bold  text-xm px-6 py-3 rounded shadow-md hover:bg-gray transition">
+                    Lihat Semua Toko
+                </a>
+              </div>
             </div>
           </div>
           
