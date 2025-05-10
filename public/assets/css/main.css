@@ -1,0 +1,1552 @@
+/* Fonts */
+@font-face {
+  font-family: 'FontWeb';
+  src: url('../font/font_web.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --default-font: "FontWeb", "Roboto", system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --heading-font: "FontWeb", "Raleway", sans-serif;
+  --nav-font: "FontWeb", "Poppins", sans-serif;
+}
+  
+  /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+  :root { 
+    --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+    --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
+    --heading-color: #222222; /* Color for headings, subheadings and title throughout the website */
+    --accent-color: #f0b175; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+    --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+    --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  }
+  
+  /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+  :root {
+    --nav-color: #444444;  /* The default color of the main navmenu links */
+    --nav-hover-color: #f0b175; /* Applied to main navmenu links when they are hovered over or active */
+    --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
+    --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+    --nav-dropdown-color: #444444; /* Used for navigation links of the dropdown items in the navigation menu. */
+    --nav-dropdown-hover-color: #f0b175; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  }
+  
+  /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+  
+  .light-background {
+    --background-color: #e9e8e6;
+    --surface-color: #ffffff;
+  }
+  
+  .dark-background {
+    --background-color: #060606;
+    --default-color: #ffffff;
+    --heading-color: #ffffff;
+    --surface-color: #252525;
+    --contrast-color: #ffffff;
+  }
+  
+  /* Smooth scroll */
+  :root {
+    scroll-behavior: smooth;
+  }
+  
+  /*--------------------------------------------------------------
+  # General Styling & Shared Classes
+  --------------------------------------------------------------*/
+  body {
+    color: var(--default-color);
+    background-color: var(--background-color);
+  
+    font-family: var(--default-font);
+  }
+  body.has-background {
+    background-image: url('../img/background.jpg'); /* Sesuaikan path dengan lokasi gambar */
+    background-size: cover; /* Pastikan gambar menutupi seluruh layar */
+    background-position: center; /* Gambar tetap berada di tengah */
+    background-repeat: no-repeat; /* Hindari pengulangan gambar */
+    background-attachment: fixed; /* Efek parallax (gambar tidak bergerak saat scroll) */
+  }
+  
+  a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  a:hover {
+    color: color-mix(in srgb, var(--accent-color), transparent 25%);
+    text-decoration: none;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--heading-color);
+    font-family: var(--heading-font);
+  }
+  
+  /*--------------------------------------------------------------
+  # Lini Produk
+  --------------------------------------------------------------*/
+  
+  /* Lini Produk Section */
+  .lini-produk {
+    background: url('../img/background.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 80px 0;
+  }
+  
+  .lini-produk h1 {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  .product-carousel {
+    position: relative;
+  }
+  
+  .product-carousel img {
+    max-width: 300px;
+    border-radius: 12px;
+  }
+  
+  .carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .product-name {
+    margin-top: 12px;
+    font-weight: 600;
+    font-size: 24px;
+  }
+  
+  /* Kategori */
+  .product-carousel,
+  .kategori-produk {
+    max-width: 700px;
+  }
+  
+  .kategori-produk {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .category-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+  
+  .category {
+    padding: 1rem; /* py-4 = 1rem */
+    border: 2px solid black;
+    background-color: transparent;
+    font-size: 1rem; /* text-base */
+    font-weight: 600; /* font-semibold */
+    text-align: center;
+    transition: opacity 0.3s, background-color 0.3s, color 0.3s;
+    cursor: pointer;
+  }
+  
+  .category:hover {
+    opacity: 0.7;
+  }
+  
+  .category.active {
+    text-decoration: underline;
+    font-weight: 700; /* font-bold */
+    color: #8B5E3B; /* Coklat */
+    background-color: white; /* Tambahan active:bg-white */
+  }
+  
+  
+  /* Produk List */
+  .product-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 12px 48px;
+    width: 100%;
+  }
+  
+  .product-list p {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+    padding-bottom: 2px;
+    border-bottom: 2px solid black;
+    width: 100%;
+    max-width: 320px;
+    text-align: left;
+  }
+  
+  .product-list p.active {
+    color: #8B5E3B;
+    font-weight: 800;
+  }
+
+  /* backup */
+  /* .product-list-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    height: 300px;
+    overflow-y: auto;
+    padding-bottom: 0.5rem;
+  }
+  
+  .product-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .product-item {
+    text-align: left;
+    font-weight: 700;
+    border-bottom: 2px solid black;
+    padding-bottom: 0.5rem;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  
+  .product-item:hover {
+    opacity: 0.7;
+  }
+  
+  .product-item.active {
+    color: #8B5E3B;
+    border-color: #8B5E3B;
+  } */
+  
+  
+  /*--------------------------------------------------------------
+  # promo Section
+  --------------------------------------------------------------*/
+
+  .promo-banner {
+    background: url('../img/background.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 80px 0;
+    color: #000;
+  }
+
+  .section-promo {
+    color: var(--default-color);
+    background-color: var(--background-color);
+    /* padding: 60px 0; */
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    /* scroll-margin-top: 100px; */
+    overflow: hidden;
+  }
+  
+  @media (max-width: 1199px) {
+  
+    .section-promo {
+      /* scroll-margin-top: 50px; */
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+  }
+  /* ... existing code ... */
+
+  
+  /*--------------------------------------------------------------
+  # Merchandise Section
+  --------------------------------------------------------------*/
+  .merchandise {
+  background: url('../img/background.jpg') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 80px 0;
+  color: #000;
+  }
+
+  .merchandise h1 {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .merchandise h3 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .shop-icons {
+    display: flex;
+    gap: 10px;
+  }
+
+  .shop-icons img {
+    height: 40px;
+    transition: transform 0.3s ease;
+  }
+
+  .shop-icons img:hover {
+    transform: scale(1.1);
+  }
+
+  .merchandise-item {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .merchandise-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .merchandise-item img {
+    border-radius: 8px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .merchandise-item h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  .merchandise-item p {
+    font-size: 16px;
+    font-weight: 700;
+    color: #8B5E3B;
+    margin: 0;
+  }
+
+  
+  @media (max-width: 768px) {
+    .merchandise-item img {
+      height: 200px;
+    }
+  }
+  
+  /* ... existing code ... */
+
+  /*--------------------------------------------------------------
+  # Roastery Section
+  --------------------------------------------------------------*/
+  .roastery {
+    background: url('../img/background.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 80px 0;
+    color: #000;
+    }
+  
+    .roastery h1 {
+      font-size: 50px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+  
+    /* .roastery-item {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      padding: 20px;
+      height: 100%;
+      transition: transform 0.3s ease;
+    }
+  
+    .roastery-item:hover {
+      transform: scaleY(1.5);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+  
+    .roastery-item img {
+      border-radius: 8px;
+      margin-bottom: 10px;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    } */
+
+   
+    .roastery-item {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .roastery-item.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .roastery-item:hover {
+      transform: scale(1.05);
+      /* box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); */
+    }
+    
+    .roastery-item img {
+      transition: transform 0.3s ease;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    
+    /* .roastery-item:hover img {
+      transform: scale(1.05);
+    } */
+    
+  
+    .roastery-item h4 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+  
+    .roastery-item p {
+      font-size: 16px;
+      font-weight: 700;
+      color: #8B5E3B;
+      margin: 0;
+    }
+  
+    
+    @media (max-width: 768px) {
+      .roastery-item img {
+        height: 200px;
+      }
+    }
+    
+    /* ... existing code ... */
+
+    /*--------------------------------------------------------------
+    # Cerita-Kawan Section
+    --------------------------------------------------------------*/
+    .cerita {
+      background: url('../img/background.jpg') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
+      padding: 80px 0;
+      color: #000;
+      }
+  
+    .cerita h1 {
+      font-size: 50px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .cerita img{
+      display: block;
+      height: auto;
+      object-fit: contain;
+    }
+  
+    .cerita-hover-box {
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
+  
+    .group:hover .cerita-hover-box,
+    .group:focus-within .cerita-hover-box {
+      opacity: 1;
+    }
+  
+    @media (hover: none) {
+      .group:active .cerita-hover-box {
+        opacity: 1;
+      }
+    }
+  
+    
+    @media (max-width: 768px) {
+      .cerita img {
+        height: 200px;
+      }
+    }
+    
+    /* ... existing code ... */
+
+    /*--------------------------------------------------------------
+    # Berita-Kawan Section
+    --------------------------------------------------------------*/
+    .berita {
+      background: url('../img/background.jpg') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
+      padding: 80px 0;
+      color: #000;
+      }
+  
+    .berita h1 {
+      font-size: 50px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+  
+    .berita-item {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      padding: 20px;
+      height: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .berita-text{
+      margin-top: 6rem;
+    }
+
+    .berita-text-mobile h1{
+      margin-bottom: 2; 
+      text-align: center;
+      font-size: 36px;
+      font-weight: 800;
+    }
+
+    .berita-text-mobile h3{
+      margin-bottom: 2; 
+      text-align: center;
+      font-size: 21px;
+      font-weight: 600;
+    }
+
+    .berita-text-mobile p{
+      margin-bottom: 6; 
+      text-align: center;
+      font-weight: 500;
+      font-size: small; 
+      font-style: italic;
+
+      
+    }
+    
+
+    .berita-text h3{
+      font-size: 30px;
+      font-weight: 601;
+    }
+  
+    .berita-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+  
+    .berita-item img {
+      border-radius: 8px;
+      margin-bottom: 10px;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+  
+    .berita-item h4 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+  
+    .berita-item p {
+      font-size: 16px;
+      font-weight: 700;
+      color: #8B5E3B;
+      margin: 0;
+    }
+  
+    
+    @media (max-width: 768px) {
+      .berita-item img {
+        height: 200px;
+      }
+    }
+    
+    /* ... existing code ... */
+
+    /*--------------------------------------------------------------
+    # Find-Us Section
+    --------------------------------------------------------------*/
+    .find-us {
+      background: url('../img/background.jpg') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
+      padding: 80px 0;
+      color: #000;
+      }
+  
+    .find-us h1 {
+      font-size: 50px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .find-us-text{
+      margin-top: auto;
+    }
+
+    .find-us-shop-icons {
+      display: flex;
+      gap: 30px;
+      margin-top: 1.5rem;
+    }
+  
+    .find-us-shop-icons img {
+      height: 50px;
+      transition: transform 0.3s ease;
+    }
+  
+    .find-us-shop-icons img:hover {
+      transform: scale(1.1);
+    }
+
+    .find-us-text h3{
+      font-size: 30px;
+      font-weight: 601;
+    }
+
+    .find-us-item {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .find-us-item.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .find-us-item:hover {
+      transform: scale(1.05);
+      /* box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); */
+    }
+    
+    .find-us-item img {
+      transition: transform 0.3s ease;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  
+    .find-us-item h4 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+  
+    .find-us-item p {
+      font-size: 16px;
+      font-weight: 700;
+      color: #8B5E3B;
+      margin: 0;
+    }
+  
+    
+    @media (max-width: 768px) {
+      .find-us-item img {
+        height: 200px;
+      }
+    }
+    
+    /* ... existing code ... */
+
+/*--------------------------------------------------------------
+# Contact Section
+--------------------------------------------------------------*/
+.contact {
+  background: url('../img/background.jpg') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 80px 0;
+  color: #000;
+}
+
+@media (max-width: 575px) {
+  .contact {
+    padding: 20px;
+  }
+}
+
+.contact .email-form {
+  background-color: var(--surface-color);
+  height: 100%;
+  padding: 30px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 575px) {
+  .contact .email-form {
+    padding: 20px;
+  }
+}
+
+.contact .email-form input[type=text],
+.contact .email-form input[type=email],
+.contact .email-form textarea {
+  font-size: 14px;
+  padding: 10px 15px;
+  box-shadow: none;
+  border-radius: 0;
+  color: var(--default-color);
+  background-color: var(--surface-color);
+  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+}
+
+.contact .email-form input[type=text]:focus,
+.contact .email-form input[type=email]:focus,
+.contact .email-form textarea:focus {
+  border-color: var(--accent-color);
+}
+
+.contact .email-form input[type=text]::placeholder,
+.contact .email-form input[type=email]::placeholder,
+.contact .email-form textarea::placeholder {
+  color: color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+.contact .email-form button[type=submit] {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  border: 0;
+  padding: 10px 30px;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.contact .email-form button[type=submit]:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 25%);
+}
+
+/*--------------------------------------------------------------
+  # Email Form Messages
+--------------------------------------------------------------*/
+.email-form .error-message {
+  display: none;
+  background: #df1529;
+  color: #ffffff;
+  text-align: left;
+  padding: 15px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.email-form .sent-message {
+  display: none;
+  color: #ffffff;
+  background: #059652;
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.email-form .loading {
+  display: none;
+  background: var(--surface-color);
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 24px;
+}
+
+.email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid var(--accent-color);
+  border-top-color: var(--surface-color);
+  animation: email-form-loading 1s linear infinite;
+}
+
+@keyframes email-form-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+  
+  /*--------------------------------------------------------------
+  # Global Header
+  --------------------------------------------------------------*/
+  .header {
+    /* color: var(--default-color); */
+    position: fixed;
+    background-color: transparent;
+    /* background-image: url('../img/background.jpg');; */
+    background-size: cover; /* Menyesuaikan ukuran gambar agar menutupi seluruh layar */
+    background-position: center; /* Memastikan gambar terpusat */
+    background-repeat: no-repeat; /* Mencegah gambar berulang */
+    background-attachment: fixed; /* Membuat efek parallax (opsional) */
+    padding: 10px 0;
+    transition: all 0.5s;
+    z-index: 997;
+    width: 100%;
+    box-shadow: 0px 0 18px rgba(0, 0, 0, 0);
+  }
+  .header.scrolled {
+  /* background-color: var(--background-color); atau warna lain */
+    background-image: url('../img/background.jpg');;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header.header-hidden {
+    background-image: none;
+    transition: opacity 0.3s ease;
+    box-shadow: none;
+  }
+  
+  .header .logo {
+    line-height: 1;
+  }
+  
+  .header .logo img {
+    max-height: 80px; /* Ubah ukuran sesuai kebutuhan, misalnya 60px atau lebih */
+    height: auto;
+    width: auto; /* Pastikan tidak ada distorsi */
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Jika ingin ukuran lebih besar ketika hover */
+  .header .logo img:hover {
+    transform: scale(1.1);
+  }
+  
+  .header .header-social-links {
+    padding-right: 15px;
+    
+  }
+  
+  .header .header-social-links a {
+    color: color-mix(in srgb, var(--default-color), transparent 40%);
+    padding-left: 6px;
+    display: inline-block;
+    transition: 0.3s;
+    font-size: 16px;
+    position: relative;
+    right: 36.4px;
+    top: -5.6px;
+  }
+  
+  .header .header-social-links a:hover {
+    color: var(--accent-color);
+  }
+  
+  .header .header-social-links a i {
+    line-height: 0px;
+  }
+  
+  @media (max-width: 1200px) {
+    .header .logo {
+      order: 1;
+    }
+  
+    .header .header-social-links {
+      order: 2;
+    }
+  
+    .header .navmenu {
+      order: 3;
+    }
+  }
+  
+  /*--------------------------------------------------------------
+  # Navigation Menu
+  --------------------------------------------------------------*/
+  /* Desktop Navigation */
+  @media (min-width: 1000px) {
+    .navmenu {
+      padding: 0;
+    }
+  
+    .navmenu ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 50px;
+    }
+  
+    .navmenu li {
+      position: relative;
+    }
+  
+    .navmenu>ul>li {
+      white-space: nowrap;
+      padding: 15px 14px;
+    }
+  
+    .navmenu>ul>li:last-child {
+      padding-right: 0;
+    }
+  
+    .navmenu a,
+    .navmenu a:focus {
+      color: var(--nav-color);
+      font-size: 18px;
+      padding: 0 2px;
+      font-family: var(--nav-font);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      white-space: nowrap;
+      transition: 0.3s;
+      position: relative;
+    }
+  
+    .navmenu a i,
+    .navmenu a:focus i {
+      font-size: 12px;
+      line-height: 0;
+      margin-left: 5px;
+      transition: 0.3s;
+    }
+  
+    .navmenu>ul>li>a:before {
+      content: "";
+      position: absolute;
+      height: 2px;
+      bottom: -6px;
+      left: 0;
+      background-color: var(--nav-hover-color);
+      visibility: hidden;
+      width: 0px;
+      transition: all 0.3s ease-in-out 0s;
+    }
+  
+    .navmenu a:hover:before,
+    .navmenu li:hover>a:before,
+    .navmenu .active:before {
+      visibility: visible;
+      width: 25px;
+    }
+  
+    .navmenu li:hover>a,
+    .navmenu .active,
+    .navmenu .active:focus {
+      color: var(--nav-hover-color);
+    }
+  
+    .navmenu .dropdown ul {
+      margin: 0;
+      padding: 10px 0;
+      background: var(--nav-dropdown-background-color);
+      display: block;
+      position: absolute;
+      visibility: hidden;
+      left: 14px;
+      top: 130%;
+      opacity: 0;
+      transition: 0.3s;
+      border-radius: 4px;
+      z-index: 99;
+      box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+    }
+  
+    .navmenu .dropdown ul li {
+      min-width: 200px;
+    }
+  
+    .navmenu .dropdown ul a {
+      padding: 10px 20px;
+      font-size: 15px;
+      text-transform: none;
+      color: var(--nav-dropdown-color);
+    }
+  
+    .navmenu .dropdown ul a i {
+      font-size: 12px;
+    }
+  
+    .navmenu .dropdown ul a:hover,
+    .navmenu .dropdown ul .active:hover,
+    .navmenu .dropdown ul li:hover>a {
+      color: var(--nav-dropdown-hover-color);
+    }
+  
+    .navmenu .dropdown:hover>ul {
+      opacity: 1;
+      top: 100%;
+      visibility: visible;
+    }
+  
+    .navmenu .dropdown .dropdown ul {
+      top: 0;
+      left: -90%;
+      visibility: hidden;
+    }
+  
+    .navmenu .dropdown .dropdown:hover>ul {
+      opacity: 1;
+      top: 0;
+      left: -100%;
+      visibility: visible;
+    }
+  }
+  
+  /* Mobile Navigation */
+  @media (max-width: 1199px) {
+    .mobile-nav-toggle {
+      color: var(--nav-color);
+      position: absolute;
+      right: 20px; /* Posisikan ke kanan */
+      top: 20px;
+      align-items: center;
+      font-size: 28px;
+      line-height: 0;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+  
+    .navmenu {
+      padding: 0;
+      z-index: 9997;
+    }
+  
+    .navmenu .logo {
+      display: none !important; /* Logo akan tersembunyi di tampilan mobile */
+  }
+  
+    .navmenu ul {
+      display: none;
+      list-style: none;
+      position: absolute;
+      inset: 60px 20px 20px 20px;
+      padding: 10px 0;
+      margin: 0;
+      border-radius: 6px;
+      background-color: var(--nav-mobile-background-color);
+      border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+      box-shadow: none;
+      overflow-y: auto;
+      transition: 0.3s;
+      z-index: 9998;
+    }
+  
+    .navmenu a,
+    .navmenu a:focus {
+      color: var(--nav-dropdown-color);
+      padding: 10px 20px;
+      font-family: var(--nav-font);
+      font-size: 17px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      white-space: nowrap;
+      transition: 0.3s;
+    }
+  
+    .navmenu a i,
+    .navmenu a:focus i {
+      font-size: 12px;
+      line-height: 0;
+      margin-left: 5px;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: 0.3s;
+      background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+    }
+  
+    .navmenu a i:hover,
+    .navmenu a:focus i:hover {
+      background-color: var(--accent-color);
+      color: var(--contrast-color);
+    }
+  
+    .navmenu a:hover,
+    .navmenu .active,
+    .navmenu .active:focus {
+      color: var(--nav-dropdown-hover-color);
+    }
+  
+    .navmenu .active i,
+    .navmenu .active:focus i {
+      background-color: var(--accent-color);
+      color: var(--contrast-color);
+      transform: rotate(180deg);
+    }
+  
+    .navmenu .dropdown ul {
+      position: static;
+      display: none;
+      z-index: 99;
+      padding: 10px 0;
+      margin: 10px 20px;
+      background-color: var(--nav-dropdown-background-color);
+      transition: all 0.5s ease-in-out;
+    }
+  
+    .navmenu .dropdown ul ul {
+      background-color: rgba(33, 37, 41, 0.1);
+    }
+  
+    .navmenu .dropdown>.dropdown-active {
+      display: block;
+      background-color: rgba(33, 37, 41, 0.03);
+    }
+  
+    .mobile-nav-active {
+      overflow: hidden;
+    }
+  
+    .mobile-nav-active .mobile-nav-toggle {
+      color: #fff;
+      position: absolute;
+      font-size: 32px;
+      top: 15px;
+      right: 15px;
+      margin-right: 0;
+      z-index: 9999;
+    }
+  
+    .mobile-nav-active .navmenu {
+      position: fixed;
+      overflow: hidden;
+      inset: 0;
+      background: rgba(33, 37, 41, 0.8);
+      transition: 0.3s;
+    }
+  
+    .mobile-nav-active .navmenu>ul {
+      display: block;
+    }
+  }
+  
+  /*--------------------------------------------------------------
+  # Global Footer
+  --------------------------------------------------------------*/
+  .footer {
+    /* background: url('assets/img/background.jpg') no-repeat center center; */
+    background-size: cover;
+    padding: 40px 0;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .footer-logo img {
+    height: 200px;
+    justify-content: right;
+  }
+  
+  .footer-logo h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 10px;
+  }
+  
+  .footer-description {
+    max-width: 650px;
+    text-align: justify;
+    margin: 0 auto;
+    font-size: 12px;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .footer-links {
+    margin-top: 10px;
+    text-align: justify;
+    font-size: 12px;
+  }
+  
+  .footer-links a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .footer-links span {
+    margin: 0 8px;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  
+  
+  .footer-social {
+    text-align: center;
+  }
+  
+  .footer-social p {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .social-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+    gap: 15px; /* Jarak antar ikon */
+    justify-content: center;
+  }
+  
+  .social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+    border-radius: 50%;
+    font-size: 24px;
+    color: black;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  .social-links a:hover {
+    background: black;
+    color: white;
+  }
+  
+  
+  /*--------------------------------------------------------------
+  # Preloader
+  --------------------------------------------------------------*/
+  #preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    overflow: hidden;
+    background-color: var(--background-color);
+    transition: all 0.6s ease-out;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  #preloader:before,
+  #preloader:after {
+    content: "";
+    position: absolute;
+    border: 4px solid var(--accent-color);
+    border-radius: 50%;
+    animation: animate-preloader 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+  
+  #preloader:after {
+    animation-delay: -0.5s;
+  }
+  
+  @keyframes animate-preloader {
+    0% {
+      width: 10px;
+      height: 10px;
+      top: calc(50% - 5px);
+      left: calc(50% - 5px);
+      opacity: 1;
+    }
+  
+    100% {
+      width: 72px;
+      height: 72px;
+      top: calc(50% - 36px);
+      left: calc(50% - 36px);
+      opacity: 0;
+    }
+  }
+  
+  /*--------------------------------------------------------------
+  # Scroll Top Button
+  --------------------------------------------------------------*/
+  .scroll-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: -15px;
+    z-index: 99999;
+    background-color: var(--accent-color);
+    width: 44px;
+    height: 44px;
+    border-radius: 50px;
+    transition: all 0.4s;
+  }
+  
+  .scroll-top i {
+    font-size: 24px;
+    color: var(--contrast-color);
+    line-height: 0;
+  }
+  
+  .scroll-top:hover {
+    background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+    color: var(--contrast-color);
+  }
+  
+  .scroll-top.active {
+    visibility: visible;
+    opacity: 1;
+    bottom: 15px;
+  }
+  
+  /*--------------------------------------------------------------
+  # Global Sections
+  --------------------------------------------------------------*/
+  section,
+  .section {
+    color: var(--default-color);
+    background-color: var(--background-color);
+    /* padding: 60px 0; */
+   
+    scroll-margin-top: 80px;
+    /* overflow: hidden; */
+  }
+  
+  @media (max-width: 1199px) {
+  
+    section,
+    .section {
+      scroll-margin-top: 50px;
+    }
+  }
+  
+  /*--------------------------------------------------------------
+  # Global Section Titles
+  --------------------------------------------------------------*/
+  .section-title {
+    text-align: center;
+    padding-bottom: 60px;
+    position: relative;
+  }
+  
+  .section-title h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+  }
+  
+  .section-title h2:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--accent-color);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  
+  .section-title p {
+    margin-bottom: 0;
+  }
+  
+  /*--------------------------------------------------------------
+  # Hero Section
+  --------------------------------------------------------------*/
+  @media (max-width: 1200px) {
+    .hero {
+      min-height: calc(100vh - 68px);
+    }
+    .tableCashier {
+      height: 440px !important;
+      width: auto !important;
+    }
+    .hero-scroll-wrapper {
+      width: 1920px; /* biar scroll ke kanan bisa */
+      height: 100%;
+    }
+
+    .character,
+    .orderHere,
+    .tableCashier,
+    .displayCase {
+      max-width: none !important;
+    }
+  }
+  .hero {
+    position: relative;
+    height: 100dvh;
+    overflow: hidden;
+    background-image: url('/assets/img/hero/bg-hero.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .character {
+    position: absolute;
+    width: auto;
+    height: 450px;
+    bottom: 0px;
+    left: -3%;
+    transform: translateX(-50%);
+    transition: left 0.1s ease;
+    z-index: 1;
+  }
+  
+  .tableCashier {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /* width: auto; */
+    max-width:100%;
+    /* height: 440px; */
+    height: auto;
+    z-index: 2;
+  }
+
+  /* Box & Text untuk DisplayCase */
+  /* #displayCaseBox,
+  #displayCaseText,
+  #menuBox,
+  #menuText,
+  #orderHereBox,
+  #orderHereText {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: auto;
+    display: none;
+    z-index: 2;
+  } */
+
+
+/* Tampilkan saat hover */
+/* .menu:hover #menuBox,
+.menu:hover #menuText,
+.orderHere:hover #orderHereBox,
+.orderHere:hover #orderHereText,
+.displayCase:hover #displayCaseBox,
+.displayCase:hover #displayCaseText {
+  display: block;
+} */
+
+/* Struktur menu */
+/* .menu {
+  position: absolute;
+  top: 200px;
+  left: 1425px; 
+  width: 200px;
+  height: auto;
+  z-index: 3;
+  cursor: pointer;
+} */
+
+/* Struktur displayCase */
+/* .displayCase {
+  position: absolute;
+  top: 200px;
+  left: 1000px;
+  width: 200px;
+  height: auto;
+  z-index: 3;
+  cursor: pointer;
+} */
+
+/* Struktur orderHere tetap */
+/* .orderHere {
+  position: absolute;
+  top: 200px;
+  left: 1225px;
+  width: 200px;
+  height: auto;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.menu img,
+.orderHere img,
+.displayCase img {
+  width: 100%;
+  height: auto;
+  display: block;
+} */
+
+  
+
+ .hero-scroll-wrapper {
+  width: 1920px; /* ukuran fixed desktop */
+  height: 100%;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .hero-scroll-wrapper {
+    width: 1920px; /* biar scroll ke kanan bisa */
+    height: 100%;
+  }
+
+
+}
+   
+  
+  .hero .btn-get-started {
+    color: var(--contrast-color);
+    background: var(--accent-color);
+    font-family: var(--heading-font);
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 12px 40px;
+    border-radius: 50px;
+    transition: 0.5s;
+    margin-top: 30px;
+  }
+  
+  .hero .btn-get-started:hover {
+    background: color-mix(in srgb, var(--accent-color) 90%, white 20%);
+  }
+  
+  @media (max-width: 768px) {
+    .hero h2 {
+      font-size: 32px;
+    }
+  
+    .hero p {
+      font-size: 18px;
+    }
+    .character {
+      z-index: 1;
+    }
+    .tableCashier {
+      z-index: 2;
+    }
+  }
+  
+  
