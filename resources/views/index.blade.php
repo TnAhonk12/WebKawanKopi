@@ -11,8 +11,6 @@
 
   <!-- hero Section end -->
 
-
-
   <!-- Lini Produk Section -->
   <section id="lini-produk" class="lini-produk section h-auto transition-all duration-150 ease-in">
     <div class="container">
@@ -56,15 +54,9 @@
 
               <!-- Bagian Atas: Kategori Produk -->
               <div class="grid grid-cols-3 gap-4 overflow-y-auto h-[250px] pb-2">
-                <button class="category">Black-White</button>
-                <button class="category">Kopi Susu Kawan (KSK)</button>
-                <button class="category">Chocolate, Tea & Matcha</button>
-                <button class="category">Kawan Signature</button>
-                <button class="category">Bottle</button>
-                <button class="category">Food</button>
-                <button class="category">Kawan Frappe</button>
-                <button class="category">Main Course</button>
-                <!-- tambah lagi kalau ada kategori baru -->
+                @foreach ($menuCategories as $category)
+                  <button class="category">{{ $category->nama_kategori }}</button>
+                @endforeach
               </div>
 
               <!-- Divider -->
@@ -117,14 +109,9 @@
           <div class="lg:hidden px-6">
             <!-- Kategori Produk -->
             <div class="grid grid-cols-3 gap-2 mt-6">
-              <button class="category">Black-White</button>
-              <button class="category">Kopi Susu Kawan (KSK)</button>
-              <button class="category">Chocolate, Tea & Matcha</button>
-              <button class="category">Kawan Signature</button>
-              <button class="category">Bottle</button>
-              <button class="category">Food</button>
-              <button class="category">Kawan Frappe</button>
-              <button class="category">Main Course</button>
+               @foreach ($menuCategories as $category)
+                  <button class="category">{{ $category->nama_kategori }}</button>
+                @endforeach
             </div>
 
             <!-- Divider -->
@@ -151,9 +138,9 @@
   
       <!-- Carousel Inner -->
       <div id="promoSlider" class="flex transition-transform duration-500 ease-in-out">
-        <img src="{{ asset('assets/img/Promo/1.png') }}" class="w-full h-full object-cover flex-shrink-0" alt="Promo 1">
-        <img src="{{ asset('assets/img/Promo/2.png') }}" class="w-full h-full object-cover flex-shrink-0" alt="Promo 2">
-        <img src="{{ asset('assets/img/Promo/3.png') }}" class="w-full h-full object-cover flex-shrink-0" alt="Promo 3">
+        @foreach ($promoImages as $index => $image)
+          <img src="{{ $image }}" class="w-full h-full object-cover flex-shrink-0" alt="Promo {{ $index + 1 }}">
+        @endforeach
       </div>
   
       <!-- Controls -->
@@ -168,9 +155,9 @@
   
       <!-- Indicators -->
       <div id="promoIndicators" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-        <span data-index="0" class="w-3 h-3 bg-black rounded-full opacity-50 cursor-pointer"></span>
-        <span data-index="1" class="w-3 h-3 bg-black rounded-full opacity-50 cursor-pointer"></span>
-        <span data-index="2" class="w-3 h-3 bg-black rounded-full opacity-50 cursor-pointer"></span>
+        @foreach ($promoImages as $index => $image)
+          <span data-index="{{ $index }}" class="w-3 h-3 bg-black rounded-full opacity-50 cursor-pointer"></span>
+        @endforeach
       </div>
   
     </div>
@@ -740,108 +727,8 @@
         });
       });
 
-      // Lini Produk
-      const menus = {
-        "Black-White": [
-          "Hot Americano", "Iced Americano", "Black Tonic", "Hot Cafe Latte",
-          "Iced Cafe Latte", "Hot Cappuccino", "Cocoricano", "Espresso",
-          "Hot Magic", "Iced Magic", "Manual Brew"
-        ],
-        "Bottle": [
-          "KSK Baru", "KSK Lama", "KSK Roasted Almond"
-        ],
-        "Chocolate, Tea & Matcha": [
-          "Apple Mint Tea", "Artisan Tea", "Choco Irish", "Earl Grey Milk Tea",
-          "Kawan Choco Hot", "Kawan Choco Iced", "Lychee Tea", "Matcha Latte Hot",
-          "Matcha Latte Iced"
-        ],
-        "Food": [
-          "Beef Nachos", "Chicken Popcorn", "Choco Cheezy Panties", "Creamy Beef Panties",
-          "Fried Wonton", "Kawan Churros", "Kawan Kentang", "Kawan Sharing",
-          "Molten Cake", "Potato Beef Fried", "Tahu Bumbu Rujak", "Tahu Cabe Garam"
-        ],
-        "Kawan Frappe": [
-          "Charcoal Frappe", "Choco Frappe", "Coffee Frappe", "Matcha Frappe"
-        ],
-        "Kawan Signature": [
-          "Creamy Candy Mango", "Creamy Candy Strawberry", "Irish Coffee",
-          "Kopi Berry Lemon", "Matcha Mango", "Peach Perfect", "Virgin Pinacolada"
-        ],
-        "Kopi Susu Kawan (KSK)": [
-          "KSK Baru", "KSK Baru Hot", "KSK Keju", "KSK Lama", "KSK Roasted Almond"
-        ],
-        "Main Course": [
-          "Ayam Kentang Creamy Mushroom", "Nasi Ayam Buttermilk",
-          "Nasi Ayam Honey Garlic", "Nasi Telur Pontianak"
-        ]
-      };
-
-      const filenameMap = {
-        "Hot Americano": "Americano-Hot.jpg",
-        "Iced Americano": "Americano-Iced.jpg",
-        "Black Tonic": "Black-Tonic.jpg",
-        "Hot Cafe Latte": "Cafe-Latte-Hot.jpg",
-        "Iced Cafe Latte": "Cafe-Latte-Iced.jpg",
-        "Hot Cappuccino": "Cappuccino-Hot.jpg",
-        "Cocoricano": "Cocoricano.jpg",
-        "Espresso": "Espresso.jpg",
-        "Hot Magic": "Magic-Hot.jpg",
-        "Iced Magic": "Magic-Iced.jpg",
-        "Manual Brew": "Manual-Brew.jpg",
-        "KSK Baru": "KSK-Baru.jpg",
-        "KSK Baru Hot": "KSK-Baru-Hot.jpg",
-        "KSK Keju": "KSK-Keju.jpg",
-        "KSK Lama": "KSK-Lama.jpg",
-        "KSK Roasted Almond": "KSK-Roasted-Almond.jpg",
-        "KSK Roasted Almond 1 Liter": "KSK-Roasted Almond-1-Liter.jpg",
-        "Charcoal Frappe": "Charcoal-Frappe.jpg",
-        "Choco Frappe": "Choco-Frappe.jpg",
-        "Coffee Frappe": "Coffee-Frappe.jpg",
-        "Matcha Frappe": "Matcha-Frappe.jpg",
-        "Creamy Candy Mango": "Creamy-Candy-Mango.jpg",
-        "Creamy Candy Strawberry": "Creamy-Candy-Strawberry.jpg",
-        "Irish Coffee": "Irish-Coffee.jpg",
-        "Kopi Berry Lemon": "Kopi-Berry-Lemon.jpg",
-        "Matcha Mango": "Matcha-Mango.jpg",
-        "Peach Perfect": "Peach-Perfect.jpg",
-        "Virgin Pinacolada": "Virgin-Pinacolada.jpg",
-        "Beef Nachos": "Beef-Nachos.jpg",
-        "Chicken Popcorn": "Chicken-Popcorn.jpg",
-        "Choco Cheezy Panties": "Choco-Cheezy-Panties.jpg",
-        "Creamy Beef Panties": "Creamy-Beef-Panties.jpg",
-        "Fried Wonton": "Fried-Wonton.jpg",
-        "Kawan Churros": "Kawan-Churros.jpg",
-        "Kawan Kentang": "Kawan-Kentang.jpg",
-        "Kawan Sharing": "Kawan-Sharing.jpg",
-        "Molten Cake": "Molten-Cake.jpg",
-        "Potato Beef Fried": "Potato-Beef-Fried.jpg",
-        "Tahu Bumbu Rujak": "Tahu-Bumbu-Rujak.jpg",
-        "Tahu Cabe Garam": "Tahu-Cabe-Garam.jpg",
-        "Apple Mint Tea": "Apple-Mint-Tea.jpg",
-        "Artisan Tea": "Artisan-Tea.jpg",
-        "Choco Irish": "Choco-Irish.jpg",
-        "Earl Grey Milk Tea": "Earl-Grey-Milk-Tea.jpg",
-        "Kawan Choco Hot": "Kawan-Choco-Hot.jpg",
-        "Kawan Choco Iced": "Kawan-Choco-Iced.jpg",
-        "Lychee Tea": "Lychee-Tea.jpg",
-        "Matcha Latte Hot": "Matcha-Latte-Hot.jpg",
-        "Matcha Latte Iced": "Matcha-Latte-Iced.jpg",
-        "Ayam Kentang Creamy Mushroom": "Ayam-Kentang-Creamy-Mushroom.jpg",
-        "Nasi Ayam Buttermilk": "Nasi-Ayam-Buttermilk.jpg",
-        "Nasi Ayam Honey Garlic": "Nasi-Ayam-Honey-Garlic.jpg",
-        "Nasi Telur Pontianak": "Nasi-Telur-Pontianak.jpg"
-      };
-
-      const categoryFolderMap = {
-        "Black-White": "Black-White",
-        "Kopi Susu Kawan (KSK)": "Kopi-Susu-Kawan",
-        "Chocolate, Tea & Matcha": "Chocolate-Tea-Matcha",
-        "Kawan Signature": "Kawan-Signature",
-        "Bottle": "Bottle",
-        "Food": "Food",
-        "Kawan Frappe": "Kawan-Frappe",
-        "Main Course": "Main-Course"
-      };
+      const menus = @json($menus);
+      const filenameMap = @json($filenameMap);
 
       document.querySelectorAll(".category").forEach(btn => {
         btn.addEventListener("click", () => {
@@ -866,14 +753,11 @@
             btn.className = "text-left font-bold hover:opacity-70 transition border-b border-black pb-2";
 
             btn.addEventListener("click", () => {
-              const imageName = filenameMap[text];
-              const folder = categoryFolderMap[selectedCategory] || "Other";
-
-              if (imageName && folder) {
-                const fullPath = `/assets/img/Menu/${folder}/${imageName}`;
+             const imageUrl = filenameMap[text];
+              if (imageUrl) {
                 const productImage = document.querySelector(".col-lg-6 img");
                 if (productImage) {
-                  productImage.src = fullPath;
+                  productImage.src = imageUrl;
                   productImage.alt = text;
                 }
               }
@@ -886,9 +770,9 @@
           rightItems.forEach(item => rightCol.appendChild(createButton(item)));
 
           // Trigger gambar pertama otomatis
-          if (menuItems.length > 0) {
-            document.querySelectorAll(".grid-cols-2 .flex.flex-col button")[0].click();
-          }
+          //if (menuItems.length > 0) {
+          //  document.querySelectorAll(".grid-cols-2 .flex.flex-col button")[0].click();
+          //}
         });
       });
 
@@ -914,14 +798,11 @@
             btn.textContent = text;
             btn.className = "text-left font-bold hover:opacity-70 transition border-b border-black pb-2";
             btn.onclick = () => {
-              const imageName = filenameMap[text];
-              const folder = categoryFolderMap[selectedCategory] || "Other";
-
-              if (imageName && folder) {
-                const fullPath = `/assets/img/Menu/${folder}/${imageName}`;
+              const imageUrl = filenameMap[text];
+              if (imageUrl) {
                 const productImage = document.querySelector(".col-lg-6 img");
                 if (productImage) {
-                  productImageMobile.src = fullPath;
+                  productImageMobile.src = imageUrl;
                   productImageMobile.alt = text;
                 }
               }
@@ -932,6 +813,14 @@
           leftItems.forEach(item => leftCol.appendChild(createButton(item)));
           rightItems.forEach(item => rightCol.appendChild(createButton(item)));
         });
+      });
+
+      // Trigger kategori pertama saat halaman pertama kali dibuka
+      window.addEventListener("DOMContentLoaded", () => {
+        const firstCategoryBtn = document.querySelector(".category");
+        if (firstCategoryBtn) {
+          firstCategoryBtn.click();
+        }
       });
 
       // Promo Banner
