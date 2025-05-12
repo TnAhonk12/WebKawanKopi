@@ -162,7 +162,6 @@
   
     </div>
   </section>
-  
   <!-- Promo Banner Section end -->
 
   <!-- Merchandise Section -->
@@ -191,36 +190,44 @@
           </div>
 
           <div class="col-lg-6 hidden lg:grid grid-cols-3 gap-4 w-full h-[600px] overflow-y-auto pr-2">
-            <div onclick="openModal('Tshirt', '{{ asset('assets/img/Merchandise/Tshirt.jpg') }}', 'IDR 125K', 'Deskripsi Ini Tshirt')" class="merchandise-item text-center cursor-pointer">
+            {{-- <div onclick="openModal('Tshirt', '{{ asset('assets/img/Merchandise/Tshirt.jpg') }}', 'IDR 125K')" class="merchandise-item text-center cursor-pointer">
               <img src="{{ asset('assets/img/Merchandise/Tshirt.jpg') }}" alt="Tshirt" class="w-full h-52 object-cover rounded mb-2">
               <h4 class="font-semibold">Tshirt</h4>
               <p class="text-[#8B5E3B] font-bold">IDR 125K</p>
             </div>              
-            <div onclick="openModal('Hat', '{{ asset('assets/img/Merchandise/Hat.jpg') }}', 'IDR 100K', 'Deskripsi Ini Hat')" class="merchandise-item text-center cursor-pointer">
+            <div onclick="openModal('Hat', '{{ asset('assets/img/Merchandise/Hat.jpg') }}', 'IDR 100K')" class="merchandise-item text-center cursor-pointer">
               <img src="{{ asset('assets/img/Merchandise/Hat.jpg') }}" alt="Hat" class="w-full h-52 object-cover rounded mb-2">
               <h4 class="font-semibold">Hat</h4>
               <p class="text-[#8B5E3B] font-bold">IDR 100K</p>
             </div>
-            <div onclick="openModal('Tumbler1', '{{ asset('assets/img/Merchandise/Tumbler1.jpg') }}', 'IDR 150K', 'Deskripsi Ini Tumbler1')" class="merchandise-item text-center cursor-pointer">
+            <div onclick="openModal('Tumbler1', '{{ asset('assets/img/Merchandise/Tumbler1.jpg') }}', 'IDR 150K')" class="merchandise-item text-center cursor-pointer">
               <img src="{{ asset('assets/img/Merchandise/Tumbler1.jpg') }}" alt="Tumbler 1" class="w-full h-52 object-cover rounded mb-2">
               <h4 class="font-semibold">Tumbler 1</h4>
               <p class="text-[#8B5E3B] font-bold">IDR 150K</p>
             </div>
-            <div onclick="openModal('Tumbler2', '{{ asset('assets/img/Merchandise/Tumbler2.jpg') }}', 'IDR 100K', 'Deskripsi Ini Tumbler2')" class="merchandise-item text-center cursor-pointer">
+            <div onclick="openModal('Tumbler2', '{{ asset('assets/img/Merchandise/Tumbler2.jpg') }}', 'IDR 100K')" class="merchandise-item text-center cursor-pointer">
               <img src="{{ asset('assets/img/Merchandise/Tumbler2.jpg') }}" alt="Tumbler 2" class="w-full h-52 object-cover rounded mb-2">
               <h4 class="font-semibold">Tumbler 2</h4>
               <p class="text-[#8B5E3B] font-bold">IDR 100K</p>
             </div>
-            <div onclick="openModal('Mug', '{{ asset('assets/img/Merchandise/Mug.jpg') }}', 'IDR 100K', 'Deskripsi Ini Mug')" class="merchandise-item text-center cursor-pointer">
+            <div onclick="openModal('Mug', '{{ asset('assets/img/Merchandise/Mug.jpg') }}', 'IDR 100K')" class="merchandise-item text-center cursor-pointer">
               <img src="{{ asset('assets/img/Merchandise/Mug.jpg') }}" alt="Mug" class="w-full h-52 object-cover rounded mb-2">
               <h4 class="font-semibold">Mug</h4>
               <p class="text-[#8B5E3B] font-bold">IDR 100K</p>
             </div>
-            <div onclick="openModal('Totebag', '{{ asset('assets/img/Merchandise/Totebag.jpg') }}', 'IDR 80K', 'Deskripsi Ini Totebag')" class="merchandise-item text-center cursor-pointer">
+            <div onclick="openModal('Totebag', '{{ asset('assets/img/Merchandise/Totebag.jpg') }}', 'IDR 80K')" class="merchandise-item text-center cursor-pointer">
               <img src="{{ asset('assets/img/Merchandise/Totebag.jpg') }}" alt="Totebag" class="w-full h-52 object-cover rounded mb-2">
               <h4 class="font-semibold">Totebag</h4>
               <p class="text-[#8B5E3B] font-bold">IDR 80K</p>
-            </div>
+            </div> --}}
+            @foreach ($merchandises as $merch)
+              <div onclick="openModal('{{ $merch['name'] }}', '{{ $merch['image'] }}', 'IDR {{ $merch['price'] }}K', '{{ $merch['link']}}')"
+                  class="merchandise-item text-center cursor-pointer">
+                <img src="{{ $merch['image'] }}" alt="{{ $merch['name'] }}" class="w-full h-52 object-cover rounded mb-2">
+                <h4 class="font-semibold">{{ $merch['name'] }}</h4>
+                <p class="text-[#8B5E3B] font-bold">IDR {{ $merch['price'] }}K</p>
+              </div>
+            @endforeach
 
             <!-- Tombol Katalog Selengkapnya -->
             <div class="flex justify-center items-center col-span-3">
@@ -254,7 +261,7 @@
                     <div class="text-center mt-2">
                       <h2 id="productName" class="text-xl font-bold mb-0"></h2>
                       <p id="productPrice" class="text-lg font-bold text-[#8B5E3B]"></p>
-                      <a href="#">
+                      <a id="productLink" href="">
                         <button class="bg-black text-white text-sm font-medium px-5 py-2 rounded-full mb-6">Add to cart</button>
                       </a>
                     </div>
@@ -341,8 +348,9 @@
       <img id="modalImage" src="#" alt="Product Image" class="w-full h-62 object-cover rounded mb-4">
       <h2 id="modalTitle" class="text-2xl font-bold text-center">Product Title</h2>
       <p id="modalPrice" class="text-[#8B5E3B] font-bold text-lg text-center">IDR 0K</p>
-      <p id="modalDesc" class="text-black text-xs text-center text-justify">IDR 0K</p>
-      <button class="bg-black text-white py-2 px-4 rounded mt-2 w-full">Add to Cart</button>
+      <a id="modalLink" href="">
+        <button class="bg-black text-white py-2 px-4 rounded mt-2 w-full">Add to Cart</button>
+      </a>
     </div>
   </div>
   <!-- Modal Template merchandise end -->
@@ -366,8 +374,22 @@
             <div id="scrollHint" class="absolute top-10 left-1/2 -translate-x-1/2 px-6 py-3 text-[#8B5E3B] font-bold text-lg z-20 transition-opacity duration-300">
               &laquo;&laquo; GESER UNTUK LIHAT LAINNYA &raquo;&raquo;
             </div>
+            @foreach ($ceritas as $cerita)
+              <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
+                <img
+                  src="{{ $cerita['image'] }}"
+                  alt="{{ $cerita['name'] }}"
+                  class="h-auto w-auto max-h-full object-contain cursor-pointer z-10 relative"
+                  onclick="window.location.href='{{ route('cerita.detail', $cerita['slug']) }}';"
+                />
+                <div class="absolute bottom-4 left-1/2 z-20 -translate-x-1/2 whitespace-nowrap
+                  border border-black bg-[#fefce8] px-4 py-2 text-lg font-bold text-black cerita-hover-box">
+                  {{ $cerita['name'] }}
+                </div>
+              </div>
+            @endforeach
         
-            <!-- Orang 1 -->
+            {{-- <!-- Orang 1 -->
             <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
               <img
                 src="{{ asset('assets/img/Cerita-Kawan/Gilang-Dhafir.png') }}"
@@ -437,7 +459,7 @@
                 border border-black bg-[#fefce8] px-4 py-2 text-lg font-bold text-black cerita-hover-box">
                 Acong Test
               </div>
-            </div>
+            </div> --}}
         
           </div>
     </section>
@@ -446,16 +468,32 @@
     <!-- Berita Kawan Section -->
     <section id="berita-kawan" class="berita relative h-auto transition-all duration-150 ease-in">
       <div class="container mx-auto">
+         <div class="relative">
+          <!-- Tombol Prev -->
+          <button onclick="prevBerita()"
+            class="hidden lg:flex items-center justify-center absolute left-[-6rem] top-1/2 -translate-y-1/2 z-30 p-2">
+            
+            <svg class="w-20 h-20 text-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <!-- Tombol Next -->
+          <button onclick="nextBerita()"
+            class="hidden lg:flex items-center justify-center absolute right-[-6rem] top-1/2 -translate-y-1/2 z-30 p-2">
+            <svg class="w-20 h-20 text-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         <div class="row align-items-start">
           
           {{-- desktop view --}}
+    
             <!-- Kolom Kiri: Judul dan foto -->
             <div class="col-lg-6 hidden lg:flex flex-col justify-between h-full">
-
               <h1 class="fw-bold mb-4">Berita Kawan</h1>
-              <div class="relative">
+              {{-- <div class="relative">
                 <img 
-                {{-- src="{{ asset('assets/img/berita-kawan/1.jpg') }}"  --}}
+                src="{{ asset('assets/img/berita-kawan/1.jpg') }}" 
                   id="beritaImageDesktop"
                   alt="Berita Kawan" class="rounded-lg w-full object-cover">
         
@@ -474,6 +512,18 @@
                     </svg>
                   </button>
                 </div>
+                <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                    <span data-index="0" class="w-3 h-3 bg-white rounded-full opacity-50 cursor-pointer"></span>
+                    <span data-index="0" class="w-3 h-3 bg-white rounded-full opacity-50 cursor-pointer"></span>
+                </div>
+              </div> --}}
+              <div class="relative w-full max-h-[500px] mx-auto rounded-xl overflow-hidden" id="beritaCarouselWrapper">
+                <div id="beritaSlider" class="flex transition-transform duration-700 ease-in-out">
+                  {{-- Gambar akan di-render dari JS --}}
+                </div>
+
+                <!-- Indicators -->
+                <div id="beritaIndicators" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10"></div>
               </div>
               
             </div>
@@ -522,6 +572,7 @@
               </div>
             </div>
             {{-- kolom end --}}
+          
             {{-- desktop view end --}}
 
             {{-- Mobile view --}}
@@ -542,33 +593,23 @@
                   </p>
               </div>
 
-               <!-- Kolom Kanan: Produk -->
+               <!-- Kolom Bawah: Berita -->
               <div class="col-lg-6">
                 <div class="row g-4">
-                  <!-- Tombol Navigasi -->
-                  <div class="relative w-full max-w-sm mx-auto mt-5">
-                    <button onclick="prevBerita()" class="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md">
-                      <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                      </svg>
-                    </button>
-                    <button onclick="nextBerita()" class="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md">
-                      <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                      </svg>
-                    </button>
-                    
-                    <!-- Gambar Produk -->
-                    <img 
-                        id="beritaImageMobile"
-                        {{-- src="{{ asset('assets/img/berita-kawan/1.jpg') }}" --}}
-                        alt="berita1" 
-                        class="mx-auto w-auto object-cover" />
+                  <!-- Gambar Carousel -->
+                  <div class="relative w-full max-w-sm mx-auto mt-5 overflow-hidden rounded-xl">
+                    <div id="beritaSliderMobile" class="flex transition-transform duration-700 ease-in-out">
+                      <!-- Gambar mobile akan dirender dari JS -->
+                    </div>
+                    <!-- Indicators -->
+                    <div id="beritaIndicatorsMobile" class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                      <!-- Dots akan dirender dari JS -->
+                    </div>
                   </div>
 
                 </div>
               </div>
-              {{-- kolom judul end --}}
+              {{-- kolom Bawah Berita end --}}
               
               <!-- Kolom: text -->
               <div class="mt-10">
@@ -592,12 +633,17 @@
                   </span>
                 </a>
               </div>
-              
+              <!-- Pagination Interactive -->
+              <div class="mt-6 flex justify-center items-center gap-1 text-sm font-medium" id="beritaPaginationInteractiveMobile">
 
+              </div>
             </div>
             {{-- Mobile view end --}}
-        </div>
+
+            
+          </div>
     
+        </div>
       </div>
     </section>
     <!-- Berita Kawan Section End -->
@@ -867,12 +913,12 @@
       });
 
       // Merchandise Modal Toggle (Desktop)
-      function openModal(title, image, price, desc) {
+      function openModal(title, image, price, link) {
         const modal = document.getElementById("productModal");
         document.getElementById("modalTitle").innerText = title;
         document.getElementById("modalImage").src = image;
         document.getElementById("modalPrice").innerText = price;
-        document.getElementById("modalDesc").innerText = desc;
+        document.getElementById("modalLink").href = link;
         modal.classList.remove("hidden");
 
         // Klik di luar modal content untuk menutup
@@ -889,38 +935,18 @@
       }
 
       // Merchandise Modal Navigation (Mobile)
-      const products = [
-        {
-          name: "Totebag",
-          image: "assets/img/Merchandise/Totebag.jpg",
-          price: "IDR 125K"
-        },
-        {
-          name: "Tshirt",
-          image: "assets/img/Merchandise/Tshirt.jpg",
-          price: "IDR 125K"
-        },
-        {
-          name: "Hat",
-          image: "assets/img/Merchandise/Hat.jpg",
-          price: "IDR 100K"
-        },
-        {
-          name: "Tumbler 1",
-          image: "assets/img/Merchandise/Tumbler1.jpg",
-          price: "IDR 150K"
-        },
-        {
-          name: "Tumbler 2",
-          image: "assets/img/Merchandise/Tumbler2.jpg",
-          price: "IDR 100K"
-        },
-        {
-          name: "Reusable Cup",
-          image: "assets/img/Merchandise/Mug.jpg",
-          price: "IDR 100K"
-        }
-      ];
+      @php
+      $products = $merchandises->map(function ($m) {
+          return [
+              'name' => $m['name'],
+              'image' => $m['image'],
+              'price' => 'IDR ' . $m['price'] . 'K',
+              'link' => $m['link'],
+          ];
+      })->values()->all();
+      @endphp
+
+      const products = @json($products);
 
       let currentIndex = 0;
 
@@ -930,6 +956,7 @@
           document.getElementById("productImage").src = product.image;
           document.getElementById("productName").innerText = product.name;
           document.getElementById("productPrice").innerText = product.price;
+          document.getElementById("productLink").href = product.link;
         }
 
         renderProductList(index);
@@ -967,7 +994,6 @@
         container.appendChild(linkWrap);
       }
 
-
       function nextProduct() {
         currentIndex = (currentIndex + 1) % products.length;
         renderProduct(currentIndex);
@@ -988,48 +1014,214 @@
       });
 
       // Berita Kawan
-      const beritaKawan = [
-        {
-          title: "RAW Club: Penanda Kebangkitan Skena Denim",
-          image: "assets/img/berita-kawan/1.jpg",
-          createdBy: "Tonny Oscar",
-          createdAt: "5th July 2024",
-          desc: " Nio Nguan Lie, better known as Suyanto, started making es campur as a 17-year-old working for a relative in Pontianak. And he never stopped. Half a century later, the mixed ice dessert remains the signature of his streetside stall, Es Campur Ko Acia in Sawah Besar, Central Jakarta. ‘Ko Acia’ is what his customers call him, a nickname he adopted when he opened his stall in 1980. Started as a simple wooden shack in an empty lot, the small shop is now part of a vibrant strip of street food finds on Dwiwarna Raya Street, squeezed between a bakmi shop and an eatery serving rice and homestyle dishes. But one thing remains unchanged: a solitary tree stands guard, offering shade to diners (from school kids to delivery couriers and families around the block) who sit on the wooden benches eagerly digging into their cold bowls of es campur. ."
-        },
-        {
-          title: "Bajawa Semi-Washed: Perjalanan Rasa dari Flores ke Cangkir Anda",
-          image: "assets/img/berita-kawan/2.jpg",
-          createdBy: "TnAhonk",
-          createdAt: "5th July 2024",
-          desc: "Flores tidak hanya dikenal karena alamnya yang indah, tetapi juga karena kopinya yang khas. Bajawa Semi-Washed hadir membawa cerita dari dataran tinggi yang kaya akan sejarah dan budaya kopi. Diproses dengan teknik semi-washed, kopi ini menawarkan keseimbangan antara rasa cerah dan tubuh yang kuat. Dari kebun ke cangkir, perjalanan kopi ini adalah bukti kerja keras petani lokal dan keunikan tanah Flores. Kini, Anda bisa menikmati setiap tegukan dengan pemahaman bahwa ada cerita panjang di balik rasanya."
-        },
-        {
-          title: "Kintamani Natural: Aroma Tropis dari Lereng Bali",
-          image: "assets/img/berita-kawan/3.jpg",
-          createdBy: "AcongTurner",
-          createdAt: "5th July 2024",
-          desc: "Berlokasi di kawasan pegunungan Bali, Kintamani Natural menjadi salah satu varian kopi yang paling diburu oleh pecinta rasa eksotis. Dengan proses natural, kopi ini mempertahankan aroma buah dan bunga yang kuat, khas dari kebun-kebun kopi di lereng Kintamani. Di balik rasa yang menyegarkan, kopi ini menyimpan cerita petani lokal yang terus menjaga tradisi dan kualitas. Lebih dari sekadar minuman, Kintamani Natural adalah bagian dari narasi budaya kopi Indonesia yang tak lekang oleh waktu."
-        },
-      ];
 
+      // const beritaKawan = [
+      //   {
+      //     title: "RAW Club: Penanda Kebangkitan Skena Denim",
+      //     image: "assets/img/berita-kawan/1.jpg",
+      //     createdBy: "Tonny Oscar",
+      //     createdAt: "5th July 2024",
+      //     desc: " Nio Nguan Lie, better known as Suyanto, started making es campur as a 17-year-old working for a relative in Pontianak. And he never stopped. Half a century later, the mixed ice dessert remains the signature of his streetside stall, Es Campur Ko Acia in Sawah Besar, Central Jakarta. ‘Ko Acia’ is what his customers call him, a nickname he adopted when he opened his stall in 1980. Started as a simple wooden shack in an empty lot, the small shop is now part of a vibrant strip of street food finds on Dwiwarna Raya Street, squeezed between a bakmi shop and an eatery serving rice and homestyle dishes. But one thing remains unchanged: a solitary tree stands guard, offering shade to diners (from school kids to delivery couriers and families around the block) who sit on the wooden benches eagerly digging into their cold bowls of es campur. ."
+      //   },
+      //   {
+      //     title: "Bajawa Semi-Washed: Perjalanan Rasa dari Flores ke Cangkir Anda",
+      //     image: "assets/img/berita-kawan/2.jpg",
+      //     createdBy: "TnAhonk",
+      //     createdAt: "5th July 2024",
+      //     desc: "Flores tidak hanya dikenal karena alamnya yang indah, tetapi juga karena kopinya yang khas. Bajawa Semi-Washed hadir membawa cerita dari dataran tinggi yang kaya akan sejarah dan budaya kopi. Diproses dengan teknik semi-washed, kopi ini menawarkan keseimbangan antara rasa cerah dan tubuh yang kuat. Dari kebun ke cangkir, perjalanan kopi ini adalah bukti kerja keras petani lokal dan keunikan tanah Flores. Kini, Anda bisa menikmati setiap tegukan dengan pemahaman bahwa ada cerita panjang di balik rasanya."
+      //   },
+      //   {
+      //     title: "Kintamani Natural: Aroma Tropis dari Lereng Bali",
+      //     image: "assets/img/berita-kawan/3.jpg",
+      //     createdBy: "AcongTurner",
+      //     createdAt: "5th July 2024",
+      //     desc: "Berlokasi di kawasan pegunungan Bali, Kintamani Natural menjadi salah satu varian kopi yang paling diburu oleh pecinta rasa eksotis. Dengan proses natural, kopi ini mempertahankan aroma buah dan bunga yang kuat, khas dari kebun-kebun kopi di lereng Kintamani. Di balik rasa yang menyegarkan, kopi ini menyimpan cerita petani lokal yang terus menjaga tradisi dan kualitas. Lebih dari sekadar minuman, Kintamani Natural adalah bagian dari narasi budaya kopi Indonesia yang tak lekang oleh waktu."
+      //   },
+      // ];
+
+      const beritaKawan = @json($beritaKawan);
       let currentBeritaIndex = 0;
 
+      // Untuk carousel image berita
+      let beritaImageIndex = 0;
+      let beritaImageTimer;
+      let beritaImages = [];
+
+      // Render carousel image (desktop)
+      function renderBeritaCarousel(images) {
+        const slider = document.getElementById("beritaSlider");
+        const indicators = document.getElementById("beritaIndicators");
+
+        beritaImages = images;
+        beritaImageIndex = 0;
+        slider.innerHTML = "";
+        indicators.innerHTML = "";
+
+        images.forEach((src, index) => {
+          const img = document.createElement("img");
+          img.src = src;
+          img.className = "object-contain max-h-[400px] w-full mx-auto flex-shrink-0 rounded-l";
+          slider.appendChild(img);
+
+          const dot = document.createElement("span");
+          dot.dataset.index = index;
+          dot.className = "w-3 h-3 bg-white rounded-full opacity-50 cursor-pointer";
+          dot.onclick = () => {
+            beritaImageIndex = index;
+            updateBeritaCarousel();
+            restartCarouselInterval();
+          };
+          indicators.appendChild(dot);
+        });
+
+        updateBeritaCarousel();
+        restartCarouselInterval();
+      }
+
+      function updateBeritaCarousel() {
+        const slider = document.getElementById("beritaSlider");
+        slider.style.transform = `translateX(-${beritaImageIndex * 100}%)`;
+
+        const dots = document.querySelectorAll("#beritaIndicators span");
+        dots.forEach((dot, i) => {
+          dot.classList.toggle("opacity-100", i === beritaImageIndex);
+          dot.classList.toggle("opacity-50", i !== beritaImageIndex);
+        });
+      }
+
+      function nextBeritaImageAuto() {
+        beritaImageIndex = (beritaImageIndex + 1) % beritaImages.length;
+        updateBeritaCarousel();
+      }
+
+      function restartCarouselInterval() {
+        clearInterval(beritaImageTimer);
+        beritaImageTimer = setInterval(nextBeritaImageAuto, 5000);
+      }
+
+      // Render carousel image (mobile)
+      function renderBeritaCarouselMobile(images) {
+        const slider = document.getElementById("beritaSliderMobile");
+        const indicators = document.getElementById("beritaIndicatorsMobile");
+
+        let index = 0;
+        slider.innerHTML = "";
+        indicators.innerHTML = "";
+
+        images.forEach((src, i) => {
+          const img = document.createElement("img");
+          img.src = src;
+          img.className = "object-contain max-h-[240px] w-full mx-auto flex-shrink-0 rounded-l";
+          slider.appendChild(img);
+
+          const dot = document.createElement("span");
+          dot.dataset.index = i;
+          dot.className = "w-2.5 h-2.5 bg-white rounded-full opacity-50 cursor-pointer";
+          dot.onclick = () => {
+            index = i;
+            updateMobileSlider();
+            restartMobileInterval();
+          };
+          indicators.appendChild(dot);
+        });
+
+        function updateMobileSlider() {
+          slider.style.transform = `translateX(-${index * 100}%)`;
+          indicators.querySelectorAll("span").forEach((dot, i) => {
+            dot.classList.toggle("opacity-100", i === index);
+            dot.classList.toggle("opacity-50", i !== index);
+          });
+        }
+
+        let interval = setInterval(() => {
+          index = (index + 1) % images.length;
+          updateMobileSlider();
+        }, 5000);
+
+        function restartMobileInterval() {
+          clearInterval(interval);
+          interval = setInterval(() => {
+            index = (index + 1) % images.length;
+            updateMobileSlider();
+          }, 5000);
+        }
+
+        updateMobileSlider();
+      }
+
+      //Pagination Mobile
+      function renderBeritaPagination() {
+        const container = document.getElementById("beritaPaginationInteractiveMobile");
+        container.innerHTML = "";
+
+        const baseButtonClass = "px-3 py-1 border border-black text-black rounded hover:bg-gray-100 transition";
+        const activeButtonClass = "bg-black text-white";
+
+        // Tombol Previous
+        const prevBtn = document.createElement("button");
+        prevBtn.innerText = "Previous";
+        prevBtn.className = baseButtonClass;
+        if (currentBeritaIndex === 0) prevBtn.classList.add("opacity-50", "cursor-not-allowed");
+        prevBtn.disabled = currentBeritaIndex === 0;
+        prevBtn.onclick = () => {
+          if (currentBeritaIndex > 0) {
+            currentBeritaIndex--;
+            renderBerita(currentBeritaIndex);
+          }
+        };
+        container.appendChild(prevBtn);
+
+        // Nomor Halaman
+        beritaKawan.forEach((_, i) => {
+          const btn = document.createElement("button");
+          btn.innerText = i + 1;
+          btn.className = baseButtonClass;
+          if (i === currentBeritaIndex) btn.className += ` ${activeButtonClass}`;
+          btn.onclick = () => {
+            currentBeritaIndex = i;
+            renderBerita(i);
+          };
+          container.appendChild(btn);
+        });
+
+        // Tombol Next
+        const nextBtn = document.createElement("button");
+        nextBtn.innerText = "Next";
+        nextBtn.className = baseButtonClass;
+        if (currentBeritaIndex === beritaKawan.length - 1) nextBtn.classList.add("opacity-50", "cursor-not-allowed");
+        nextBtn.disabled = currentBeritaIndex === beritaKawan.length - 1;
+        nextBtn.onclick = () => {
+          if (currentBeritaIndex < beritaKawan.length - 1) {
+            currentBeritaIndex++;
+            renderBerita(currentBeritaIndex);
+          }
+        };
+        container.appendChild(nextBtn);
+      }
+
+
+      // Render seluruh data berita (judul, isi, dan carousel)
       function renderBerita(index) {
         const berita = beritaKawan[index];
-        if (berita) {
-          // bagian Desktop
-          document.getElementById("beritaImageDesktop").src = berita.image;
-          document.getElementById("beritaTitleDesktop").innerText = berita.title;
-          document.getElementById("beritaCreatedByDesktop").innerText = berita.createdBy;
-          document.getElementById("beritaCreatedAtDesktop").innerText = berita.createdAt;
-          document.getElementById("beritaDescDesktop").innerText = berita.desc;
-          // bagian Mobile
-          document.getElementById("beritaImageMobile").src = berita.image;
-          document.getElementById("beritaTitleMobile").innerText = berita.title;
-          document.getElementById("beritaCreatedByMobile").innerText = berita.createdBy;
-          document.getElementById("beritaCreatedAtMobile").innerText = berita.createdAt;
-          document.getElementById("beritaDescMobile").innerText = berita.desc;
-        }
+        if (!berita) return;
+
+        // Desktop
+        document.getElementById("beritaTitleDesktop").innerText = berita.title;
+        document.getElementById("beritaCreatedByDesktop").innerText = berita.createdBy;
+        document.getElementById("beritaCreatedAtDesktop").innerText = berita.createdAt;
+        document.getElementById("beritaDescDesktop").innerText = berita.desc;
+        renderBeritaCarousel(berita.images || []);
+
+        // Mobile
+        
+        document.getElementById("beritaTitleMobile").innerText = berita.title;
+        document.getElementById("beritaCreatedByMobile").innerText = berita.createdBy;
+        document.getElementById("beritaCreatedAtMobile").innerText = berita.createdAt;
+        document.getElementById("beritaDescMobile").innerText = berita.desc;
+        renderBeritaCarouselMobile(berita.images || []);  // for mobile
+
+        // Pagination Mobile
+        renderBeritaPagination();
       }
 
       function nextBerita() {

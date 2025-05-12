@@ -3,8 +3,11 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CeritaController;
 
 Route::get('/', [HomeController::class, 'index']);
+
+Route::get('/cerita/{slug}', [CeritaController::class, 'show'])->name('cerita.detail');
 
 
 Route::get('/ourstore', function () {
