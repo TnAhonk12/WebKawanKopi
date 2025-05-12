@@ -39,17 +39,6 @@ class CeritaResource extends Resource
                     ->label('Judul Cerita')
                     ->required(),
 
-                TextInput::make('slug')
-                    ->label('Slug')
-                    ->hidden()
-                    ->required()
-                    ->unique(ignoreRecord: true), // Slug tetap bisa diisi manual jika diperlukan
-
-                Textarea::make('content')
-                    ->label('Konten Cerita')
-                    ->required()
-                    ->rows(5),
-
                 FileUpload::make('image')
                     ->label('Gambar')
                     ->image()
@@ -71,6 +60,17 @@ class CeritaResource extends Resource
                             return $filename;
                         })
                     ->required(),
+
+                TextInput::make('slug')
+                    ->label('Slug')
+                    ->hidden()
+                    ->required()
+                    ->unique(ignoreRecord: true), // Slug tetap bisa diisi manual jika diperlukan
+
+                Textarea::make('content')
+                    ->label('Konten Cerita')
+                    ->required()
+                    ->rows(5),
 
                 TextInput::make('name')
                     ->label('Nama Penulis')
@@ -101,6 +101,8 @@ class CeritaResource extends Resource
                             })
                             ->nullable(),
                     ])
+                        ->columnSpan('full')
+                        ->collapsible(),
             ]);
     }
 

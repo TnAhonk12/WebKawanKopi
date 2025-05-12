@@ -99,7 +99,7 @@ class MerchandiseResource extends Resource
                 TextColumn::make('link')
                         ->label('Link')
                         ->url(fn ($record) => $record->link)
-                        ->suffixIcon('heroicon-o-link')
+                        // ->suffixIcon('heroicon-o-link')
                         ->openUrlInNewTab(),
             ])
             ->filters([
