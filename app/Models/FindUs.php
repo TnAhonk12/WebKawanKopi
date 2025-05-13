@@ -16,6 +16,7 @@ class FindUs extends Model
     
     protected $fillable = [
         'nama_tempat',
+        'address',
         'foto',
         'maps',
         'grab',

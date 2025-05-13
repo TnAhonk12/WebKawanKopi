@@ -45,6 +45,12 @@ class FindUsResource extends Resource
                     ->required()
                     ->rows(5)
                     ->helperText('Paste the embed code for your map here.'),
+                
+                TextInput::make('address')
+                    ->label('Alamat')
+                    ->placeholder('Masukkan alamat lokasi')
+                    ->maxLength(255)
+                    ->columnSpanFull(),
 
                 TextInput::make('grab')
                     ->label('Link Grab')
@@ -136,24 +142,11 @@ class FindUsResource extends Resource
                     ->label('Peta')
                     ->view('component.map-preview')
                     ->getStateUsing(fn ($record) => $record->maps),
-
-                TextColumn::make('grab')
-                    ->label('Grab')
-                    ->url(fn ($record) => $record->grab)
-                    ->openUrlInNewTab()
-                    ->icon('heroicon-o-link'),
                 
-                TextColumn::make('gofood')
-                    ->label('GoFood')
-                    ->url(fn ($record) => $record->gofood)
-                    ->openUrlInNewTab()
-                    ->icon('heroicon-o-link'),
-                
-                TextColumn::make('shopee')
-                    ->label('Shopee')
-                    ->url(fn ($record) => $record->shopee)
-                    ->openUrlInNewTab()
-                    ->icon('heroicon-o-link'),
+                TextColumn::make('address')
+                    ->label('Alamat')
+                    ->limit(40)
+                    ->searchable(),
 
                 ImageColumn::make('foto')
                     ->label('Foto Utama')
