@@ -121,13 +121,6 @@ function mobileNavToogle() {
   document.querySelector('body').classList.toggle('mobile-nav-active');
   mobileNavToggleBtn.classList.toggle('bi-list');
   mobileNavToggleBtn.classList.toggle('bi-x');
-
-  // Tampilkan atau sembunyikan social links
-  if (navMenu.classList.contains('active')) {
-    socialLinks.style.display = "flex";
-  } else {
-    socialLinks.style.display = "none";
-  }
 }
 mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
 

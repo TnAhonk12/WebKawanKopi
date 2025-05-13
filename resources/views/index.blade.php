@@ -27,17 +27,17 @@
                 class="w-auto h-auto object-cover rounded-xl" />
           
               <!-- Tombol Navigasi -->
-              {{-- <div class="absolute inset-1 flex justify-between items-center px-1">
+              <div class="absolute inset-1 flex justify-between items-center px-1">
                 <!-- Tombol Kiri -->
-                <button class="absolute left-2 top-auto transform -translate-y-1/2 z-10">
+                <button id="prevMenuDesktop" class="absolute left-2 top-auto transform -translate-y-1/2 z-10">
                   <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
                 </button>
-                <button class="absolute right-2 top-auto transform -translate-y-1/2 z-10">
+                <button id="nextMenuDesktop" class="absolute right-2 top-auto transform -translate-y-1/2 z-10">
                   <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 </button>
-              </div> --}}
+              </div>
               <!-- Nama Produk dan Harga DI LUAR GAMBAR -->
               <div class="mt-4 text-center">
                 {{-- <p class="text-xl font-bold mb-0 text-[#8B5E3B]">KSK Baru</p>
@@ -85,6 +85,7 @@
                   <!-- tambah varian kanan -->
                 </div>
               </div>
+              <!-- END Bawah: List Menu -->
             </div>
 
 
@@ -101,6 +102,19 @@
               <div class="relative w-4/5 aspect-square">
                 <img id="productImageMobile" src="{{ asset('assets/img/Lini-Produk.jpg') }}" alt="Product"
                   class="mx-auto w-full h-full object-cover rounded-xl" />
+                
+                <!-- Tombol Navigasi -->
+                <div id="mobileMenuNav" class="absolute inset-1 flex justify-between items-center px-1 hidden">
+                  <!-- Tombol Kiri -->
+                  <button id="prevMenuMobile" class="absolute left-1 top-auto transform -translate-y-1/2 z-10">
+                    <svg class="w-7 h-7 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
+                      viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+                  </button>
+                  <button id="nextMenuMobile" class="absolute right-1 top-auto transform -translate-y-1/2 z-10">
+                    <svg class="w-7 h-7 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
+                      viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -108,7 +122,7 @@
           <!-- Kolom bawah: Kategori & Menu -->
           <div class="lg:hidden px-6">
             <!-- Kategori Produk -->
-            <div class="grid grid-cols-3 gap-2 mt-6">
+            <div class="grid grid-cols-3 gap-2 mt-6 overflow-y-auto h-[150px]">
                @foreach ($menuCategories as $category)
                   <button class="category">{{ $category->nama_kategori }}</button>
                 @endforeach
@@ -133,33 +147,46 @@
 
 
   <!-- Promo Banner Section -->
-  <section id="promo-banner" class="promo-banner bg-white py-6 px-4">
-    <div class="relative w-full max-w-[1200px] max-h-[500px] mx-auto rounded-xl overflow-hidden shadow-lg">
-  
-      <!-- Carousel Inner -->
+  <section id="promo-banner" class="promo-banner py-6 px-4">
+    <div class="relative w-full max-w-[1200px] max-h-[500px] mx-auto rounded-xl overflow-hidden shadow-lg hidden sm:block">
+      <!-- Desktop Carousel Inner -->
       <div id="promoSlider" class="flex transition-transform duration-500 ease-in-out">
         @foreach ($promoImages as $index => $image)
           <img src="{{ $image }}" class="w-full h-full object-cover flex-shrink-0" alt="Promo {{ $index + 1 }}">
         @endforeach
       </div>
-  
-      <!-- Controls -->
+
+      <!-- Desktop Controls -->
       <button id="prevPromo" class="absolute left-3 top-1/2 -translate-y-1/2 z-10">
-        <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
+        <svg class="w-10 h-10 text-black rounded-full" fill="none" stroke="currentColor" stroke-width="2"
           viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
       </button>
       <button id="nextPromo" class="absolute right-3 top-1/2 -translate-y-1/2 z-10">
-        <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
+        <svg class="w-10 h-10 text-black rounded-full" fill="none" stroke="currentColor" stroke-width="2"
           viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
       </button>
-  
-      <!-- Indicators -->
+
+      <!-- Desktop Indicators -->
       <div id="promoIndicators" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
         @foreach ($promoImages as $index => $image)
           <span data-index="{{ $index }}" class="w-3 h-3 bg-black rounded-full opacity-50 cursor-pointer"></span>
         @endforeach
       </div>
-  
+    </div>
+
+    <!-- Mobile Version -->
+    <div class="relative w-full max-w-sm mx-auto rounded-xl overflow-hidden shadow-md sm:hidden mt-6">
+      <div id="promoSliderMobile" class="flex transition-transform duration-500 ease-in-out">
+        @foreach ($promoImages as $index => $image)
+          <img src="{{ $image }}" class="w-full h-48 object-cover flex-shrink-0" alt="Promo {{ $index + 1 }}">
+        @endforeach
+      </div>
+
+      <div id="promoIndicatorsMobile" class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+        @foreach ($promoImages as $index => $image)
+          <span data-index="{{ $index }}" class="w-2 h-2 bg-black rounded-full opacity-50 cursor-pointer"></span>
+        @endforeach
+      </div>
     </div>
   </section>
   <!-- Promo Banner Section end -->
@@ -796,10 +823,22 @@
           const createButton = (text) => {
             const btn = document.createElement("button");
             btn.textContent = text;
-            btn.className = "text-left font-bold hover:opacity-70 transition border-b border-black pb-2";
+            btn.className = "text-left font-bold transition pb-2 hover:opacity-70";
+            btn.style.borderBottom = "2px solid black"; // Default border bottom
 
             btn.addEventListener("click", () => {
-             const imageUrl = filenameMap[text];
+              // Reset semua tombol
+              document.querySelectorAll(".grid-cols-2 .flex.flex-col button").forEach(el => {
+                el.style.setProperty("border-bottom-color", "black");
+                el.style.setProperty("color", "black");
+              });
+
+              // Aktifkan tombol ini
+              btn.style.setProperty("border-bottom-color", "#8B5E3B");
+              btn.style.setProperty("color", "#8B5E3B");
+
+              // Ganti gambar
+              const imageUrl = filenameMap[text];
               if (imageUrl) {
                 const productImage = document.querySelector(".col-lg-6 img");
                 if (productImage) {
@@ -823,51 +862,113 @@
       });
 
       //mobile
-      const productImageMobile = document.getElementById("productImageMobile");
+        const productImageMobile = document.getElementById("productImageMobile");
+        const leftCol = document.getElementById("menuLeftMobile");
+        const rightCol = document.getElementById("menuRightMobile");
+        const categoryButtons = document.querySelectorAll(".category");
 
-      document.querySelectorAll(".category").forEach(btn => {
-        btn.addEventListener("click", () => {
-          const selectedCategory = btn.textContent.trim();
-          const menuItems = menus[selectedCategory] || [];
+        const prevBtn = document.getElementById("prevMenuMobile");
+        const nextBtn = document.getElementById("nextMenuMobile");
 
-          const leftCol = document.getElementById("menuLeftMobile");
-          const rightCol = document.getElementById("menuRightMobile");
-          leftCol.innerHTML = "";
-          rightCol.innerHTML = "";
+        let currentCategory = null;
+        let currentMenuItems = [];
+        let currentMenuIndex = 0;
 
-          const halfway = Math.ceil(menuItems.length / 2);
-          const leftItems = menuItems.slice(0, halfway);
-          const rightItems = menuItems.slice(halfway);
+        function updateActiveMenu(index) {
+          currentMenuIndex = index;
+          const item = currentMenuItems[index];
+          const imageUrl = filenameMap[item];
 
-          const createButton = (text) => {
-            const btn = document.createElement("button");
-            btn.textContent = text;
-            btn.className = "text-left font-bold hover:opacity-70 transition border-b border-black pb-2";
-            btn.onclick = () => {
-              const imageUrl = filenameMap[text];
-              if (imageUrl) {
-                const productImage = document.querySelector(".col-lg-6 img");
-                if (productImage) {
-                  productImageMobile.src = imageUrl;
-                  productImageMobile.alt = text;
-                }
-              }
-            };
-            return btn;
+          // Update gambar
+          if (imageUrl) {
+            productImageMobile.src = imageUrl;
+            productImageMobile.alt = item;
+          }
+
+          // Reset style semua tombol menu
+          document.querySelectorAll("#menuLeftMobile button, #menuRightMobile button").forEach(btn => {
+            btn.style.borderBottomColor = "black";
+            btn.style.color = "black";
+          });
+
+          // Highlight tombol aktif
+          const allButtons = [...leftCol.children, ...rightCol.children];
+          if (allButtons[index]) {
+            allButtons[index].style.borderBottomColor = "#8B5E3B";
+            allButtons[index].style.color = "#8B5E3B";
+          }
+        }
+
+        function createButton(text, index) {
+          const btn = document.createElement("button");
+          btn.textContent = text;
+          btn.className = "text-left font-bold transition pb-1 hover:opacity-70";
+          btn.style.borderBottom = "2px solid black";
+
+          btn.onclick = () => {
+            // Tampilkan tombol navigasi setelah kategori dipilih
+            document.getElementById("mobileMenuNav").classList.remove("hidden");
+            updateActiveMenu(index);
           };
 
-          leftItems.forEach(item => leftCol.appendChild(createButton(item)));
-          rightItems.forEach(item => rightCol.appendChild(createButton(item)));
+          return btn;
+        }
+
+        categoryButtons.forEach(btn => {
+          btn.addEventListener("click", () => {
+            // Hilangkan tombol navigasi setelah kategori dipilih
+            document.getElementById("mobileMenuNav").classList.add("hidden");
+
+            // Kode seleksi kategori lainnya tetap sama...
+            categoryButtons.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            currentCategory = btn.textContent.trim();
+            currentMenuItems = menus[currentCategory] || [];
+            currentMenuIndex = 0;
+
+            leftCol.innerHTML = "";
+            rightCol.innerHTML = "";
+
+            const halfway = Math.ceil(currentMenuItems.length / 2);
+            const leftItems = currentMenuItems.slice(0, halfway);
+            const rightItems = currentMenuItems.slice(halfway);
+
+            leftItems.forEach((item, idx) => leftCol.appendChild(createButton(item, idx)));
+            rightItems.forEach((item, idx) => rightCol.appendChild(createButton(item, idx + halfway)));
+
+            // Optional: pilih otomatis menu pertama
+            // updateActiveMenu(0);
+          });
         });
-      });
+
+
+        // Navigasi Next/Prev
+        prevBtn.addEventListener("click", () => {
+          if (!currentMenuItems.length) return;
+          currentMenuIndex = (currentMenuIndex - 1 + currentMenuItems.length) % currentMenuItems.length;
+          updateActiveMenu(currentMenuIndex);
+        });
+
+        nextBtn.addEventListener("click", () => {
+          if (!currentMenuItems.length) return;
+          currentMenuIndex = (currentMenuIndex + 1) % currentMenuItems.length;
+          updateActiveMenu(currentMenuIndex);
+        });
+
+        // Auto trigger kategori pertama
+        window.addEventListener("DOMContentLoaded", () => {
+          const firstCategory = document.querySelector(".category");
+          if (firstCategory) firstCategory.click();
+        });
 
       // Trigger kategori pertama saat halaman pertama kali dibuka
-      window.addEventListener("DOMContentLoaded", () => {
-        const firstCategoryBtn = document.querySelector(".category");
-        if (firstCategoryBtn) {
-          firstCategoryBtn.click();
-        }
-      });
+      // window.addEventListener("DOMContentLoaded", () => {
+      //   const firstCategoryBtn = document.querySelector(".category");
+      //   if (firstCategoryBtn) {
+      //     firstCategoryBtn.click();
+      //   }
+      // });
 
       // Promo Banner
       document.addEventListener("DOMContentLoaded", function () {
@@ -911,6 +1012,37 @@
         // Initial
         updateSlider(currentIndex);
       });
+
+      // Auto Slide (Mobile)
+      document.addEventListener("DOMContentLoaded", () => {
+        const slider = document.getElementById("promoSliderMobile");
+        const indicators = document.querySelectorAll("#promoIndicatorsMobile span");
+        const totalSlides = slider.children.length;
+        let currentIndex = 0;
+
+        function updateSlider(index) {
+          slider.style.transform = `translateX(-${index * 100}%)`;
+          indicators.forEach((dot, i) => {
+            dot.classList.toggle("opacity-100", i === index);
+            dot.classList.toggle("opacity-50", i !== index);
+          });
+        }
+
+        indicators.forEach(dot => {
+          dot.addEventListener("click", () => {
+            currentIndex = parseInt(dot.dataset.index);
+            updateSlider(currentIndex);
+          });
+        });
+
+        setInterval(() => {
+          currentIndex = (currentIndex + 1) % totalSlides;
+          updateSlider(currentIndex);
+        }, 4000);
+
+        updateSlider(currentIndex);
+      });
+
 
       // Merchandise Modal Toggle (Desktop)
       function openModal(title, image, price, link) {
@@ -1111,7 +1243,7 @@
         images.forEach((src, i) => {
           const img = document.createElement("img");
           img.src = src;
-          img.className = "object-contain max-h-[240px] w-full mx-auto flex-shrink-0 rounded-l";
+          img.className = "object-contain max-h-[230px] w-full mx-auto flex-shrink-0 rounded-l";
           slider.appendChild(img);
 
           const dot = document.createElement("span");
