@@ -3,17 +3,16 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CeritaController;
+use App\Http\Controllers\FindUsController;
 
 Route::get('/', [HomeController::class, 'index']);
 
+Route::get('/cerita/{slug}', [CeritaController::class, 'show'])->name('cerita.detail');
 
-Route::get('/ourstore', function () {
-    return view('ourStore');
-});
+Route::get('/ourstore', [FindUsController::class, 'index']);
+Route::get('/ourstore-item/{id}', [FindUsController::class, 'show'])->name('ourstore.item');
 
-Route::get('/ourstore-item', function () {
-    return view('ourStoreItem');
-});
 
 Route::get('/roastery', function () {
     return view('roastery');

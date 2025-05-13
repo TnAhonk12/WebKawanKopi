@@ -18,32 +18,34 @@
               <div class="w-full flex justify-center">
                 <div class="flex gap-4 no-scrollbar pb-6">
 
-                  <!-- Lokasi 2 -->
-                  <a href="/ourstore-item">
+                  <!-- Lokasi -->
+                  @foreach ($findUsList as $store)
+                  <a href="{{ route('ourstore.item', ['id' => $store['id']]) }}">
                     <div class="find-us-item cursor-pointer text-center" data-index="1">
-                      <img src="{{ asset('assets/img/Find-Us/2.jpg') }}" alt="Kawan Kopi, Cimandiri"
+                      <img src="{{ $store['foto'] }}" alt="{{ $store['nama_tempat'] }}"
                         class="w-[220px] h-[220px] object-cover rounded mb-2" />
-                      <p class="text-sm font-medium text-black">Kawan Kopi, Cimandiri</p>
+                      <p class="text-sm font-medium text-black">{{ $store['nama_tempat'] }}</p>
                     </div>
                   </a>
+                  @endforeach
 
                   <!-- Lokasi 3 -->
-                  <a href="/ourstore-item">
+                  {{-- <a href="/ourstore-item">
                     <div class="find-us-item cursor-pointer text-center" data-index="2">
                       <img src="{{ asset('assets/img/Find-Us/3.jpg') }}" alt="Kawan Kopi, Talaga Bodas"
                         class="w-[220px] h-[220px] object-cover rounded mb-2" />
                       <p class="text-sm font-medium text-black">Kawan Kopi, Talaga Bodas</p>
                     </div>
-                  </a>
+                  </a> --}}
 
                   <!-- Lokasi 4 -->
-                  <a href="/ourstore-item">
+                  {{-- <a href="/ourstore-item">
                   <div class="find-us-item cursor-pointer text-center" data-index="3">
                     <img src="{{ asset('assets/img/Find-Us/4.jpg') }}" alt="Kawan Kopi, Ciumbuleuit"
                       class="w-[220px] h-[220px] object-cover rounded mb-2" />
                     <p class="text-sm font-medium text-black">Kawan Kopi, Ciumbuleuit</p>
                   </div>
-                  </a>
+                  </a> --}}
                  
                 </div>
               </div>
@@ -65,29 +67,31 @@
             <div class="grid grid-cols-2 gap-4 px-8 py-8">
 
 
-              <!-- Lokasi 2 -->
-              <div class="text-center find-us-item">
-                <a href="/ourstore-item">
-                <img src="{{ asset('assets/img/Find-Us/2.jpg') }}" alt="Kawan Kopi, Cimandiri" class="w-full h-auto object-cover rounded mb-2">
-                <p class="text-sm font-medium text-black">Kawan Kopi, Cimandiri</p>
-                </a>
-              </div>
+              <!-- Lokasi -->
+              @foreach ($findUsList as $store)
+                <div class="text-center find-us-item">
+                  <a href="{{ route('ourstore.item', ['id' => $store['id']]) }}">
+                  <img src="{{ $store['foto'] }}" alt="{{ $store['nama_tempat'] }}" class="w-full h-auto object-cover rounded mb-2">
+                  <p class="text-sm font-medium text-black">{{ $store['nama_tempat'] }}</p>
+                  </a>
+                </div>
+              @endforeach
 
               <!-- Lokasi 3 -->
-              <div class="text-center find-us-item">
+              {{-- <div class="text-center find-us-item">
                 <a href="/ourstore-item">
                   <img src="{{ asset('assets/img/Find-Us/3.jpg') }}" alt="Kawan Kopi, Talaga Bodas" class="w-full h-auto object-cover rounded mb-2">
                   <p class="text-sm font-medium text-black">Kawan Kopi, Talaga Bodas</p>
                 </a>
-              </div>
+              </div> --}}
 
               <!-- Lokasi 4 -->
-              <div class="text-center find-us-item">
+              {{-- <div class="text-center find-us-item">
                 <a href="/ourstore-item">
                   <img src="{{ asset('assets/img/Find-Us/4.jpg') }}" alt="Kawan Kopi, Ciumbuleuit" class="w-full h-auto object-cover rounded mb-2">
                   <p class="text-sm font-medium">Kawan Kopi, Ciumbuleuit</p>
                 </a>
-              </div>
+              </div> --}}
 
             </div>
 
