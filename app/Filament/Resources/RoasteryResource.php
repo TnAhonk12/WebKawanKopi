@@ -58,6 +58,12 @@ class RoasteryResource extends Resource
                         return $filename;
                     })
                     ->required(),
+                TextInput::make('price')
+                    ->label('Harga')
+                    ->numeric()
+                    ->prefix('Rp ')
+                    ->minValue(0)
+                    ->nullable(),
 
                 Select::make('kategori_id')
                         ->label('Kategori Roastery')
@@ -100,6 +106,10 @@ class RoasteryResource extends Resource
                     ->label('Kategori Roastery')
                     ->sortable()
                     ->searchable(),
+                
+                TextColumn::make('price')
+                    ->label('Harga')
+                    ->money('IDR', true), // format otomatis jadi 'Rp 35.000'
 
                 ImageColumn::make('image')
                     ->label('Image')

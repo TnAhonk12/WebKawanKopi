@@ -13,7 +13,9 @@ class Roastery extends Model
     protected $fillable = [
         'name',
         'link',
+        'price',
         'image',
+
     ];
     protected static function booted()
     {
