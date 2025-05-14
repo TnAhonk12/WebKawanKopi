@@ -1,7 +1,7 @@
 <header id="header" class="header d-flex align-items-center light-background sticky-top">
     <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
 
-      <a href="#hero" class="logo d-flex align-items-center me-auto me-xl-0 d-xl-none">
+      <a href="/#hero" class="logo d-flex align-items-center me-auto me-xl-0 d-xl-none">
         <img src="{{ asset('assets/img/kawan/logo.png') }}" alt="">
       </a>
 
@@ -11,10 +11,13 @@
           <li><a href="/#merchandise">Merchandise</a></li>
           <li class="dropdown"><a href="#"><span>Roastery</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="#">House Blend</a></li>
-              <li><a href="/roastery">Single Origin</a></li>
-              <li><a href="#">Limited Release</a></li>
-              <li><a href="#">Wholesale</a></li>
+              @foreach ($navbarRoasteryCategories as $category)
+                <li>
+                  <a href="{{ route('roastery.index', ['kategori' => $category->id]) }}">
+                    {{ $category->nama_roastery }}
+                  </a>
+                </li>
+              @endforeach
             </ul>
           </li>        
           

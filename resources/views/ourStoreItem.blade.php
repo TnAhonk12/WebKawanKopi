@@ -81,30 +81,28 @@
           <p class="text-black italic text-center">Our Store</p>
           
 
-            <!-- Kolom: Produk -->
+            <!-- Kolom: Gambar Toko -->
           <div class="col-lg-6">
             <div class="row g-4">
 
-              <div class="relative w-full max-w-sm mx-auto mt-5">
-              
-                <!-- Gambar Produk -->
-                <img src="{{asset('assets/img/Find-Us/1.jpg')}}" alt="Coffee Bag"
-                  class="mx-auto w-4/5 object-cover aspect-square rounded-xl" />
-              
-                <!-- Tombol Navigasi -->
-                <button onclick="prevRoasteryProduct()" class="absolute left-2 top-1/2 transform -translate-y-1/2 z-10">
-                  <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
-                    viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
-                </button>
-                <button onclick="nextRoasteryProduct()" class="absolute right-2 top-1/2 transform -translate-y-1/2 z-10">
-                  <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
-                    viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
-                </button>
+              <!-- Wrapper Carousel Mobile -->
+              <div class="relative overflow-hidden w-full mx-auto rounded-xl">
+                <div id="findMobileSlider" class="flex transition-transform duration-500 ease-in-out">
+                  @foreach ($images as $index => $img)
+                    <img src="{{ $img }}" alt="Foto Toko {{ $index + 1 }}" class="w-full flex-shrink-0 object-cover aspect-square" />
+                  @endforeach
+                </div>
+                <!-- Indicators -->
+                <div id="findMobileIndicators" class="absolute -translate-y-6 left-1/2 -translate-x-1/2 flex gap-2">
+                  @foreach ($images as $index => $img)
+                    <span data-index="{{ $index }}" class="w-3 h-3 bg-black rounded-full opacity-50 cursor-pointer"></span>
+                  @endforeach
+                </div>
               </div>
 
             </div>
           </div>
-          {{-- kolom Produk end --}}
+          {{-- kolom Toko end --}}
           
           <!-- Kolom: text -->
           <div class="mt-4 text-center">
@@ -117,8 +115,11 @@
           </div>
           
           <!-- GMAPS -->
-          <div id="findMapsMobile" class="mt-4 text-center flex items-center justify-center max-w-[350px] overflow-hidden">
-
+          <!-- Wrapper supaya kontainer center -->
+          <div class="w-full flex justify-center">
+            <div id="findMapsMobile" class="mt-4 w-[350px] h-[300px] flex items-center justify-center overflow-hidden">
+              <!-- iframe dari JS akan masuk di sini -->
+            </div>
           </div>
 
           <!-- Tombol "Lihat Semua" -->
@@ -133,79 +134,6 @@
 
         </div>
         {{-- mobile view end --}}
-
-        {{-- Mobile view --}}
-          <!-- Kolom: Judul -->
-          {{-- <div class="col-lg-6 mb-4 lg:hidden flex-col justify-between h-full">
-            <h1 class="fw-bold mb-1 text-center">Find Us</h1>
-            <p class="text-center text-gray-600 italic mb-6">Our Store</p> --}}
-            {{-- <div class="shop-icons mb-3">
-              <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia"></a>
-              <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a>
-            </div> --}}
-
-              <!-- Kolom Atas: 1 Produk -->
-            {{-- <div class="col-lg-6">
-              <div class="row g-4 mx-auto">
-                <div class="relative w-full max-w-sm mx-auto mt-5">
-                
-                  <div> --}}
-                    <!-- MOBILE Carousel -->
-                    {{-- <div id="findSliderMobile" class="flex transition-transform duration-700 ease-in-out overflow-hidden rounded-xl w-4/5 mx-auto"> --}}
-                      {{-- Images will be injected via JS --}}
-                    {{-- </div> --}}
-          
-                    {{-- <!-- Tombol Navigasi -->
-                    <button onclick="prevFindImage('findSliderMobile')" class="absolute left-2 top-1/2 transform -translate-y-1/2 z-10">
-                      <svg class="w-10 h-10 text-black rounded-full" fill="none" stroke="currentColor" stroke-width="2"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                      </svg>
-                    </button>
-                    <button onclick="nextFindImage('findSliderMobile')" class="absolute right-2 top-1/2 transform -translate-y-1/2 z-10">
-                      <svg class="w-10 h-10 text-black rounded-full" fill="none" stroke="currentColor" stroke-width="2"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                      </svg>
-                    </button> --}}
-                  {{-- </div>
-                  
-                </div>
-
-              </div>
-            </div> --}}
-            {{-- kolom judul end --}}
-            <!-- Kolom Bawah: Find Us -->
-           <!-- Info Lokasi -->
-           {{-- <div class="text-center mt-4">
-            <h3 id="findNameMobile" class="text-xl font-bold mb-1"></h3>
-            <p id="findAddressMobile" class="text-base text-gray-700 mb-3"></p> --}}
-
-            {{-- icon e-commerce --}}
-            {{-- <div id="shopIconsMobile" class="find-us-shop-icons mb-3 justify-center gap-3"> --}}
-              {{-- <a href="#"><img src="{{ asset('assets/img/ecommerce/Logo_Gofood.png') }}" alt="Gofood" class="h-6"></a>
-              <a href="#"><img src="{{ asset('assets/img/ecommerce/Logo_Shopeefood.png') }}" alt="Shopeefood" class="h-6"></a>
-              <a href="#"><img src="{{ asset('assets/img/ecommerce/Logo_Grabfood.png') }}" alt="Grab" class="h-6"></a> --}}
-            {{-- </div> --}}
-            
-            {{-- <div id="findMapsMobile" class="mt-4 flex justify-center w-full">
-              <div class="w-full max-w-[400px]"> --}}
-                <!-- iframe dari JS akan masuk di sini -->
-              {{-- </div>
-            </div> --}}
-
-            <!-- Tombol "Lihat Semua" -->
-            {{-- <div class="justify-center mt-6">
-              <a href="/ourstore"
-                class="bg-black text-white font-bold text-sm px-6 py-2 rounded shadow-md hover:bg-gray-800 transition">
-                Lihat Semua Toko
-              </a>
-            </div>
-          </div> --}}
-          
-          {{-- kolom end --}}
-          {{-- </div> --}}
-          {{-- mobile view end --}}
 
     </div>
 
@@ -232,7 +160,7 @@
 
       // Desktop
       document.getElementById("findNameDesktop").innerText = find.nama_tempat;
-      document.getElementById("findAddressDesktop").innerHTML = find.alamat || "Jl. Hayam Wuruk No.30, Citarum, Kec. Bandung Wetan, Kota Bandung.";
+      document.getElementById("findAddressDesktop").innerHTML = find.address || "-";
       document.getElementById("findMapsDesktop").innerHTML = find.maps;
 
       const shopIconsDesktop = document.getElementById("shopIconsDesktop");
@@ -243,7 +171,7 @@
 
       // Mobile
       document.getElementById("findNameMobile").innerText = find.nama_tempat;
-      document.getElementById("findAddressMobile").innerHTML = find.alamat || "Jl. Hayam Wuruk No.30, Citarum, Kec. Bandung Wetan, Kota Bandung.";
+      document.getElementById("findAddressMobile").innerHTML = find.address || "-";
       document.getElementById("findMapsMobile").innerHTML = find.maps;
 
       const shopIconsMobile = document.getElementById("shopIconsMobile");
@@ -288,6 +216,38 @@
     document.addEventListener("DOMContentLoaded", () => {
       renderFind(findUs);
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const slider = document.getElementById("findMobileSlider");
+    const indicators = document.querySelectorAll("#findMobileIndicators span");
+    const totalSlides = slider.children.length;
+    let currentIndex = 0;
+
+    function updateSlider(index) {
+      const slideWidth = slider.offsetWidth;
+      slider.style.transform = `translateX(-${index * slideWidth}px)`;
+      indicators.forEach((dot, i) => {
+        dot.classList.toggle("opacity-100", i === index);
+        dot.classList.toggle("opacity-50", i !== index);
+      });
+    }
+
+
+    indicators.forEach(dot => {
+      dot.addEventListener("click", () => {
+        currentIndex = parseInt(dot.dataset.index);
+        updateSlider(currentIndex);
+      });
+    });
+
+    // Auto Slide (opsional)
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateSlider(currentIndex);
+    }, 5000);
+
+    updateSlider(currentIndex);
+  });
   </script>
   
 

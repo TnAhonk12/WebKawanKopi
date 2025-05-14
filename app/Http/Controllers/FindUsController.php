@@ -15,6 +15,7 @@ class FindUsController extends Controller
             return [
                 'id' => $loc->id,
                 'nama_tempat' => $loc->nama_tempat,
+                'address' => $loc->address,
                 'foto' => $loc->foto ? Storage::url($loc->foto) : null,
                 'maps' => $loc->maps,
                 'grab' => $loc->grab,
@@ -34,6 +35,7 @@ class FindUsController extends Controller
         $findUs = [
             'id' => $store->id,
             'nama_tempat' => $store->nama_tempat,
+            'address' => $store->address,
             'foto' => $store->foto ? Storage::url($store->foto) : null,
             'maps' => $store->maps,
             'grab' => $store->grab,

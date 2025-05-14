@@ -10,10 +10,10 @@
         <div class="col-lg-6 mb-4 hidden lg:flex flex-col justify-between h-full">
 
           <h1 class="fw-bold mb-2">Roastery</h1>
-          <p class="text-black italic">Single Origin</p>
-          <div class="shop-icons mb-3">
-            <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia"></a>
-            <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a>
+          <p id="categoryNameDesktop" class="text-black italic"></p>
+          <div id="ecommerceIconsDesktop" class="shop-icons mb-3">
+            {{-- <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia"></a>
+            <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a> --}}
           </div>
           
           <div class="mt-50">
@@ -70,7 +70,7 @@
         <!-- Kolom: Judul -->
         <div class="col-lg-6 mb-4 lg:hidden flex-col justify-between h-full">
           <h1 class="fw-bold mb-2 text-center">Roastery</h1>
-          <p class="text-black italic text-center">Single Origin</p>
+          <p id="categoryNameMobile" class="text-black italic text-center"></p>
           
 
             <!-- Kolom: Produk -->
@@ -103,9 +103,9 @@
                 </button>
               </div>
 
-              <div class="shop-icons mb-3 justify-center">
-                <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia"></a>
-                <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a>
+              <div id="ecommerceIconsMobile" class="shop-icons mb-3 justify-center">
+                {{-- <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia"></a>
+                <a href="#"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a> --}}
               </div>
 
             </div>
@@ -136,47 +136,37 @@
 
 <script>
   // Roastery
-  const roasteryProducts = [
-    {
-      name: "Palintang Honey",
-      image: "assets/img/roastery/Palintang-Honey.jpg",
-      price: "IDR 150K",
-      weight: "200gr",
-      desc: "Since its founding in the 80s, Studio Agatho has been the go-to company for various design needs. Its offerings range from graphic design and branding strategy to website development and video production."
-    },
-    {
-      name: "Bajawa Semi-Washed",
-      image: "assets/img/roastery/Bajawa-Semi-Washed.jpg",
-      price: "IDR 140K",
-      weight: "300gr",
-      desc: "Bajawa brings a balance of brightness and body to your cup, offering a harmonious flavor profile that reflects the rich volcanic soil and cool highland climate of Flores. With every sip, you'll experience delicate acidity balanced with smooth chocolate undertones and a hint of spice — a comforting cup that lingers warmly and invites another pour."
-    },
-    {
-      name: "Kintamani Natural",
-      image: "assets/img/roastery/Kintanami-Natural.jpg",
-      price: "IDR 160K",
-      weight: "450gr",
-      desc: "Kintamani coffee with fruity and floral tones offers a refreshing sensory experience inspired by the lush highlands of Bali. Grown in volcanic soil with a unique climate, each bean carries bright citrus acidity, sweet berry notes, and delicate floral aromas. This natural-processed coffee finishes with a clean, crisp mouthfeel — a perfect companion for those seeking a vibrant and uplifting brew."
-    }
-  ];
-
-  let currentRoasteryIndex = 0;
+  const roasteryProducts = @json($roasteryProducts);
+  const activeRoasteryId = @json($activeRoasteryId);
+  
+  let currentRoasteryIndex = roasteryProducts.findIndex(p => p.id === activeRoasteryId);
+  if (currentRoasteryIndex < 0) currentRoasteryIndex = 0;
 
   function renderRoasteryProduct(index) {
     const productRoastery = roasteryProducts[index];
     if (productRoastery) {
       // bagian Desktop
+      document.getElementById("categoryNameDesktop").innerText = productRoastery.kategori;
       document.getElementById("roasteryImageDesktop").src = productRoastery.image;
       document.getElementById("roasteryNameDesktop").innerHTML = styleRoasteryName(productRoastery.name);
-      document.getElementById("roasteryPriceDesktop").innerText = productRoastery.price;
-      document.getElementById("roasteryWeightDesktop").innerText = productRoastery.weight;
+      document.getElementById("roasteryPriceDesktop").innerText = `IDR ${productRoastery.price}K`;
+      document.getElementById("roasteryWeightDesktop").innerText = `${productRoastery.weight}gr`;
       document.getElementById("roasteryDescDesktop").innerText = productRoastery.desc;
+      const ecommerceIconsDesktop = document.getElementById("ecommerceIconsDesktop");
+      ecommerceIconsDesktop.innerHTML = "";
+      if (productRoastery.tokopedia) ecommerceIconsDesktop.innerHTML += `<a href="${productRoastery.tokopedia}" target="_blank"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia"></a>`;
+      if (productRoastery.shopee) ecommerceIconsDesktop.innerHTML += `<a href="${productRoastery.shopee}" target="_blank"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a>`;
       // bagian Mobile
+      document.getElementById("categoryNameMobile").innerText = productRoastery.kategori;
       document.getElementById("roasteryImageMobile").src = productRoastery.image;
       document.getElementById("roasteryNameMobile").innerHTML = styleRoasteryName(productRoastery.name);
-      document.getElementById("roasteryPriceMobile").innerText = productRoastery.price;
-      document.getElementById("roasteryWeightMobile").innerText = productRoastery.weight;
+      document.getElementById("roasteryPriceMobile").innerText = `IDR ${productRoastery.price}K`;
+      document.getElementById("roasteryWeightMobile").innerText = `${productRoastery.weight}gr`;
       document.getElementById("roasteryDescMobile").innerText = productRoastery.desc;
+      const ecommerceIconsMobile = document.getElementById("ecommerceIconsMobile");
+      ecommerceIconsMobile.innerHTML = "";
+      if (productRoastery.tokopedia) ecommerceIconsMobile.innerHTML += `<a href="${productRoastery.tokopedia}" target="_blank"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia"></a>`;
+      if (productRoastery.shopee) ecommerceIconsMobile.innerHTML += `<a href="${productRoastery.shopee}" target="_blank"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a>`;
     }
   }
 

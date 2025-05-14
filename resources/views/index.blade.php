@@ -27,7 +27,7 @@
                 class="w-auto h-auto object-cover rounded-xl" />
           
               <!-- Tombol Navigasi -->
-              <div class="absolute inset-1 flex justify-between items-center px-1">
+              <div id="desktopMenuNav" class="absolute inset-1 flex justify-between items-center px-1 hidden">
                 <!-- Tombol Kiri -->
                 <button id="prevMenuDesktop" class="absolute left-2 top-auto transform -translate-y-1/2 z-10">
                   <svg class="w-10 h-10 text-black rounded-full " fill="none" stroke="currentColor" stroke-width="2"
@@ -803,63 +803,91 @@
       const menus = @json($menus);
       const filenameMap = @json($filenameMap);
 
-      document.querySelectorAll(".category").forEach(btn => {
+      const productImageDesktop = document.querySelector(".col-lg-6 img");
+      const leftColDesktop = document.querySelectorAll(".grid-cols-2 .flex.flex-col")[0];
+      const rightColDesktop = document.querySelectorAll(".grid-cols-2 .flex.flex-col")[1];
+      const categoryButtonsDesktop = document.querySelectorAll(".category");
+
+      const prevDesktopBtn = document.getElementById("prevMenuDesktop");
+      const nextDesktopBtn = document.getElementById("nextMenuDesktop");
+
+      let currentDesktopCategory = null;
+      let currentDesktopMenuItems = [];
+      let currentDesktopMenuIndex = 0;
+
+      function updateActiveMenuDesktop(index) {
+        currentDesktopMenuIndex = index;
+        const item = currentDesktopMenuItems[index];
+        const imageUrl = filenameMap[item];
+
+        if (imageUrl && productImageDesktop) {
+          productImageDesktop.src = imageUrl;
+          productImageDesktop.alt = item;
+        }
+
+        document.querySelectorAll(".grid-cols-2 .flex.flex-col button").forEach(btn => {
+          btn.style.borderBottomColor = "black";
+          btn.style.color = "black";
+        });
+
+        const allButtons = [...leftColDesktop.children, ...rightColDesktop.children];
+        if (allButtons[index]) {
+          allButtons[index].style.borderBottomColor = "#8B5E3B";
+          allButtons[index].style.color = "#8B5E3B";
+        }
+      }
+
+      function createDesktopButton(text, index) {
+        const btn = document.createElement("button");
+        btn.textContent = text;
+        btn.className = "text-left font-bold transition pb-2 hover:opacity-70";
+        btn.style.borderBottom = "2px solid black";
+        
+        btn.onclick = () => {
+          updateActiveMenuDesktop(index);
+          document.getElementById("desktopMenuNav").classList.remove("hidden");
+        };
+
+        return btn;
+      }
+
+      categoryButtonsDesktop.forEach(btn => {
         btn.addEventListener("click", () => {
-          document.querySelectorAll(".category").forEach(b => b.classList.remove("active"));
+          categoryButtonsDesktop.forEach(b => b.classList.remove("active"));
           btn.classList.add("active");
+          document.getElementById("desktopMenuNav").classList.add("hidden");
 
-          const selectedCategory = btn.textContent.trim();
-          const menuItems = menus[selectedCategory] || [];
+          currentDesktopCategory = btn.textContent.trim();
+          currentDesktopMenuItems = menus[currentDesktopCategory] || [];
+          currentDesktopMenuIndex = 0;
 
-          const leftCol = document.querySelectorAll(".grid-cols-2 .flex.flex-col")[0];
-          const rightCol = document.querySelectorAll(".grid-cols-2 .flex.flex-col")[1];
-          leftCol.innerHTML = "";
-          rightCol.innerHTML = "";
+          leftColDesktop.innerHTML = "";
+          rightColDesktop.innerHTML = "";
 
-          const halfway = Math.ceil(menuItems.length / 2);
-          const leftItems = menuItems.slice(0, halfway);
-          const rightItems = menuItems.slice(halfway);
+          const halfway = Math.ceil(currentDesktopMenuItems.length / 2);
+          const leftItems = currentDesktopMenuItems.slice(0, halfway);
+          const rightItems = currentDesktopMenuItems.slice(halfway);
 
-          const createButton = (text) => {
-            const btn = document.createElement("button");
-            btn.textContent = text;
-            btn.className = "text-left font-bold transition pb-2 hover:opacity-70";
-            btn.style.borderBottom = "2px solid black"; // Default border bottom
+          leftItems.forEach((item, idx) => leftColDesktop.appendChild(createDesktopButton(item, idx)));
+          rightItems.forEach((item, idx) => rightColDesktop.appendChild(createDesktopButton(item, idx + halfway)));
 
-            btn.addEventListener("click", () => {
-              // Reset semua tombol
-              document.querySelectorAll(".grid-cols-2 .flex.flex-col button").forEach(el => {
-                el.style.setProperty("border-bottom-color", "black");
-                el.style.setProperty("color", "black");
-              });
-
-              // Aktifkan tombol ini
-              btn.style.setProperty("border-bottom-color", "#8B5E3B");
-              btn.style.setProperty("color", "#8B5E3B");
-
-              // Ganti gambar
-              const imageUrl = filenameMap[text];
-              if (imageUrl) {
-                const productImage = document.querySelector(".col-lg-6 img");
-                if (productImage) {
-                  productImage.src = imageUrl;
-                  productImage.alt = text;
-                }
-              }
-            });
-
-            return btn;
-          };
-
-          leftItems.forEach(item => leftCol.appendChild(createButton(item)));
-          rightItems.forEach(item => rightCol.appendChild(createButton(item)));
-
-          // Trigger gambar pertama otomatis
-          //if (menuItems.length > 0) {
-          //  document.querySelectorAll(".grid-cols-2 .flex.flex-col button")[0].click();
-          //}
+          // Optional: aktifkan item pertama
+          // updateActiveMenuDesktop(0);
         });
       });
+
+      prevDesktopBtn.addEventListener("click", () => {
+        if (!currentDesktopMenuItems.length) return;
+        currentDesktopMenuIndex = (currentDesktopMenuIndex - 1 + currentDesktopMenuItems.length) % currentDesktopMenuItems.length;
+        updateActiveMenuDesktop(currentDesktopMenuIndex);
+      });
+
+      nextDesktopBtn.addEventListener("click", () => {
+        if (!currentDesktopMenuItems.length) return;
+        currentDesktopMenuIndex = (currentDesktopMenuIndex + 1) % currentDesktopMenuItems.length;
+        updateActiveMenuDesktop(currentDesktopMenuIndex);
+      });
+
 
       //mobile
         const productImageMobile = document.getElementById("productImageMobile");
