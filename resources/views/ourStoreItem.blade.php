@@ -153,7 +153,6 @@
     });
 
     const findUs = @json($findUs);
-    console.log(findUs);
 
     function renderFind(find) {
       if (!find) return;

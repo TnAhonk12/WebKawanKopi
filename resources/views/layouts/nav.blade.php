@@ -7,13 +7,14 @@
 
       <nav id="navmenu" class="navmenu d-flex justify-content-center w-100">
         <ul >
-          <li><a href="/#lini-produk">Lini Produk</a></li>
-          <li><a href="/#merchandise">Merchandise</a></li>
-          <li class="dropdown"><a href="#"><span>Roastery</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li><a href="/#lini-produk" class="{{ request()->is('/#lini-produk') ? 'active' : '' }}">Lini Produk</a></li>
+          <li><a href="/#merchandise" class="{{ request()->is('/#merchandise') ? 'active' : '' }}">Merchandise</a></li>
+          <li class="dropdown"><a href="#" class="{{ request()->is('roastery*') ? 'active' : '' }}"><span>Roastery</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               @foreach ($navbarRoasteryCategories as $category)
                 <li>
-                  <a href="{{ route('roastery.index', ['kategori' => $category->id]) }}">
+                  <a href="{{ route('roastery.index', ['kategori' => $category->id]) }}" 
+                    class="{{ request()->fullUrlIs(route('roastery.index', ['kategori' => $category->id])) ? 'active' : '' }}">
                     {{ $category->nama_roastery }}
                   </a>
                 </li>
@@ -27,10 +28,10 @@
           
           <li><a href="/#cerita-kawan">Cerita Kawan</a></li>
           <li><a href="/#berita-kawan">Info Kawan</a></li>
-          <li class="dropdown"><a href="#"><span>Find Us</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li class="dropdown"><a href="#" class="{{ request()->is('ourstore') || request()->is('contact') ? 'active' : '' }}"><span>Find Us</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="/ourstore">Our Store</a></li>
-              <li><a href="/contact">Contact</a></li>
+              <li><a href="/ourstore" class="{{ request()->is('ourstore') ? 'active' : '' }}">Our Store</a></li>
+              <li><a href="/contact" class="{{ request()->is('contact') ? 'active' : '' }}">Contact</a></li>
             </ul>
           </li> 
         </ul>

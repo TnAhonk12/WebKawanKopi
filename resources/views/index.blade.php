@@ -585,7 +585,7 @@
                   </p> --}}
                   <!-- Tombol Read More -->
                   <div class="mt-6 flex left">
-                    <a href="/berita-kawan" class="flex border border-white text-white bg-black">
+                    <a id="readMoreButton" data-base-url="{{ url('/berita') }}" href="#" class="flex border border-white text-white bg-black">
                       <span class="px-4 py-2 font-medium">Read More</span>
                       <span class="px-2 py-2 border-l border-white flex items-center">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -1220,7 +1220,7 @@
         images.forEach((src, index) => {
           const img = document.createElement("img");
           img.src = src;
-          img.className = "object-contain max-h-[400px] w-full mx-auto flex-shrink-0 rounded-l";
+          img.className = "object-contain max-h-[430px] w-full mx-auto flex-shrink-0 rounded-l";
           slider.appendChild(img);
 
           const dot = document.createElement("span");
@@ -1359,7 +1359,11 @@
         container.appendChild(nextBtn);
       }
 
-
+      function truncateWords(text, maxWords) {
+        const words = text.trim().split(/\s+/);
+        if (words.length <= maxWords) return text;
+        return words.slice(0, maxWords).join(" ") + "...";
+      }
       // Render seluruh data berita (judul, isi, dan carousel)
       function renderBerita(index) {
         const berita = beritaKawan[index];
@@ -1369,7 +1373,8 @@
         document.getElementById("beritaTitleDesktop").innerText = berita.title;
         document.getElementById("beritaCreatedByDesktop").innerText = berita.createdBy;
         document.getElementById("beritaCreatedAtDesktop").innerText = berita.createdAt;
-        document.getElementById("beritaDescDesktop").innerText = berita.desc;
+        document.getElementById("beritaDescDesktop").innerText = truncateWords(berita.desc, 80);
+        document.getElementById("readMoreButton").href = document.getElementById("readMoreButton").dataset.baseUrl + "/" + berita.slug;
         renderBeritaCarousel(berita.images || []);
 
         // Mobile
@@ -1377,7 +1382,7 @@
         document.getElementById("beritaTitleMobile").innerText = berita.title;
         document.getElementById("beritaCreatedByMobile").innerText = berita.createdBy;
         document.getElementById("beritaCreatedAtMobile").innerText = berita.createdAt;
-        document.getElementById("beritaDescMobile").innerText = berita.desc;
+        document.getElementById("beritaDescMobile").innerText = truncateWords(berita.desc, 80);
         renderBeritaCarouselMobile(berita.images || []);  // for mobile
 
         // Pagination Mobile

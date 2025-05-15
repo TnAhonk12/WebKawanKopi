@@ -54,9 +54,60 @@
   <!-- Preloader -->
   <div id="preloader"></div>
 
+  
+  <!-- Idle Overlay -->
+  <div id="idleOverlay" class="hidden fixed inset-0 z-[99999] bg-black text-white flex flex-col items-center justify-center text-center px-4">
+    <img src="{{ asset('assets/img/kawan/logo-white.png') }}" alt="Logo" class="mb-4 w-24" />
+    <p class="text-lm max-w-md mb-8">
+      Karena kamu sedang tidak aktif, tampilan ini muncul untuk bantu kurangi penggunaan energi.
+      <br><br>
+      Klik atau sentuh layar untuk lanjut menjelajah.
+    </p>
+  </div>
+
   <!-- Main JS File -->
   <script src="{{ asset('assets/js/main.js') }}"></script>
-  
+  <script>
+    let idleTimeout;
+    const idleDelay = 3 * 60 * 1000; // 2 menit
+    const overlay = document.getElementById("idleOverlay");
+
+    function showIdleOverlay() {
+      overlay.classList.remove("hidden");
+    }
+
+    function hideIdleOverlay() {
+      overlay.classList.add("hidden");
+      startIdleTimer(); // restart timer setelah ditutup
+    }
+
+    function startIdleTimer() {
+      clearTimeout(idleTimeout);
+      idleTimeout = setTimeout(() => {
+        showIdleOverlay();
+      }, idleDelay);
+    }
+
+    // Event reset hanya untuk event aktif normal (tanpa klik/tap)
+    ['mousemove', 'keydown', 'scroll'].forEach(event => {
+      document.addEventListener(event, () => {
+        // Hanya reset timer kalau overlay belum muncul
+        if (overlay.classList.contains("hidden")) {
+          startIdleTimer();
+        }
+      });
+    });
+
+    // Hanya event click yang bisa menutup overlay
+    overlay.addEventListener("click", () => {
+      hideIdleOverlay();
+    });
+
+    // Mulai pertama kali
+    startIdleTimer();
+
+  </script>
+
 
 </body>
 
