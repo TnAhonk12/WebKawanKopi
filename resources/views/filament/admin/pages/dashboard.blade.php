@@ -4,17 +4,16 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <x-filament::card>
-                <div class="text-lg font-bold">Menu Terakhir Ditambahkan</div>
-                <div class="text-md">
-                    {{ \App\Models\Menu::latest()->first()?->nama_menu ?? 'Belum ada menu.' }}
+                <div class="text-lg font-bold">Jumlah Menu</div>
+                <div class="text-3xl text-primary font-bold">
+                    {{ \App\Models\Menu::count() }}
                 </div>
             </x-filament::card>
 
             <x-filament::card>
-                <x-filament::card>
-                    <div class="text-lg font-bold">Promo Terbaru</div>
-                    <div class="text-md">{{ \App\Models\Promo::latest()->first()?->title ?? 'Belum ada promo' }}</div>
-                </x-filament::card>
+                <div class="text-lg font-bold">Jumlah Promo</div>
+                <div class="text-3xl text-primary font-bold">
+                    {{ \App\Models\Promo::count() }}</div>
             </x-filament::card>
 
             <x-filament::card>
