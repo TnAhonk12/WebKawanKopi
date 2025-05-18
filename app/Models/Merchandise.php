@@ -13,6 +13,7 @@ class Merchandise extends Model
     protected $fillable = [
         'name',
         'link',
+        'link_shopee',
         'price',
         'image',
     ];

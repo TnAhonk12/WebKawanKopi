@@ -40,12 +40,19 @@ class MerchandiseResource extends Resource
                 TextInput::make('link')
                     ->url()
                     ->required()
-                    ->label('Link Pembelian'),
+                    ->label('Link Tokopedia'),
 
-                TextInput::make('price')
-                    ->numeric()
+                TextInput::make('link_shopee')
+                    ->url()
                     ->required()
-                    ->label('Harga'),
+                    ->label('Link Shopee'),
+                
+                TextInput::make('price')
+                    ->label('Harga')
+                    ->numeric()
+                    ->prefix('Rp ')
+                    ->minValue(0)
+                    ->nullable(),
 
                 FileUpload::make('image')
                     ->label('Gambar')
