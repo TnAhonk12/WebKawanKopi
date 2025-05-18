@@ -16,6 +16,7 @@ class MerchandiseController extends Controller
                     'image' => $item->image ? Storage::url($item->image) : null,
                     'price' => $item->price,
                     'link' => $item->link,
+                    'link_shopee' => $item->link_shopee,
                 ];
             }),
         ];

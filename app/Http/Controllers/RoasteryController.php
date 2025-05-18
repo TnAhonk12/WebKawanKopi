@@ -54,10 +54,11 @@ class RoasteryController extends Controller
                 'id' => $item->id,
                 'name' => $item->name,
                 'image' => $item->image ? Storage::url($item->image) : null,
-                'price' => $item->price ?? '-',
-                'weight' => $item->weight ?? '-', // pastikan kolom 'weight' ada di DB
-                'desc' => $item->description ?? '-', // pastikan kolom 'description' ada juga
-                'link' => $item->link ?? '#',
+                'price' => $item->price,
+                'berat' => $item->berat,
+                'desc' => $item->desc ?? '',
+                'link' => $item->link,
+                'link_shopee' => $item->link_shopee,
                 'kategori' => $item->kategori->nama_roastery,
             ];
         });

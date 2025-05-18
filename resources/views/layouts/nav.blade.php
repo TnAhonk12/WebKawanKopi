@@ -32,6 +32,7 @@
             <ul>
               <li><a href="/ourstore" class="{{ request()->is('ourstore') ? 'active' : '' }}">Our Store</a></li>
               <li><a href="/contact" class="{{ request()->is('contact') ? 'active' : '' }}">Contact</a></li>
+              <li><a href="/tentang">Tentang Kawan</a></li>
             </ul>
           </li> 
         </ul>

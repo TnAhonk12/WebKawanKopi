@@ -16,6 +16,8 @@ class CeritaController extends Controller
                     'name' => $c->name,
                     'slug' => $c->slug,
                     'image' => $c->image ? Storage::url($c->image) : null,
+                    'link_shopee' => $c->link_youtube,
+                    'content' => $c->content,
                 ];
             }),
         ];

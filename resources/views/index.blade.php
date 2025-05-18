@@ -132,7 +132,7 @@
             <div class="my-4 border-t border-gray-300"></div>
 
             <!-- List Menu -->
-            <div class="grid grid-cols-2 gap-4 overflow-y-auto h-[300px] pb-2">
+            <div class="grid grid-cols-2 gap-4 overflow-y-auto h-[150px] pb-2">
               <div class="flex flex-col gap-4" id="menuLeftMobile"></div>
               <div class="flex flex-col gap-4" id="menuRightMobile"></div>
             </div>
@@ -1107,6 +1107,13 @@
       @endphp
 
       const products = @json($products);
+      console.log(products);
+
+      const merchandise = document.getElementById("merchandise");
+
+      if (!products || products.length === 0) {
+        merchandise.classList.add("hidden");
+      }
 
       let currentIndex = 0;
 
