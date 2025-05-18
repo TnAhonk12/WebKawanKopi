@@ -66,16 +66,20 @@ class CeritaResource extends Resource
                     ->hidden()
                     ->required()
                     ->unique(ignoreRecord: true), // Slug tetap bisa diisi manual jika diperlukan
+                
+                TextInput::make('name')
+                    ->label('Nama Penulis')
+                    ->required(),
+                
+                TextInput::make('link_youtube')
+                    ->label('Link Youtube')
+                    ->required(),
 
                 Textarea::make('content')
                     ->label('Konten Cerita')
                     ->required()
                     ->rows(5),
 
-                TextInput::make('name')
-                    ->label('Nama Penulis')
-                    ->required(),
-                    
                 Repeater::make('images')
                     ->relationship()
                     ->label('Foto Tambahan')

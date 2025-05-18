@@ -16,6 +16,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Forms\Components\Textarea;
 use Intervention\Image\Drivers\Gd\Driver;
 use App\Filament\Resources\RoasteryResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -72,8 +73,23 @@ class RoasteryResource extends Resource
                         ->preload()
                         ->nullable(),
 
+                TextInput::make('berat')
+                    ->label('Berat')
+                    ->required(),
+
+                Textarea::make('desc')
+                    ->label('Deskripsi')
+                    ->required()
+                    ->rows(5),
+
                 TextInput::make('link')
-                    ->label('Link ke E-commerce')
+                    ->label('Link Tokopedia')
+                    ->url()
+                    ->suffixIcon('heroicon-o-link')
+                    ->required(),
+
+                TextInput::make('link_shopee')
+                    ->label('Link Shopee')
                     ->url()
                     ->suffixIcon('heroicon-o-link')
                     ->required(),

@@ -15,6 +15,9 @@ class Roastery extends Model
         'link',
         'price',
         'image',
+        'berat',
+        'desc',
+        'link_shopee'
 
     ];
     protected static function booted()

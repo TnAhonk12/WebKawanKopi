@@ -16,7 +16,8 @@ class Cerita extends Model
         'name',
         'content',
         'slug',
-        'image'
+        'image',
+        'link_youtube'
     ];
     public static function boot()
     {
