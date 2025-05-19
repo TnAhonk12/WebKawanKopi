@@ -125,83 +125,12 @@
 <!-- Roastery Section End -->
 
 <script>
-  // Roastery
   const roasteryProducts = @json($roasteryProducts);
   const activeRoasteryId = @json($activeRoasteryId);
-  
-  let currentRoasteryIndex = roasteryProducts.findIndex(p => p.id === activeRoasteryId);
-  if (currentRoasteryIndex < 0) currentRoasteryIndex = 0;
-
-  function renderRoasteryProduct(index) {
-    const productRoastery = roasteryProducts[index];
-    if (productRoastery) {
-      // bagian Desktop
-      document.getElementById("categoryNameDesktop").innerText = productRoastery.kategori;
-      document.getElementById("roasteryImageDesktop").src = productRoastery.image;
-      document.getElementById("roasteryNameDesktop").innerHTML = styleRoasteryName(productRoastery.name);
-
-      const roasteryPriceDesktop =  document.getElementById("roasteryPriceDesktop");
-      roasteryPriceDesktop.innerHTML = "";
-      if(productRoastery.price) roasteryPriceDesktop.innerHTML += `
-        <div class="absolute top-2 left-10 bg-red-600 text-white text-lg font-bold px-3 py-1.5 rounded-full shadow">
-          <span>IDR ${productRoastery.price}K</span>
-        </div>`;
-
-      const roasteryWeightDesktop =  document.getElementById("roasteryWeightDesktop");
-      roasteryWeightDesktop.innerHTML = "";
-      if(productRoastery.berat) roasteryWeightDesktop.innerHTML += `
-        <div class="absolute top-2 right-10 bg-red-600 text-white text-lg font-bold px-3 py-1.5 rounded-full shadow">
-          <span>${productRoastery.berat}gr</span>
-        </div>`;
-
-      document.getElementById("roasteryDescDesktop").innerText = productRoastery.desc;
-
-      const ecommerceIconsDesktop = document.getElementById("ecommerceIconsDesktop");
-      ecommerceIconsDesktop.innerHTML = "";
-      if (productRoastery.link) ecommerceIconsDesktop.innerHTML += `<a href="${productRoastery.link}" target="_blank"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia"></a>`;
-      if (productRoastery.link_shopee) ecommerceIconsDesktop.innerHTML += `<a href="${productRoastery.link_shopee}" target="_blank"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a>`;
-      // bagian Mobile
-      document.getElementById("categoryNameMobile").innerText = productRoastery.kategori;
-      document.getElementById("roasteryImageMobile").src = productRoastery.image;
-      document.getElementById("roasteryNameMobile").innerHTML = styleRoasteryName(productRoastery.name);
-      const roasteryPriceMobile = document.getElementById("roasteryPriceMobile");
-      roasteryPriceMobile.innerHTML = "";
-      if(productRoastery.price) roasteryPriceMobile.innerHTML += `
-        <div class="absolute top-2 left-10 bg-red-600 text-white text-sm font-bold px-3 py-1.5 rounded-full shadow">
-                  <span>IDR ${productRoastery.price}K</span>
-        </div>`;
-      const roasteryWeightMobile = document.getElementById("roasteryWeightMobile");
-      roasteryWeightMobile.innerHTML = "";
-      if(productRoastery.berat) roasteryWeightMobile.innerHTML += `
-        <div class="absolute top-2 right-10 bg-red-600 text-white text-sm font-bold px-3 py-1.5 rounded-full shadow">
-                  <span>${productRoastery.berat}gr</span>
-        </div>`;
-      document.getElementById("roasteryDescMobile").innerText = productRoastery.desc;
-      const ecommerceIconsMobile = document.getElementById("ecommerceIconsMobile");
-      ecommerceIconsMobile.innerHTML = "";
-      if (productRoastery.link) ecommerceIconsMobile.innerHTML += `<a href="${productRoastery.link}" target="_blank"><img src="{{asset('assets/img/ecommerce/Logo_Tokopedia.png')}}" alt="Tokopedia"></a>`;
-      if (productRoastery.link_shopee) ecommerceIconsMobile.innerHTML += `<a href="${productRoastery.link_shopee}" target="_blank"><img src="{{asset('assets/img/ecommerce/Logo_Shopee.png')}}" alt="Shopee"></a>`;
-    }
-  }
-
-  function nextRoasteryProduct() {
-    currentRoasteryIndex = (currentRoasteryIndex + 1) % roasteryProducts.length;
-    renderRoasteryProduct(currentRoasteryIndex);
-  }
-
-  function prevRoasteryProduct() {
-    currentRoasteryIndex = (currentRoasteryIndex - 1 + roasteryProducts.length) % roasteryProducts.length;
-    renderRoasteryProduct(currentRoasteryIndex);
-  }
-
-  function styleRoasteryName(name) {
-    const [first, ...rest] = name.split(' ');
-    return `<span class="fw-bold mb-2">${first}</span> ${rest.join(' ')}`;
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    renderRoasteryProduct(currentRoasteryIndex);
-  });
+  const tokopediaLogo = "{{ asset('assets/img/ecommerce/Logo_Tokopedia.png') }}";
+  const shopeeLogo = "{{ asset('assets/img/ecommerce/Logo_Shopee.png') }}";
 </script>
+<script src="{{ asset('assets/js/roasteryItem.js') }}"></script>
+
 
 @endsection

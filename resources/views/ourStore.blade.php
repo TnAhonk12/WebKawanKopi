@@ -103,18 +103,8 @@
     </div>
   </section>
 
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const items = document.querySelectorAll('.find-us-item');
-      items.forEach((item, index) => {
-        setTimeout(() => {
-          item.classList.add('animate-in');
-        }, index * 150); // delay per item biar animasinya berurutan
-      });
-    });
-
-    
-  </script>
+{{-- Include JS Eksternal --}}
+<script src="{{ asset('assets/js/ourstore.js') }}"></script>
   
 
 @endsection

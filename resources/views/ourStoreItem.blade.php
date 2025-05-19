@@ -140,114 +140,12 @@
   </div>
 </section>
   <!-- Find Us Section End -->
-
-  <script>
-    //animasi item
-    window.addEventListener('DOMContentLoaded', () => {
-      const items = document.querySelectorAll('.find-us-item');
-      items.forEach((item, index) => {
-        setTimeout(() => {
-          item.classList.add('animate-in');
-        }, index * 150); // delay per item biar animasinya berurutan
-      });
-    });
-
-    const findUs = @json($findUs);
-
-    function renderFind(find) {
-      if (!find) return;
-
-      // Desktop
-      document.getElementById("findNameDesktop").innerText = find.nama_tempat;
-      document.getElementById("findAddressDesktop").innerHTML = find.address || "-";
-      document.getElementById("findMapsDesktop").innerHTML = find.maps;
-
-      const shopIconsDesktop = document.getElementById("shopIconsDesktop");
-      shopIconsDesktop.innerHTML = "";
-      if (find.gofood) shopIconsDesktop.innerHTML += `<a href="${find.gofood}" target="_blank"><img src="{{ asset('assets/img/ecommerce/Logo_Gofood.png') }}" alt="Gofood"></a>`;
-      if (find.shopee) shopIconsDesktop.innerHTML += `<a href="${find.shopee}" target="_blank"><img src="{{ asset('assets/img/ecommerce/Logo_Shopeefood.png') }}" alt="Shopeefood"></a>`;
-      if (find.grab) shopIconsDesktop.innerHTML += `<a href="${find.grab}" target="_blank"><img src="{{ asset('assets/img/ecommerce/Logo_Grabfood.png') }}" alt="Grabfood"></a>`;
-
-      // Mobile
-      document.getElementById("findNameMobile").innerText = find.nama_tempat;
-      document.getElementById("findAddressMobile").innerHTML = find.address || "-";
-      document.getElementById("findMapsMobile").innerHTML = find.maps;
-
-      const shopIconsMobile = document.getElementById("shopIconsMobile");
-      shopIconsMobile.innerHTML = "";
-      if (find.gofood) shopIconsMobile.innerHTML += `<a href="${find.gofood}" target="_blank"><img src="{{ asset('assets/img/ecommerce/Logo_Gofood.png') }}" class="h-6" alt="Gofood"></a>`;
-      if (find.shopee) shopIconsMobile.innerHTML += `<a href="${find.shopee}" target="_blank"><img src="{{ asset('assets/img/ecommerce/Logo_Shopeefood.png') }}" class="h-6" alt="Shopeefood"></a>`;
-      if (find.grab) shopIconsMobile.innerHTML += `<a href="${find.grab}" target="_blank"><img src="{{ asset('assets/img/ecommerce/Logo_Grabfood.png') }}" class="h-6" alt="Grabfood"></a>`;
-    }
-
-
-    document.addEventListener("DOMContentLoaded", function () {
-      const slider = document.getElementById("findUsSlider");
-      const indicators = document.querySelectorAll("#findUsIndicators span");
-      const totalSlides = slider.children.length;
-      let currentIndex = 0;
-
-      function updateSlider(index) {
-        slider.style.transform = `translateX(-${index * 100}%)`;
-        indicators.forEach((dot, i) => {
-          dot.classList.toggle("opacity-100", i === index);
-          dot.classList.toggle("opacity-50", i !== index);
-        });
-      }
-
-      indicators.forEach(dot => {
-        dot.addEventListener("click", () => {
-          currentIndex = parseInt(dot.dataset.index);
-          updateSlider(currentIndex);
-        });
-      });
-
-      // Auto Slide (optional)
-      setInterval(() => {
-        currentIndex = (currentIndex + 1) % totalSlides;
-        updateSlider(currentIndex);
-      }, 5000);
-
-      // Initial
-      updateSlider(currentIndex);
-    });
-
-    document.addEventListener("DOMContentLoaded", () => {
-      renderFind(findUs);
-    });
-
-    document.addEventListener("DOMContentLoaded", function () {
-    const slider = document.getElementById("findMobileSlider");
-    const indicators = document.querySelectorAll("#findMobileIndicators span");
-    const totalSlides = slider.children.length;
-    let currentIndex = 0;
-
-    function updateSlider(index) {
-      const slideWidth = slider.offsetWidth;
-      slider.style.transform = `translateX(-${index * slideWidth}px)`;
-      indicators.forEach((dot, i) => {
-        dot.classList.toggle("opacity-100", i === index);
-        dot.classList.toggle("opacity-50", i !== index);
-      });
-    }
-
-
-    indicators.forEach(dot => {
-      dot.addEventListener("click", () => {
-        currentIndex = parseInt(dot.dataset.index);
-        updateSlider(currentIndex);
-      });
-    });
-
-    // Auto Slide (opsional)
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      updateSlider(currentIndex);
-    }, 5000);
-
-    updateSlider(currentIndex);
-  });
-  </script>
   
+<script>
+  window.findUs = @json($findUs);
+</script>
+
+{{-- External JS --}}
+<script src="{{ asset('assets/js/ourstoreitem.js') }}"></script>
 
 @endsection

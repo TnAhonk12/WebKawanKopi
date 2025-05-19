@@ -1,156 +1,88 @@
 @extends('layouts.layout')
 @section('homepage')
 <!-- Berita Section -->
- <section id="berita" class="berita section">
-
-   <div class="container" data-aos="fade-up" data-aos-delay="100">
-    <div class="row gy-4 justify-content-center">
-      <div class="col-lg-6 content">
-          <!-- Section Title -->
-          <div class="section-title text-center mt-4" data-aos="fade-up">
-            <h2>Berita Kawan</h2>
-            <p class="italic text-sm">{{ $data['author'] }} <br> {{ $data['createdAt'] }}</p>
-          </div>
-          <!-- End Section Title -->
-          <h2>{{ $data['title'] }}</h2>
-          <p id="descTop" class="fst-italic py-3 text-justify"></p>
-          </p>
-  
-          <div class="relative w-full max-w-[1200px] max-h-[500px] mx-auto rounded-xl hidden overflow-hidden shadow-lg sm:block">
-            <!-- Desktop Carousel Inner -->
-            <div id="beritaSliderDesktop" class="flex transition-transform duration-500 ease-in-out">
-                @foreach ($data['images'] as $img)
-                  <img src="{{ $img }}" class="object-contain max-h-[430px] w-full mx-auto flex-shrink-0 rounded-l" alt="Gambar Berita">
-                @endforeach
-            </div>
-
-            <!-- Desktop Controls -->
-            <button id="prevberitaDesktop" class="absolute left-3 top-1/2 -translate-y-1/2 z-10">
-              <svg class="w-10 h-10 text-white rounded-full" fill="none" stroke="currentColor" stroke-width="2"
-                viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
-            </button>
-            <button id="nextberitaDesktop" class="absolute right-3 top-1/2 -translate-y-1/2 z-10">
-              <svg class="w-10 h-10 text-white rounded-full" fill="none" stroke="currentColor" stroke-width="2"
-                viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
-            </button>
-
-            <!-- Desktop Indicators -->
-            <div id="beritaIndicatorsDesktop" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-                @foreach ($data['images'] as $index => $img)
-                  <span data-index="{{ $index }}" class="w-3 h-3 bg-white rounded-full opacity-50 cursor-pointer"></span>
-                @endforeach
-            </div>
-          </div>
-
-          <div class="relative w-full max-w-sm mx-auto overflow-hidden lg:hidden rounded-xl">
-            <div id="beritaSliderMobile" class="flex transition-transform duration-700 ease-in-out">
-               @foreach ($data['images'] as $img)
-                  <img src="{{ $img }}" class="object-contain max-h-[250px] w-full mx-auto flex-shrink-0 rounded-l" alt="Gambar Berita">
-                @endforeach
-            </div>
-            <!-- Indicators -->
-            <div id="beritaIndicatorsMobile" class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-                @foreach ($data['images'] as $index => $img)
-                  <span data-index="{{ $index }}" class="w-2.5 h-2.5 bg-white rounded-full opacity-50 cursor-pointer"></span>
-                @endforeach
-            </div>
-          </div>
-          <p id="descBottom" class="py-3 text-justify"></p>
-        </div>
-        
+ <section class="cerita section">
+  <div class="container mx-auto flex flex-col-reverse lg:flex-row items-center">
+    
+    <!-- Left Text Section -->
+    <div class="w-full lg:w-1/2 text-center lg:text-left">
+      <h1 class="text-4xl lg:text-5xl font-bold leading-tight mb-4">
+        Aku <span class="text-black">Mpip Damngood</span><br>
+        Ini Ceritaku di Kawan Kopi
+      </h1>
+      <p class="mb-6 text-lg text-black/90">
+        Dari jauh aku datang, dan menemukan tempat yang nyaman untuk berbagi cerita, aroma kopi, dan tawa bersama.
+      </p>
+      <div class="flex justify-center space-x-4">
+        <a href="#cerita-detail" class="bg-white text-blue-600 font-semibold px-6 py-3 rounded hover:bg-gray-100 transition">
+          Lihat Cerita
+        </a>
+        {{-- <a href="#portfolio" class="bg-white/20 backdrop-blur px-6 py-3 rounded font-semibold hover:bg-white hover:text-blue-600 transition">
+          Kawan Lainnya
+        </a> --}}
       </div>
     </div>
 
-  </section>
-  <!-- Berita Section -->
+    <!-- Right Image Section -->
+    <div class="w-full lg:w-1/2 flex justify-center">
+      <img src="{{ asset('assets/img/cerita-kawan/Mpip-Damngood.png') }}"
+          alt="Foto Kawan"
+          class="max-h-[600px] w-[600px] object-contain">
+    </div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const slider = document.getElementById("beritaSliderDesktop");
-        const indicators = document.querySelectorAll("#beritaIndicatorsDesktop span");
-        const totalSlides = slider.children.length;
-        const slideWidth = slider.children[0].offsetWidth;
-        let currentIndex = 0;
+  </div>
+</section>
 
-        function updateSlider(index) {
-          slider.style.transform = `translateX(-${index * 100}%)`;
-          indicators.forEach((dot, i) => {
-            dot.classList.toggle("opacity-100", i === index);
-            dot.classList.toggle("opacity-50", i !== index);
-          });
-        }
+<!-- Berita Section -->
 
-        document.getElementById("prevberitaDesktop").addEventListener("click", () => {
-          currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-          updateSlider(currentIndex);
-        });
+<section id="cerita-detail" class="cerita py-20">
+  <div class="container mx-auto flex flex-col md:flex-row items-start justify-center gap-10 px-6">
+    
+    <!-- Gambar -->
+    <div class="md:w-1/2 flex justify-center">
+      <img src="{{ asset('assets/img/berita-kawan/1.jpg') }}" alt="Foto Kawan" class="rounded-lg shadow-md w-full md:w-full">
+    </div>
 
-        document.getElementById("nextberitaDesktop").addEventListener("click", () => {
-          currentIndex = (currentIndex + 1) % totalSlides;
-          updateSlider(currentIndex);
-        });
+    <!-- Konten -->
+    <div class="md:w-1/2 max-w-xl">
+      <!-- Tabs -->
+      {{-- <div class="flex space-x-2 mb-6">
+        <button class="bg-blue-600 text-white px-4 py-2 text-sm font-semibold rounded shadow">
+          ABOUT ME
+        </button>
+        <button class="bg-white text-gray-800 px-4 py-2 text-sm font-semibold rounded border hover:bg-gray-100 transition">
+          SKILLS
+        </button>
+        <button class="bg-white text-gray-800 px-4 py-2 text-sm font-semibold rounded border hover:bg-gray-100 transition">
+          EXPERIENCE
+        </button>
+      </div> --}}
 
-        indicators.forEach(dot => {
-          dot.addEventListener("click", () => {
-            currentIndex = parseInt(dot.dataset.index);
-            updateSlider(currentIndex);
-          });
-        });
+      <!-- Isi Cerita -->
+      <h2 class="text-3xl font-bold mb-4">My Story</h2>
+      <p class="text-gray-700 mb-4">
+        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+        there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
+        a large language ocean.
+      </p>
 
-        // Auto Slide
-        setInterval(() => {
-          currentIndex = (currentIndex + 1) % totalSlides;
-          updateSlider(currentIndex);
-        }, 5000);
+      <p class="text-lg font-semibold text-gray-900 mb-4">
+        I Do Web Design & Development since I was 18 Years Old
+      </p>
 
-        // Initial
-        updateSlider(currentIndex);
-      });
+      <p class="text-gray-700">
+        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+        there live the blind texts.
+      </p>
 
-    document.addEventListener("DOMContentLoaded", function () {
-        const slider = document.getElementById("beritaSliderMobile");
-        const indicators = document.querySelectorAll("#beritaIndicatorsMobile span");
-        const totalSlides = slider.children.length;
-        const slideWidth = slider.children[0].offsetWidth;
-        let currentIndex = 0;
+      <iframe width="420" height="315"
+        src="https://www.youtube.com/embed/Nm3Lq1CYeKM">
+      </iframe> 
+    </div>
+  </div>
+</section>
 
-        function updateSlider(index) {
-          slider.style.transform = `translateX(-${index * 100}%)`;
-          indicators.forEach((dot, i) => {
-            dot.classList.toggle("opacity-100", i === index);
-            dot.classList.toggle("opacity-50", i !== index);
-          });
-        }
-
-        indicators.forEach(dot => {
-          dot.addEventListener("click", () => {
-            currentIndex = parseInt(dot.dataset.index);
-            updateSlider(currentIndex);
-          });
-        });
-
-        // Auto Slide
-        setInterval(() => {
-          currentIndex = (currentIndex + 1) % totalSlides;
-          updateSlider(currentIndex);
-        }, 5000);
-
-        // Initial
-        updateSlider(currentIndex);
-      });
-
-      const fullDesc = @json($data['desc']);
-
-      // Split berdasarkan titik pertama yang diikuti spasi dan huruf kapital (asumsi awal kalimat baru)
-      const match = fullDesc.match(/^(.*?\.)\s+(.*)/s);
-
-      if (match) {
-        document.getElementById("descTop").innerText = match[1].trim();    // kalimat pertama
-        document.getElementById("descBottom").innerText = match[2].trim(); // sisa kalimat
-      } else {
-        // fallback kalau nggak ketemu titik
-        document.getElementById("descTop").innerText = fullDesc;
-        document.getElementById("descBottom").innerText = "";
-      }
-  </script>
+<script>
+  
+</script>
 @endsection
