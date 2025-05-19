@@ -1,5 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const beritaKawan = window.beritaKawan || [];
+  const berita = document.getElementById("berita-kawan");
+  const buttonBeritaDesktop = document.getElementById("ButtonBeritaDesktop");
+  const beritaKawan = Array.isArray(window.beritaKawan) ? window.beritaKawan : [];
+
+  if (!beritaKawan.length && berita) {
+    berita.classList.add("hidden");
+    return;
+  }
+
+  if (beritaKawan.length <= 1 && buttonBeritaDesktop) {
+    buttonBeritaDesktop.classList.add("hidden");
+  }
+
   let currentBeritaIndex = 0;
   let beritaImageIndex = 0;
   let beritaImageTimer;

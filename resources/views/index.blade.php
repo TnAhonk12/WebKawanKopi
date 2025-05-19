@@ -398,97 +398,24 @@
       </div>
       
       <div id="ceritaKawanScroll" class="relative bottom-[-1px] mt-10 flex h-[calc(100vh-272px)] min-w-full flex-shrink-0 overflow-x-auto overflow-y-hidden lg:h-[calc(100vh-276px)]" style="overflow-x:auto;">
-            <div id="scrollHint" class="absolute top-10 left-1/2 -translate-x-1/2 px-6 py-3 text-[#8B5E3B] font-bold text-lg z-20 transition-opacity duration-300">
-              &laquo;&laquo; GESER UNTUK LIHAT LAINNYA &raquo;&raquo;
+        <div id="scrollHint" class="absolute top-10 left-1/2 -translate-x-1/2 px-6 py-3 text-[#8B5E3B] font-bold text-lg z-20 transition-opacity duration-300">
+          &laquo;&laquo; GESER UNTUK LIHAT LAINNYA &raquo;&raquo;
+        </div>
+        @foreach ($ceritas as $cerita)
+          <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto mr-[10rem]">
+            <img
+              src="{{ $cerita['image'] }}"
+              alt="{{ $cerita['name'] }}"
+              class="h-auto w-auto max-h-full object-contain cursor-pointer z-10 relative"
+              onclick="window.location.href='{{ route('cerita.detail', $cerita['slug']) }}';"
+            />
+            <div class="absolute bottom-4 left-1/2 z-20 -translate-x-1/2 whitespace-nowrap
+              border border-black bg-[#fefce8] px-4 py-2 text-lg font-bold text-black cerita-hover-box">
+              {{ $cerita['name'] }}
             </div>
-            @foreach ($ceritas as $cerita)
-              <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
-                <img
-                  src="{{ $cerita['image'] }}"
-                  alt="{{ $cerita['name'] }}"
-                  class="h-auto w-auto max-h-full object-contain cursor-pointer z-10 relative"
-                  onclick="window.location.href='{{ route('cerita.detail', $cerita['slug']) }}';"
-                />
-                <div class="absolute bottom-4 left-1/2 z-20 -translate-x-1/2 whitespace-nowrap
-                  border border-black bg-[#fefce8] px-4 py-2 text-lg font-bold text-black cerita-hover-box">
-                  {{ $cerita['name'] }}
-                </div>
-              </div>
-            @endforeach
-        
-            {{-- <!-- Orang 1 -->
-            <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
-              <img
-                src="{{ asset('assets/img/Cerita-Kawan/Gilang-Dhafir.png') }}"
-                alt="Gilang Dhafir"
-                class="h-auto w-auto max-h-full object-contain cursor-pointer z-10 relative"
-                onclick="window.location.href='#cerita-kawan';"
-              />
-            
-              <div class="absolute bottom-4 left-1/2 z-20 -translate-x-1/2 whitespace-nowrap
-                border border-black bg-[#fefce8] px-4 py-2 text-lg font-bold text-black cerita-hover-box">
-                Gilang Dhafir
-              </div>
-            </div>
-            
-        
-            <!-- Orang 2 -->
-            <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
-              <img
-                src="{{ asset('assets/img/Cerita-Kawan/Mpip-Damngood.png') }}"
-                alt="Mpip Damngood"
-                class="h-auto w-auto max-h-full object-contain cursor-pointer z-10 relative"
-                onclick="window.location.href='#cerita-kawan';"
-              />
-              
-              <div class="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap
-                border border-black bg-[#fefce8] px-4 py-2 text-lg font-bold text-black cerita-hover-box">
-                Mpip Damngood
-              </div>
-            </div>
-        
-            <!-- Orang 3 -->
-            <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
-                <img
-                src="{{ asset('assets/img/Cerita-Kawan/Wajid-Club-Dangdut-Racun.png') }}"
-                alt="Wajid Club Dangdut Racun"
-                class="h-auto w-auto max-h-full object-contain cursor-pointer z-10 relative"
-                onclick="window.location.href='#cerita-kawan';"
-                />
-              
-              <div class="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap
-                border border-black bg-[#fefce8] px-4 py-2 text-lg font-bold text-black cerita-hover-box">
-                Wajid Club Dangdut Racun
-              </div>
-            </div>
-            <!-- Orang 4 -->
-            <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
-              <img alt="Aul test" 
-                class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
-                src="{{ asset('assets/img/Cerita-Kawan/Aul-Test.png') }}"
-                onclick="window.location.href='#cerita-kawan';"
-              />
-              
-              <div class="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap
-                border border-black bg-[#fefce8] px-4 py-2 text-lg font-bold text-black cerita-hover-box">
-                Aul test
-              </div>
-            </div>
-            <!-- Orang 5 -->
-            <div class="relative group flex-shrink-0 overflow-hidden max-lg:inline-block max-lg:w-auto lg:w-auto">
-              <img alt="Acong Test" 
-                class="h-auto w-auto max-h-full flex-shrink-0 object-contain" 
-                src="{{ asset('assets/img/Cerita-Kawan/Acong-Test.png') }}"
-                onclick="window.location.href='#cerita-kawan';"
-              />
-              
-              <div class="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap
-                border border-black bg-[#fefce8] px-4 py-2 text-lg font-bold text-black cerita-hover-box">
-                Acong Test
-              </div>
-            </div> --}}
-        
           </div>
+        @endforeach
+      </div>
     </section>
     <!-- Cerita Kawan Section End -->
 
@@ -496,21 +423,23 @@
     <section id="berita-kawan" class="berita relative h-auto transition-all duration-150 ease-in">
       <div class="container mx-auto">
          <div class="relative">
-          <!-- Tombol Prev -->
-          <button onclick="prevBerita()"
-            class="hidden lg:flex items-center justify-center absolute left-[-6rem] top-1/2 -translate-y-1/2 z-30 p-2">
-            
-            <svg class="w-20 h-20 text-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          <!-- Tombol Next -->
-          <button onclick="nextBerita()"
-            class="hidden lg:flex items-center justify-center absolute right-[-6rem] top-1/2 -translate-y-1/2 z-30 p-2">
-            <svg class="w-20 h-20 text-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
+          <div id="ButtonBeritaDesktop">
+            <!-- Tombol Prev -->
+            <button onclick="prevBerita()"
+              class="hidden lg:flex items-center justify-center absolute left-[-6rem] top-1/2 -translate-y-1/2 z-30 p-2">
+              
+              <svg class="w-20 h-20 text-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <!-- Tombol Next -->
+            <button onclick="nextBerita()"
+              class="hidden lg:flex items-center justify-center absolute right-[-6rem] top-1/2 -translate-y-1/2 z-30 p-2">
+              <svg class="w-20 h-20 text-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
         <div class="row align-items-start">
           
           {{-- desktop view --}}
@@ -690,11 +619,15 @@
       //lini produk
       window.menusData = @json($menus);
       window.filenameMapData = @json($filenameMap);
+
+      // Promo Produk
+      window.promoses = @json($promoImages);
       
       // Merchandise
       window.merchandiseProducts = @json($merchandises);
 
       // Cerita Kawan
+      window.ceritases = @json($ceritas);
 
       // Berita Kawan
       window.beritaKawan = @json($beritaKawan);

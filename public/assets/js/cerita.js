@@ -1,6 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
+  const ceritaKawan = document.getElementById('cerita-kawan');
   const scrollContainer = document.getElementById('ceritaKawanScroll');
   const scrollHint = document.getElementById('scrollHint');
+
+  const ceritases = Array.isArray(window.ceritases) ? window.ceritases : [];
+
+  if (!ceritases.length && ceritaKawan) {
+    ceritaKawan.classList.add("hidden");
+    return;
+  }
 
   if (!scrollContainer) return;
 

@@ -1,9 +1,17 @@
 
 document.addEventListener("DOMContentLoaded", function () {
+  const promoBanner = document.getElementById("promo-banner");
   const slider = document.getElementById("promoSlider");
   const indicators = document.querySelectorAll("#promoIndicators span");
   const totalSlides = slider.children.length;
   let currentIndex = 0;
+  
+  const promoses = Array.isArray(window.promoImages) ? window.promoImages : [];
+
+  if (!promoses.length && promoBanner) {
+    promoBanner.classList.add("hidden");
+    return;
+  }
 
   function updateSlider(index) {
     slider.style.transform = `translateX(-${index * 100}%)`;

@@ -16,7 +16,13 @@ class CeritaController extends Controller
                     'name' => $c->name,
                     'slug' => $c->slug,
                     'image' => $c->image ? Storage::url($c->image) : null,
-                    'link_shopee' => $c->link_youtube,
+                    'link_youtube' => $c->link_youtube
+                        ? preg_replace(
+                            '/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/',
+                            'https://www.youtube.com/embed/$1',
+                            $c->link_youtube
+                        )
+                        : null,
                     'content' => $c->content,
                 ];
             }),

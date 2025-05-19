@@ -5,7 +5,7 @@
  <section id="berita" class="berita section">
 
    <div class="container" data-aos="fade-up" data-aos-delay="100">
-    <div class="row gy-4 justify-content-center">
+    <div class="row gy-4 justify-content-center mx-auto">
       <div class="col-lg-6 content">
           <!-- Section Title -->
           <div class="section-title text-center mt-4" data-aos="fade-up">
